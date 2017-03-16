@@ -9,11 +9,11 @@ __CSS2017-US/Presentation__
   * Includes list of resources for Neo4j, RDF, Protege.	
 
 __CSS2017-US/Scripts__
-	* SPARQL and CYPHER scripts for the exercises
-	* Admin scripts for creating Neo4j database, delete graph.
+	* SPARQL and CYPHER scripts for the exercises.
+  * Admin scripts for creating Neo4j database, delete graph.
 
-__CSS2017-US/data__
-	* OWL file for Protege
+__CSS2017-US/data__ 
+  * OWL file for Protege
 	
 __CSS2017-US/documents__
   * Reference Cards
