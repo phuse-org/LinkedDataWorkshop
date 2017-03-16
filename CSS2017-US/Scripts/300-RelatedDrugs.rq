@@ -1,0 +1,48 @@
+# Information for the drug Duloxetine pulled from 3 endpoints.
+# Query 2 from Jovanovik and Trajanov, 2017
+
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix schema: <http://schema.org/>
+prefix drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
+prefix dbo: <http://dbpedia.org/ontology/>
+prefix dbp: <http://dbpedia.org/property/>
+
+SELECT ?loddrug ?genericName (group_concat(distinct ?brandName; separator = ", ") AS ?brandNames) 
+       ?comment ?description ?biotransformation ?affectedOrganism ?absorption ?chemicalFormula 
+       ?toxicity (group_concat(distinct ?foodInteraction; separator = " ") AS ?foodInteractions) 
+       (group_concat(distinct concat(?interactingDrugLabel, ': ', ?interactionStatus); separator = ". ") AS ?drugInteractions) 
+       (group_concat(distinct ?url; separator = ", ") AS ?urls)
+WHERE {
+  GRAPH <http://linkeddata.finki.ukim.mk/lod/data/drugs#> {
+    	<http://www.aemps.gob.es/cima/especialidad.do?metodo=verPresentaciones&codigo=79539> rdfs:seeAlso ?loddrug .  
+  }
+  SERVICE <http://wifo5-04.informatik.uni-mannheim.de/drugbank/sparql> {
+      OPTIONAL { ?loddrug drugbank:description ?desc . }
+      OPTIONAL { ?loddrug drugbank:genericName ?gname . }      
+      OPTIONAL { ?loddrug drugbank:brandName ?bname . }
+      OPTIONAL { ?loddrug drugbank:biotransformation ?biotransformation . }      
+      OPTIONAL { ?loddrug drugbank:affectedOrganism ?affectedOrganism . }
+      OPTIONAL { ?loddrug drugbank:absorption ?absorption . }
+      OPTIONAL { ?loddrug drugbank:chemicalFormula ?chemicalFormula . }
+      OPTIONAL { ?loddrug drugbank:foodInteraction ?foodInteraction . }
+      OPTIONAL { ?loddrug foaf:page ?page . }
+      OPTIONAL { ?loddrug drugbank:toxicity ?toxicity . }
+      OPTIONAL { 
+          ?drugInteractionEntity drugbank:interactionDrug1 ?loddrug ;
+                                 drugbank:interactionDrug2 ?interactingDrug ;
+                                 drugbank:text ?interactionStatus .
+          ?interactingDrug rdfs:label ?interactingDrugLabel .
+      }
+  }
+  SERVICE <http://dbpedia.org/sparql> { 
+      OPTIONAL { ?loddrug dbo:abstract ?abstract . FILTER (langMatches(lang(?abstract), "en")) }
+      OPTIONAL { ?loddrug rdfs:label ?label . FILTER (langMatches(lang(?label), "en")) } 
+      OPTIONAL { ?loddrug dbp:tradename ?tradename . } 
+      OPTIONAL { ?loddrug rdfs:comment ?comment . FILTER (langMatches(lang(?comment), "en")) } 
+      OPTIONAL { ?loddrug dbo:wikiPageExternalLink ?externalLink . }
+  }
+  BIND(IF(bound(?abstract), ?abstract, ?desc) as ?description)
+  BIND(IF(bound(?bname), ?bname, ?tradename) as ?brandName)
+  BIND(IF(bound(?gname), ?gname, ?label) as ?genericName)
+  BIND(IF(bound(?page), ?page, ?externalLink) as ?url)
+}

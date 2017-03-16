@@ -1,0 +1,9 @@
+# 202-MargeSon.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT ?sonFirstName
+WHERE { 
+    ?person simpsons:hasSon ?son ;
+            simpsons:hasFirstName ?parentFirstName .  
+    ?son    simpsons:hasFirstName ?sonFirstName
+    FILTER(regex(?parentFirstName,  "^Marge"))
+}

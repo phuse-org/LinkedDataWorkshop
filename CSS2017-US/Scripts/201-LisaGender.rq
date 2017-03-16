@@ -1,0 +1,6 @@
+# 201-LisaGender.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT ?gender
+WHERE { 
+    simpsons:Lisa simpsons:hasGender ?gender
+}

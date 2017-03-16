@@ -1,0 +1,12 @@
+# 203-MaggieDoc.rq
+# NB: Protege uses SPARQL1.0 so CONCAT() not avail.
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT   ?title ?docFirstName  ?docLastName 
+WHERE { 
+    ?doc simpsons:delivered simpsons:Maggie ;
+             simpsons:hasFirstName ?docFirstName_ ;  
+             simpsons:hasLastName ?docLastName_ .
+  BIND( STR(?docFirstName_) AS ?docFirstName  )
+  BIND( STR(?docLastName_) AS ?docLastName  )
+  BIND("Dr.  " AS ?title)
+ }

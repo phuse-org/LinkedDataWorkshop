@@ -1,0 +1,6 @@
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT DISTINCT ?parent
+WHERE 
+{ 
+    ?child simpsons:hasParent ?parent .
+} 

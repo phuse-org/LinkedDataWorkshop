@@ -1,0 +1,11 @@
+# 205-HomerChildCount.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT  (COUNT(?child) AS ?count)
+WHERE 
+{ 
+    {simpsons:Homer simpsons:hasDaughter ?child . }
+    UNION
+    {
+        {simpsons:Homer simpsons:hasSon ?child . }
+    }
+} 

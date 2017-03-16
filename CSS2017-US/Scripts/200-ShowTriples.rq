@@ -1,0 +1,6 @@
+# 200-ShowTriples.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT *
+WHERE { 
+    ?s ?p ?o
+}LIMIT 10

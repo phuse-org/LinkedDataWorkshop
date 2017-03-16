@@ -1,0 +1,11 @@
+# 206-Parent.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT DISTINCT ?parent
+WHERE 
+{ 
+    {?parent simpsons:hasDaughter ?child .}
+    UNION
+    {
+        {?parent simpsons:hasSon ?child . }
+    }
+} 

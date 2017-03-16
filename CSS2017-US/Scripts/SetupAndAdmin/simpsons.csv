@@ -1,0 +1,5 @@
+id,firstName,lastName,gender,daughter,son
+1,Marge,Simpson,Female,"Lisa,Maggie",Bart
+2,Bart,Simpson,Male,,
+3,Lisa,Simpson,Female,,
+4,Maggie,Simpson,Female,,

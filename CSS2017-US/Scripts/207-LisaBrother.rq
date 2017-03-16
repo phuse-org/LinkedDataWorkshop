@@ -1,0 +1,8 @@
+# 207-LisaBrother.rq
+PREFIX simpsons: <http://www.example.org/Simpsons#>
+SELECT DISTINCT ?brother
+WHERE 
+{ 
+    ?parent simpsons:hasDaughter simpsons:Lisa ;
+            simpsons:hasSon ?brother .
+} 
