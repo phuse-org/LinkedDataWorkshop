@@ -6,15 +6,16 @@
 
 __CSS2017-US/Presentation__
   * PDF of the Workshop Slides.
-  * Includes list of resources for Neo4j, RDF, Protege.	
+  * Slides contain list of resources for Neo4j, RDF, Protege.	
 
 __CSS2017-US/Scripts__
 	* SPARQL and CYPHER scripts for the exercises.
-  * Admin scripts for creating Neo4j database, delete graph.
+  * Admin scripts for creating Neo4j database, delete Neo4j graph.
 
 __CSS2017-US/data__ 
   * OWL file for Protege
 	
 __CSS2017-US/documents__
-  * Reference Cards
+  * Workshop exercises
+  * Reference Cards for Cypher, SPARQL
   * Publication: "Consolidating drug data on a global scale using Linked Data"
