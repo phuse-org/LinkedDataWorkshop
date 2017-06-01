@@ -1,0 +1,13 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix phuse: <http://www.example.org/phuse/workshop/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+phuse:Person1
+    phuse:hasAge "32"^^xsd:int ;
+    phuse:hasFirstName "Bob"^^xsd:string ;
+    phuse:hasTreatment phuse:Placebo ;
+    phuse:participatesIn phuse:Study1 .
+
+phuse:Study1
+    phuse:hasTreatmentArm phuse:Placebo .
+
