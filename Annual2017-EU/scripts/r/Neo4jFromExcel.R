@@ -17,6 +17,7 @@
 library(RNeo4j)
 library(readxl)
 library(plyr)
+library(reshape2)
 
 setwd("C:/_gitHub/LinkedDataWorkshop/Annual2017-EU/")
 
@@ -25,6 +26,24 @@ NeoModel<- read_excel("data/Neo4jModel.xlsx",
                       sheet = 'Neo4jModel',
                       skip = 1,
                       col_names = TRUE)
+
+#-- QC Check -----------------------------------------------------------------
+# Detect node names that contain spaces; illegal for R Script.
+nodes <- melt (NeoModel, id.vars=c("Relation", "X__1", "Property","Value"))
+nodes <- data.frame(nodes[,"value"])
+# remove NA and duplicates, rename column.
+nodes <- na.omit(data.frame(nodes[,1]))
+nodes <- data.frame(nodes[!duplicated(nodes),1])
+colnames(nodes) <- "node"
+nodesWithSpaces <- data.frame(nodes[grep("^\\S+\\s+\\S+", nodes$node), ])
+# if (! is.null(dim(nodesWithSpaces))){
+if (nrow(nodesWithSpaces) > 0){
+    message("ERROR: Spaces in node names not permitted in this exercise!" )
+    message("ERROR: Fix node names, then re-run script.")
+    nodesWithSpaces
+    stop()
+}
+
 
 # Dataframes for nodes and relations
 #-- To create nodes and relations
@@ -38,11 +57,44 @@ NeoNPV <- NeoModel[,c("Node", "Property", "Value")]
 NeoNPV <- NeoNPV[complete.cases(NeoNPV),]   # Remove extra rows (NA values)
 NeoNPV$NPVId <- 1:(nrow(NeoNPV))
 
-#TODO: Write this error section...
-# Detect error where all nodes not present in one of the dataframes
-#   Throw an error and stop if all nodes not present in both.
+#-- QC Check -----------------------------------------------------------------
+# Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
+#          spreadsheet. Script execution terminates.
+NeoNodRel$Node1Match <- NeoNodRel$Node1 %in% NeoNPV$Node
+NeoNodRel$Node2Match <- NeoNodRel$Node2 %in% NeoNPV$Node
+
+err_crit <- FALSE  # Flag for script termination
+ddply(NeoNodRel, .(nodeId), function(NeoNodRel){
+    if (NeoNodRel$Node1Match == FALSE) {
+        message("ERROR: Node found in relation is not a defined node." )
+        message(paste0("Node name:", NeoNodRel$Node1))    
+        err_crit <<- TRUE
+    }
+    else if (NeoNodRel$Node2Match == FALSE) {
+        message("ERROR: Node found in relation is not a defined node." )
+        message(paste0("Node name:", NeoNodRel$Node2))    
+        err_crit <<- TRUE
+    }
+})
+
+if (err_crit == TRUE){
+    message ("Script Terminated due to errors in source data.")
+    stop()
+}    
+
+# Case 2:  A defined node does not participate in a relation.
+#          Issue a warning. Script execution continues.
+NeoNPV$NodeMatchNode1 <- NeoNPV$Node %in% NeoNodRel$Node1
+NeoNPV$NodeMatchNode2 <- NeoNPV$Node %in% NeoNodRel$Node2
 
 
+ddply(NeoNPV, .(NPVId), function(NeoNPV){
+    if ((NeoNPV$NodeMatchNode1 == FALSE) & (NeoNPV$NodeMatchNode2 == FALSE)) {
+        message(paste0("WARNING: Node not used in any relation: ", NeoNPV$Node))
+    }
+})
+
+#-- END QC Checks -------------------------------------------------------------
 
 #Neo4j
 graph = startGraph("http://localhost:7474/db/data")
@@ -104,3 +156,5 @@ ddply(NeoNodRel, .(nodeId), function(NeoNodRel)
 })
 
 commit(t)
+
+message("Success! Neo4j data available at http://localhost:7474/browser/")
