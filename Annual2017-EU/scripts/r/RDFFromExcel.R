@@ -13,7 +13,7 @@
 ###############################################################################
 library(readxl)
 library(redland)
-setwd("C:/_sandbox/PhUSE/Annual/2017/Workshop/Exercises")
+setwd("C:/_gitHub/LinkedDataWorkshop\Annual2017-EU\data/PhUSE/Annual/2017/Workshop/Exercises")
 
 # Read in the source Excel file
 RDFModel<- read_excel("data/RDFModel.xlsx", sheet = 'RDFModel')
