@@ -10,7 +10,8 @@
 # NOTE: CAUTION: Code will delete existing Neo4j graph without confirmation!
 #                Remove option input=FALSE to provide confirmation prompt.
 # TODO: 
-#       Add data check: Allnodes in both dataframes See code for details
+#       Add data checks: a) Allnodes in both dataframes See code for details
+#                        b) No spaces in node names.
 #       Add TYPE to the nodes for coloration (pretty-pretty)
 ###############################################################################
 library(RNeo4j)
@@ -50,7 +51,7 @@ graph = startGraph("http://localhost:7474/db/data")
 clear(graph, input = FALSE)  
 
 
-# Step 1: Create nodes and their P:V
+# Step 1: Create nodes and their P:V pairs
 query = "
 MERGE (node:Node{ name:{node_name}})
 WITH node
@@ -61,7 +62,7 @@ t = newTransaction(graph)
 
 ddply(NeoNPV, .(NPVId), function(NeoNPV)
 {
-    # some trickery here to set property name dynamically, since use of 
+    # Trickery here to set property name dynamically, since use of 
     #  {} only appears to work for values of properties, not names
     query <- sub("PROPERTYNAME", NeoNPV$Property, query)
     
@@ -76,74 +77,30 @@ ddply(NeoNPV, .(NPVId), function(NeoNPV)
 
 commit(t)
 
-
-
-
-
-
 #----- ORIGINAL STEPS HERE
-# Step 2: Create Nodes and relations
+# Step 2: Relations
 query = "
-MERGE (node1:Node1{name:{node1_name}})
-MERGE (node2:Node2{name:{node2_name}})
-MERGE (node1)-[:JOINEDTO]->(node2)
+MATCH (node1 {name:{node1_name}}), (node2 {name:{node2_name}})
+CREATE (node1)-[:RELATIONNAME]->(node2)
 "
-
-#MERGE (origin:Airport {name:{origin_name}})
-#MERGE (destination:Airport {name:{dest_name}})
-#CREATE (origin)<-[:ORIGIN]-(:Flight {number:{flight_num}})-[:DESTINATION]->(destination)
-
 
 t = newTransaction(graph)
 
 ddply(NeoNodRel, .(nodeId), function(NeoNodRel)
 {
+    
+    # Trickery here to set property name dynamically, since use of 
+    #  {} only appears to work for values of properties, not names of Reln's?
+    query <- sub("RELATIONNAME", NeoNodRel$Relation, query)
+
     node1_name = NeoNodRel$Node1
     node2_name = NeoNodRel$Node2
-    rel_name   = NeoNodRel$Relation
-    
+
     appendCypher(t, 
         query, 
         node1_name = node1_name, 
-        node2_name = node2_name, 
-        rel_name   = rel_name)
+        node2_name = node2_name 
+        )
 })
 
 commit(t)
-
-#------------------------------------------------------------------------------
-# Step 2: Add Property:Value Pairs to the nodes created in Step 1.
-# TODO: Add section!
-
-# Query for node-relation creation
-
-#data = data.frame(Origin = c("SFO", "AUS", "MCI"),
-#                  FlightNum = c(1, 2, 3),
-#                  Destination = c("PDX", "MCI", "LGA"))
-
-
-#query = "
-#MERGE (origin:Airport {name:{origin_name}})
-#MERGE (destination:Airport {name:{dest_name}})
-#CREATE (origin)<-[:ORIGIN]-(:Flight {number:{flight_num}})-[:DESTINATION]->(destination)
-#"
-#
-#t = newTransaction(graph)
-#
-#ddply(data, .(FlightNum), function(data)
-#{
-#    origin_name = data$Origin
-#    dest_name = data$Dest
-#    flight_num = data$FlightNum
-#    
-#    appendCypher(t, 
-#        query, 
-#        origin_name = origin_name, 
-#        dest_name = dest_name, 
-#        flight_num = flight_num)
-#})
-
-#commit(t)
-
-#cypher(graph, "MATCH (o:Airport)<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(d:Airport)
-#       RETURN o.name, f.number, d.name")
