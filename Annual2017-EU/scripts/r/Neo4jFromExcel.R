@@ -89,7 +89,7 @@ NeoNPV$NodeMatchEndNode <- NeoNPV$Node %in% NeoNodRel$EndNode
 
 
 ddply(NeoNPV, .(NPVId), function(NeoNPV){
-    if ((NeoNPV$NodeMatchStartNode == FALSE) & (NeoNPV$NodeMatchEndNode == FALSE)) {
+     if ( ! NeoNPV$NodeMatchStartNode & ! NeoNPV$NodeMatchEndNode) {
         message(paste0("WARNING: Node not used in any relation: ", NeoNPV$Node))
     }
 })
