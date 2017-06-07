@@ -44,7 +44,6 @@ if (nrow(nodesWithSpaces) > 0){
     stop()
 }
 
-
 # Dataframes for nodes and relations
 #-- To create nodes and relations
 NeoNodRel <- (NeoModel[,c("StartNode", "Relation", "EndNode")])
@@ -56,6 +55,13 @@ NeoNodRel$nodeId <- 1:(nrow(NeoNodRel))
 NeoNPV <- NeoModel[,c("Node", "Property", "Value")]
 NeoNPV <- NeoNPV[complete.cases(NeoNPV),]   # Remove extra rows (NA values)
 NeoNPV$NPVId <- 1:(nrow(NeoNPV))
+
+# Create node type based on node name
+NeoNPV$type <- "undefined"
+
+NeoNPV$type[grepl("Person", NeoNPV$Node)] <- "person" 
+NeoNPV$type[grepl("Treat", NeoNPV$Node)]  <- "treatment" 
+NeoNPV$type[grepl("Study", NeoNPV$Node)]  <- "study" 
 
 #-- QC Check -----------------------------------------------------------------
 # Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
@@ -104,30 +110,42 @@ clear(graph, input = FALSE)
 
 
 # Step 1: Create nodes and their P:V pairs
+#query = "
+#MERGE (node:Node{ name:{node_name}, type:{node_type}})
+#WITH node
+#MATCH (node:Node{ name:{node_name}})
+#SET node.PROPERTYNAME={property_value}
+#"
 query = "
-MERGE (node:Node{ name:{node_name}})
+MERGE (node:NODETYPE { name:{node_name}})
 WITH node
-MATCH (node:Node{ name:{node_name}})
+MATCH (node:NODETYPE { name:{node_name}})
 SET node.PROPERTYNAME={property_value}
 "
+
 t = newTransaction(graph)
 
 ddply(NeoNPV, .(NPVId), function(NeoNPV)
 {
     # Trickery here to set property name dynamically, since use of 
     #  {} only appears to work for values of properties, not names
-    query <- sub("PROPERTYNAME", NeoNPV$Property, query)
+    query <- gsub("PROPERTYNAME", NeoNPV$Property, query)
+    query <- gsub("NODETYPE", NeoNPV$type, query)
+    foo <<- query
     
     node_name      = NeoNPV$Node
     property_value = NeoNPV$Value
+    node_type      = NeoNPV$type
     
     appendCypher(t, 
         query, 
         node_name      = node_name, 
-        property_value = property_value)
+        property_value = property_value
+        )
 })
 
 commit(t)
+
 
 #----- ORIGINAL STEPS HERE
 # Step 2: Relations
@@ -143,7 +161,7 @@ ddply(NeoNodRel, .(nodeId), function(NeoNodRel)
     
     # Trickery here to set property name dynamically, since use of 
     #  {} only appears to work for values of properties, not names of Reln's?
-    query <- sub("RELATIONNAME", NeoNodRel$Relation, query)
+    query <- gsub("RELATIONNAME", NeoNodRel$Relation, query)
 
     startnode_name = NeoNodRel$StartNode
     endnode_name = NeoNodRel$EndNode

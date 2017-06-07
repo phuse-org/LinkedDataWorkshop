@@ -19,41 +19,64 @@
     <figure class="graph-diagram">
         <ul class="graph-diagram-markup">
             <!-- NODES -----------------------------------------------------------------> 
-            <li class="node" 
+            <li class="node uri" 
                  data-node-id="0" 
                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
                  data-x="300" 
                  data-y="150">
                  <span class="caption">Person1</span>
             </li>
-            <li class="node"  
+            <li class="node string"  
                  data-node-id="1" 
                  style="min-width: 120px; font-size: 25px;"  
                  data-x="-100" 
                  data-y="0">
-                 <span class="caption">Bob</span>
+                 <span class="caption">'Bob'</span>
             </li>
-            <li class="node" 
+            <li class="node int" 
                  data-node-id="2" 
                  style="min-width: 120px; font-size: 25px; fill:#54278f;"   
                  data-x="-100" 
                  data-y="150">
-                 <span class="caption">32</span>
+                 <span class="caption">'32'</span>
             </li>            
             
-            <li class="node" 
+            <li class="node uri" 
                  data-node-id="3" 
                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
                  data-x="800" 
                  data-y="0">
                  <span class="caption">Study1</span>
             </li>            
-            <li class="node" 
+            <li class="node uri" 
                  data-node-id="4" 
                  style="min-width: 120px; font-size: 25px; fill:#54278f;"   
                  data-x="700" 
                  data-y="400">
-                 <span class="caption">Placebo</span>
+                 <span class="caption">Treat1</span>
+            </li>            
+            <li class="node string" 
+                 data-node-id="5" 
+                 style="min-width: 120px; font-size: 20px; fill:#ff0000;"   
+                 data-x="1100" 
+                 data-y="-200">
+                 <span class="caption">'Phase 2 Double...'</span>
+            </li>            
+
+            <li class="node string" 
+                 data-node-id="6" 
+                 style="min-width: 120px; font-size: 25px; fill:#54278f;"   
+                 data-x="450" 
+                 data-y="600">
+                 <span class="caption">'Placebo'</span>
+            </li>            
+
+            <li class="node string" 
+                 data-node-id="7" 
+                 style="min-width: 120px; font-size: 20px; fill:#54278f;"   
+                 data-x="1000" 
+                 data-y="600">
+                 <span class="caption">'Sugar Water'</span>
             </li>            
 
             
@@ -91,6 +114,24 @@
                 data-to="4"
                 style="font-size: 25px; width: 5px;"> 
                 <span class="type">hasTreatmentArm</span>
+            </li>
+            <li class="relationship" 
+                data-from="3" 
+                data-to="5"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">hasTitle</span>
+            </li>
+            <li class="relationship" 
+                data-from="4" 
+                data-to="6"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">hasLabel</span>
+            </li>
+            <li class="relationship" 
+                data-from="4" 
+                data-to="7"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">hasDescription</span>
             </li>
 
         </ul>
