@@ -47,7 +47,7 @@ if (nrow(nodesWithSpaces) > 0){
 
 # Dataframes for nodes and relations
 #-- To create nodes and relations
-NeoNodRel <- (NeoModel[,c("Node1", "Relation", "Node2")])
+NeoNodRel <- (NeoModel[,c("StartNode", "Relation", "EndNode")])
 NeoNodRel <- NeoNodRel[complete.cases(NeoNodRel),]   # Remove extra rows (NA values)
 NeoNodRel$nodeId <- 1:(nrow(NeoNodRel))
 
@@ -60,19 +60,19 @@ NeoNPV$NPVId <- 1:(nrow(NeoNPV))
 #-- QC Check -----------------------------------------------------------------
 # Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
 #          spreadsheet. Script execution terminates.
-NeoNodRel$Node1Match <- NeoNodRel$Node1 %in% NeoNPV$Node
-NeoNodRel$Node2Match <- NeoNodRel$Node2 %in% NeoNPV$Node
+NeoNodRel$StartNodeMatch <- NeoNodRel$StartNode %in% NeoNPV$Node
+NeoNodRel$EndNodeMatch <- NeoNodRel$EndNode %in% NeoNPV$Node
 
 err_crit <- FALSE  # Flag for script termination
 ddply(NeoNodRel, .(nodeId), function(NeoNodRel){
-    if (NeoNodRel$Node1Match == FALSE) {
+    if (NeoNodRel$StartNodeMatch == FALSE) {
         message("ERROR: Node found in relation is not a defined node." )
-        message(paste0("Node name:", NeoNodRel$Node1))    
+        message(paste0("Node name:", NeoNodRel$StartNode))    
         err_crit <<- TRUE
     }
-    else if (NeoNodRel$Node2Match == FALSE) {
+    else if (NeoNodRel$EndNodeMatch == FALSE) {
         message("ERROR: Node found in relation is not a defined node." )
-        message(paste0("Node name:", NeoNodRel$Node2))    
+        message(paste0("Node name:", NeoNodRel$EndNode))    
         err_crit <<- TRUE
     }
 })
@@ -84,12 +84,12 @@ if (err_crit == TRUE){
 
 # Case 2:  A defined node does not participate in a relation.
 #          Issue a warning. Script execution continues.
-NeoNPV$NodeMatchNode1 <- NeoNPV$Node %in% NeoNodRel$Node1
-NeoNPV$NodeMatchNode2 <- NeoNPV$Node %in% NeoNodRel$Node2
+NeoNPV$NodeMatchStartNode <- NeoNPV$Node %in% NeoNodRel$StartNode
+NeoNPV$NodeMatchEndNode <- NeoNPV$Node %in% NeoNodRel$EndNode
 
 
 ddply(NeoNPV, .(NPVId), function(NeoNPV){
-    if ((NeoNPV$NodeMatchNode1 == FALSE) & (NeoNPV$NodeMatchNode2 == FALSE)) {
+    if ((NeoNPV$NodeMatchStartNode == FALSE) & (NeoNPV$NodeMatchEndNode == FALSE)) {
         message(paste0("WARNING: Node not used in any relation: ", NeoNPV$Node))
     }
 })
@@ -132,8 +132,8 @@ commit(t)
 #----- ORIGINAL STEPS HERE
 # Step 2: Relations
 query = "
-MATCH (node1 {name:{node1_name}}), (node2 {name:{node2_name}})
-CREATE (node1)-[:RELATIONNAME]->(node2)
+MATCH (startnode {name:{startnode_name}}), (endnode {name:{endnode_name}})
+CREATE (startnode)-[:RELATIONNAME]->(endnode)
 "
 
 t = newTransaction(graph)
@@ -145,13 +145,13 @@ ddply(NeoNodRel, .(nodeId), function(NeoNodRel)
     #  {} only appears to work for values of properties, not names of Reln's?
     query <- sub("RELATIONNAME", NeoNodRel$Relation, query)
 
-    node1_name = NeoNodRel$Node1
-    node2_name = NeoNodRel$Node2
+    startnode_name = NeoNodRel$StartNode
+    endnode_name = NeoNodRel$EndNode
 
     appendCypher(t, 
         query, 
-        node1_name = node1_name, 
-        node2_name = node2_name 
+        startnode_name = startnode_name, 
+        endnode_name = endnode_name 
         )
 })
 
