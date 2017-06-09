@@ -19,7 +19,7 @@ library(readxl)
 library(plyr)
 library(reshape2)
 
-setwd("C:/_gitHub/LinkedDataWorkshop/Annual2017-EU/")
+setwd("C:/LinkedDataWorkshop")
 
 # Read in the spreadsheet
 NeoModel<- read_excel("data/Neo4jModel.xlsx", 
