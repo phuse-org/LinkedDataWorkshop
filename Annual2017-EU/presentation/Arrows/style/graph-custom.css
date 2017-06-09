@@ -1,0 +1,19 @@
+.greyOut {
+    color:  #a1a39c;
+    stroke: #a1a39c;
+}
+
+.string {
+    color:  #00802b;
+    stroke: #00cc44;
+}
+
+.int {
+    color:  #0000ff;
+    stroke: #0000ff;
+}
+
+.uri {
+    color:  #800000;
+    stroke: #e60000;
+}

@@ -13,10 +13,14 @@
 ###############################################################################
 library(readxl)
 library(redland)
+<<<<<<< HEAD:Annual2017-EU/scripts/r/SpreadsheetToRDF.R
 library(plyr)
 #DEL library(dplyr)
 # setwd("C:/_sandbox/PhUSE/Annual/2017/Workshop/Exercises")
 setwd("C:/_gitHubShared/LinkedDataWorkshop/Annual2017-EU")
+=======
+setwd("C:/_gitHub/LinkedDataWorkshop\Annual2017-EU\data/PhUSE/Annual/2017/Workshop/Exercises")
+>>>>>>> 52df97dd1698d1048beb4e2026a0110298d6a513:Annual2017-EU/scripts/r/RDFFromExcel.R
 
 # Read in the source Excel file
 RDFModel<- read_excel("data/RDFModel.xlsx", sheet = 'RDFModel')
