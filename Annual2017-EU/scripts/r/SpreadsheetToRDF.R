@@ -13,7 +13,10 @@
 ###############################################################################
 library(readxl)
 library(redland)
-setwd("C:/_sandbox/PhUSE/Annual/2017/Workshop/Exercises")
+library(plyr)
+#DEL library(dplyr)
+# setwd("C:/_sandbox/PhUSE/Annual/2017/Workshop/Exercises")
+setwd("C:/_gitHubShared/LinkedDataWorkshop/Annual2017-EU")
 
 # Read in the source Excel file
 RDFModel<- read_excel("data/RDFModel.xlsx", sheet = 'RDFModel')
@@ -92,3 +95,4 @@ status <- serializeToFile(serializer, world, model, outFileTTL)
 # If no message to console, file passed validation. Be happy.
 system(paste('riot --validate ', outFileTTL),
     show.output.on.console = TRUE)
+
