@@ -18,11 +18,10 @@
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
-# library(redland)
 library(rrdf)
 library(visNetwork)
 
-setwd("C:/_sandbox/PhUSE/Annual/2017/Workshop/Exercises")
+setwd("C:/LinkedDataWorkshop")
 
 # Select all triples. 
 #   REGEX eliminates unnecessary RDF and RDFS triples
