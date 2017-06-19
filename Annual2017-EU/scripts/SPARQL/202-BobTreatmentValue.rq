@@ -1,9 +1,0 @@
-# 202-BobTreatmentValue.rq Find Bob's Treatment
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX phuse: <http://www.example.org/phuse/workshop/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-SELECT ?s ?p ?o
-WHERE {
-  ?s ?p ?o
-  FILTER (REGEX(STR(?s), 'phuse'))
-}limit 5

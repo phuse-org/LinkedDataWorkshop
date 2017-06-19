@@ -1,9 +1,7 @@
-# test.rq Query loaded from File
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+# 201-Study1Participants.rq
 PREFIX phuse: <http://www.example.org/phuse/workshop/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-SELECT ?s ?p ?o
+SELECT ?name 
 WHERE {
-  ?s ?p ?o
-  FILTER (REGEX(STR(?s), 'phuse'))
-}limit 5
+  ?person phuse:participatesIn phuse:Study1 .
+  ?person phuse:hasFirstName ?name .
+}

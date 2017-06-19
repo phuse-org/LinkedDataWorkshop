@@ -1,0 +1,24 @@
+# 202-BobTreatmentGraph.rq
+# Two queries to get different parts of the graph returned as s,p,o
+#     as needed for the visualization. 
+PREFIX phuse: <http://www.example.org/phuse/workshop/>
+SELECT ?s ?p ?o
+WHERE {
+  {
+     # Get the first set of triples for the graph: 
+     # Person - hasFristName - Bob
+      ?person phuse:hasFirstName "Bob" .
+      BIND ( ?person  as ?s)
+      BIND ( "phuse:hasFirstName"  AS ?p)
+      BIND ( "Bob"  AS ?o)
+  }
+  UNION
+  {
+      # Get Bob's treatment. 
+      ?person phuse:hasFirstName "Bob" .
+      ?person phuse:hasTreatment ?treat .
+      BIND (?person as ?s)
+      BIND ( "phuse:hasTreatement"  AS ?p)
+      BIND ( ?treat AS ?o)
+  }
+}

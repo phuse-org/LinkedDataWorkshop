@@ -1,17 +1,14 @@
 ###############################################################################
-# $HeadURL: file:///C:/SVNLocalRepos/Applications/r/CodeEg/Shiny/SelectTTLToQuery.R $
-# $Rev: 79 $
-# $Date: 2017-06-16 14:06:58 -0400 (Fri, 16 Jun 2017) $
-# $Author: U041939 $
-# -----------------------------------------------------------------------------
+# FILE: SelectTTLToQuery.R 
 # DESC: Select a TTL file and execute a query on it. Return result to the window.
-# SRC :
-# IN  :
-# OUT :
+# SRC : 
+# IN  : user selected .TTL and .RQ files
+#       www/spacelab.css 
+# OUT : RShiny interface
 # REQ :
-# NOTE: 
+# NOTE: SPARQL query output MUST be s, p, o
+#       Designed only for use in the Linked Data Workshop Exercises!
 # SAUCE/REF: https://stackoverflow.com/questions/44572622/rshiny-how-to-update-textareainput-with-contents-of-a-file-via-fileinput
-# RElATED: textAreaInputTest.R 
 # TODO:  
 ###############################################################################
 library(plyr)     #  rename
@@ -73,11 +70,7 @@ server <- function(input, output, session) {
     # Query Result
     output$queryresult= renderTable({ head(data()) });
 
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
-    #-- Graph -----------------------------------------------------------------
-    # Make a graph
-    # TEsting a bogus plot. later add the FN graph
-    # see here for interactive graph too
+    #-- visNetwork Graph -----------------------------------------------------------------
     output$network <- renderVisNetwork({
         RDFTriples <- as.data.frame(data())
         
@@ -88,13 +81,12 @@ server <- function(input, output, session) {
 
         #---- Nodes Construction
         # Get the unique list of nodes by combine Subject and Object into 
-        # single column.
-        # "id.vars" = list of columns to keep untouched whil the unamed (s,o) are 
-        # melted into the "value" column.
+        # single column. "id.vars" = list of columns to keep untouched while
+        # the unamed (s,o) melt into the "value" column.
         nodeList <- melt(RDFTriples, id.vars=c("p" ))
 
-        # A node can be both a Subject and a Predicate so ensure a unique list of node names
-        #  by dropping duplicate values.
+        # For the exercises, nodes are Subjects and Objects. Create a unique 
+        # list of node names by dropping duplicate values.
         nodeList <- nodeList[!duplicated(nodeList$value),]
 
         # Rename to ID for use in visNetwork and keep only that column
@@ -102,7 +94,7 @@ server <- function(input, output, session) {
         nodes<- as.data.frame(nodeList[c("id")])
 
         # Assign groups used for icon types and colours
-        # Order is important.
+        # Kludgey, so order is important.
         # NOTE: Groups you define in your data must be specfied here in in additional 
         #      statements.
         nodes$group[grepl("Protocol", nodes$id, perl=TRUE)]  <- "Protocol"  
@@ -117,7 +109,7 @@ server <- function(input, output, session) {
         nodes$title <- nodes$id
         nodes$label <- gsub("\\S+:", "", nodes$id)
 
-        #---- Edges
+        #---- Edges Construction
         # Create list of edges by keeping the Subject and Predicate from query result.
         edges<-as.data.frame(rename(RDFTriples, c("s" = "from", "o" = "to")))
         
@@ -126,8 +118,6 @@ server <- function(input, output, session) {
         #   use edges$title for values only displayed on mouseover
         edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
   
-        # ORIGINAL TESTING visNetwork(nodes, edges)
-        
         visNetwork(nodes, edges, height = "500px", width = "100%") %>%
             visOptions(selectedBy = "group", 
                 highlightNearest = TRUE, 
