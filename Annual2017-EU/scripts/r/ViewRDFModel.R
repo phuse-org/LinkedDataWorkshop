@@ -21,8 +21,8 @@ library(reshape)  #  melt
 library(rrdf)
 library(visNetwork)
 
-setwd("C:/LinkedDataWorkshop")
-
+# setwd("C:/LinkedDataWorkshop")
+setwd("C:/_gitHub/LinkedDataWorkshop/Annual2017-EU")
 # Select all triples. 
 #   REGEX eliminates unnecessary RDF and RDFS triples
 query = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
