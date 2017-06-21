@@ -1,18 +1,14 @@
 ###############################################################################
-# FILE: /scripts/R/Neo4jFromExcel.R
+# FILE: /scripts/r/Neo4jFromSpreadsheet.R
 # DESC: Import data from the Neo4j Model spreadsheet, upload to Neo4j
 # SRC : http://stackoverflow.com/questions/25295590/how-to-create-nodes-in-rneo4j-using-vectors-or-dataframes      
 # IN  : /data/Neo4jModel.xlsx
-# OUT : Upload to Neo4j
+# OUT : Direct Upload to Neo4j
 # REQ : Neo4j instance running, database present for the user
 #       .../data/Neo4jDB/Exercise
 # SRC : 
-# NOTE: CAUTION: Code will delete existing Neo4j graph without confirmation!
+# NOTE: CAUTION: Script deletes existing Neo4j graph without confirmation!
 #                Remove option input=FALSE to provide confirmation prompt.
-# TODO: 
-#       Add data checks: a) Allnodes in both dataframes See code for details
-#                        b) No spaces in node names.
-#       Add TYPE to the nodes for coloration (pretty-pretty)
 ###############################################################################
 library(RNeo4j)
 library(readxl)

@@ -5,9 +5,14 @@
 phuse:Person1
     phuse:hasAge "32"^^xsd:int ;
     phuse:hasFirstName "Bob"^^xsd:string ;
-    phuse:hasTreatment phuse:Placebo ;
+    phuse:hasTreatment phuse:Treat1 ;
     phuse:participatesIn phuse:Study1 .
 
 phuse:Study1
-    phuse:hasTreatmentArm phuse:Placebo .
+    phuse:hasTitle "Phase 2 Double-blind study of Serum 114"^^xsd:string ;
+    phuse:hasTreatmentArm phuse:Treat1 .
+
+phuse:Treat1
+    phuse:hasDescription "Sugar Water"^^xsd:string ;
+    phuse:hasLabel "Placebo"^^xsd:string .
 
