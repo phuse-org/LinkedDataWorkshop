@@ -10,7 +10,7 @@
 library(readxl)
 library(redland)
 library(plyr)
-setwd("C:/LinkedDataWorkshop")
+setwd("C:/_gitHub/LinkedDataWorkshop/Annual2017-EU")
 
 # Read in the source Excel file
 RDFModel<- read_excel("data/RDFModel.xlsx", sheet = 'RDFModel')

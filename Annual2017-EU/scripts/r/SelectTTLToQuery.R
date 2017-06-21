@@ -75,9 +75,6 @@ server <- function(input, output, session) {
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
     #-- Graph -----------------------------------------------------------------
-    # Make a graph
-    # TEsting a bogus plot. later add the FN graph
-    # see here for interactive graph too
     output$network <- renderVisNetwork({
         RDFTriples <- as.data.frame(data())
         
@@ -101,15 +98,16 @@ server <- function(input, output, session) {
         nodeList <- rename(nodeList, c("value" = "id" ))
         nodes<- as.data.frame(nodeList[c("id")])
 
-        # Assign groups used for icon types and colours
-        # Order is important.
-        # NOTE: Groups you define in your data must be specfied here in in additional 
-        #      statements.
-        nodes$group[grepl("Protocol", nodes$id, perl=TRUE)]  <- "Protocol"  
-        nodes$group[grepl("Study", nodes$id, perl=TRUE)]     <- "Study"  
-        nodes$group[grepl("Treatment", nodes$id, perl=TRUE)] <- "Treatment"  
-        nodes$group[grepl("Person", nodes$id, perl=TRUE)]    <- "Person"  
-        nodes$group[! grepl(":", nodes$id, perl=TRUE)]       <- "Literal"
+        # Kludgy grouping of nodes to assign color values based on if they are
+        # uri, int, or string, similar to the spreadsheet source
+        # NOTE: Will not scale to custom entries by students. 
+        #nodeMatch <- c("^Person", "^Study", "^Treat", "^Protocol")
+        #nodes$group[grepl(paste(nodeMatch, collapse="|"), nodes$id, perl=TRUE)]  <- "uri"  
+        
+        # Default to type =uri, then reassign for best guess at int and string.
+        nodes$group <- 'uri'
+        nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)]     <- "int"  
+        nodes$group[! grepl(":|^\\d+", nodes$id, perl=TRUE)] <- "string"
         # Kludge that fails if a literal has a colon. Close enough for exercise.
         nodes$shape <- ifelse(grepl(":", nodes$id), "ellipse", "box")
 
@@ -133,12 +131,17 @@ server <- function(input, output, session) {
                 highlightNearest = TRUE, 
                 nodesIdSelection = TRUE) %>%
             visEdges(arrows = list(to = list(enabled = TRUE, scaleFactor = 0.5)),
-                smooth = list(enabled = FALSE, type = "cubicBezier", roundness=.8)) %>%
-            visGroups(groupname = "Person",    color = "#ffff33") %>%
-            visGroups(groupname = "Protocol",  color = "#99C2C2") %>%
-            visGroups(groupname = "Study",     color = "#A3A3C2") %>%
-            visGroups(groupname = "Treatment", color = "#FFB280") %>%
-            visGroups(groupname = "Literal",   color = list(background="white", border="black")) %>%
+                     color  = "black",
+                     smooth = list(enabled = FALSE, type = "cubicBezier", roundness=.8)) %>%
+            visGroups(groupname = "uri",    color = list(background = "white", 
+                                                         border     = "#b30000", 
+                                                         highlight  = "#cc4400")) %>%
+            visGroups(groupname = "string", color = list(background = "white", 
+                                                         border     = "#008000", 
+                                                         highlight  = "#00e600")) %>%
+            visGroups(groupname = "int",    color = list(background = "white", 
+                                                         border     = "#0000cc",
+                                                         highlight  = "#668cff" )) %>%
             visPhysics(stabilization=FALSE, barnesHut = list(
                 avoidOverlap=1,
                 gravitationalConstant = -3000,
