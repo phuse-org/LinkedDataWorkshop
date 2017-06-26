@@ -1,0 +1,32 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix phuse: <http://www.example.org/phuse/workshop/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+phuse:Person1
+    phuse:hasAge "32"^^xsd:int ;
+    phuse:hasFirstName "Bob"^^xsd:string ;
+    phuse:hasTreatment phuse:Treat1 ;
+    phuse:participatesIn phuse:Study1 .
+
+phuse:Person2
+    phuse:hasFirstName "Sally"^^xsd:string ;
+    phuse:hasGender phuse:F ;
+    phuse:hasTreatment phuse:Treat2 .
+
+phuse:Protocol1
+    phuse:hasTitle "Phase 2 Trial of Serum 114"^^xsd:string .
+
+phuse:Study1
+    phuse:hasParticipant phuse:Person2 ;
+    phuse:hasPhase phuse:II ;
+    phuse:hasProtocol phuse:Protocol1 ;
+    phuse:hasTitle "Phase 2 Double-blind study of Serum 114"^^xsd:string ;
+    phuse:hasTreatmentArm phuse:Treat1, phuse:Treat2 .
+
+phuse:Treat1
+    phuse:hasDescription "Sugar Water"^^xsd:string ;
+    phuse:hasLabel "Placebo"^^xsd:string .
+
+phuse:Treat2
+    phuse:hasLabel "50 mg Serum 114"^^xsd:string .
+
