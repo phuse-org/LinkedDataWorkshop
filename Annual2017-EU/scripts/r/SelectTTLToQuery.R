@@ -42,7 +42,7 @@ WHERE {
     ),
     fluidRow(
          HTML('<br><label for="endpoint">Query Result:</label>'),
-         tableOutput("queryresult")
+        dataTableOutput("queryresult")
     )
     ),
     tabPanel("Visualize",
@@ -71,7 +71,7 @@ server <- function(input, output, session) {
     output$query <- renderPrint({ queryText() })    
 
     # Query Result
-    output$queryresult= renderTable({ head(data()) });
+    output$queryresult= renderDataTable({ data() });
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
     #-- Graph -----------------------------------------------------------------
