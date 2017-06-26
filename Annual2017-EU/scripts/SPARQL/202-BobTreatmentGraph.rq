@@ -21,4 +21,11 @@ WHERE {
       BIND ( "phuse:hasTreatement"  AS ?p)
       BIND ( ?treat AS ?o)
   }
+  UNION
+  {
+     ?treat phuse:hasLabel ?label .
+      BIND (?treat as ?s)
+      BIND ( "phuse:hasLabel"  AS ?p)
+      BIND ( ?label AS ?o)
+   }
 }

@@ -1,10 +1,9 @@
 # 203-BobTreatmentValue.rq
 # Return Bob's treatment. No visualization
 PREFIX phuse: <http://www.example.org/phuse/workshop/>
-SELECT  ?treatment 
+SELECT  ?treatLabel
 WHERE {
     ?person phuse:hasFirstName "Bob" .
     ?person phuse:hasTreatment ?treat .
-    # Make the result pretty
-    BIND (strafter(str(?treat), "workshop/") AS ?treatment)
+    ?treat phuse:hasLabel ?treatLabel .
 }
