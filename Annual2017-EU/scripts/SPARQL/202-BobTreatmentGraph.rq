@@ -6,26 +6,26 @@ SELECT ?s ?p ?o
 WHERE {
   {
      # Get the first set of triples for the graph: 
-     # Person - hasFristName - Bob
-      ?person phuse:hasFirstName "Bob" .
+     # Person - firtName - Bob
+      ?person phuse:firstName "Bob" .
       BIND ( ?person  as ?s)
-      BIND ( "phuse:hasFirstName"  AS ?p)
+      BIND ( "phuse:firstName"  AS ?p)
       BIND ( "Bob"  AS ?o)
   }
   UNION
   {
       # Get Bob's treatment. 
-      ?person phuse:hasFirstName "Bob" .
-      ?person phuse:hasTreatment ?treat .
+      ?person phuse:firstName "Bob" .
+      ?person phuse:treatment ?treat .
       BIND (?person as ?s)
-      BIND ( "phuse:hasTreatement"  AS ?p)
+      BIND ( "phuse:treatement"  AS ?p)
       BIND ( ?treat AS ?o)
   }
   UNION
   {
-     ?treat phuse:hasLabel ?label .
+     ?treat phuse:label ?label .
       BIND (?treat as ?s)
-      BIND ( "phuse:hasLabel"  AS ?p)
+      BIND ( "phuse:label"  AS ?p)
       BIND ( ?label AS ?o)
    }
 }

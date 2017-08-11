@@ -2,6 +2,6 @@
 PREFIX phuse: <http://www.example.org/phuse/workshop/>
 SELECT ?name 
 WHERE {
-  ?person phuse:participatesIn phuse:Study1 .
-  ?person phuse:hasFirstName ?name .
+  ?person phuse:enrolledIn phuse:Study1 .
+  ?person phuse:firstName ?name .
 }
