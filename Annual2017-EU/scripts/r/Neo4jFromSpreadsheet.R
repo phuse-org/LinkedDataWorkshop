@@ -117,7 +117,8 @@ colnames(NeoNPVNew) <- c("subject", "predicate", "object")
 
 # Combine the dataframes
 spoDf <-  rbind(NeoNodRelNew, NeoNPVNew)
-
+# Sort for ease of transfer to whiteboard
+spoDf <- spoDf[with(spoDf, order(subject, predicate, object)), ]
 # Load RDF workbook; DO NOT create workbook if it does not exist
 wb <- loadWorkbook("data/RDFModel.xlsx", create= FALSE)
 
