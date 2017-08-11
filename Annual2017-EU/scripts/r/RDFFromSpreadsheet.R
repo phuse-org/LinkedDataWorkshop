@@ -12,11 +12,45 @@ library(redland)
 library(plyr)
 setwd("C:/LinkedDataWorkshop")
 
-# Read in the source Excel file
+# Read Spreadsheet ----
 RDFModel<- read_excel("data/RDFModel.xlsx", sheet = 'RDFModel')
 
-RDFModel$rowID <- 1:nrow(RDFModel) # row index
+err_crit <- FALSE  # Flag for critical error script termination
+# QC Checks -------------------------------------------------------------------
+# Missing ObjectType
+if (sum(is.na(RDFModel[,"ObjectType"]))){
+  message("ERROR: At least 1 ObjectType value is missing." )
+  message("Make corrections in the source spreadsheet")    
+  err_crit <<- TRUE
+}
+# Object defined as more than one type
+# Kludgy, but gets the job done. Change to case when() ?
+# Sort by Object for comparisons
+RDFModel <- RDFModel[with(RDFModel, order(Object)), ]
 
+for (i in 1:nrow(RDFModel)){
+  if (i>1){
+    if( (RDFModel[i,"Object"] == RDFModel[i-1, "Object"])
+        &
+        (RDFModel[i,"ObjectType"] != RDFModel[i-1, "ObjectType"])
+      ){
+      message ("Error! Same Object defined as different ObjectTypes")
+      message (paste0("Object:", RDFModel[i,"Object"], 
+        "    ObjectTypes: ", RDFModel[i,"ObjectType"], ",", RDFModel[i-1, "ObjectType"]))
+      
+      message("Correct in spreadsheet then re-run this script.")
+      err_crit <<- TRUE
+    }
+  }
+  
+}
+if (err_crit == TRUE){
+  message ("Script Terminated due to errors in source data.")
+  message ("Review console messages and ask for assistance if needed.")
+  stop()
+} 
+
+RDFModel$rowID <- 1:nrow(RDFModel) # Row index, used in ddply
 # Setup values needed by the redland pkg
 # World is the redland mechanism for scoping models
 world <- new("World")

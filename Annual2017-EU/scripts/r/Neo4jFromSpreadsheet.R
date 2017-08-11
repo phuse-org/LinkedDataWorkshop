@@ -28,7 +28,7 @@ NeoModel<- read_excel("data/Neo4jModel.xlsx",
   skip = 1,
   col_names = TRUE)
 
-# QC Checking 1 ---------------------------------------------------------------
+# QC Checks 1 ---------------------------------------------------------------
 # Detect node names that contain spaces; illegal for R Script.
 nodes <- melt (NeoModel, id.vars=c("Relation", "X__1", "Property","Value"))
 nodes <- data.frame(nodes[,"value"])
@@ -61,7 +61,7 @@ NeoNPV$type[grepl("Person", NeoNPV$Node)] <- "person"
 NeoNPV$type[grepl("Treat", NeoNPV$Node)]  <- "treatment" 
 NeoNPV$type[grepl("Study", NeoNPV$Node)]  <- "study" 
 
-# QC Checking 2 ---------------------------------------------------------------
+# QC Checks 2 ---------------------------------------------------------------
 # Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
 #          spreadsheet. Script execution terminates.
 NeoNodRel$StartNodeMatch <- NeoNodRel$StartNode %in% NeoNPV$Node
