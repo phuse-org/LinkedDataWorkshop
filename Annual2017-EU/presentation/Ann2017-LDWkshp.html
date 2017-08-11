@@ -1,0 +1,586 @@
+<!doctype html>
+<html>
+  <head>
+<!-- Uses Chalkboard for drawing:  https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
+   'c' to activate
+   'del' to remove lines
+-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <title>Phuse2017-LDWkshop</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <link rel="stylesheet" href="css/PhUSE2017.css">
+        <!-- Printing and PDF exports -->
+        <!-- TO PRINT:
+        1. Copy .html to index.html
+        2. start web service to that path.
+        2. Start an older version of Chrome. Current version does not support PDF preview.
+           C:/downloads/chrome64_55.0.2883.75/Chrome.exe
+        3. Open in Chrome: http://localhost:8000/?print-pdf#/.
+        4. Ctrl P :  Landscape, no s, Print Background Images.
+        5. use Print Preview to check fmarginor blank sides
+        6. Save as PDF
+        Trouble Shooting:
+          PROBLEM: Background not printing.
+          SOLUTION: Check option for printing background images. Uncheck for printing header/footer to remove those.
+       --> 
+       <!-- ENABLE THIS WHEN PRINTING . May also need to set width and height in initialize fnt at bottom
+       <link rel="stylesheet" href="css/print/pdf.css">
+       -->
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!---- Title Slide  -------------------------------------------------->      
+        <section>
+          <h3>Introduction to Linked Data and Graph Databases</h3>
+          <h3> Hands-on Workshop</h3>
+          <br>
+          <h4> PhUSE 2017 Annual Conference</h4>
+          <br> 
+          Edinburgh, Scotland<br>
+          11 October, 2017
+        </section>
+
+        <!---- Trainers ------------------------------------------------------->      
+        <section>
+        <h3>Instructor</h3>
+        <div class="gridTrainers">
+            <div align=left>Tim Williams</div>
+            <div align=left>Statistical Systems Analyst<br>
+                            UCB BioSciences<br>
+                            Raleigh, NC, USA<br>
+                            <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
+            </div>
+<!--
+            <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
+            <img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img>
+                    <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
+-->
+        </div> 
+        Workshop Files, Presentation PDF:<br>
+        <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop</a>            
+
+        </section>
+
+
+
+    <!---- OUTLINE   --------------------------------------------------------->
+    <section>
+        <h2>Outline</h2>
+        <ul>
+            <li>Introduction </li>
+                <ul>
+                    <li>Server Login
+                    <li>Data as a Graph
+                </ul>                  
+            <li>Exercises</li>
+                <ol>
+                    <li> Neo4j Labeled Property Graph (LPG)
+                    <li> Resource Description Framework (RDF)
+                </ol>
+            <li>Demonstrations (time permitting)</li>
+                <ul>
+                    <li> SDTM as LGP
+                    <li> SDTM as RDF
+                </ul>
+        </ul>
+    </section>
+
+    <!---- OUTLINE: Introduction   --------------------------------------------------------->
+    <section>
+        <h2>Outline</h2>
+        <ul>
+            <font class="emphGr">
+            <li>Introduction </li>
+            </font>
+            <font class="deEmph">
+                <ul>
+                    <li>Server Login
+                    <li>Data as a Graph
+                </ul>                  
+            <li>Exercises</li>
+                <ol>
+                    <li> Neo4j Labeled Property Graph (LPG)
+                    <li> Resource Description Framework (RDF)
+                </ol>
+            <li>Demonstrations (time permitting)</li>
+            </font>
+        </ul>
+    </section>
+
+    <!---- Introduction   --------------------------------------------------------->
+  <section>
+    <h3 class="fragment fade-out" data-fragment-index="1">"Introduction to Linked Data and Graph Databases"</h3>
+      <br>
+      <h3 class="fragment" data-fragment-index="1">"From whiteboard to queryable graph: A (very basic) introduction to 
+      converting clinical trials concepts and values to Linked Data."
+    </section>
+
+  <!---- Materials   --------------------------------------------------------->
+  <section>
+    <h3>Materials</h3>
+    <ul>
+      <li>Laptop - power up!
+      <li>Pencil + eraser, or pen
+      <li>Printed copies of:
+      <ul>
+        <li>Exercises
+        <li>Neo4j Diagram
+        <li>RDF Diagram
+      </ul>
+    </ul>            
+  </section>
+
+  <!---- OUTLINE: Introduction   --------------------------------------------------------->
+<section>
+  <h2>Outline</h2>
+    <ul>
+      <font class="deEmph">
+      <li>Introduction </li>
+      <ul>
+        </font>
+        <font class="emphGr">
+          <li>Server Login
+        </font>
+        <font class="deEmph">
+          <li>Data as a Graph
+      </ul>                  
+      <li>Exercises</li>
+        <ol>
+          <li> Neo4j Labeled Property Graph (LPG)
+          <li> Resource Description Framework (RDF)
+        </ol>
+      <li>Demonstrations (time permitting)</li>
+      </font>
+    </ul>
+  </section>
+
+  <!---- Server Login   ---------------------------------------------------->
+  <section>
+    <h2>Server Login</h2>
+        Instructions in Exercises (Page 3)<br>
+       <br>
+        <table>
+            <tr>
+                <td>Computer:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>User name:</td>
+                <td><font class="emph">phuseldw</font></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td></td>
+            </tr>
+        </table>
+    </section>
+
+    <!---- OUTLINE: Data as a Graph   ---------------------------------------->
+    <section>
+        <h2>Outline</h2>
+        <ul>
+            <font class="deEmph">
+            <li>Introduction </li>
+                <ul>
+                    <li>Server Login
+            </font>
+            <font class="emphGr">
+                    <li>Data as a Graph
+                </ul>                  
+            </font>
+            <font class="deEmph">
+            <li>Exercises</li>
+                <ol>
+                    <li> Neo4j Labeled Property Graph (LPG)
+                    <li> Resource Description Framework (RDF)
+                </ol>
+            <li>Demonstrations (time permitting)</li>
+            </font>
+        </ul>
+    </section>
+
+    <!---- Why Data as a Graph?  --------------------------------------------->
+    <section>
+        <h2>Why Data as a Graph?</h2>
+        <h3>One Example: SDTM Domains</h3>
+    </section>
+
+  <!---- SDTM row by column ------------------------------------------------->
+  <section>
+    <h3>SDTM DM Domain</h3>
+    <img src="images/DMRowColumn.png" />
+    <ul><b>What is wrong here?</b>
+      <li>Inflexible, version specific row x column structure and format
+      <li>Mixture of concepts
+      <li>No integral metadata
+      <li>Data repetition
+      <h4>Graph Data can fix these problems!</h4>      
+    </ul>   
+  </section>
+
+    <section><!---- Thing 1, Thing 2   --------------------------------------->
+        <section> <!-- main slide -->
+            <h2>Data as a Graph?</h2>
+            <img src="images/Thing12Rel.jpg"  left=0px  height=250px style="border:0px; box-shadow:none;" >    
+            <br>
+            <a href="http://localhost:8000/PhUSE/Annual/2017/workshop/presentation/RDFLPG-NodeTypes.html">Compare Neo4j with RDF</a>
+        </section>  
+        <section> <!-- CHILD SCREEN SHOT --->
+            <h3>Screen shot of interactive graph</h3>
+            <img src="images/RDFNeo4jComparison-SS.png" 
+                 style="vertical-align:middle;border:0px; box-shadow:none;"
+                 width="80%"></img>
+        </section>
+    </section>
+
+  <section><!---- LPG/RDF Differences   ------------------------------------>
+    <h3>Neo4j, RDF: More Core Differences</h3>
+    <table>
+      <tr>
+        <th></th>
+        <th>Neo4j</th>
+        <th>RDF</th>
+      </tr>
+      <tr>
+        <td>Query</td>
+        <td>Cypher</td>
+        <td>SPARQL</td>
+      </tr>   
+      <tr>
+        <td>Traverse</td>
+        <td>Easier</td>
+        <td>Harder</td>
+      </tr>   
+      <tr>
+        <td>Graph</td>
+        <td>Less complex, shallow</td>
+        <td>More complex, deep</td>
+      </tr>   
+      <tr>
+        <td>Ontologies</td>
+        <td>Code them externally?</td>
+        <td>Many available &amp; tools to make them.</td>
+      </tr>   
+      <tr>
+        <td>Learning</td>
+        <td>Easier</td>
+        <td>Harder</td>
+      </tr>   
+    </table>          
+  </section>
+    
+<!---------------------------------------------------------------------------->
+<!--  Neo4jSECTION ------------------------------------------------------->
+<!------------------------------------------------------------------------>
+<!---- OUTLINE: Labeled Property Graph  ---------------------------------->
+  <section>
+    <h2>Outline</h2>
+    <ul>
+      <font class="deEmph">
+      <li>Introduction </li>
+        <ul>
+          <li>Server Login
+          <li>Data as a Graph
+        </ul>                  
+      </font>
+      <font class="emphGr"><li>Exercises</li>
+        <ol>
+          <li> Neo4j Labeled Property Graph (LPG)
+      </font>
+      <font class="deEmph">
+        <li> Resource Description Framework (RDF)
+        </ol>
+      <li>Demonstrations (time permitting)</li>
+      </font>
+    </ul>
+  </section>
+
+    <!---- Exercise Process Flow: Neo4j -------------------------------------->
+    <section data-background="images/Neo4jProcess.png"
+          data-state="img-center" ;
+          data-background-size= contain ;>
+    </section>
+    <!---- 1.1 Diagram the model  -------------------------------------------------------->
+    <section>
+        <h3>1.1 Diagram the Model</h3>
+        <h4>"White board" the data</h3>
+        <br>
+        <br>
+        Handout: "Neo4j Diagram"
+    </section>
+    <!---- 1.1 Diagram the model  -------------------------------------------------------->
+    <section>
+        <div class = "stretch">
+             <iframe width="100%" height="100%" 
+                     src="file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/Arrows/lpg-baseModel.html"></iframe>
+        </div>
+    </section>
+    <!-- following goes full screen but cannot SCROLL.
+    <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/Arrows/lpg-NewModel.html'
+             data-background-interactive>
+    </section>
+    -->
+  <!---- LPG Model  -------------------------------------------------------->
+  <section>
+    <h3>Approach</h3>
+    <ul>
+      <li>Model instances, not ontology ; Real-life things, not a classifcation of types of things (ontology)
+        <ul> 
+          <li>Example: "<font class="emphSmall">Person1</font> <font class="predIt">participatesIn</font> 
+            <font class="emphSmall">Study1</font>" not "Patients participateIn Studies"<br>
+        </ul>
+      <li>See <b>"Guidelines for Adding Nodes and Relations"</b>
+    </ul>
+  </section>
+    <!---- Diagram suggestions   -------------------------------------------------------->
+    <section>
+        <h3>Add nodes to the model</h3>
+        <div align=left>Suggestions</div>
+        <div class="gridTwoCol">
+            <div align=left>
+                <ul><font class="emphSmItGr">Site</font>
+                    <li><font class="predIt">locatedIn</font> Country
+                    <li><font class="predIt">has</font> Investigator
+                </ul>
+                <br><br>
+                <ul><font class="emphSmItGr">Person</font>
+                   <li><font class="predIt">has</font> Gender
+                </ul>
+
+            </div>
+        <div align=left>
+            <ul><font class="emphSmItGr">Study</font>
+                <li><font class="predIt">definedIn</font> Protocol
+                   
+            </ul>
+        </div>
+      </div> 
+    </section>
+    <!---- New Model   -------------------------------------------------------->
+    <section>
+        <div class = "stretch">
+             <iframe width="100%" height="100%" 
+                     src="file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/Arrows/lpg-newModel.html"></iframe>
+        </div>
+    </section>
+
+<!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
+
+  <!---- Diagram to Spreadsheet   -------------------------------------------->
+  <section>
+    <h3> 1.2 Transfer Diagram to Spreadsheet</h3>
+   <img src="images/Neo4jSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >    
+   <h4>...wait for instructor when done!</h4>
+  </section>
+
+  <section>
+    <h3> 1.3 Upload to Neo4j</h3>
+    <h3> 1.4 Query and Visualize</h3>
+  </section>
+
+
+
+  <!---- End Neo4j slides   ------------------------------------------------>
+  <section>
+    <font class="emphItalic">End Neo4 section</font>
+  </section>
+
+
+
+    <!------------------------------------------------------------------------>
+    <!--  RDF SECTION -------------------------------------------------------->
+    <!------------------------------------------------------------------------>
+    <!---- OUTLINE: RDF   ---------------------------------------------------->
+    <section>
+        <h2>Outline</h2>
+        <ul>
+            <font class="deEmph">
+            <li>Introduction
+                <ul>
+                    <li>Server Login
+                    <li>Data as a Graph
+                </ul>                  
+            </font>
+            <li>Exercises
+                <ol>
+                    <li> Neo4j Labeled Property Graph (LPG)
+            <font class="emphGr">
+                    <li> Resource Description Framework (RDF)
+            </font>
+                </ol>
+            <font class="deEmph">
+            <li>Demonstrations (time permitting)
+            </font>
+        </ul>
+    </section>
+
+    <!---- Exercise Process Flow: Neo4j -------------------------------------->
+    <section data-background="images/RDFProcess.png"
+          data-state="img-center" ;
+          data-background-size= contain ;>
+    </section>
+
+    <section>
+        <h3>2.1 Diagram the Model</h3>
+        <h4>Transfer your Neo4j Diagram to an RDF Diagram</h4>
+        <br>
+        <br>
+        Handout: "RDF Diagram"
+    </section>
+    <!---- 2.1 Diagram the model  -------------------------------------------------------->
+    <section>
+        <div class = "stretch">
+             <iframe width="100%" height="100%" 
+                     src="file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/Arrows/rdf-baseModel.html"></iframe>
+        </div>
+    </section>
+    <!---- New Model   -------------------------------------------------------->
+    <section>
+        <div class = "stretch">
+             <iframe width="100%" height="100%" 
+                     src="file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/Arrows/rdf-newModel.html"></iframe>
+        </div>
+    </section>
+
+  <!---- Diagram to Spreadsheet   -------------------------------------------->
+  <section>
+    <h3> 2.2 Transfer Diagram to Spreadsheet  (1/3)</h3>
+    <img src="images/RDFSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >    
+  </section>
+
+  <section>
+    <h3> 2.2 Transfer Diagram to Spreadsheet (2/3)</h3>
+    <ol>
+      <li>List Nodes and their Relations  (ignore "ObjectType" in this step)
+      <li>Fill in the Object Type for each row.
+    </ol>
+TODO: Add coverage of the object types.
+  </section>
+       
+  <section>
+    <h3>Object Types</h3>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><font class="emphItalicRed">uri</font></td>
+        <td>Object links to another node or <i>could</i> link to another node</td>
+      </tr>   
+      <tr>
+        <td><font class="emphItalicGreen">string</font></td>
+        <td>Character string/value that does not link to other nodes</td>
+      </tr>   
+      <tr>
+        <td><font class="emphItalicBlue" >int</font></td>
+        <td>Integer number. No link to other nodes</td>
+      </tr>   
+    </table>
+  </section>
+
+  <section>
+    <h3> 2.3 Create TTL File</h3>
+    <h3> 2.4 Query and Visualize</h3>
+  </section>
+
+
+
+<!---------------------------------------------------------------------------->
+<!-- End RDF section --------------------------------------------------------->
+    <!----  When to use which graph? ----------------------------------------->
+    <section>
+        <h3>Which to choose: Neo4j or RDF?</h3>
+        <ul>Neo4j
+            <li>Graph path traversal
+            <li>Process flow, pathways
+            <li>Where connections (links) are key
+        </ul>
+        <ul>RDF
+            <li>Classifcation (ontologies), Rules
+            <li>XX
+            <li>XXX
+        </ul>
+    </section>
+
+    <!---- OUTLINE: RDF   ---------------------------------------------------->
+    <section>
+        <h2>Outline</h2>
+        <ul>
+            <font class="deEmph">
+            <li>Introduction
+                <ul>
+                    <li>Server Login
+                    <li>Data as a Graph
+                </ul>                  
+            <li>Exercises
+                <ol>
+                    <li>Neo4j Labeled Property Graph (LPG)
+                    <li>Resource Description Framework (RDF)
+                </ol>
+            </font>
+            <font class="emphGr">
+            <li>Demonstrations (time permitting)
+            </font>
+        </ul>
+    </section>
+
+<!---------------------------------------------------------------------------->
+<!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      // Shows the slide number using default formatting
+
+     //Reveal.configure({ slideNumber: true });
+      
+      Reveal.initialize({
+
+      chalkboard: { 
+          // optionally load pre-recorded chalkboard drawing from file
+          //src: "chalkboard.json",
+          },
+
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/chalkboard/chalkboard.js' },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ],
+        keyboard: {
+            67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+             8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+        }
+
+      });
+    </script>
+  </body>
+</html>

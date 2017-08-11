@@ -1,0 +1,60 @@
+
+.creditsText{
+    font-size:10px;
+	  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	  fill: rgba(80,80,80,0.8);
+	  stroke: none;
+	  pointer-events: visible;
+}
+
+.creditsLink{
+    font-size:10px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    fill: #1059E5;
+    stroke: none;
+    pointer-events: visible;
+}
+.creditsLink:hover{
+    fill: #FF4012;
+}
+.datamaps-legend dt, .datamaps-legend dd {
+    float: none;
+}
+.datamaps-legend dd { /* Eigenschaften der Farbboxen*/ 
+    border-radius: 0px !important;
+    margin-right: 4px  !important;
+    width: 12px !important;
+}
+.datamaps-legend {
+    bottom: 16px;
+		padding-left: 16px;
+    font-size: 14px !important;  /* Legend text for each category */
+    line-height: 21px;  /* Auch Höhe der Farbboxen*/ 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.datamaps-legend h4{  /* Rotate Title (for various browsers) and put it to the left of the legend*/ 
+    -moz-transform:rotate(-90deg);  /* Mozilla */
+    -moz-transform-origin: bottom left;
+    
+    -webkit-transform: rotate(-90deg);   /* WebKit */
+    -webkit-transform-origin: bottom left;
+    
+    -o-transform: rotate(-90deg);  /* Opera */
+    -o-transform-origin:  bottom left;
+    
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+   	transform:  rotate(-90deg); /* Internet Explorer */
+    transform-origin: bottom left;
+
+    -sand-transform: rotate(-90deg);
+    -sand-transform-origin:  bottom left;
+
+	  width:700px !important;
+	  left:16px;
+	  bottom:12px;
+    position: absolute;
+	  font-size: 14px !important; /* Legend title text */
+	  font-weight: bold;
+}

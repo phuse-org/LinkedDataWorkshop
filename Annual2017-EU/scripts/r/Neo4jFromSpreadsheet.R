@@ -14,8 +14,10 @@ library(RNeo4j)
 library(readxl)
 library(plyr)
 library(reshape2)
+library(XLConnect)
 
-setwd("C:/LinkedDataWorkshop")
+setwd("C:/_gitHub/LinkedDataWorkshop/Annual2017-EU")
+# setwd("C:/LinkedDataWorkshop")
 
 # Read in the spreadsheet
 NeoModel<- read_excel("data/Neo4jModel.xlsx", 
@@ -59,7 +61,7 @@ NeoNPV$type[grepl("Person", NeoNPV$Node)] <- "person"
 NeoNPV$type[grepl("Treat", NeoNPV$Node)]  <- "treatment" 
 NeoNPV$type[grepl("Study", NeoNPV$Node)]  <- "study" 
 
-#-- QC Check -----------------------------------------------------------------
+# QC Checks -------------------------------------------------------------------
 # Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
 #          spreadsheet. Script execution terminates.
 NeoNodRel$StartNodeMatch <- NeoNodRel$StartNode %in% NeoNPV$Node
@@ -96,9 +98,43 @@ ddply(NeoNPV, .(NPVId), function(NeoNPV){
     }
 })
 
-#-- END QC Checks -------------------------------------------------------------
+# END QC Checks ---------------------------------------------------------------
 
-#Neo4j
+# RDF Spreadsheet Insert ------------------------------------------------------
+#   Insert vuser-created alues from the Ne04j Spreadsheet into the  RDF 
+#     Spreadsheet for use in the RDF exercises.  
+#     "Shhhhh! Do not tell anyone or you will ruin the surprise later."
+
+# Table 1 : Nodes and relations
+
+NeoNodRelNew <-NeoNodRel[,c("StartNode", "Relation", "EndNode")]
+# Omit first 3 rows of original data to get new nodes only.
+NeoNodRelNew <- tail(NeoNodRelNew, -3)  
+colnames(NeoNodRelNew) <- c("subject", "predicate", "object")
+
+# Table 2: Node P:V Pairs
+NeoNPVNew <-NeoNPV[,c("Node", "Property", "Value")]
+# Omit first 5 rows of original data to get new nodes only.
+NeoNPVNew <- tail(NeoNPVNew, -3)  
+colnames(NeoNPVNew) <- c("subject", "predicate", "object")
+
+# Combine the dataframes
+spoDf <-  rbind(NeoNodRelNew, NeoNPVNew)
+
+# Load RDF workbook; DO NOT create workbook if it does not exist
+wb <- loadWorkbook("data/RDFModel.xlsx", create= FALSE)
+
+# Insert into the workbook at startRow, startCol with  no header row
+writeWorksheet(wb, spoDf, sheet="RDFModel",
+           startRow=10, startCol=1,
+           header=FALSE)
+
+# Save workbook
+saveWorkbook(wb)
+
+
+
+# Neo4j -----------------------------------------------------------------------
 graph = startGraph("http://localhost:7474/db/data")
 # Clear existing graph from previous uploads
 #  CAUTION: input=FALSE removed confirmation prompt!

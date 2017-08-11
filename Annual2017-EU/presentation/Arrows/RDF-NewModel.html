@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="lib/d3.v3.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="graph-diagram.js"></script>
+  <link rel="stylesheet" href="style/graph-diagram.css" type="text/css">
+  <!--
+  <link rel="stylesheet" href="style/graph-style-bootstrap.css" type="text/css">
+  -->
+  <link rel="stylesheet" href="style/graph-style-chunky.css" type="text/css">
+  <link rel="stylesheet" href="lib/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="style/graph-custom.css" type="text/css">  <!-- My customizations -->
+  <title>RDF Model</title>
+</head>
+
+<body>
+<h2></h2>
+<div class="container">
+    <figure class="graph-diagram">
+        <ul class="graph-diagram-markup">
+            <!-- NODES -----------------------------------------------------------------> 
+            <li class="node uri" 
+                 data-node-id="0" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="400" 
+                 data-y="550">
+                 <span class="caption">Person1</span>
+            </li>
+            <li class="node uriNew" 
+                 data-node-id="10" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="1300" 
+                 data-y="550">
+                 <span class="caption">Person2</span>
+            </li>
+            <li class="node stringNew" 
+                 data-node-id="11" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="1700" 
+                 data-y="500">
+                 <span class="caption">Sally</span>
+            </li>
+            <li class="node uriNew" 
+                 data-node-id="12" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="1700" 
+                 data-y="650">
+                 <span class="caption">F</span>
+            </li>
+            <li class="node string"  
+                 data-node-id="1" 
+                 style="min-width: 120px; font-size: 25px;"  
+                 data-x="0" 
+                 data-y="500">
+                 <span class="caption">Bob</span>
+            </li>
+            <li class="node int" 
+                 data-node-id="2" 
+                 style="min-width: 120px; font-size: 25px; fill:#54278f;"   
+                 data-x="0" 
+                 data-y="650">
+                 <span class="caption">32</span>
+            </li>            
+            
+            <li class="node uri" 
+                 data-node-id="3" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="800" 
+                 data-y="400">
+                 <span class="caption">Study1</span>
+            </li>            
+            <li class="node uri" 
+                 data-node-id="4" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="700" 
+                 data-y="800">
+                 <span class="caption">Treat1</span>
+            </li>    
+            <li class="node uriNew" 
+                 data-node-id="8" 
+                 style="min-width: 120px; font-size: 25px; fill:#54278f;"   
+                 data-x="1000" 
+                 data-y="800">
+                 <span class="caption">Treat2</span>
+            </li>    
+        
+            <li class="node string" 
+                 data-node-id="5" 
+                 style="min-width: 120px; font-size: 20px; fill:#ff0000;"   
+                 data-x="1100" 
+                 data-y="200">
+                 <span class="caption">Phase 2 Double...</span>
+            </li>            
+
+            <li class="node string" 
+                 data-node-id="6" 
+                 style="min-width: 120px; font-size: 25px; fill:#54278f;"   
+                 data-x="450" 
+                 data-y="1000">
+                 <span class="caption">Placebo</span>
+            </li>            
+            <li class="node uriNew" 
+                 data-node-id="13" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+                 data-x="400" 
+                 data-y="250">
+                 <span class="caption">Protocol1</span>
+            </li>            
+
+
+            <li class="node stringNew" 
+                 data-node-id="14" 
+                 style="min-width: 120px; font-size: 25px; fill:#54278f;"   
+                 data-x="0" 
+                 data-y="250">
+                 <span class="caption">Phase 2 Trial...</span>
+            </li>            
+
+            <li class="node string" 
+                 data-node-id="7" 
+                 style="min-width: 120px; font-size: 20px; fill:#54278f;"   
+                 data-x="1000" 
+                 data-y="1000">
+                 <span class="caption">Sugar Water</span>
+            </li>            
+
+            <li class="node stringNew" 
+                 data-node-id="9" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 20px; fill:#54278f;"   
+                 data-x="1400" 
+                 data-y="1000">
+                 <span class="caption">50mg Serum114</span>
+            </li>            
+            <li class="node uriNew" 
+                 data-node-id="15" 
+                 style="min-width: 120px; font-family:serif, times; font-size: 20px; fill:#54278f;"   
+                 data-x="800" 
+                 data-y="50">
+                 <span class="caption">II</span>
+            </li>            
+            <!-- Relations -------------------------------------------------------------> 
+            <li class="relationship" 
+                data-from="0" 
+                data-to="1"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">firstName</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="0" 
+                data-to="2"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">age</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="0" 
+                data-to="3"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">enrolledIn</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="0" 
+                data-to="4"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">treatment</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="3" 
+                data-to="4"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">treatmentArm</span>
+            </li>
+            <li class="relationship" 
+                data-from="3" 
+                data-to="5"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">title</span>
+            </li>
+            <li class="relationship" 
+                data-from="4" 
+                data-to="6"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">label</span>
+            </li>
+            <li class="relationship" 
+                data-from="4" 
+                data-to="7"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">description</span>
+            </li>
+            <li class="relationship" 
+                data-from="3" 
+                data-to="13"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">protocol</span>
+            </li>
+            <li class="relationship" 
+                data-from="13" 
+                data-to="14"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">title</span>
+            </li>
+            <li class="relationship" 
+                data-from="3" 
+                data-to="15"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">phase</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="10" 
+                data-to="3"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">enrolledIn</span>
+            </li>
+
+            <li class="relationship" 
+                data-from="3" 
+                data-to="8"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">treatmentArm</span>
+            </li>
+            <li class="relationship" 
+                data-from="10" 
+                data-to="11"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">firstName</span>
+            </li>
+            <li class="relationship" 
+                data-from="10" 
+                data-to="12"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">gender</span>
+            </li>
+            <li class="relationship" 
+                data-from="10" 
+                data-to="8"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">treatment</span>
+            </li>
+            <li class="relationship" 
+                data-from="8" 
+                data-to="9"
+                style="font-size: 25px; width: 5px;"> 
+                <span class="type">label</span>
+            </li>
+        </ul>
+    </figure>
+</div>
+<!---------------------------------------------------------------------------->
+<!--  NEO4J NODES -->
+<div class="container">
+    <figure class="graph-diagram">
+        <ul class="graph-diagram-markup">
+            <!-- NODES -----------------------------------------------------------------> 
+            </li>
+            <!-- Relations -------------------------------------------------------------> 
+        </ul>
+    </figure>
+</div>
+
+<script type="text/javascript">
+  d3.selectAll( "figure.graph-diagram" )
+          .call( gd.figure() );
+</script>
+
+</body>
+</html>

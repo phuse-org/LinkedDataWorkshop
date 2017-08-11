@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-----------------------------------------------------------------------------
+###############################################################################
+# $HeadURL: file:///C:/SVNLocalRepos/PhUSE/Annual/2017/presentation/d3/LegoPerson.html $
+# $Rev: 213 $
+# $Date: 2017-04-14 21:17:21 -0400 (Fri, 14 Apr 2017) $
+# $Author: U041939 $
+# -----------------------------------------------------------------------------
+# DESC: Illustrate the LEGO concept for a PERSON and two datapoints
+# IN  : Data is internal, 
+#       Images in http://localhost:8000/Phuse/Annual/2017/presentation/d3/images/
+# OUT :
+# REQ :
+# NOTE: 
+#       
+# TODO: - Look at positioning the label along the edge using other FN graphs as examples.
+#       - Add another brick for hasTreat - - > LowDose 
+###############################################################################
+------------------------------------------------------------------------------>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Person as RDF</title>
+    <script type="text/javascript" src="/PhUSE/Annual/2017/presentation/d3/d3/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="/PhUSE/Annual/2017/presentation/d3/PhUSE2017D3JS.css">
+</head>
+<body>
+<h2>Patient Building Blocks</h2>
+<script type="text/javascript">
+//Width and height for SVG area. Match to the style definition in the slide deck.
+var w = 800;
+var h = 800;
+var svg = d3.select("body").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+// Build the arrow for RDF Triple
+svg.append("defs")
+    .selectAll("marker")
+    .data(["end"])      // Different link/path types can be defined here
+    .enter().append("marker")    // This section adds in the arrows
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 5)  // Increase this number to back the arrow away from the target node
+    .attr("refY", 0)
+    .attr("fill", "#756bb1")
+    .attr("stroke", "white")
+    .attr("markerWidth", 2.5)  // Arrow height
+    .attr("markerHeight", 2.5) // Arrow width
+    .attr("orient", "auto")
+    .append("svg:path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+var tooltip = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
+var dataset = {
+    "nodes":[
+      {"id":0,"name":"Person","group":"1", "x":110, "y":190,"ht":200, "wd":200,
+          "fixed":"FALSE", "img":"http://localhost:8000/Phuse/Annual/2017/presentation/d3/images/Lego-Person.png"},
+      {"id":1,"name":"Gender","group":"2","x":500, "y":40,"ht":150, "wd":150,
+          "fixed":"FALSE", "img":"http://localhost:8000/Phuse/Annual/2017/presentation/d3/images/Lego-Blue-Male.png"},
+      {"id":2,"name":"Age","group":"3", "x":500, "y":170, "ht":150, "wd":150,
+          "fixed":"FALSE", "img":"http://localhost:8000/Phuse/Annual/2017/presentation/d3/images/Lego-Red-Age.png"} 
+      ],
+    "edges":[
+      {"source":0,"target":1,"value":"hasGender"},
+      {"source":0,"target":2,"value":"hasAge"}
+      ]
+}
+var force = d3.layout.force()
+    .nodes(dataset.nodes)
+    .links(dataset.edges)
+    .gravity(.05)
+    .charge(-180)
+    .linkDistance(100)
+    .size([w, h])
+    .start();
+
+var drag = force.drag()
+    .on("dragstart", dragstart);
+
+var edges = svg.selectAll("line")
+    .data(dataset.edges).enter()
+    .append("line")
+    .attr("id",function(d,i){return 'edge'+i})
+    .attr("class", "edges")
+    .attr("marker-end", "url(#end)")
+    .on('mouseover', function(d){
+        var nodeSelection = d3.select(this).style({opacity:'0.5'});
+     })
+    .on('mouseout', function(d){
+         var nodeSelection= d3.select(this).style({opacity:'1.0',}) 
+    });  
+var nodes = svg.selectAll("g.node")
+    .data(dataset.nodes).enter()
+    .append("g")
+    .attr("class", "node")
+    .on("dblclick", dblclick)
+    .call(drag);
+
+// see here:
+// http://bl.ocks.org/eesur/be2abfb3155a38be4de4
+nodes.append("image")
+    .attr("xlink:href",  function(d) { return d.img;})
+    .attr("x", function(d) { return -25;})
+    .attr("y", function(d) { return -25;})
+    //.attr("height", 150)
+    //.attr("width", 150)
+    .attr("height", function(d) {return d.ht})
+    .attr("width", function(d) {return d.wd})
+     .on('mouseover', function(d){
+        var nodeSelection = d3.select(this).style({opacity:'0.8'});
+      })
+     //Mouseout Node  - bring node back to full colour   
+     .on('mouseout', function(d){
+         var nodeSelection= d3.select(this).style({opacity:'1.0',}) 
+     });
+// Edge Paths
+var edgepaths = svg.selectAll(".edgepath")
+    .data(dataset.edges).enter()
+    .append('path')
+    .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+        'class':'edgepath',
+        'fill-opacity':0,
+        'stroke-opacity':0,
+        'fill':'blue',
+        'stroke':'red',
+        'id':function(d,i) {return 'edgepath'+i}
+    })
+    .style("pointer-events", "none");
+
+// dx : the starting distance of the label from the source node
+//  Increase dx to move label away from start node
+//  Increase dy to move label closer to edge
+var edgelabels = svg.selectAll(".edgelabel")
+    .data(dataset.edges).enter()
+    .append('text')
+    .attr({'class':'edgeLabel',
+        'id':function(d,i){return 'edgelabel'+i},
+        'dx':200,
+        'dy':50
+    });
+edgelabels.append('textPath')
+    .attr('xlink:href',function(d,i) {return '#edgepath'+i})
+    .style("pointer-events", "none")
+    .text(function(d,i){return d.value})
+    ;
+//TODO: Need to fix the start of the edge paths there. May depend on the image!
+force.on("tick", function() {
+    // Coordinate with arrow size and placement.
+    edges.attr("x1", function(d) {return d.source.x+150; })
+        .attr("y1", function(d) {return d.source.y+100; })  // Starting point for path from node 1 (person)
+        .attr("x2", function(d) { return d.target.x-50;})  // Increase this value to move the edge away from node center.
+        .attr("y2", function(d) { return d.target.y+60;})
+    nodes.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+    edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+        //console.log(d)
+        return path
+    });       
+      
+    // positioning of the label along the edge
+    edgelabels.attr('transform',function(d,i){
+        if (d.target.x<d.source.x){
+          bbox = this.getBBox();
+          rx = bbox.x+bbox.width/2;
+          ry = bbox.y+bbox.height/2;
+          return 'rotate(180 '+rx+' '+ry+')';
+        }
+        else {
+          return 'rotate(0)';
+        }
+    });
+});     
+
+// Double click to 'unfix' the node and have forces start to act on it again.
+function dblclick(d) {
+    d3.select(this).classed("fixed", d.fixed = false);
+}
+// Set the "fixed" property of the dragged node to TRUE when a dragstart event is initiated,
+//   - removes "forces" from acting on that node and changing its position.
+function dragstart(d) {
+    d3.select(this).classed("fixed", d.fixed = true);
+}
+</script>
+</body>
+</html>

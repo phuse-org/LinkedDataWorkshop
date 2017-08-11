@@ -7,6 +7,11 @@
     color:  #00802b;
     stroke: #00cc44;
 }
+.stringNew {
+    color:  white;
+    stroke: #004d1a;
+    fill  : #00802b;
+}
 
 .int {
     color:  #0000ff;
@@ -19,6 +24,12 @@
 }
 
 .uriNew {
+    color:  white;
+    stroke: #990000;
+    fill:  #cc0000;
+}
+
+.stingNew {
     color:  black;
     stroke: #ff944d;
 }
