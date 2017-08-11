@@ -10,7 +10,7 @@
 #       .../data/Neo4jDB/Exercise
 # SRC : 
 # NOTE: ! CAUTION Young Padawan !
-#         Script automagicalll deletes existing Neo4j graph without confirmation!
+#         Script automagically deletes existing Neo4j graph without confirmation!
 #         Remove option input=FALSE to provide confirmation prompt.
 ###############################################################################
 library(RNeo4j)
