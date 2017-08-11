@@ -3,35 +3,27 @@
   <head>
 <!-- Uses Chalkboard for drawing:  https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
    'c' to activate
-   'del' to remove lines
+   'del' to remove lines or backspace
 -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <title>Phuse2017-LDWkshop</title>
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="css/theme/moon.css">
-    <link rel="stylesheet" href="css/PhUSE2017.css">
-        <!-- Printing and PDF exports -->
-        <!-- TO PRINT:
-        1. Copy .html to index.html
-        2. start web service to that path.
-        2. Start an older version of Chrome. Current version does not support PDF preview.
-           C:/downloads/chrome64_55.0.2883.75/Chrome.exe
-        3. Open in Chrome: http://localhost:8000/?print-pdf#/.
-        4. Ctrl P :  Landscape, no s, Print Background Images.
-        5. use Print Preview to check fmarginor blank sides
-        6. Save as PDF
-        Trouble Shooting:
-          PROBLEM: Background not printing.
-          SOLUTION: Check option for printing background images. Uncheck for printing header/footer to remove those.
-       --> 
-       <!-- ENABLE THIS WHEN PRINTING . May also need to set width and height in initialize fnt at bottom
-       <link rel="stylesheet" href="css/print/pdf.css">
-       -->
+  <title>Phuse2017-LDWkshop</title> <link rel="stylesheet" 
+  href="css/reveal.css"> <link rel="stylesheet" href="css/theme/black.css"> <!--
+  Theme used for syntax highlighting of code --> <link rel="stylesheet" 
+  href="css/theme/moon.css"> <link rel="stylesheet" href="css/PhUSE2017.css"> 
+  <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html 
+  2. start web service to that path. 2. Start an older version of Chrome. 
+  Current version does not support PDF preview. 
+  C:/downloads/chrome64_55.0.2883.75/Chrome.exe 3. Open in Chrome: 
+  http://localhost:8000/?print-pdf#/. 4. Ctrl P :  Landscape, no s, Print 
+  Background Images. 5. use Print Preview to check fmarginor blank sides 6. Save 
+  as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check 
+  option for printing background images. Uncheck for printing header/footer to 
+  remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width 
+  and height in initialize fnt at bottom <link rel="stylesheet" 
+  href="css/print/pdf.css"> -->
 
     <!-- Printing and PDF exports -->
     <script>
@@ -42,85 +34,88 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
   </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-        <!---- Title Slide  -------------------------------------------------->      
-        <section>
-          <h3>Introduction to Linked Data and Graph Databases</h3>
-          <h3> Hands-on Workshop</h3>
-          <br>
-          <h4> PhUSE 2017 Annual Conference</h4>
-          <br> 
-          Edinburgh, Scotland<br>
-          11 October, 2017
-        </section>
+  <!---- Title Slide  -------------------------------------------------->      
+  <section>
+    <h3>Introduction to Linked Data and Graph Databases</h3>
+    <h3> Hands-on Workshop</h3>
+    <br>
+    <h4> PhUSE 2017 Annual Conference</h4>
+    <br> 
+    Edinburgh, Scotland<br>
+    11 October, 2017
+  </section>
 
-        <!---- Trainers ------------------------------------------------------->      
-        <section>
-        <h3>Instructor</h3>
-        <div class="gridTrainers">
-            <div align=left>Tim Williams</div>
-            <div align=left>Statistical Systems Analyst<br>
-                            UCB BioSciences<br>
-                            Raleigh, NC, USA<br>
-                            <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
-            </div>
+  <!---- Trainers ------------------------------------------------------->      
+  <section>
+    <h3>Instructor</h3>
+    <div class="gridTrainers">
+      <div align=left>Tim Williams</div>
+        <div align=left>Statistical Systems Analyst<br>
+          UCB BioSciences<br>
+          Raleigh, NC, USA<br>
+          <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
+        </div>
 <!--
-            <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
-            <img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img>
-                    <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
+<img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
+<img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img>
+<a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
 -->
-        </div> 
-        Workshop Files, Presentation PDF:<br>
-        <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop</a>            
+    </div> 
+    Workshop Files, Presentation PDF:<br>
+    <div align=left>
+      <font class="linkSmallBlue">
+        <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/Annual2017-EU</a>            
+      </font>
+    </div>
+  </section>
 
-        </section>
-
-    <!---- OUTLINE   --------------------------------------------------------->
-    <section>
-        <h2>Outline</h2>
+  <!---- OUTLINE   --------------------------------------------------------->
+  <section>
+    <h2>Outline</h2>
+    <ul>
+      <li>Introduction </li>
         <ul>
-            <li>Introduction </li>
-                <ul>
-                    <li>Server Login
-                    <li>Data as a Graph
-                </ul>                  
-            <li>Exercises</li>
-                <ol>
-                    <li> Neo4j Labeled Property Graph (LPG)
-                    <li> Resource Description Framework (RDF)
-                </ol>
-            <li>Demonstrations (time permitting)</li>
-                <ul>
-                    <li> SDTM as LGP
-                    <li> SDTM as RDF
-                </ul>
-        </ul>
-    </section>
-
-    <!---- OUTLINE: Introduction   --------------------------------------------------------->
-    <section>
-        <h2>Outline</h2>
+          <li>Server Login
+          <li>Data as a Graph
+        </ul>                  
+      <li>Exercises</li>
+        <ol>
+          <li> Neo4j Labeled Property Graph (LPG)
+          <li> Resource Description Framework (RDF)
+        </ol>
+      <li>Demonstrations (time permitting)</li>
         <ul>
-            <font class="emphGr">
-            <li>Introduction </li>
-            </font>
-            <font class="deEmph">
-                <ul>
-                    <li>Server Login
-                    <li>Data as a Graph
-                </ul>                  
-            <li>Exercises</li>
-                <ol>
-                    <li> Neo4j Labeled Property Graph (LPG)
-                    <li> Resource Description Framework (RDF)
-                </ol>
-            <li>Demonstrations (time permitting)</li>
-            </font>
+          <li> SDTM as LGP
+          <li> SDTM as RDF
         </ul>
-    </section>
+    </ul>
+  </section>
+
+  <!---- OUTLINE: Introduction   --------------------------------------------------------->
+  <section>
+    <h2>Outline</h2>
+    <ul>
+      <font class="emphGr">
+      <li>Introduction </li>
+      </font>
+      <font class="deEmph">
+        <ul>
+          <li>Server Login
+          <li>Data as a Graph
+        </ul>                  
+      <li>Exercises</li>
+          <ol>
+            <li> Neo4j Labeled Property Graph (LPG)
+            <li> Resource Description Framework (RDF)
+          </ol>
+      <li>Demonstrations (time permitting)</li>
+      </font>
+    </ul>
+  </section>
 
     <!---- Introduction   --------------------------------------------------------->
   <section>

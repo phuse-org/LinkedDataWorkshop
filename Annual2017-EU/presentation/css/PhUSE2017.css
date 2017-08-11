@@ -4,75 +4,74 @@
 
 * {box-sizing:border-box;}
 .gridTrainers{
-    display: grid;
-    grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
-    grid-template-rows: 100px 100px;
-    grid-gap: 5px;  /* shorthand for both column and row gaps */
-    
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-rows: 100px 100px;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+  
 }
 .gridTrainers div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    /* background-color: rgba(0,95,107,0.8);  */
-    background-color: #002b36; /* moon background */
-    padding: 0.2em;
-    color: #fff;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
 }
 
 * {box-sizing:border-box;}
 .gridTwoCol{
-    display: grid;
-    grid-template-columns: 50%  50%;  /* flexible grid units instead of px or % */
-    grid-template-rows: 100px 100px;
-    grid-gap: 5px;  /* shorthand for both column and row gaps */
-    
+  display: grid;
+  grid-template-columns: 50%  50%;  /* flexible grid units instead of px or % */
+  grid-template-rows: 100px 100px;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+  
 }
 .gridTwoCol div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    /* background-color: rgba(0,95,107,0.8);  */
-    background-color: #002b36; /* moon background */
-    padding: 0.2em;
-    color: #fff;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
 }
-
 
 /* two columns, 1 row */
 .gridExercise{
-    display: grid;
-    grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
-    grid-template-rows: 200px;
-    grid-gap: 10px;  /* shorthand for both column and row gaps */
-    
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-rows: 200px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
+  
 }
 .gridExercise div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    /* background-color: rgba(0,95,107,0.8);  */
-    background-color: #002b36; /* moon background */
-    padding: 0.2em;
-    color: #fff;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
 }
 
 /* two columns, 1 row */
 .gridResources{
-    display: grid;
-    grid-template-columns: minmax(200px, 300px) minmax(200px, 800px);  /* flexible grid units instead of px or % */
-    grid-gap: 5px;  /* shorthand for both column and row gaps */
-    
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(200px, 800px);  /* flexible grid units instead of px or % */
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+  
 }
 .gridResources div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    border: 1px solid gray; // try border-left and border-right
-    /* background-color: rgba(0,95,107,0.8);  */
-    background-color: #002b36; /* moon background */
-    padding: 0.2em;
-    color: #fff;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  border: 1px solid gray; // try border-left and border-right
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
 }
 
 /*
@@ -97,51 +96,51 @@
 */
 
 .gridOwlComp{
-    display: grid;
-    grid-template-columns: repeat(2,minmax(100px, 150px));  /* 2 columns */
-    grid-template-rows:   50px;
-    grid-gap: 10px;  /* shorthand for both column and row gaps */
+  display: grid;
+  grid-template-columns: repeat(2,minmax(100px, 150px));  /* 2 columns */
+  grid-template-rows:   50px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
 }
 .gridOwlComp div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    padding: 0.2em;
-    color: #fff;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
 }
 /* A single, wide column that will hold the 3 components of an axiom. */
 .gridOwlAxiom{
-    display: grid;
-    grid-template-columns: minmax(600px, 620px);  /* flexible grid units instead of px or % */
-    grid-template-rows:   75px;
-    grid-gap: 10px;  /* shorthand for both column and row gaps */
+  display: grid;
+  grid-template-columns: minmax(600px, 620px);  /* flexible grid units instead of px or % */
+  grid-template-rows:   75px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
 }
 /* define the subitems witin the gridOwlAxiom column */
 .gridOwlAxiom .subitems{
-    display: grid;
-    grid-template-columns: repeat(3,190px);  /* The size of each of 3 items in the axiom */
-    grid-template-rows:   50px;
-    font-size: 75%;
-    grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3,190px);  /* The size of each of 3 items in the axiom */
+  grid-template-rows:   50px;
+  font-size: 75%;
+  grid-gap: 10px;
 }
 
 .gridOwlAxiom div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    padding: 0.2em;
-    color: #fff;  /* sets font color within the block */
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  color: #fff;  /* sets font color within the block */
 }
 .gridOwlAxiomComponents{
-    display: grid;
-    grid-template-columns: repeat(3,190px) ;
-    grid-template-rows:   50px;
-    grid-gap: 10px;  /* shorthand for both column and row gaps */
+  display: grid;
+  grid-template-columns: repeat(3,190px) ;
+  grid-template-rows:   50px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
 }
 .gridOwlAxiomComponents div{
-    border: 1px solid rgb(0.95,107);
-    border-radius: 3px;
-    padding: 0.2em;
-    font-size: 75%;
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  font-size: 75%;
 }
 .reveal .axiomTitle{
   text-align: left;
@@ -154,23 +153,20 @@
 .owlLiteral    {background-color:#ccccb3;}
 .owlAxiom      {background-color:#4dff4d; }  /* green */  
 
-
 .gridPicLeft{
     display: grid;
     grid-template-columns: minmax(400px,500px) 1fr ;  /* flexible grid units instead of px or % */
     grid-template-rows:  500px;
     grid-gap: 5px;  /* shorthand for both column and row gaps */
-    
-    
 }
 .gridPicLeft div{
-    border: 0px solid rgb(0.95,107);
-    border-radius: 0px;
-    /* background-color: rgba(0,95,107,0.8);  */
-    background-color: #002b36; /* moon background */
-    padding: 0.01em;
-    color: #fff;
-    /*font-size: 75%; */
+  border: 0px solid rgb(0.95,107);
+  border-radius: 0px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.01em;
+  color: #fff;
+  /*font-size: 75%; */
 }
 /* Emphasis within Bullets */
 .emphSmall {
@@ -178,7 +174,6 @@
     color: red;
   font-weight: bold;
 }
-
 /* Emphasis for Property terms */
 .emphProp {
   font-size: 110%;
@@ -211,6 +206,11 @@
   font-weight: bold;
   font-style: italic;
 }
+.linkSmallBlue {
+  font-size: 70%;
+  color: #0000b3;
+}
+
 
 /* predicate italicized */
 .predIt {
@@ -248,8 +248,7 @@
 
 
 /*------------- OLDE SHITE BELOW HERE -------------------------*/
-
-
+/* Clean this up or no ice cream for you! */
 
 /*---- SLIDE FORMATTING -----------------------------------------------------*/
 /* New stuff added 19Aug. Source:  https://github.com/hakimel/reveal.js/issues/180  
@@ -272,24 +271,18 @@ reveal.slide .slides > section, .reveal.slide .slides > section > section {
   position: relative !important;
 }
 
-
-
 /*---- END SLIDE FORMATTING -------------------------------------------------*/
-
 img{
   position: relative;
 }
-
 img .ulRight{
     position: absolute;
     top:0;
 }
-
 /* used on title slide */
 html.img-left div.slide-background.present {
     background-position: left;
 }
-
 .reveal .imageHardLeft{
     position: absolute;
     left: 0px;
