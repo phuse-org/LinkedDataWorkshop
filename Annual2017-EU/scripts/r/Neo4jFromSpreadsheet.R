@@ -112,13 +112,18 @@ colnames(NeoNodRelNew) <- c("subject", "predicate", "object")
 # Table 2: Node P:V Pairs
 NeoNPVNew <-NeoNPV[,c("Node", "Property", "Value")]
 # Omit first 5 rows of original data to get new nodes only.
-NeoNPVNew <- tail(NeoNPVNew, -3)  
+NeoNPVNew <- tail(NeoNPVNew, -5)  
 colnames(NeoNPVNew) <- c("subject", "predicate", "object")
 
 # Combine the dataframes
 spoDf <-  rbind(NeoNodRelNew, NeoNPVNew)
 # Sort for ease of transfer to whiteboard
 spoDf <- spoDf[with(spoDf, order(subject, predicate, object)), ]
+
+
+
+
+
 # Load RDF workbook; DO NOT create workbook if it does not exist
 wb <- loadWorkbook("data/RDFModel.xlsx", create= FALSE)
 
