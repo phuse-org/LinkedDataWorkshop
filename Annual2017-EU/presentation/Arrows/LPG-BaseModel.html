@@ -16,78 +16,75 @@
 <body>
 <h2></h2>
 <div class="container">
-    <figure class="graph-diagram">
-        <ul class="graph-diagram-markup">
-            <!-- NODES -----------------------------------------------------------------> 
-            <li class="node uri" 
-                 data-node-id="0" 
-                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="300" 
-                 data-y="150">
-                 <span class="caption">Person1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>firstName</dt>
-                     <dd>Bob</dd>
-                     <dt>age</dt>
-                     <dd>32</dd>
-                 
-                 </dl>
-            </li>
-            <li class="node uri" 
-                 data-node-id="1" 
-                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="800" 
-                 data-y="0">
-                 <span class="caption">Study1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>title</dt>
-                     <dd><div class="pvPair">Phase 2 Double-blind study of Serum 114</div></dd>
-                 </dl>
-            </li>            
-            <li class="node uri" 
-                 data-node-id="2" 
-                 style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="700" 
-                 data-y="400">
-                 <span class="caption">Treat1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>label</dt>
-                     <dd>Placebo</dd>
-                     <dt>description</dt>
-                     <dd>Sugar water</dd>
-                 </dl>
-            </li>            
-            
-            <!-- Relations -------------------------------------------------------------> 
-            <li class="relationship" 
-                data-from="0" 
-                data-to="1"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">enrolledIn</span>
-            </li>
+  <figure class="graph-diagram">
+    <ul class="graph-diagram-markup">
+      <!-- NODES -----------------------------------------------------------------> 
+      <li class="node uri" 
+        data-node-id="0" 
+        style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="300" 
+        data-y="150">
+        <span class="caption">PERSON1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>firstname</dt>
+          <dd>Bob</dd>
+          <dt>age</dt>
+          <dd>32</dd>
+        </dl>
+      </li>
+      <li class="node uri" 
+        data-node-id="1" 
+        style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="800" 
+        data-y="0">
+        <span class="caption">STUDY1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>title</dt>
+          <dd><div class="pvPair">Phase 2 Double-blind study of Serum 114</div></dd>
+        </dl>
+      </li>            
+      <li class="node uri" 
+        data-node-id="2" 
+        style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="700" 
+        data-y="400">
+        <span class="caption">TREAT1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>label</dt>
+          <dd>Placebo</dd>
+          <dt>description</dt>
+          <dd>Sugar water</dd>
+        </dl>
+      </li>            
+      
+      <!-- Relations -------------------------------------------------------------> 
+      <li class="relationship" 
+        data-from="0" 
+        data-to="1"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">enrolledin</span>
+      </li>
 
-            <li class="relationship" 
-                data-from="0" 
-                data-to="2"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">treatment</span>
-            </li>
+      <li class="relationship" 
+        data-from="0" 
+        data-to="2"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">treatment</span>
+      </li>
 
-            <li class="relationship" 
-                data-from="1" 
-                data-to="2"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">treatmentArm</span>
-            </li>
-        </ul>
-    </figure>
+      <li class="relationship" 
+        data-from="1" 
+        data-to="2"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">treatmentarm</span>
+      </li>
+    </ul>
+  </figure>
 </div>
-
 
 <script type="text/javascript">
   d3.selectAll( "figure.graph-diagram" )
-          .call( gd.figure() );
+    .call( gd.figure() );
 </script>
-
 </body>
 </html>
