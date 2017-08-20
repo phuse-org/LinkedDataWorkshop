@@ -2,17 +2,31 @@
 @prefix phuse: <http://www.example.org/phuse/workshop/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-phuse:Person1
-    phuse:hasAge "32"^^xsd:int ;
-    phuse:hasFirstName "Bob"^^xsd:string ;
-    phuse:hasTreatment phuse:Treat1 ;
-    phuse:participatesIn phuse:Study1 .
+phuse:PERSON1
+    phuse:age "32"^^xsd:int ;
+    phuse:enrolledin phuse:STUDY1 ;
+    phuse:firstname "Bob"^^xsd:string ;
+    phuse:treatment phuse:TREAT1 .
 
-phuse:Study1
-    phuse:hasTitle "Phase 2 Double-blind study of Serum 114"^^xsd:string ;
-    phuse:hasTreatmentArm phuse:Treat1 .
+phuse:PERSON2
+    phuse:enrolledin phuse:STUDY1 ;
+    phuse:firstname "Sally"^^xsd:string ;
+    phuse:gender phuse:F ;
+    phuse:treatment phuse:TREAT2 .
 
-phuse:Treat1
-    phuse:hasDescription "Sugar Water"^^xsd:string ;
-    phuse:hasLabel "Placebo"^^xsd:string .
+phuse:PROTOCOL1
+    phuse:title "Phase 2 Trial of Serum 114 in patients with acute episodes of ultraviolence"^^xsd:string .
+
+phuse:STUDY1
+    phuse:phase "II"^^xsd:string ;
+    phuse:protocol phuse:PROTOCOL1 ;
+    phuse:title "Phase 2 Double-blind study of Serum 114"^^xsd:string ;
+    phuse:treatmentarm phuse:TREAT1, phuse:TREAT2 .
+
+phuse:TREAT1
+    phuse:description "Sugar Water"^^xsd:string ;
+    phuse:label "Placebo"^^xsd:string .
+
+phuse:TREAT2
+    phuse:label "50mg Serum 114"^^xsd:string .
 
