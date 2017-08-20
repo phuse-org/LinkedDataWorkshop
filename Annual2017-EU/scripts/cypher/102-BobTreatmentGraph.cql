@@ -1,4 +1,4 @@
 // 102-BobTreatmentGraph.cql
-MATCH a = (person)-[:treatment]->(treat)
-WHERE person.firstName='Bob'
+MATCH a = (PERSON)-[:treatment]->(TREAT)
+WHERE PERSON.firstname='Bob'
 RETURN a

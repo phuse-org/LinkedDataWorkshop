@@ -1,4 +1,4 @@
 // 101-Study1Participants.cql
-MATCH a = (person)-[:enrolledIn]->(study)
-WHERE study.name='Study1'
-RETURN person.firstName AS Study1Participants
+MATCH a = (PERSON)-[:enrolledin]->(STUDY)
+WHERE STUDY.name='STUDY1'
+RETURN PERSON.firstname AS STUDY1Participants

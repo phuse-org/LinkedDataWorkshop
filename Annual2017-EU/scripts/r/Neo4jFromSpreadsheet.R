@@ -16,6 +16,7 @@
 library(RNeo4j)
 library(readxl)
 library(plyr)
+library(dplyr)
 library(reshape2)
 library(XLConnect)
 
@@ -27,6 +28,15 @@ NeoModel<- read_excel("data/Neo4jModel.xlsx",
   sheet = 'Neo4jModel',
   skip = 1,
   col_names = TRUE)
+
+# Force Upper Case Nodes, lower case Relation, Property
+NeoModel <- mutate(NeoModel, 
+  StartNode = toupper(StartNode),
+  EndNode  = toupper(EndNode),
+  Node     = toupper(Node),
+  Relation = tolower(Relation),
+  Property = tolower(Property)
+)
 
 # QC Checks 1 ---------------------------------------------------------------
 # Detect node names that contain spaces; illegal for R Script.
@@ -57,9 +67,10 @@ NeoNPV$NPVId <- 1:(nrow(NeoNPV))
 
 # Assign node types ----
 NeoNPV$type <- "undefined"
-NeoNPV$type[grepl("Person", NeoNPV$Node)] <- "person" 
-NeoNPV$type[grepl("Treat", NeoNPV$Node)]  <- "treatment" 
-NeoNPV$type[grepl("Study", NeoNPV$Node)]  <- "study" 
+NeoNPV$type[grepl("PERSON", NeoNPV$Node)]   <- "person" 
+NeoNPV$type[grepl("TREAT", NeoNPV$Node)]    <- "treatment" 
+NeoNPV$type[grepl("STUDY", NeoNPV$Node)]    <- "study" 
+NeoNPV$type[grepl("PROTOCOL", NeoNPV$Node)] <- "protocol" 
 
 # QC Checks 2 ---------------------------------------------------------------
 # Case 1:  Node specified in a relation is not defined in the Nodes sxn of 
