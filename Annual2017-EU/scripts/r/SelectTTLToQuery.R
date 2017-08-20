@@ -1,18 +1,11 @@
 ###############################################################################
-# $HeadURL: file:///C:/SVNLocalRepos/Applications/r/CodeEg/Shiny/SelectTTLToQuery.R $
-# $Rev: 79 $
-# $Date: 2017-06-16 14:06:58 -0400 (Fri, 16 Jun 2017) $
-# $Author: U041939 $
-# -----------------------------------------------------------------------------
-# DESC: Select a TTL file and execute a query on it. Return result to the window.
-# SRC :
-# IN  :
-# OUT :
-# REQ :
-# NOTE: 
-# SAUCE/REF: https://stackoverflow.com/questions/44572622/rshiny-how-to-update-textareainput-with-contents-of-a-file-via-fileinput
-# RElATED: textAreaInputTest.R 
-# TODO:  
+# FILE: /scripts/r/SelectTTLToQuery.R
+# DESC: LDWorkshop: Select, query, visuzalize a TTL file.
+# IN  : data/RDFModel.TTL
+# OUT : N/A
+# REQ : 
+# NOTE: Visualize requires query to return s,p,o. 
+#       
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
@@ -36,7 +29,7 @@ SELECT *
 WHERE {
   ?s ?p ?o
   FILTER (REGEX(STR(?s), 'phuse'))
-}limit 10"),
+}limit 100"),
             actionButton(inputId = "runQuery", label="Run query")
         )
     ),
