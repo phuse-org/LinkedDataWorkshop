@@ -10,127 +10,118 @@
   <link rel="stylesheet" href="style/graph-style-chunky.css" type="text/css">
   <link rel="stylesheet" href="lib/bootstrap.css" type="text/css">
   <link rel="stylesheet" href="style/graph-custom.css" type="text/css">  <!-- My customizations -->
-  <title>RDF Model</title>
+  <title>LPG Nodes to Add</title>
 </head>
 
 <body>
 <h2></h2>
 <div class="container">
-    <figure class="graph-diagram">
-        <ul class="graph-diagram-markup">
+  <figure class="graph-diagram">
+    <ul class="graph-diagram-markup">
 
-<!-- NEW NODES -->
-<!-- Example 1. Add p:v pair to Study1 node -->
-            <li class="node uri" 
-                 data-node-id="0" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="200" 
-                 data-y="800">
-                 <span class="caption">Study1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>title</dt>
-                     <dd>Phase 2 Double-blind...</dd>
-                     <dt>phase</dt>
-                     <dd>II</dd>
-                 </dl>
-            </li>            
+      <!-- NEW NODES -->
+      <!-- Example 1. Add p:v pair to Study1 node -->
+      <li class="node uri" 
+        data-node-id="0" 
+        style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="200" 
+        data-y="800">
+        <span class="caption">STUDY1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>title</dt>
+          <dd>Phase 2 Double-blind...</dd>
+          <dt>phase</dt>
+          <dd>II</dd>
+        </dl>
+      </li>            
 
-<!-- Example 2. Add Female Person, Treatment -->
-            <li class="node uriNew" 
-                 data-node-id="1" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="200" 
-                 data-y="1000">
-                 <span class="caption">Person2</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>firstName</dt>
-                     <dd>Sally</dd>
-                     <dt>gender</dt>
-                     <dd>F</dd>
-                 </dl>
-            </li>            
-            <li class="node uriNew" 
-                 data-node-id="2" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="600" 
-                 data-y="900">
-                 <span class="caption">Treat2</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>label</dt>
-                     <dd>50mg Serum 114</dd>
-                 </dl>
-            </li>            
-             <li class="node uri" 
-                 data-node-id="3" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="600" 
-                 data-y="1400">
-                 <span class="caption">Study1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>title</dt>
-                     <dd>Phase 2 Double-blind...</dd>
-                 </dl>
-            </li>            
-            <li class="relationship" 
-                data-from="1" 
-                data-to="2"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">treatment</span>
-            </li>
-            <li class="relationship" 
-                data-from="1" 
-                data-to="3"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">enrolledIn</span>
-            </li>
- 
-            <li class="relationship" 
-                data-from="3" 
-                data-to="2"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">treatmentArm</span>
-            </li>
+      <!-- Example 2. Add Female Person, Treatment -->
+      <li class="node uriNew" 
+        data-node-id="1" 
+         style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="200" 
+        data-y="1000">
+        <span class="caption">PERSON2</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>firstname</dt>
+          <dd>Sally</dd>
+          <dt>gender</dt>
+          <dd>F</dd>
+        </dl>
+      </li>            
+      <li class="node uriNew" 
+        data-node-id="2" 
+         style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="600" 
+        data-y="900">
+        <span class="caption">TREAT2</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>label</dt>
+          <dd>50mg Serum 114</dd>
+        </dl>
+      </li>            
+      <li class="node uri" 
+        data-node-id="3" 
+         style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="600" 
+        data-y="1400">
+        <span class="caption">STUDY1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>title</dt>
+          <dd>Phase 2 Double-blind...</dd>
+        </dl>
+      </li>            
+      <li class="relationship" 
+        data-from="1" 
+        data-to="2"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">treatment</span>
+      </li>
+      <li class="relationship" 
+        data-from="1" 
+        data-to="3"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">enrolledin</span>
+      </li>
+      <li class="relationship" 
+        data-from="3" 
+        data-to="2"
+        style="font-size: 25px; width: 5px;"> 
+        <span class="type">treatmentarm</span>
+      </li>
 
-<!-- Example 3. Add a protocol -->
-            <li class="node uri" 
-                 data-node-id="4" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="200" 
-                 data-y="1700">
-                 <span class="caption">Study1</span>
-            </li>            
-            <li class="node uriNew" 
-                 data-node-id="5" 
-                  style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
-                 data-x="600" 
-                 data-y="1700">
-                 <span class="caption">Protocol1</span>
-                 <dl class="properties" style="font-size: 25px;">
-                     <dt>title</dt>
-                     <dd>Phase 2 Trial of Serum 114 in patients with acute episodes of ultraviolence</dd>
-                 </dl>
-            </li>            
-            <li class="relationship" 
-                data-from="4" 
-                data-to="5"
-                style="font-size: 25px; width: 5px;"> 
-                <span class="type">protocol</span>
-            </li>
-
-
-
-
-
-
-        </ul>
+      <!-- Example 3. Add a protocol -->
+      <li class="node uri" 
+        data-node-id="4" 
+        style="min-width: 120px; font-family:serif, times; font-size: 25px; fill:#54278f;"   
+        data-x="200" 
+        data-y="1700">
+        <span class="caption">STUDY1</span>
+      </li>            
+      <li class="node uriNew" 
+        data-node-id="5" 
+        style="min-width: 120px; font-family:serif, times; font-size: 22px; fill:#54278f;"   
+        data-x="600" 
+        data-y="1700">
+        <span class="caption">PROTOCOL1</span>
+        <dl class="properties" style="font-size: 25px;">
+          <dt>title</dt>
+          <dd>Phase 2 Trial of Serum 114 in patients with acute episodes of ultraviolence</dd>
+        </dl>
+        </li>            
+        <li class="relationship" 
+          data-from="4" 
+          data-to="5"
+          style="font-size: 25px; width: 5px;"> 
+          <span class="type">protocol</span>
+        </li>
+      </ul>
     </figure>
 </div>
-
 
 <script type="text/javascript">
   d3.selectAll( "figure.graph-diagram" )
           .call( gd.figure() );
 </script>
-
 </body>
 </html>
