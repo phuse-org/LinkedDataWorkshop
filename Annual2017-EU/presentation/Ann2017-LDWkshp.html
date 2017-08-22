@@ -117,13 +117,13 @@
     </ul>
   </section>
 
-    <!---- Introduction   --------------------------------------------------------->
+  <!---- Introduction   --------------------------------------------------------->
   <section>
-    <h3 class="fragment fade-out" data-fragment-index="1">"Introduction to Linked Data and Graph Databases"</h3>
+    <h3 class="fragment shrink" data-fragment-index="1">"Introduction to Linked Data and Graph Databases"</h3>
       <br>
-      <h3 class="fragment" data-fragment-index="1">"From whiteboard to queryable graph: A (very basic) introduction to 
-      converting clinical trials concepts and values to Linked Data."
-    </section>
+      <h3 class="fragment" data-fragment-index="1">"From whiteboard to queryable graph: A <i>very basic</i> introduction to 
+      converting clinical trials concepts and values to Linked Data." </h3>
+  </section>
 
   <!---- Materials   --------------------------------------------------------->
   <section>
@@ -316,21 +316,21 @@
         <h4>"White board" the Things</h3>
         <br>
         <br>
-        Handout: "Neo4j Diagram"
+        Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">Neo4j Diagram</a>
     </section>
-    <!---- 1.1 Diagram the model  -------------------------------------------------------->
-    <section>
-        <div class = "stretch">
-             <iframe width="100%" height="100%" 
-                     src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">
-             </iframe>
-        </div>
-    </section>
-    <!-- following goes full screen but cannot SCROLL.
-    <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/arrows/lpg-NewModel.html'
-             data-background-interactive>
-    </section>
-    -->
+
+
+				  <!---- 1.1 Diagram the model  -------------------------------------------------------->
+				  <!-- OLD embedded diagram
+				  <section data-background-iframe="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">
+				  </section>
+				    <!-- following goes full screen but cannot SCROLL.
+				    <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/arrows/lpg-NewModel.html'
+				             data-background-interactive>
+				    </section>
+				   -->    
+				
+
   <!---- LPG Model  -------------------------------------------------------->
   <section>
     <h3>Approach</h3>
@@ -365,21 +365,31 @@
       </div>
     </div> 
   </section>
+
   <!---- LPG New Model   ----------------------------------------------------->
   <section>
-    <div class = "stretch">
-      <iframe width="100%" height="100%" 
-        src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/lpg-newModel.html">
-      </iframe>
-    </div>
+    The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-NewModel.html">Revised Neo4j Diagram</a>
   </section>
 
-<!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
+		<!--
+		  <section>
+		    <div class = "stretch">
+		      <iframe width="100%" height="100%" 
+		        src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/lpg-newModel.html">
+		      </iframe>
+		    </div>
+		  </section>
+		-->
+		<!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
 
   <!---- Diagram to Spreadsheet   -------------------------------------------->
   <section>
     <h3> 1.2 Transfer Diagram to Spreadsheet</h3>
-   <img src="images/Neo4jSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >    
+   <img src="images/Neo4jSpreadsheet.png"  left=0px  
+     style="border:0px; box-shadow:none;" 
+     height="400px"
+     width = "1500px">
+   </img>
    <h4>...wait for instructor when done!</h4>
   </section>
 
@@ -388,8 +398,6 @@
     <h3> 1.4 Query and Visualize</h3>
   </section>
 
-
-
   <!---- End Neo4j slides   ------------------------------------------------>
   <section>
     <font class="emphItalic">End Neo4 section</font>
@@ -397,54 +405,64 @@
 
 
 
-    <!------------------------------------------------------------------------>
-    <!--  RDF SECTION -------------------------------------------------------->
-    <!------------------------------------------------------------------------>
-    <!---- OUTLINE: RDF   ---------------------------------------------------->
-    <section>
-        <h2>Outline</h2>
+  <!------------------------------------------------------------------------>
+  <!--  RDF SECTION -------------------------------------------------------->
+  <!------------------------------------------------------------------------>
+  <!---- OUTLINE: RDF   ---------------------------------------------------->
+  <section>
+    <h2>Outline</h2>
+    <ul>
+      <font class="deEmph">
+      <li>Introduction
         <ul>
-            <font class="deEmph">
-            <li>Introduction
-                <ul>
-                    <li>Server Login
-                    <li>Data as a Graph
-                </ul>                  
-            </font>
-            <li>Exercises
-                <ol>
-                    <li> Neo4j Labeled Property Graph (LPG)
-            <font class="emphGr">
-                    <li> Resource Description Framework (RDF)
-            </font>
-                </ol>
-            <font class="deEmph">
-            <li>Demonstrations (time permitting)
-            </font>
-        </ul>
-    </section>
+          <li>Server Login
+          <li>Data as a Graph
+        </ul>                  
+      </font>
+      <li>Exercises
+          <ol>
+            <li> Neo4j Labeled Property Graph (LPG)
+      <font class="emphGr">
+            <li> Resource Description Framework (RDF)
+      </font>
+          </ol>
+      <font class="deEmph">
+      <li>Demonstrations (time permitting)
+      </font>
+    </ul>
+  </section>
 
-    <!---- Exercise Process Flow: Neo4j -------------------------------------->
-    <section data-background="images/RDFProcess.png"
-          data-state="img-center" ;
-          data-background-size= contain ;>
-    </section>
+  <!---- Exercise Process Flow: Neo4j -------------------------------------->
+  <section data-background="images/RDFProcess.png"
+        data-state="img-center" ;
+        data-background-size= contain ;>
+  </section>
 
-    <section>
-        <h3>2.1 Diagram the Model</h3>
-        <h4>Transfer your Neo4j Diagram to an RDF Diagram</h4>
-        <br>
-        <br>
-        Handout: "RDF Diagram"
-    </section>
+  <section>
+      <h3>2.1 Diagram the Model</h3>
+      <h4>Transfer your Neo4j Diagram to an RDF Diagram</h4>
+      <br>
+      <br>
+      Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/RDF-BaseModel.html">RDF Diagram</a>
+  </section>
+
     <!---- 2.1 Diagram the model  -------------------------------------------------------->
+<!--
     <section>
         <div class = "stretch">
              <iframe width="100%" height="100%" 
                      src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/rdf-baseModel.html"></iframe>
         </div>
     </section>
+
+-->
+  <section>
+  The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/rdf-NewModel.html">Revised RDF Diagram</a> 
+  </section>
+
     <!---- New Model   -------------------------------------------------------->
+<!--
+
     <section>
         <div class = "stretch">
              <iframe width="100%" height="100%" 
@@ -452,19 +470,19 @@
         </div>
     </section>
 
+-->
   <!---- Diagram to Spreadsheet   -------------------------------------------->
   <section>
-    <h3> 2.2 Transfer Diagram to Spreadsheet  (1/3)</h3>
+    <h3> 2.2 Transfer Diagram to Spreadsheet</h3>
     <img src="images/RDFSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >    
   </section>
 
   <section>
-    <h3> 2.2 Transfer Diagram to Spreadsheet (2/3)</h3>
+    <h3> 2.2 Transfer Diagram to Spreadsheet</h3>
     <ol>
       <li>List Nodes and their Relations  (ignore "ObjectType" in this step)
       <li>Fill in the Object Type for each row.
     </ol>
-TODO: Add coverage of the object types.
   </section>
        
   <section>
@@ -498,21 +516,29 @@ TODO: Add coverage of the object types.
 
 <!---------------------------------------------------------------------------->
 <!-- End RDF section --------------------------------------------------------->
-    <!----  When to use which graph? ----------------------------------------->
-    <section>
-        <h3>Which to choose: Neo4j or RDF?</h3>
-        <ul>Neo4j
-            <li>Graph path traversal
-            <li>Process flow, pathways
-            <li>Where connections (links) are key
-        </ul>
-        <ul>RDF
-            <li>Classifcation (ontologies), Rules
-            <li>XX
-            <li>XXX
-        </ul>
-    </section>
+  <!----  When to use which graph? ----------------------------------------->
+  <section>
+    <h3>Which to choose: Neo4j or RDF?</h3>
+    <h3 align=left>Neo4j</h3>
+      <ul>
+        <li>Graph path traversal
+        <li>Process flow
+        <li>Pathways (graph traversal)
+        <li>Changing (transactional) data
+        <li>Where connections/relations(links) are key
+      </ul>
+  </section>
 
+  <section>
+    <h3>Which to choose: Neo4j or RDF?</h3>
+    <h3 align=left>RDF</h3>
+      <ul>
+        <li>Classifcation (ontologies)
+        <li>Rules and Logic
+        <li>Datatyping, Time concepts
+        <li>Non-transactional data
+      </ul>
+    </section>
     <!---- OUTLINE: RDF   ---------------------------------------------------->
     <section>
         <h2>Outline</h2>
@@ -551,29 +577,28 @@ TODO: Add coverage of the object types.
 
      //Reveal.configure({ slideNumber: true });
       
-      Reveal.initialize({
-
-      chalkboard: { 
+  Reveal.initialize({
+//    width: '100%',
+//    height: '100%',
+    chalkboard: { 
           // optionally load pre-recorded chalkboard drawing from file
           //src: "chalkboard.json",
-          },
-
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/chalkboard/chalkboard.js' },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ],
-        keyboard: {
-            67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
-            66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-            46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
-             8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-            68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
-        }
-
-      });
+    },
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/chalkboard/chalkboard.js' },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ],
+    keyboard: {
+      67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+      66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+      46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+       8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+      68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+    }
+  });
     </script>
   </body>
 </html>
