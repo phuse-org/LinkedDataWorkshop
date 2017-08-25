@@ -3,7 +3,7 @@
 PREFIX phuse: <http://www.example.org/phuse/workshop/>
 SELECT  ?treatLabel
 WHERE {
-    ?person phuse:firstName "Bob" .
+    ?person phuse:firstname "Bob" .
     ?person phuse:treatment ?treat .
-    ?treat phuse:label ?treatLabel .
+    ?treat  phuse:label     ?treatLabel .
 }

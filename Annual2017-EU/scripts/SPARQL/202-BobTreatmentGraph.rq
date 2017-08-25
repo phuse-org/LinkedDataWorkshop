@@ -6,17 +6,17 @@ SELECT ?s ?p ?o
 WHERE {
   {
      # Bob's first name 
-     ?s phuse:firstName "Bob" .
-     ?s phuse:firstName ?o .
+     ?s phuse:firstname "Bob" .
+     ?s phuse:firstname ?o .
      ?s ?p ?o
   }UNION{
      # Bob's treatment
-     ?s phuse:firstName "Bob" .
+     ?s phuse:firstname "Bob" .
      ?s phuse:treatment ?o .
      ?s ?p ?o
   }UNION{
      # Treatment label for Bob's treatment 
-     ?person phuse:firstName "Bob" .
+     ?person phuse:firstname "Bob" .
      ?person phuse:treatment ?s .
      ?s phuse:label ?o .
      ?s ?p ?o
