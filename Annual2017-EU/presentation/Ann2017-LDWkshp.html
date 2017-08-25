@@ -320,22 +320,22 @@
     </section>
 
 
-				  <!---- 1.1 Diagram the model  -------------------------------------------------------->
-				  <!-- OLD embedded diagram
-				  <section data-background-iframe="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">
-				  </section>
-				    <!-- following goes full screen but cannot SCROLL.
-				    <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/arrows/lpg-NewModel.html'
-				             data-background-interactive>
-				    </section>
-				   -->    
-				
+          <!---- 1.1 Diagram the model  -------------------------------------------------------->
+          <!-- OLD embedded diagram
+          <section data-background-iframe="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">
+          </section>
+            <!-- following goes full screen but cannot SCROLL.
+            <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/arrows/lpg-NewModel.html'
+                     data-background-interactive>
+            </section>
+           -->    
+        
 
   <!---- LPG Model  -------------------------------------------------------->
   <section>
     <h3>Approach</h3>
     <ul>
-      <li>Model instances, not ontology ; Real-life things, not a classifcation of types of things (ontology)
+      <li>Model instances, not ontology ; Real-life things, not a classification of types of things (ontology)
         <ul> 
           <li>Example: "<font class="emphSmall">Person1</font> <font class="predIt">participatesIn</font> 
             <font class="emphSmall">Study1</font>" not "Patients participateIn Studies"<br>
@@ -371,16 +371,16 @@
     The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-NewModel.html">Revised Neo4j Diagram</a>
   </section>
 
-		<!--
-		  <section>
-		    <div class = "stretch">
-		      <iframe width="100%" height="100%" 
-		        src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/lpg-newModel.html">
-		      </iframe>
-		    </div>
-		  </section>
-		-->
-		<!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
+    <!--
+      <section>
+        <div class = "stretch">
+          <iframe width="100%" height="100%" 
+            src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/lpg-newModel.html">
+          </iframe>
+        </div>
+      </section>
+    -->
+    <!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
 
   <!---- Diagram to Spreadsheet   -------------------------------------------->
   <section>
@@ -516,50 +516,115 @@
 
 <!---------------------------------------------------------------------------->
 <!-- End RDF section --------------------------------------------------------->
-  <!----  When to use which graph? ----------------------------------------->
-  <section>
-    <h3>Which to choose: Neo4j or RDF?</h3>
-    <h3 align=left>Neo4j</h3>
-      <ul>
-        <li>Graph path traversal
-        <li>Process flow
-        <li>Pathways (graph traversal)
-        <li>Changing (transactional) data
-        <li>Where connections/relations(links) are key
-      </ul>
-  </section>
+<!----  When to use which graph? ----------------------------------------->
+<section>
+  <h3>Which to choose: Neo4j or RDF?</h3>
+  <h3 align=left>Neo4j</h3>
+    <ul>
+      <li>Graph path traversal
+      <li>Process flow
+      <li>Changing (transactional) data
+      <li>Where connections/relations(links) are key
+    </ul>
+</section>
 
-  <section>
-    <h3>Which to choose: Neo4j or RDF?</h3>
-    <h3 align=left>RDF</h3>
+<section>
+  <h3>Which to choose: Neo4j or RDF?</h3>
+  <h3 align=left>RDF</h3>
+    <ul>
+      <li>Classification (ontologies)
+      <li>Rules and Logic
+      <li>Datatyping, Time concepts
+      <li>Non-transactional data
+    </ul>
+</section>
+
+<!---- OUTLINE: RDF   ---------------------------------------------------->
+<section>
+  <h2>Outline</h2>
+  <ul>
+    <font class="deEmph">
+    <li>Introduction
       <ul>
-        <li>Classifcation (ontologies)
-        <li>Rules and Logic
-        <li>Datatyping, Time concepts
-        <li>Non-transactional data
-      </ul>
-    </section>
-    <!---- OUTLINE: RDF   ---------------------------------------------------->
-    <section>
-        <h2>Outline</h2>
-        <ul>
-            <font class="deEmph">
-            <li>Introduction
-                <ul>
-                    <li>Server Login
-                    <li>Data as a Graph
-                </ul>                  
-            <li>Exercises
-                <ol>
-                    <li>Neo4j Labeled Property Graph (LPG)
-                    <li>Resource Description Framework (RDF)
-                </ol>
-            </font>
-            <font class="emphGr">
-            <li>Demonstrations (time permitting)
-            </font>
-        </ul>
-    </section>
+        <li>Server Login
+        <li>Data as a Graph
+      </ul>                  
+    <li>Exercises
+      <ol>
+        <li>Neo4j Labeled Property Graph (LPG)
+        <li>Resource Description Framework (RDF)
+      </ol>
+    </font>
+    <font class="emphGr">
+    <li>Demonstrations (time permitting)
+    </font>
+  </ul>
+</section>
+
+<!---- SLIDE: Resources Workshop --------------------------------------------->
+<section>
+  <h2>Resources</h2
+  <ul>
+    <li>Workshop materials, including the SPARQL and CYPHER scripts, plus PDF of this presentation:<br>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/Annual2017-EU</a>
+</section>
+
+<!---- SLIDE: Resources ------------------------------------------------------>
+<section>
+  <h3>Neo4j Resources</h3>
+  <div class="gridResources">
+    <div>Recommended Overview
+    </div>
+    <div><a href="https://neo4j.com/developer/graph-database/">https://neo4j.com/developer/graph-database/</a>
+    </div>
+
+    <div>Overview of graph db and Neo4j [optional]
+    </div>
+    <div><a href="https://youtu.be/U8ZGVx1NmQg">https://youtu.be/U8ZGVx1NmQg</a> [45min]
+    </div>
+    
+    <div>Intro to Cypher
+    </div>
+    <div><a href="https://www.youtube.com/watch?v=1TSBXZMv6tc ">https://www.youtube.com/watch?v=1TSBXZMv6tc</a> [49min]
+    </div>
+
+    <div>Graph Modeling
+    </div>
+    <div><a href="https://www.youtube.com/watch?v=AaJS-DGBQX4">https://www.youtube.com/watch?v=AaJS-DGBQX4</a> [42min]
+    </div>
+    
+    <div>RDF in Neo4j
+    </div>
+    <div><a href="http://guides.neo4j.com/rdf-graphs/">http://guides.neo4j.com/rdf-graphs/</a> 
+    </div>
+  </div>
+</section>
+
+<!---- SLIDE: RDF ------------------------------------------------------------>
+<section>
+  <h3>RDF and Protege Resources</h3>
+  <div class="gridResources">
+      <div>Introduction to Semantic Web
+      </div>
+      <div><a href="http://www.cambridgesemantics.com/semantic-university/introduction-semantic-web">http://www.cambridgesemantics.com/semantic-university/introduction-semantic-web</a>
+      </div>
+
+      <div>What is Linked Data?
+      </div>
+      <div><a href="http://www.cambridgesemantics.com/semantic-university/what-linked-data">http://www.cambridgesemantics.com/semantic-university/what-linked-data</a>
+      </div>
+
+      <div>Introduction to Linked data
+      </div>
+      <div><a href="http://www.cambridgesemantics.com/semantic-university/introduction-linked-data">http://www.cambridgesemantics.com/semantic-university/introduction-linked-data</a>
+      </div>
+      <div>Protege Application
+      </div>
+      <div><a href="https://www.youtube.com/watch?v=8Nf2xf5akoM">https://www.youtube.com/watch?v=8Nf2xf5akoM</a>
+      </div>
+  </div>
+</section>
+
 
 <!---------------------------------------------------------------------------->
 <!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
@@ -592,11 +657,11 @@
       { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
     ],
     keyboard: {
-      67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
-      66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-      46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
-       8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-      68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+      67: function() { RevealChalkboard.toggleNotesCanvas() },  // toggle notes canvas when 'c' is pressed
+      66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+      46: function() { RevealChalkboard.clear() },  // clear chalkboard when 'DEL' is pressed
+       8: function() { RevealChalkboard.reset() },  // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+      68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
     }
   });
     </script>
