@@ -137,6 +137,7 @@
         <li>Neo4j Diagram
         <li>RDF Diagram
       </ul>
+      <li>Server IP Address
     </ul>            
   </section>
 
@@ -310,14 +311,6 @@
           data-state="img-center" ;
           data-background-size= contain ;>
     </section>
-    <!---- 1.1 Diagram the model  -------------------------------------------------------->
-    <section>
-        <h3>1.1 Diagram the Model</h3>
-        <h4>"White board" the Things</h3>
-        <br>
-        <br>
-        Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">Neo4j Diagram</a>
-    </section>
 
 
           <!---- 1.1 Diagram the model  -------------------------------------------------------->
@@ -329,47 +322,51 @@
                      data-background-interactive>
             </section>
            -->    
-        
 
-  <!---- LPG Model  -------------------------------------------------------->
-  <section>
-    <h3>Approach</h3>
-    <ul>
-      <li>Model instances, not ontology ; Real-life things, not a classification of types of things (ontology)
-        <ul> 
-          <li>Example: "<font class="emphSmall">Person1</font> <font class="predIt">participatesIn</font> 
-            <font class="emphSmall">Study1</font>" not "Patients participateIn Studies"<br>
-        </ul>
-      <li>See <b>"Guidelines for Adding Nodes and Relations"</b>
-    </ul>
-  </section>
+<!---- LPG Model  -------------------------------------------------------->
+<section>
+  <h3>Approach</h3>
+  <ul>
+    <li>Model instances, not ontology ; Real-life things, not a classification of <i>types</i> of things (ontology)
+      <ul> 
+        <li>Example: <font class="emphSmall">PERSON1</font> <font class="predIt">enrolledin</font> 
+          <font class="emphSmall">STUDY1</font> not "PATIENTS enrolledin STUDIES"<br>
+      </ul>
+    <li>See <b>"Guidelines for Adding Nodes and Relations"</b>
+  </ul>
+</section>
   <!---- Add Nodes to the Model  --------------------------------------------->
-  <section>
-    <h3>Add nodes to the model</h3>
-    <div align=left>Suggestions</div>
-    <div class="gridTwoCol">
-      <div align=left>
-        <ul><font class="emphSmItGr">Site</font>
-            <li><font class="predIt">locatedIn</font> Country
-            <li><font class="predIt">has</font> Investigator
-        </ul>
-        <br><br>
-        <ul><font class="emphSmItGr">Person</font>
-           <li><font class="predIt">has</font> Gender
-        </ul>
-      </div>
-      <div align=left>
-        <ul><font class="emphSmItGr">Study</font>
-          <li><font class="predIt">definedIn</font> Protocol
-        </ul>
-      </div>
-    </div> 
-  </section>
+<section>
+  <h3>Ideas for new nodes</h3>
+  <div align=left>
+    <ul><font class="emphSmItGr">Site</font>
+      <li><font class="emphSmall">SITE1</font> <font class="predIt">locatedin</font> <font class="emphSmall">COUNTRY1</font>
+      <li><font class="emphSmall">SITE1</font> <font class="predIt">investigator</font> <font class="emphSmall">INVESTIGATOR1</font>
+    </ul>
+    <br>
+    <ul><font class="emphSmItGr">Person</font>
+      <li><font class="emphSmall">PERSON1</font> <font class="predIt">gender</font> <font class="emphSmall">M</font>
+    </ul>
+    <br>
+    <ul><font class="emphSmItGr">Study</font>
+      <li><font class="emphSmall">STUDY1</font> <font class="predIt">sponsor</font> <font class="emphSmall">COMPANY1</font>
+    </ul>
+  </div>
+</section>
 
-  <!---- LPG New Model   ----------------------------------------------------->
-  <section>
+<!---- LPG Original Model  --------------------------------------------------->
+<section>
+  <h3>1.1 Diagram the Model</h3>
+  <h4>"White board" the Things</h3>
+  <br>
+  <br>
+  Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">Neo4j Diagram</a>
+</section>
+
+<!---- LPG New Model   ----------------------------------------------------->
+<section>
     The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-NewModel.html">Revised Neo4j Diagram</a>
-  </section>
+</section>
 
     <!--
       <section>
