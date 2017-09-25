@@ -10,7 +10,7 @@
 library(readxl)
 library(redland)
 library(plyr)
-Sys.setenv(TZ='GMT')
+
 setwd("C:/LinkedDataWorkshop")
 
 # Read Spreadsheet ----
