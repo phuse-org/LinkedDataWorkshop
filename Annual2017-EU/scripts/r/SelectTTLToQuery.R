@@ -5,13 +5,16 @@
 # OUT : N/A
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
-#       
+#       Urgent re-write before the conference to convert over to redland pkg to avoid
+#    java dependency issue for rrdf that showed up on the servers **TODAY!**
+#    Its late. The pizza is gone. The code is kludgy nightmare. And it works.
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
 library(shiny)
-library(rrdf)
+library(redland)
 library(visNetwork)
+
 #------------------------------------------------------------------------------
 # UI 
 #------------------------------------------------------------------------------
@@ -47,11 +50,35 @@ WHERE {
 # SERVER 
 #------------------------------------------------------------------------------
 server <- function(input, output, session) {
-    data <- eventReactive(input$runQuery, {
-        inFileTTL <- input$fileTTL
-        sourceTTL = load.rdf(inFileTTL$datapath, format="N3")
-        triples <- sparql.rdf(sourceTTL, input$query)
-        triples    
+  
+  # Setup the file read for redland
+  world   <- new("World")
+  storage <- new("Storage", world, "hashes", name="", options="hash-type='memory'")
+  model   <- new("Model", world=world, storage, options="")
+  parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
+
+  data <- eventReactive(input$runQuery, {
+    inFileTTL <- input$fileTTL
+        
+        # redland::parseFileIntoModel(parser, world, "data/rdf/cdiscpilot01.ttl", model)
+        redland::parseFileIntoModel(parser, world, inFileTTL$datapath, model)
+        
+        #OLD  sourceTTL = load.rdf(inFileTTL$datapath, format="N3")
+        # triples <- sparql.rdf(sourceTTL, input$query)
+        # triples
+        # Construct and execute the query
+        # queryString <- 'SELECT * WHERE { ?s ?p ?o . } LIMIT 10'
+        queryResults = NULL;
+        query <- new("Query", world, input$query, base_uri=NULL, query_language="sparql", query_uri=NULL)
+        queryResult <- executeQuery(query, model)
+
+        # Need to wrap the getNextResult into a loop that runs until NULL is returned.
+        repeat{
+          nextResult <- getNextResult(queryResult)
+          queryResults <- rbind(queryResults, data.frame(nextResult))
+          if(is.null(nextResult)){ break }
+        }
+        triples<-queryResults
     })
     queryText <- observeEvent(input$fileRQ, {
         filePath <- input$fileRQ$datapath
@@ -69,7 +96,7 @@ server <- function(input, output, session) {
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
     #-- Graph -----------------------------------------------------------------
     output$network <- renderVisNetwork({
-        RDFTriples <- as.data.frame(data())
+        RDFTriples <<- as.data.frame(data())
         
         RDFTriples<-RDFTriples[!(RDFTriples$o==""),]
         
@@ -99,14 +126,31 @@ server <- function(input, output, session) {
         
         # Default to type =uri, then reassign for best guess at int and string.
         nodes$group <- 'uri'
-        nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)]     <- "int"  
-        nodes$group[! grepl(":|^\\d+", nodes$id, perl=TRUE)] <- "string"
+        nodes$group[grepl("#int", nodes$id, perl=TRUE)] <- "int"
+        nodes$group[grepl("#string", nodes$id, perl=TRUE)] <- "string"
+        
         # Kludge that fails if a literal has a colon. Close enough for exercise.
-        nodes$shape <- ifelse(grepl(":", nodes$id), "ellipse", "box")
+        nodes$shape <- ifelse(grepl("int|string", nodes$group, perl=TRUE), "box", "ellipse")
 
         # Assign labels used for mouseover and for label
+        # NEW PATTERNS HERE
+        # foo <-sub(".*/", "", foo)  # Everything ahead of the value
+        # foo <-sub(">.*", "", foo)  # Everything after the value
+
         nodes$title <- nodes$id
-        nodes$label <- gsub("\\S+:", "", nodes$id)
+        
+        # process string and int values first
+        nodes$title <- sub('^"', "", nodes$title)  # Remove leading quote if there is one. Keep the rest.
+        nodes$title <- sub('".*', "",  nodes$title)  # Everything after the next quote is deleted
+        
+        # At this point the URI's are unaffected, so now play with them.
+        nodes$title <- sub(".*/", "", nodes$title)  # Everything ahead of the value
+        nodes$title <- sub(">.*", "",  nodes$title)  # Everything ahead of the value
+        # foo <-sub(">.*", "", foo)  # Everything after the value
+        
+        
+        nodes$label <- nodes$title
+        # nodes$label <- gsub("\\S+:", "", nodes$id)
 
         #---- Edges
         # Create list of edges by keeping the Subject and Predicate from query result.
@@ -115,8 +159,10 @@ server <- function(input, output, session) {
         # Edge values
         #   use edges$label for values always displayed
         #   use edges$title for values only displayed on mouseover
-        edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
-  
+        # edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
+        edges$title <- sub(".*/", "", edges$p)  # Everything ahead of the value
+        edges$title <- sub(">.*", "", edges$title)  # Everything ahead of the value  
+          
         # ORIGINAL TESTING visNetwork(nodes, edges)
         
         visNetwork(nodes, edges, height = "900px", width = "100%") %>%

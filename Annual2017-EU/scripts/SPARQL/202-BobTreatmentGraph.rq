@@ -1,22 +1,20 @@
 # 202-BobTreatmentGraph.rq
-# Union of three queries to return s,p,o as required by the visualization 
-#   to show Bob's treatment 
+# For visualization purposes
 PREFIX phuse: <http://www.example.org/phuse/workshop/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
 SELECT ?s ?p ?o
 WHERE {
   {
-     # Bob's first name 
-     ?s phuse:firstname "Bob" .
+     ?s phuse:firstname "Bob"^^xsd:string . 
      ?s phuse:firstname ?o .
      ?s ?p ?o
   }UNION{
-     # Bob's treatment
-     ?s phuse:firstname "Bob" .
+     ?s phuse:firstname "Bob"^^xsd:string . 
      ?s phuse:treatment ?o .
      ?s ?p ?o
   }UNION{
-     # Treatment label for Bob's treatment 
-     ?person phuse:firstname "Bob" .
+     ?person phuse:firstname "Bob"^^xsd:string .
      ?person phuse:treatment ?s .
      ?s phuse:label ?o .
      ?s ?p ?o
