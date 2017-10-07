@@ -165,7 +165,7 @@ server <- function(input, output, session) {
           
         # ORIGINAL TESTING visNetwork(nodes, edges)
         
-        visNetwork(nodes, edges, height = "900px", width = "100%") %>%
+        visNetwork(nodes, edges, height = "800px", width = "100%") %>%
             visOptions(selectedBy = "group", 
                 highlightNearest = TRUE, 
                 nodesIdSelection = TRUE) %>%
@@ -183,10 +183,10 @@ server <- function(input, output, session) {
                                                          highlight  = "#668cff" )) %>%
             visPhysics(stabilization=FALSE, barnesHut = list(
                 avoidOverlap=.8,
-                gravitationalConstant = -1000,
-                springConstant = 0.0004,
+                gravitationalConstant = -100,
+                springConstant = 0.004,
                 damping = 0.9,
-                springLength = 20
+                springLength = 10
             ))  
      })
 }
