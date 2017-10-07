@@ -159,8 +159,10 @@ server <- function(input, output, session) {
         # Edge values
         #   use edges$label for values always displayed
         #   use edges$title for values only displayed on mouseover
-        edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
-  
+        # edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
+        edges$title <- sub(".*/", "", edges$p)  # Everything ahead of the value
+        edges$title <- sub(">.*", "", edges$title)  # Everything ahead of the value  
+          
         # ORIGINAL TESTING visNetwork(nodes, edges)
         
         visNetwork(nodes, edges, height = "900px", width = "100%") %>%
