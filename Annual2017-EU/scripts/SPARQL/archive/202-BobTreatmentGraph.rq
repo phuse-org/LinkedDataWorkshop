@@ -1,0 +1,22 @@
+# 202-BobTreatmentGraph.rq
+# For visualization purposes
+PREFIX phuse: <http://www.example.org/phuse/workshop/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?s ?p ?o
+WHERE {
+  {
+     ?s phuse:firstname "Bob"^^xsd:string . 
+     ?s phuse:firstname ?o .
+     ?s ?p ?o
+  }UNION{
+     ?s phuse:firstname "Bob"^^xsd:string . 
+     ?s phuse:treatment ?o .
+     ?s ?p ?o
+  }UNION{
+     ?person phuse:firstname "Bob"^^xsd:string .
+     ?person phuse:treatment ?s .
+     ?s phuse:label ?o .
+     ?s ?p ?o
+  }
+}

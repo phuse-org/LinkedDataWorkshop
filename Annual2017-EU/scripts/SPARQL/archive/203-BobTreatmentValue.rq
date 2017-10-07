@@ -1,0 +1,10 @@
+# 203-BobTreatmentValue.rq
+# Return Bob's treatment. No visualization
+PREFIX phuse: <http://www.example.org/phuse/workshop/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT  ?treatLabel
+WHERE {
+    ?person phuse:firstname "Bob"^^xsd:string .
+    ?person phuse:treatment ?treat .
+    ?treat  phuse:label     ?treatLabel .
+}
