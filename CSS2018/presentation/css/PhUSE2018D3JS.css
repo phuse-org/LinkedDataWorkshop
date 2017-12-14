@@ -41,10 +41,38 @@ h4 {
 
 body {
   background: #002b36;
-  background-color: #002b36; 
+  background-color: #002b36;
+}
+/* Tooltip for RDF Model demo */
+.tooltip{
+    position: absolute;
+    width: 450px;
+    height: 1.1em;
+    padding: 3px;
+    font: 16pt sans-serif;
+    background: #eee8d5;
+    border: 4px;
+    border-style: solid;
+    /*border-color: #006680; */
+    border-color: #003d4d;
+    pointer-events: none;
 }
 
+.uri{
+  color: #0000ff;
+  font-size: 1em;
+}
 
+.uriInstance{
+    stroke-width: 5px;
+    stroke: #b30000;
+    fill: white;
+}
+
+/*--- CONFRIMED IN USE ABOVE HERE --------------------------------------------*/
+
+
+/*---- OLD BELOW HERE -------------------------------------------------------*/
 /*---- LEGEND ---------------------------------------------------------------*/
 .emphGr {
   font-size: 28pt;
@@ -67,7 +95,7 @@ text.monoLG {
     font-size: 12pt;
     font-family: Consolas, courier;
     fill: #eee8d5;
-    
+
     /*fill: #aaa;*/
 }
 
@@ -75,7 +103,7 @@ text.monoLG {
    font-size:24px;
    fill: #eee8d5;  /* keep with moon.css theme */
    text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
- 
+
 }
 
 .node:not(:hover) .nodetext{
@@ -86,23 +114,23 @@ text.monoLG {
 }
 
 /* Possible Color Selections
-"#FFFFFF", // 1-Wht     
-"#00FF00", // 2-BrGre   
-"#99FF99", // 3-LtGre   
-"#FF0000", // 4-BrRed   
-"#FA7D7D", // 5-LtRed   
-"#0000FF", // 6-BrBlu   
-"#8080FF", // 7-LtBlu   
-"#FF6600", // 8-BrOr    
-"#FFB280", // 9-LtOr    
-"#CC00FF", // 10-BrPur  
-"#EB99FF", // 11-LtPur  
-"#FFFF00", // 12-BrYel  
-"#FFFF80", // 13-LtYel  
-"#006666", // 14-SlGre  
-"#99C2C2", // 15-LtSlGre 
-"#666699", // 16-BlGry  
-"#A3A3C2"  // 17-LtBlGr 
+"#FFFFFF", // 1-Wht
+"#00FF00", // 2-BrGre
+"#99FF99", // 3-LtGre
+"#FF0000", // 4-BrRed
+"#FA7D7D", // 5-LtRed
+"#0000FF", // 6-BrBlu
+"#8080FF", // 7-LtBlu
+"#FF6600", // 8-BrOr
+"#FFB280", // 9-LtOr
+"#CC00FF", // 10-BrPur
+"#EB99FF", // 11-LtPur
+"#FFFF00", // 12-BrYel
+"#FFFF80", // 13-LtYel
+"#006666", // 14-SlGre
+"#99C2C2", // 15-LtSlGre
+"#666699", // 16-BlGry
+"#A3A3C2"  // 17-LtBlGr
 */
 /*---- Nodes */
 .Person{
@@ -119,7 +147,7 @@ text.monoLG {
     stroke: #99FF99;
     stroke-width: 0.8;
     fill: #00FF00;
-	   
+
 }
 .Presentation{
     stroke: #FA7D7D;
@@ -129,7 +157,7 @@ text.monoLG {
 .Stream{
     stroke: #FFB280;
     stroke-width: 0.8;
-	  fill: #FF6600; 
+	  fill: #FF6600;
 }
 .Workshop{
     stroke: #99C2C2;
@@ -157,7 +185,7 @@ text.monoLG {
 }
 .ATTENDS{
 	  stroke-width: 0.8;
-	  stroke: #99C2C2; 
+	  stroke: #99C2C2;
  }
 
 .tooltipLegend{
@@ -173,26 +201,26 @@ text.monoLG {
 
 .legendText{
 	  fill: #eee8d5;
-    font-size: 12px;  
-    font-weight:bold; 
+    font-size: 12px;
+    font-weight:bold;
 }
 
-.legendNodeText{       
+.legendNodeText{
     fill: black;
-    font-size: 12px;  
-    font-weight:bold; 
+    font-size: 12px;
+    font-weight:bold;
 }
 
 .nodeText{
     fill:#000000;
     font-family: Serif, Georgia;
-    font-size: 24px;   
+    font-size: 24px;
     font-weight: bold;
 }
 .node {
     fill: black;
-    font-size: 13px;  
-    font-weight:bold; 
+    font-size: 13px;
+    font-weight:bold;
 }
 /* Nodes coloured by Phase/Pool on a Brewer Scale */
 .Phase1-node{
@@ -246,8 +274,8 @@ text.monoLG {
     text-align: center;
     bgcolor: grey;
    /*  background-color: #4CAF50; */
-    
-  /* background-color: #003d4d; */ 
+
+  /* background-color: #003d4d; */
    /* color: #003d4d; */
 }
 
@@ -255,7 +283,7 @@ text.monoLG {
 .linkable{
     color: #0645AD;
     font-size: 14px;
-    text-decoration: underline;  
+    text-decoration: underline;
 }
 /*---------------  AttendeesByCountry-BarChart ---------------------*/
 /* positions the SORT checkbox at top of chart. Add to right: to move left */
@@ -264,7 +292,7 @@ labelBarchart {
   top: 80px;
   right: 300px;
   color: #eee8d5;
-  font-size: 1.2em; 
+  font-size: 1.2em;
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -313,23 +341,18 @@ body {
     stroke-width: 5px;
     stroke: #ac00e6;
     fill: white;
-}        
-.nodeInstance{
-    stroke-width: 5px;
-    stroke: #b30000;
-    fill: white;
-}        
+}
 
 .RDFSubModel{
     stroke-width: 5px;
     stroke: #804000;
     fill: #ebebe0;
-}        
+}
 .RDFObjModel{
     stroke-width: 5px;
     stroke: #e68a00;
     fill: #ebebe0;
-}        
+}
 
 
 
@@ -337,7 +360,7 @@ body {
 #Default-edge{
   stroke: #808080;
   stroke-width: 4;
-}    
+}
 
 #Reference-edge{
   stroke: gray;
@@ -361,7 +384,7 @@ body {
 .edgeLabel{
     fill:#eee8d5;
     font-family: Serif, Georgia;
-    font-size: 18pt;   
+    font-size: 18pt;
     font-weight: bold;
 }
 /* Original ----
@@ -379,19 +402,6 @@ body {
 }
 */
 
-.tooltip{
-    position: absolute;
-    width: 250px;
-    height: 60px;
-    padding: 3px;
-    font: 16pt sans-serif;
-    background: #eee8d5;
-    border: 4px;
-    border-style: solid;
-    /*border-color: #006680; */
-    border-color: #003d4d;
-    pointer-events: none;
-}
 
 .d3SlideH3{
   margin: 0 0 20px 0;
@@ -401,7 +411,7 @@ body {
   line-height: 1.2;
   letter-spacing: normal;
   text-shadow: none;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   font-size: 1.55em; }
 }
 
@@ -430,8 +440,8 @@ body {
     #538c2b 50%,
     #538c2b
   );
-  background-size: 5px 3px; 
- 
+  background-size: 5px 3px;
+
 }
 /* Phase 4 */
 .bar-4 {
@@ -484,7 +494,7 @@ body {
  	font-size: 16pt;
 }
 
-.nodeType-ALL, 
+.nodeType-ALL,
 .nodeType-ADU,
 .nodeType-PED,
 .nodeType-ADUONLY,

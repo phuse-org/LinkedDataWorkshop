@@ -3,7 +3,8 @@
   <head>
 
 <!--
-  VIEW: http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html
+  Start HTTP server with D3-Pres.bat, then:
+  VIEW: http://localhost:8000/LDWkshp-CSS2018.html
 -->
 
 <!-- Uses Chalkboard for drawing:  https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
@@ -118,7 +119,7 @@
     <li>Information Sheet
     <ul>
       <li>Server Address
-      <li>Your study information (study name, etc.)
+      <li>Information to build your diagram (study name, etc.)
     </ul>
   </ul>
 </section>
@@ -133,7 +134,7 @@
   </ol>
 </section>
 
-<!---- Server Login   ---------------------------------------------------->
+<!---- Server Login   --------------------------------------------------------->
 <section>
   <h2>Server Login</h2>
   Instructions in Exercises (Page XXXX) + Information Sheet<br>
@@ -178,21 +179,25 @@
   <h2>Problem Statement</h2>
   What is wrong, and how can Linked Data fix it?
 </section>
-
-<!---- SDTM DM Example -------------------------------------------------------->
-<section>
-  <font class="todo">TW: CHANGE TO SLIDE FROM DURHAM SDE</font>
-  <h3>SDTM DM Example</h3>
-  <img src="images/DMRowColumn.png" />
-  <ul><b>What is wrong here?</b>
-    <li>Inflexible, version specific row x column structure and format
-    <li>Mixture of concepts
-    <li>No integral metadata
-    <li>Data repetition
-    <h4>Graph Data can fix these problems!</h4>
-  </ul>
+<section><!---- SDTM can be improved ----------------------------------------->
+  <h3>SDTM can be improved</h3>
+  <div class="gridPicLeft">
+    <div align=left><img src="images/DMVSDomains2.png" height=380x; width=350px;></div>
+    <div>
+      <ul>
+        <li>Non-extensible, two dimensional
+        <li>Data repetition
+        <li>Terminology, codes not linked
+        <li><i>Version Conversion</i>: time, <font class=emphLgGr>$&pound;&euro;</font>
+        <li>Does not model trial entities
+        <li>Lacks integral metadata<br>
+         ... and more. <br>
+        <li class="fragment" data-fragment-index="1">
+        <font class="emph">26% of CDER SDTM applications: at least 1 error</font></li>
+      </ul>
+    </div>
+  </div>
 </section>
-
 <!---- Additional Opportunties------------------------------------------------->
 <section>
   <h3>Opportunites</h3>
@@ -207,20 +212,33 @@
   </ul>
 </section>
 
-<section><!---- Thing 1, Thing 2   ------------------------------------------->
+<section><!---- Thing 1, Thing 2   -------------------------------------------->
   <h2>Data as a Graph?</h2>
-  <img src="images/Thing12Rel.jpg"  left=0px  height=320px style="border:0px; box-shadow:none;" >
+  <img src="images/Thing12Rel.jpg" left=0px  height=320px style="border:0px; box-shadow:none;" >
 </section>
 
 <section><!-------------------------------------------------------------------->
-  Different types of Linked Data
-  <font class="todo">Add slide showing LPG Types (Tinkerpop, Neo4j) one side
-  , RDF on the other. See TW notes from the Neptune webinar</font>
+  <h3>Different types of Linked Data</h3>
+  <div class="grid5050">
+    <div>Property Graph</div>
+    <div>Resource Description Framework (RDF)</div>
+    <div style="background-color:white;"">
+      <img src="images/apache-tinkerpop_logo.png" left=0px height=100px style="border:0px; box-shadow:none;" >
+      <br>
+      <img src="images/neo4j_logo.png" left=0px height=80px style="border:0px; box-shadow:none;" >
+    </div>
+    <div style="background-color:white;">
+      <img src="images/semanticWeb_logo.png" height=150px style="border:0px; box-shadow:none;">
+      <img src="images/rdf_logo.png" height=70px style="border:0px; box-shadow:none;">
+      <img src="images/sparql_logo.png" height=70px style="border:0px; box-shadow:none;">
+      <br>
+      <img src="images/stardog_logo.png" height=100px style="border:0px; box-shadow:none;">
+    </div>
+  </div>
 </section>
 
-
 <section><!-------------------------------------------------------------------->
-  The RDF MODEL
+  <h3>The RDF MODEL</h3>
   (S-P-O) and Instance data (PERSON1 -treatment-TREAT1)
   <font class="todo">slide from prev workshop showing model and instance data</font>
 </section>

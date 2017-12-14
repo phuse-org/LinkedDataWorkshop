@@ -1,139 +1,119 @@
 <!DOCTYPE html>
 <!-----------------------------------------------------------------------------
 ###############################################################################
-# FILE : /d3/PhUSE/Annual/2016/RDFPropG-NodeTypes.html
-# DESCR: Illustrate the differences in how nodes are linked in RDF vs. in a 
-#        Property graph
-# SRC  : 
-# KEYS : 
-# NOTES: 
-#        
+# FILE : /RDF=-SPOModel.html
+# DESCR: The basic S-P-O Model
+#
+# SRC  :
+# KEYS :
+# NOTES:
+#
 # INPUT: Internal JSON-type data
-#      : 
+#      :
 # OUT  : None.
-# REQ  : 
-# TODO :  
-#        
-#         Add mouseover of edge for neo
-# 
-#         Make colours lighter, more palatable
+# REQ  :
+# TODO :
+#
+#
+#
+#
 ###############################################################################
 ------------------------------------------------------------------------------>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Four Nodes</title>
-    <script type="text/javascript" src="/LinkedDataWorkshop/Annual2017-EU/presentation/d3/d3/d3.v3.min.js"></script>
-    <link rel="stylesheet"        href="/LinkedDataWorkshop/Annual2017-EU/presentation/PhUSE2017D3JS.css">
+    <title>RDFTriples</title>
+    <script type="text/javascript" src="/d3/d3/d3.v3.min.js"></script>
+    <link rel="stylesheet"        href="/css/PhUSE2018D3JS.css">
 </head>
 <body>
-<h2>Neo4j, RDF Comparison</h2>
+<h2>RDF Triples</h2>
 <script type="text/javascript">
 //Width and height for SVG area. Match to the style definition in the slide deck.
 var w = 1100;
 var h = 400;
 var svg = d3.select("body").append("svg")
-    .attr("width", w)
-    .attr("height", h);
-
-// Subtitles
-svg.append("text")
-    .text("Neo4j")
-    .attr("class", "d3SlideH3")
-    .attr("x",60)
-    .attr("y",30);
-svg.append("text")
-    .text("RDF Triple")
-    .attr("class", "d3SlideH3")
-    .attr("x",60)
-    .attr("y",240);
+  .attr("width", w)
+  .attr("height", h);
 
 svg.append("text")
-    .text("Model")
-    // .attr("class", "emphGr")
-    .attr("font-size", "18pt")
-    .attr("fill", '#00cc00')
-    .attr("font-weight", "bold")
-    .attr("font-style", "italic")
-    .attr("x",200)
-    .attr("y",20);
+  .text("Model")
+  // .attr("class", "emphGr")
+  .attr("font-size", "18pt")
+  .attr("fill", '#00cc00')
+  .attr("font-weight", "bold")
+  .attr("font-style", "italic")
+  .attr("x",200)
+  .attr("y",20);
 
 svg.append("text")
-    .text("Instance")
-    //.attr("class", "emphGr")
-    .attr("font-size", "18pt")
-    .attr("fill", '#00cc00')
-    .attr("font-weight", "bold")
-    .attr("font-style", "italic")
-    .attr("x",640)
-    .attr("y",20);
-
-svg.append("line")
-    .attr("x1",80)
-    .attr("x2", 900)
-    .attr("y1", 190)
-    .attr("y2", 190)
-    // .attr("stroke", "#eee8d5")
-    .attr("stroke", "#006666")
-    .attr("stroke-width", 5);
-
+  .text("Instance")
+  //.attr("class", "emphGr")
+  .attr("font-size", "18pt")
+  .attr("fill", '#00cc00')
+  .attr("font-weight", "bold")
+  .attr("font-style", "italic")
+  .attr("x",640)
+  .attr("y",20);
 
 // Build the arrow for RDF Triple
 svg.append("defs")
-    .selectAll("marker")
-    .data(["end"])      // Different link/path types can be defined here
-    .enter().append("marker")    // This section adds in the arrows
-    .attr("id", String)
-    .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 5)  // Increase this number to back the arrow away from the target node
-    .attr("refY", 0)
-    .attr("fill", "#756bb1")
-    .attr("stroke", "white")
-    .attr("markerWidth", 2.5)  // Arrow height
-    .attr("markerHeight", 2.5) // Arrow width
-    .attr("orient", "auto")
-    .append("svg:path")
-    .attr("d", "M0,-5L10,0L0,5");
+  .selectAll("marker")
+  .data(["end"])      // Different link/path types can be defined here
+  .enter().append("marker")    // This section adds in the arrows
+  .attr("id", String)
+  .attr("viewBox", "0 -5 10 10")
+  .attr("refX", 5)  // Increase this number to back the arrow away from the target node
+  .attr("refY", 0)
+  .attr("fill", "#756bb1")
+  .attr("stroke", "white")
+  .attr("markerWidth", 2.5)  // Arrow height
+  .attr("markerHeight", 2.5) // Arrow width
+  .attr("orient", "auto")
+  .append("svg:path")
+  .attr("d", "M0,-5L10,0L0,5");
 
 var colors = d3.scale.category10()
-    .range(["#FFFF00",  //YELLOW
-            "#377eb8",  //BLUE
-            "#4daf4a",  //GREEN
-            "#e41a1c",  //RED
-           ]); 
+    .range(
+      ["#FFFF00",  //YELLOW
+       "#377eb8",  //BLUE
+       "#4daf4a",  //GREEN
+       "#e41a1c",  //RED
+    ]);
 var tooltip = d3.select("body").append("div")
-          .attr("class", "tooltip")
-          .style("opacity", 0);
- 
+  .attr("class", "tooltip")
+  .style("opacity", 0);
+
 var dataset = {
     "nodes":[
-      {"id":0,"name":"Node1","class":"NeoNode", "x":110, "y":110, 
-       "type":"Neo", "fixed":"TRUE",
-       "props":"{ property:value<br>&nbsp;&nbsp;property:value}"},
-      {"id":1,"name":"Node2","class":"NeoNode", "x":380, "y":110, 
-       "type":"Neo","fixed":"TRUE",
-              "props":"{ property:value<br>&nbsp;&nbsp;property:value}"},
+      {"id":0,"name":"Subject","type":"NeoNode", "x":110, "y":110,
+       "fixed":"TRUE",
+       "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Subject</i></b>"},
+      {"id":1,"name":"Object","type":"NeoNode", "x":380, "y":110,
+       "fixed":"TRUE",
+              "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
 
-      {"id":2,"name":"Person1","class":"nodeInstance", "x":550, "y":110, 
-       "type":"Neo", "fixed":"TRUE",
-       "props":"{ firstname:Bob;<br>&nbsp&nbsp;age:32}"},
-      {"id":3,"name":"Treat1","class":"nodeInstance", "x":860, "y":110, 
-       "type":"Neo","fixed":"TRUE",
-       "props":"{ label:Placebo;<br>&nbsp;&nbsp;description:Sugar water}"},
+      {"id":2,"name":"PERSON1","type":"uriInstance", "x":550, "y":110,
+       "type":"uriInstance", "fixed":"TRUE",
+       "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Person1</i></b> "},
+      {"id":3,"name":"TREAT1","type":"uriInstance", "x":860, "y":110,
+       "fixed":"TRUE",
+       "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Treat1</i></b>"},
 
-      {"id":4,"name":"Subject","class":"RDFSubModel", "x":110, "y":310, "type":"RDF", "fixed":"TRUE"},
-      {"id":5,"name":"Object","class":"RDFObjModel",  "x":380, "y":310,"type":"RDF", "fixed":"TRUE"},
+      {"id":4,"name":"PERSON","type":"uriInstance", "x":650, "y":310, "fixed":"TRUE"},
+      {"id":5,"name":"TREATMENT","type":"uriInstance",  "x":860, "y":310, "fixed":"TRUE"},
 
-      {"id":6,"name":"Person1","class":"nodeInstance", "x":550, "y":310, "type":"RDF", "fixed":"TRUE"},
-      {"id":7,"name":"Treat1","class":"nodeInstance",  "x":860, "y":310,"type":"RDF", "fixed":"TRUE"}
+{"id":6,"name":"Bob","type":"uriInstance",  "x":360, "y":310, "fixed":"TRUE"},
+{"id":7,"name":"32","type":"uriInstance",  "x":460, "y":310, "fixed":"TRUE"},
+
       ],
     "edges":[
-      {"source":0,"target":1,"value":"relation", 
-       "type":"Neo","relProps":"{ property:value}"},
-      {"source":2,"target":3,"value":"treatment", 
-       "type":"Neo","relProps":"{ treatdate:2017-06-08}"},
-      {"source":4,"target":5,"value":"predicate"},
-      {"source":6,"target":7,"value":"treatment"}
+      {"source":0,"target":1,"value":"predicate",
+       "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/></font><b><i>predicate</i></b>"},
+      {"source":2,"target":3,"value":"treatment",
+       "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/></font><b><i>treatment</i></b>"},
+
+
       ]
 }
 console.log("Total Nodes "+dataset.nodes.length);
@@ -159,25 +139,22 @@ var edges = svg.selectAll("reLine")
     .attr("class", "edges")
     .attr("marker-end", "url(#end)")
     .on('mouseover', function(d){
-    	       var nodeSelection = d3.select(this).style({opacity:'0.5'});
-         if (d.type =='Neo'){
-             tooltip.transition()
-                 .duration(200)
-                 .style("opacity", .9);
-             tooltip.html(d.relProps)
-                 .style("left", (d3.event.pageX + 6) + "px")
-                 .style("top", (d3.event.pageY - 10) + "px");
-        }
+      var nodeSelection = d3.select(this).style({opacity:'0.5'});
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(d.relProps)
+        .style("left", (d3.event.pageX + 6) + "px")
+        .style("top", (d3.event.pageY - 10) + "px");
+
      })
     .on('mouseout', function(d){
-         var nodeSelection= d3.select(this).style({opacity:'1.0',}) 
-         if (d.type =='Neo'){
-             tooltip.transition()
-                 .duration(500)
-                 .style("opacity", 0);
-         }
+      var nodeSelection= d3.select(this).style({opacity:'1.0',})
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
     })
-;  
+;
 var nodes = svg.selectAll("g.node")
     .data(dataset.nodes)
     .enter()
@@ -188,27 +165,27 @@ var nodes = svg.selectAll("g.node")
 
 nodes.append("circle")
     .attr("r", 50)
-    .attr("class", function(d,i){return d.class}) 
+    .attr("class", function(d,i){return d.type})
     // Mousover Node - highlight node by fading the node colour during mouseover
     .on('mouseover', function(d){
          var nodeSelection = d3.select(this).style({opacity:'0.5'});
-         if (d.type =='Neo'){
+
              tooltip.transition()
                  .duration(200)
                  .style("opacity", .9);
              tooltip.html(d.props)
                  .style("left", (d3.event.pageX + 6) + "px")
                  .style("top", (d3.event.pageY - 10) + "px");
-         }
+
     })
-    //Mouseout Node  - bring node back to full colour   
+    //Mouseout Node  - bring node back to full colour
     .on('mouseout', function(d){
-         var nodeSelection= d3.select(this).style({opacity:'1.0',}) 
-         if (d.type =='Neo'){
+         var nodeSelection= d3.select(this).style({opacity:'1.0',})
+
              tooltip.transition()
                  .duration(500)
                  .style("opacity", 0);
-         }
+
     })
 // dx sets how close to the node the label appears
 nodes.append("text")
@@ -216,9 +193,9 @@ nodes.append("text")
     //.attr("dx", -35)   // adjust to "center" on the node. Depends on node size.
     //.attr("dy", ".35em")
     .attr("text-anchor", "middle")
-    .text(function(d) { return d.name }) 
-    ;          
- 
+    .text(function(d) { return d.name })
+    ;
+
 // Edge Paths
 var edgepaths = svg.selectAll(".edgepath")
     .data(dataset.edges)
@@ -243,7 +220,7 @@ var edgelabels = svg.selectAll(".edgelabel")
         'id':function(d,i){return 'edgelabel'+i},
         'dx':80,
         'dy':-10
-    })   
+    })
     ;
 
 edgelabels.append('textPath')
@@ -259,12 +236,12 @@ force.on("tick", function() {
                                                            // Coordinate with arrow size and placement.
         .attr("y2", function(d) { return d.target.y;})
     nodes.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-       
+
     edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
         //console.log(d)
         return path
-    });       
-      
+    });
+
     // positioning of the label along the edge
     edgelabels.attr('transform',function(d,i){
         if (d.target.x<d.source.x){
@@ -277,7 +254,7 @@ force.on("tick", function() {
           return 'rotate(0)';
         }
     });
-});     
+});
 
 // Double click to 'unfix' the node and have forces start to act on it again.
 function dblclick(d) {
@@ -290,6 +267,6 @@ function dragstart(d) {
 }
 </script>
 </body>
-<a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html#/13">back</a>  
+<a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html#/13">back</a>
 
 </html>

@@ -1,9 +1,12 @@
 /*
   Addtional css by TW for the presentation
 */
+/*---- Basic HTML styling ----------------------------------------------------*/
 p {
   text-align:left;
 }
+
+/*---- Grid Layouts ----------------------------------------------------------*/
 * {box-sizing:border-box;}
 .gridTrainers{
   display: grid;
@@ -11,7 +14,6 @@ p {
   grid-template-columns: 30%  70%;
   grid-template-rows: 1fr 1fr;
   grid-gap: 5px;  /* shorthand for both column and row gaps */
-
 }
 .gridTrainers div{
   border: 1px solid rgb(0.95,107);
@@ -23,16 +25,47 @@ p {
   font-size: 75%;
 }
 
+.gridPicLeft{
+  display: grid;
+  grid-template-columns: 28% 72% ;  /* flexible grid units instead of px or % */
+  grid-template-rows:  800px;
+  grid-gap: 1px;  /* column and row */
+}
+.gridPicLeft div{
+  border: 0px solid rgb(0.95,107);
+  border-radius: 0px;
+  background-color: #002b36; /* moon background */
+  padding: 0.01em;
+}
+
+.grid5050{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  100px 700px;
+  grid-gap: 1em;  /* column and row */
+}
+.grid5050 div{
+  text-align: left;
+  background-color: none; /* #002b36;moon background */
+  padding: 1em;
+}
+/*---- Fonts -----------------------------------------------------------------*/
 .todo{
     font-size: 1.1em;
     color: red;
     font-weight: bold;
     font-style: italic;
-  }
+}
 
+/*---- Images ----------------------------------------------------------------*/
+/* NOT WORKING> REMOVE */
+.reveal .noborder{
+  border:0px;
+  box-shadow:none;
+}
 
 /* ABOVE HERE IS CONFIRMED */
-
+/*----- OLDE BELOW HERE ------------------------------------------------------*/
 * {box-sizing:border-box;}
 .gridTwoCol{
   display: grid;
@@ -166,21 +199,6 @@ p {
 .owlLiteral    {background-color:#ccccb3;}
 .owlAxiom      {background-color:#4dff4d; }  /* green */
 
-.gridPicLeft{
-    display: grid;
-    grid-template-columns: minmax(400px,500px) 1fr ;  /* flexible grid units instead of px or % */
-    grid-template-rows:  500px;
-    grid-gap: 5px;  /* shorthand for both column and row gaps */
-}
-.gridPicLeft div{
-  border: 0px solid rgb(0.95,107);
-  border-radius: 0px;
-  /* background-color: rgba(0,95,107,0.8);  */
-  background-color: #002b36; /* moon background */
-  padding: 0.01em;
-  color: #fff;
-  /*font-size: 75%; */
-}
 /* Emphasis within Bullets */
 .emphSmall {
   font-size: 110%;
