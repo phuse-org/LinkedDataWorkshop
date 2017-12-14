@@ -1,6 +1,8 @@
-# Introduction to Linked Data and Graph Databases
+# Introduction to Linked Data
 ## Hands-on Workshop
-## PhUSE Annual Conference 2017, Edinburgh
-### 11 Oct 2017, 10:30am(sharp!) - 12:30pm, Kilsyth Room (Level 0)
+## PhUSE CSS Conference 2018, Silver Spring, MD
+### 04M March, time TBD, Room TBD
 
-All files for the workshop are located under the subfolder "Annual2017-EU"
+All files for the workshop are located under the subfolder "CSS2018"
+
+Previous versions of the workshop are available under their respective folders (Annual2017-EU, CSS2017-US).
