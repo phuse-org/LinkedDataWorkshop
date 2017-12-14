@@ -14,20 +14,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <title>Phuse2017-LDWkshop</title> <link rel="stylesheet" 
+  <title>CSS 2018-LDWkshop</title> <link rel="stylesheet"
   href="css/reveal.css"> <link rel="stylesheet" href="css/theme/black.css"> <!--
-  Theme used for syntax highlighting of code --> <link rel="stylesheet" 
-  href="css/theme/moon.css"> <link rel="stylesheet" href="css/PhUSE2017.css"> 
-  <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html 
-  2. start web service to that path. 2. Start an older version of Chrome. 
-  Current version does not support PDF preview. 
-  C:/downloads/chrome64_55.0.2883.75/Chrome.exe 3. Open in Chrome: 
-  http://localhost:8000/?print-pdf#/. 4. Ctrl P :  Landscape, no s, Print 
-  Background Images. 5. use Print Preview to check fmarginor blank sides 6. Save 
-  as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check 
-  option for printing background images. Uncheck for printing header/footer to 
-  remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width 
-  and height in initialize fnt at bottom <link rel="stylesheet" 
+  Theme used for syntax highlighting of code --> <link rel="stylesheet"
+  href="css/theme/moon.css"> <link rel="stylesheet" href="css/PhUSE2018.css">
+  <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html
+  2. start web service to that path. 2. Start an older version of Chrome.
+  Current version does not support PDF preview.
+  C:/downloads/chrome64_55.0.2883.75/Chrome.exe 3. Open in Chrome:
+  http://localhost:8000/?print-pdf#/. 4. Ctrl P :  Landscape, no s, Print
+  Background Images. 5. use Print Preview to check fmarginor blank sides 6. Save
+  as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check
+  option for printing background images. Uncheck for printing header/footer to
+  remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width
+  and height in initialize fnt at bottom <link rel="stylesheet"
   href="css/print/pdf.css"> -->
 
     <!-- Printing and PDF exports -->
@@ -43,425 +43,213 @@
   <div class="reveal">
     <div class="slides">
 
-  <!---- Title Slide  -------------------------------------------------->      
-  <section>
-    <h3>Introduction to Linked Data and Graph Databases</h3>
-    <h3> Hands-on Workshop</h3>
-    <br>
-    <h4> PhUSE 2017 Annual Conference</h4>
-    <br> 
-    Edinburgh, Scotland<br>
-    11 October, 2017
-  </section>
+<!---- Title Slide  ----------------------------------------------------------->
+<section>
+  <h3>Introduction to Linked Data</h3>
+  <h3> Hands-on Workshop</h3>
+  <br>
+  <h4> PhUSE CSS 2018</h4>
+  <br>
+  Silver Spring MD<br>
+  04 March, 2018
+</section>
 
-  <!---- Trainers ------------------------------------------------------->      
-  <section>
-    <h3>Instructor</h3>
-    <div class="gridTrainers">
-      <div align=left>Tim Williams</div>
-        <div align=left>Statistical Systems Analyst<br>
-          UCB BioSciences<br>
-          Raleigh, NC, USA<br>
-          <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
-        </div>
-<!--
-<img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
-<img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img>
-<a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
--->
-    </div> 
-    Workshop Files, Presentation PDF:<br>
-    <div align=left>
-      <font class="linkSmallBlue">
-        <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/Annual2017-EU</a>            
-      </font>
+<!---- Instructors ------------------------------------------------------------>
+<section>
+  <h3>Instructors</h3>
+  <div class="gridTrainers">
+    <div align=left>Tim Williams</div>
+    <div align=left>Statistical Systems Analyst<br>
+        UCB BioSciences<br>
+        Raleigh, NC, USA<br>
+        <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
+        <!--
+        <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
+        <img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img><br>
+        <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
+      -->
     </div>
-  </section>
-
-<!---- HELP --------------------------------------------->
-<section>
-  <h2>HELP!</h2>
-  <br>
-  <h3>WHO?</h3>
-  <br>
-  <h3>HOW?</h3>
-</section>
-
-  <!---- OUTLINE   --------------------------------------------------------->
-  <section>
-    <h2>Outline</h2>
-    <ul>
-      <li>Introduction </li>
-        <ul>
-          <li>Server Login
-          <li>Data as a Graph
-        </ul>                  
-      <li>Exercises</li>
-        <ol>
-          <li> Neo4j Labeled Property Graph (LPG)
-          <li> Resource Description Framework (RDF)
-        </ol>
-      <li>Demonstrations (time permitting)</li>
-        <ul>
-          <li> SDTM as LGP
-          <li> SDTM as RDF
-        </ul>
-    </ul>
-  </section>
-
-  <!---- OUTLINE: Introduction   --------------------------------------------------------->
-  <section>
-    <h2>Outline</h2>
-    <ul>
-      <font class="emphGr">
-      <li>Introduction </li>
-      </font>
-      <font class="deEmph">
-        <ul>
-          <li>Server Login
-          <li>Data as a Graph
-        </ul>                  
-      <li>Exercises</li>
-          <ol>
-            <li> Neo4j Labeled Property Graph (LPG)
-            <li> Resource Description Framework (RDF)
-          </ol>
-      <li>Demonstrations (time permitting)</li>
-      </font>
-    </ul>
-  </section>
-
-  <!---- Introduction   --------------------------------------------------------->
-  <section>
-    <h3 class="fragment shrink" data-fragment-index="1">"Introduction to Linked Data and Graph Databases"</h3>
-      <br>
-      <h3 class="fragment" data-fragment-index="1">"From whiteboard to queryable graph: A <i>very basic</i> introduction to 
-      converting clinical trials concepts and values to Linked Data." </h3>
-  </section>
-
-  <!---- Materials   --------------------------------------------------------->
-  <section>
-    <h3>Materials</h3>
-    <ul>
-      <li>Laptop - power up!
-      <li>Pencil + eraser, or pen
-      <li>Printed copies of:
-      <ul>
-        <li>Exercises
-        <li>Neo4j Diagram
-        <li>RDF Diagram
-      </ul>
-    </ul>            
-  </section>
-
-  <!---- OUTLINE: Introduction   --------------------------------------------------------->
-<section>
-  <h2>Outline</h2>
-    <ul>
-      <font class="deEmph">
-      <li>Introduction </li>
-      <ul>
-        </font>
-        <font class="emphGr">
-          <li>Server Login
-        </font>
-        <font class="deEmph">
-          <li>Data as a Graph
-      </ul>                  
-      <li>Exercises</li>
-        <ol>
-          <li> Neo4j Labeled Property Graph (LPG)
-          <li> Resource Description Framework (RDF)
-        </ol>
-      <li>Demonstrations (time permitting)</li>
-      </font>
-    </ul>
-  </section>
-
-  <!---- Server Login   ---------------------------------------------------->
-  <section>
-    <h2>Server Login</h2>
-        Instructions in Exercises (Page 3)<br>
-       <br>
-        <table>
-            <tr>
-                <td>Computer:</td>
-                <td>nn.nnn.nn.nnn</td>
-            </tr>
-            <tr>
-                <td>User name:</td>
-                <td><font class="emph">phuseldw</font></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><font class="emph">EdinLDW11!</font></td>
-            </tr>
-        </table>
-    </section>
-
-    <!---- OUTLINE: Data as a Graph   ---------------------------------------->
-    <section>
-        <h2>Outline</h2>
-        <ul>
-            <font class="deEmph">
-            <li>Introduction </li>
-                <ul>
-                    <li>Server Login
-            </font>
-            <font class="emphGr">
-                    <li>Data as a Graph
-                </ul>                  
-            </font>
-            <font class="deEmph">
-            <li>Exercises</li>
-                <ol>
-                    <li> Neo4j Labeled Property Graph (LPG)
-                    <li> Resource Description Framework (RDF)
-                </ol>
-            <li>Demonstrations (time permitting)</li>
-            </font>
-        </ul>
-    </section>
-
-    <!---- Why Data as a Graph?  --------------------------------------------->
-    <section>
-        <h2>Why Data as a Graph?</h2>
-        <h3>One Example: SDTM Domains</h3>
-    </section>
-
-  <!---- SDTM row by column ------------------------------------------------->
-  <section>
-    <h3>SDTM DM Domain</h3>
-    <img src="images/DMRowColumn.png" />
-    <ul><b>What is wrong here?</b>
-      <li>Inflexible, version specific row x column structure and format
-      <li>Mixture of concepts
-      <li>No integral metadata
-      <li>Data repetition
-      <h4>Graph Data can fix these problems!</h4>      
-    </ul>   
-  </section>
-
-    <section><!---- Thing 1, Thing 2   --------------------------------------->
-        <section> <!-- main slide -->
-            <h2>Data as a Graph?</h2>
-            <img src="images/Thing12Rel.jpg"  left=0px  height=250px style="border:0px; box-shadow:none;" >    
-            <br>
-            <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/RDFLPG-NodeTypes.html">Compare Neo4j with RDF</a>
-        </section>  
-        <section> <!-- CHILD SCREEN SHOT --->
-            <h3>Screen shot of interactive graph</h3>
-            <img src="images/RDFNeo4jComparison-SS.png" 
-                 style="vertical-align:middle;border:0px; box-shadow:none;"
-                 width="80%"></img>
-        </section>
-    </section>
-
-  <section><!---- LPG/RDF Differences   ------------------------------------>
-    <h3>Neo4j, RDF: More Core Differences</h3>
-    <table>
-      <tr>
-        <th></th>
-        <th>Neo4j</th>
-        <th>RDF</th>
-      </tr>
-      <tr>
-        <td>Query</td>
-        <td>Cypher</td>
-        <td>SPARQL</td>
-      </tr>   
-      <tr>
-        <td>Traverse</td>
-        <td>Easier</td>
-        <td>Harder</td>
-      </tr>   
-      <tr>
-        <td>Graph</td>
-        <td>Less complex, shallow</td>
-        <td>More complex, deep</td>
-      </tr>   
-      <tr>
-        <td>Ontologies</td>
-        <td>Code them externally?</td>
-        <td>Many available &amp; tools to make them.</td>
-      </tr>   
-      <tr>
-        <td>Learning</td>
-        <td>Easier</td>
-        <td>Harder</td>
-      </tr>   
-    </table>          
-  </section>
-    
-<!---------------------------------------------------------------------------->
-<!--  Neo4jSECTION ------------------------------------------------------->
-<!------------------------------------------------------------------------>
-<!---- OUTLINE: Labeled Property Graph  ---------------------------------->
-  <section>
-    <h2>Outline</h2>
-    <ul>
-      <font class="deEmph">
-      <li>Introduction </li>
-        <ul>
-          <li>Server Login
-          <li>Data as a Graph
-        </ul>                  
-      </font>
-      <font class="emphGr"><li>Exercises</li>
-        <ol>
-          <li> Neo4j Labeled Property Graph (LPG)
-      </font>
-      <font class="deEmph">
-        <li> Resource Description Framework (RDF)
-        </ol>
-      <li>Demonstrations (time permitting)</li>
-      </font>
-    </ul>
-  </section>
-
-    <!---- Exercise Process Flow: Neo4j -------------------------------------->
-    <section data-background="images/Neo4jProcess.png"
-          data-state="img-center" ;
-          data-background-size= contain ;>
-    </section>
-
-
-          <!---- 1.1 Diagram the model  -------------------------------------------------------->
-          <!-- OLD embedded diagram
-          <section data-background-iframe="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">
-          </section>
-            <!-- following goes full screen but cannot SCROLL.
-            <section data-background-iframe='file:///C:/_sandbox/PhUSE/Annual/2017/workshop/presentation/arrows/lpg-NewModel.html'
-                     data-background-interactive>
-            </section>
-           -->    
-
-<!---- LPG Model  -------------------------------------------------------->
-<section>
-  <h3>Approach</h3>
-  <ul>
-    <li>Model instances, not ontology ; Real-life things, not a classification of <i>types</i> of things (ontology)
-      <ul> 
-        <li>Example: <font class="emphSmall">PERSON1</font> <font class="predIt">enrolledin</font> 
-          <font class="emphSmall">STUDY1</font> not "PATIENTS enrolledin STUDIES"<br>
-      </ul>
-    <li>See <b>"Guidelines for Adding Nodes and Relations"</b>
-  </ul>
-</section>
-  <!---- Add Nodes to the Model  --------------------------------------------->
-<section>
-  <h3>Ideas for new nodes</h3>
+    <div align=left>Johannes Ulander</div>
+    <div align=left>YOUR TITLE <br>
+          S-Cubed<br>
+          ADDRESS<br>
+          <a href="mailto:foo@bar.com">YOUR EMAIL</a>
+    </div>
+  </div>
+  Workshop Files, Presentation PDF:<br>
   <div align=left>
-    <ul><font class="emphSmItGr">Site</font>
-      <li><font class="emphSmall">SITE1</font> <font class="predIt">locatedin</font> <font class="emphSmall">COUNTRY1</font>
-      <li><font class="emphSmall">SITE1</font> <font class="predIt">investigator</font> <font class="emphSmall">INVESTIGATOR1</font>
-    </ul>
-    <br>
-    <ul><font class="emphSmItGr">Person</font>
-      <li><font class="emphSmall">PERSON1</font> <font class="predIt">gender</font> <font class="emphSmall">M</font>
-    </ul>
-    <br>
-    <ul><font class="emphSmItGr">Study</font>
-      <li><font class="emphSmall">STUDY1</font> <font class="predIt">sponsor</font> <font class="emphSmall">COMPANY1</font>
-    </ul>
+    <font class="linkSmallBlue">
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/CSS2018</a>
+    </font>
   </div>
 </section>
 
-<!---- LPG Original Model  --------------------------------------------------->
+<!---- OUTLINE   -------------------------------------------------------------->
 <section>
-  <h3>1.1 Diagram the Model</h3>
-  <h4>"White board" the Things</h3>
-  <br>
-  <br>
-  Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-baseModel.html">Neo4j Diagram</a>
+  <h2>Outline</h2>
+  <ol>
+    <li>Workshop Materials</li>
+    <li>Introduction to Linked Data</li>
+    <li>Hands-on Activities</li>
+  </ol>
 </section>
 
-<!---- LPG New Model   ----------------------------------------------------->
+<!---- OUTLINE: Materials ---- ------------------------------------------------>
 <section>
-    The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/lpg-NewModel.html">Revised Neo4j Diagram</a>
+  <h2>Outline</h2>
+  <ol>
+    <font class="emphGr">
+      <li>Workshop Materials</li>
+    </font>
+    <font class="deEmph">
+      <li>Introduction to Linked Data</li>
+      <li>Hands-on Activities</li>
+    </font>
+  </ol>
 </section>
 
-    <!--
-      <section>
-        <div class = "stretch">
-          <iframe width="100%" height="100%" 
-            src="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/arrows/lpg-newModel.html">
-          </iframe>
-        </div>
-      </section>
-    -->
-    <!-- ADD NEW NEO SLIDES HERE FOR EXERCISES -->
-
-  <!---- Diagram to Spreadsheet   -------------------------------------------->
-  <section>
-    <h3> 1.2 Transfer Diagram to Spreadsheet</h3>
-   <img src="images/Neo4jSpreadsheet.png"  left=0px  
-     style="border:0px; box-shadow:none;" 
-     height="400px"
-     width = "1500px">
-   </img>
-   <h4>...wait for instructor when done!</h4>
-  </section>
-
-  <section>
-    <h3> 1.3 Upload to Neo4j</h3>
-    <h3> 1.4 Query and Visualize</h3>
-  </section>
-
-  <!---- End Neo4j slides   ------------------------------------------------>
-  <section>
-    <font class="emphItalic">End Neo4 section</font>
-  </section>
-
-
-
-  <!------------------------------------------------------------------------>
-  <!--  RDF SECTION -------------------------------------------------------->
-  <!------------------------------------------------------------------------>
-  <!---- OUTLINE: RDF   ---------------------------------------------------->
-  <section>
-    <h2>Outline</h2>
+<!---- Materials -------------------------------------------------------------->
+<section>
+  <h2>Workshop Materials</h2>
+  <ul>
+    <li>Your laptop [Power up!]
+    <li>Exercises
+    <li>SPARQL Reference
+    <li>Information Sheet
     <ul>
-      <font class="deEmph">
-      <li>Introduction
-        <ul>
-          <li>Server Login
-          <li>Data as a Graph
-        </ul>                  
-      </font>
-      <li>Exercises
-          <ol>
-            <li> Neo4j Labeled Property Graph (LPG)
-      <font class="emphGr">
-            <li> Resource Description Framework (RDF)
-      </font>
-          </ol>
-      <font class="deEmph">
-      <li>Demonstrations (time permitting)
-      </font>
+      <li>Server Address
+      <li>Your study information (study name, etc.)
     </ul>
-  </section>
+  </ul>
+</section>
 
-  <!---- Exercise Process Flow: Neo4j -------------------------------------->
-  <section data-background="images/RDFProcess.png"
-        data-state="img-center" ;
-        data-background-size= contain ;>
-  </section>
+<!---- Server Login------------------------------------------------------------>
+<section>
+  <h2>Server Login</h2>
+  <p>Login to the server using:
+  <ol>
+    <li>Server IP Address [Information Sheet]
+    <li>Exercises Document: Section XX
+  </ol>
+</section>
 
-  <section>
-      <h3>2.1 RDF Spreadsheet to Diagram</h3>
-      <h4>Neo4j Concepts to the RDF Diagram</h4>
-      <br>
-      <br>
-      Handout: <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/RDF-BaseModel.html">RDF Diagram</a>
-  </section>
+<!---- Server Login   ---------------------------------------------------->
+<section>
+  <h2>Server Login</h2>
+  Instructions in Exercises (Page XXXX) + Information Sheet<br>
+  <br>
+  <table>
+    <tr>
+      <td>Computer:</td>
+      <td>nn.nnn.nn.nnn</td>
+    </tr>
+    <tr>
+      <td>User name:</td>
+      <td><font class="emph">phuseldw</font></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><font class="emph">Silver11!</font></td>
+    </tr>
+  </table>
+</section>
 
-  <!---- New Model   -------------------------------------------------------->
-  <section>
-  The <a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Arrows/rdf-NewModel.html">Revised RDF Diagram</a> 
-  </section>
-    
-  <section>
+<!----------------------------------------------------------------------------->
+<!-- Introduction to Linked Data ---------------------------------------------->
+<!----------------------------------------------------------------------------->
+<!---- OUTLINE: Introduction to Linked Data ----------------------------------->
+<section>
+  <h2>introduction-linked-data</h2>
+  <ol>
+    <font class="deEmph">
+      <li>Workshop Materials</li>
+    </font>
+    <font class="emphGr">
+      <li>Introduction to Linked Data</li>
+    </font>
+    <font class="deEmph">
+      <li>Hands-on Activities</li>
+    </font>
+  </ol>
+</section>
+
+<!---- Problem Statement  ----------------------------------------------------->
+<section>
+  <h2>Problem Statement</h2>
+  What is wrong, and how can Linked Data fix it?
+</section>
+
+<!---- SDTM DM Example -------------------------------------------------------->
+<section>
+  <font class="todo">TW: CHANGE TO SLIDE FROM DURHAM SDE</font>
+  <h3>SDTM DM Example</h3>
+  <img src="images/DMRowColumn.png" />
+  <ul><b>What is wrong here?</b>
+    <li>Inflexible, version specific row x column structure and format
+    <li>Mixture of concepts
+    <li>No integral metadata
+    <li>Data repetition
+    <h4>Graph Data can fix these problems!</h4>
+  </ul>
+</section>
+
+<!---- Additional Opportunties------------------------------------------------->
+<section>
+  <h3>Opportunites</h3>
+  <ul>
+    <li>Merge data from diverse sources (no silos!)
+    <li>Data integration across the life cycle
+    <li>Integral Metadata
+    <li>High quality submissions data
+    <li>New ways to explore and analyze
+    <li>Build a foundation for AI and ML
+    <li>[!! YOUR IMAGINATION !!]
+  </ul>
+</section>
+
+<section><!---- Thing 1, Thing 2   ------------------------------------------->
+  <h2>Data as a Graph?</h2>
+  <img src="images/Thing12Rel.jpg"  left=0px  height=320px style="border:0px; box-shadow:none;" >
+</section>
+
+<section><!-------------------------------------------------------------------->
+  Different types of Linked Data
+  <font class="todo">Add slide showing LPG Types (Tinkerpop, Neo4j) one side
+  , RDF on the other. See TW notes from the Neptune webinar</font>
+</section>
+
+
+<section><!-------------------------------------------------------------------->
+  The RDF MODEL
+  (S-P-O) and Instance data (PERSON1 -treatment-TREAT1)
+  <font class="todo">slide from prev workshop showing model and instance data</font>
+</section>
+
+<section><!-------------------------------------------------------------------->
+  The SEMANTIC WEB:  Adding meaning to data
+  (S-P-O) and Instance data (PERSON1 -treatment-TREAT1)
+  <font class="todo">slide from prev workshop showing model and instance data</font>
+</section>
+
+<!-- TO HERE ----------------------------------------------------------------------------------------->
+<section><!-------------------------------------------------------------------->
+  The LOD cloud
+  <font class="todo">add diagram </font>
+</section>
+
+<section><!-------------------------------------------------------------------->
+  Renewed Interest in Linked Data
+  <ul>
+    <li>Amazon Neptune
+    <li>Stardog goes to Mars
+    <li>GRAKN.AI
+  </ul>
+  <font class="todo">add diagram </font>
+</section>
+
+
+
+<section>
     <h3>Object Types</h3>
     <table>
       <tr>
@@ -471,15 +259,15 @@
       <tr>
         <td><font class="emphItalicRed">uri</font></td>
         <td>Object links to another node or <i>could</i> link to another node</td>
-      </tr>   
+      </tr>
       <tr>
         <td><font class="emphItalicGreen">string</font></td>
         <td>Character string/value that does not link to other nodes</td>
-      </tr>   
+      </tr>
       <tr>
         <td><font class="emphItalicBlue" >int</font></td>
         <td>Integer number. No link to other nodes</td>
-      </tr>   
+      </tr>
     </table>
   </section>
 
@@ -493,7 +281,7 @@
   <!---- Diagram to Spreadsheet   -------------------------------------------->
   <section>
     <h3> 2.2 Assign Object Type</h3>
-    <img src="images/RDFSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >    
+    <img src="images/RDFSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >
   </section>
 
 
@@ -538,7 +326,7 @@
       <ul>
         <li>Server Login
         <li>Data as a Graph
-      </ul>                  
+      </ul>
     <li>Exercises
       <ol>
         <li>Neo4j Labeled Property Graph (LPG)
@@ -558,7 +346,7 @@
   <ul>
     <li>PhUSE - server costs
     <li><font class="emphSmallBlue">Lauren White, Wendy Dobson, Tora Whitworth</font> and the entire PhUSE admin team
-    <li><font class="emphSmallBlue">Chris Decker</font> - server cloning 
+    <li><font class="emphSmallBlue">Chris Decker</font> - server cloning
     <li><font class="emphSmallBlue">Johannes Ulander</font> - Neo4j SDTM Demo, exercises review, assistant
     <li><font class="emphSmallBlue">Scott Bahlavooni</font> - assistant
     <li><font class="emphSmallBlue">Mark Foxwell, Paula Finch</font> - Workshop coordinators
@@ -590,7 +378,7 @@
     </div>
     <div><a href="https://youtu.be/U8ZGVx1NmQg">https://youtu.be/U8ZGVx1NmQg</a> [45min]
     </div>
-    
+
     <div>Intro to Cypher
     </div>
     <div><a href="https://www.youtube.com/watch?v=1TSBXZMv6tc ">https://www.youtube.com/watch?v=1TSBXZMv6tc</a> [49min]
@@ -600,7 +388,7 @@
     </div>
     <div><a href="https://www.youtube.com/watch?v=AaJS-DGBQX4">https://www.youtube.com/watch?v=AaJS-DGBQX4</a> [42min]
     </div>
-    
+
   </div>
 </section>
 
@@ -645,11 +433,11 @@
       // Shows the slide number using default formatting
 
      //Reveal.configure({ slideNumber: true });
-      
+
   Reveal.initialize({
 //    width: '100%',
 //    height: '100%',
-    chalkboard: { 
+    chalkboard: {
           // optionally load pre-recorded chalkboard drawing from file
           //src: "chalkboard.json",
     },

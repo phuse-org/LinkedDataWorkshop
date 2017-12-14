@@ -1,14 +1,17 @@
 /*
   Addtional css by TW for the presentation
 */
-
+p {
+  text-align:left;
+}
 * {box-sizing:border-box;}
 .gridTrainers{
   display: grid;
-  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
-  grid-template-rows: 100px 100px;
+/*  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-columns: 30%  70%;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 5px;  /* shorthand for both column and row gaps */
-  
+
 }
 .gridTrainers div{
   border: 1px solid rgb(0.95,107);
@@ -20,13 +23,23 @@
   font-size: 75%;
 }
 
+.todo{
+    font-size: 1.1em;
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+
+/* ABOVE HERE IS CONFIRMED */
+
 * {box-sizing:border-box;}
 .gridTwoCol{
   display: grid;
   grid-template-columns: 50%  50%;  /* flexible grid units instead of px or % */
   grid-template-rows: 100px 100px;
   grid-gap: 5px;  /* shorthand for both column and row gaps */
-  
+
 }
 .gridTwoCol div{
   border: 1px solid rgb(0.95,107);
@@ -44,7 +57,7 @@
   grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
   grid-template-rows: 200px;
   grid-gap: 10px;  /* shorthand for both column and row gaps */
-  
+
 }
 .gridExercise div{
   border: 1px solid rgb(0.95,107);
@@ -61,7 +74,7 @@
   display: grid;
   grid-template-columns: minmax(200px, 300px) minmax(200px, 800px);  /* flexible grid units instead of px or % */
   grid-gap: 5px;  /* shorthand for both column and row gaps */
-  
+
 }
 .gridResources div{
   border: 1px solid rgb(0.95,107);
@@ -76,23 +89,23 @@
 
 /*
 # Possible Color Selections
-# "#FFFFFF", // 1-Wht     
-# "#00FF00", // 2-BrGre   
-# "#99FF99", // 3-LtGre   
-# "#FF0000", // 4-BrRed   
-# "#FA7D7D", // 5-LtRed   
-# "#0000FF", // 6-BrBlu   
-# "#8080FF", // 7-LtBlu   
-# "#FF6600", // 8-BrOr    
-# "#FFB280", // 9-LtOr    
-# "#CC00FF", // 10-BrPur  
-# "#EB99FF", // 11-LtPur  
-# "#FFFF00", // 12-BrYel  
-# "#FFFF80", // 13-LtYel  
-# "#006666", // 14-SlGre  
-# "#99C2C2", // 15-LtSlGre 
-# "#666699", // 16-BlGry  
-# "#A3A3C2"  // 17-LtBlGr 
+# "#FFFFFF", // 1-Wht
+# "#00FF00", // 2-BrGre
+# "#99FF99", // 3-LtGre
+# "#FF0000", // 4-BrRed
+# "#FA7D7D", // 5-LtRed
+# "#0000FF", // 6-BrBlu
+# "#8080FF", // 7-LtBlu
+# "#FF6600", // 8-BrOr
+# "#FFB280", // 9-LtOr
+# "#CC00FF", // 10-BrPur
+# "#EB99FF", // 11-LtPur
+# "#FFFF00", // 12-BrYel
+# "#FFFF80", // 13-LtYel
+# "#006666", // 14-SlGre
+# "#99C2C2", // 15-LtSlGre
+# "#666699", // 16-BlGry
+# "#A3A3C2"  // 17-LtBlGr
 */
 
 .gridOwlComp{
@@ -151,7 +164,7 @@
 .owlProperty   {background-color:#4F81BD;}
 .owlIndividual {background-color:#8064A2;}
 .owlLiteral    {background-color:#ccccb3;}
-.owlAxiom      {background-color:#4dff4d; }  /* green */  
+.owlAxiom      {background-color:#4dff4d; }  /* green */
 
 .gridPicLeft{
     display: grid;
@@ -223,7 +236,7 @@
 .predIt {
   font-family: 'Courier New', courier , sans;
   font-style: italic;
-  font-weight: bold; 
+  font-weight: bold;
   color:  #8080ff;
 }
 
@@ -258,8 +271,8 @@
 /* Clean this up or no ice cream for you! */
 
 /*---- SLIDE FORMATTING -----------------------------------------------------*/
-/* New stuff added 19Aug. Source:  https://github.com/hakimel/reveal.js/issues/180  
-   at bottom of comments 
+/* New stuff added 19Aug. Source:  https://github.com/hakimel/reveal.js/issues/180
+   at bottom of comments
 */
 reveal.slide .slides > section, .reveal.slide .slides > section > section {
   min-height: 100%;
@@ -312,13 +325,13 @@ html.img-left div.slide-background.present {
     box-shadow: none;
     background: none;
 }
- 
+
 
 .reveal table#rdfTable {
  table-layout: auto;
  width: 100%;
  background-color: lightgrey;
- 
+
 }
 /* font within the rdfTable */
 .reveal table#rdfTable td{
@@ -340,11 +353,11 @@ html.img-left div.slide-background.present {
     white-space:nowrap;
     font-family: Helvetica, sans-serif;
     font-size:14pt;
-    
+
 }
 
 
-/* Tool tips for the URL values the RDF Table 
+/* Tool tips for the URL values the RDF Table
   See : http://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip
   NOT USED due to restriction of the table cell being unable to show the enlarged tip
 */
@@ -365,20 +378,20 @@ html.img-left div.slide-background.present {
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-} 
-  
+}
+
 .reveal .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-  
+
 .reveal .highlightGreen{
   background-color:#91cf60;
   color:blue;
-} 
+}
 
 iframe.noScrolling{
-    width:  500px; 
-    height: 350px; 
+    width:  500px;
+    height: 350px;
     overflow: hidden;
 }
 
@@ -389,7 +402,7 @@ iframe.noScrolling{
   color: red;
   font-weight: bold;
 }
-  
+
 codeExcerpt
 {
     font-size: 47px;
