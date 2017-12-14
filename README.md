@@ -1,7 +1,7 @@
 # Introduction to Linked Data
 ## Hands-on Workshop
 ## PhUSE CSS Conference 2018, Silver Spring, MD
-### 04M March, time TBD, Room TBD
+### 04 March, time TBD, Room TBD
 
 All files for the workshop are located under the subfolder "CSS2018"
 
