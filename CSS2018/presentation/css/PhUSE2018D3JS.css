@@ -68,17 +68,25 @@ body {
     stroke: #b30000;
     fill: white;
 }
+.emphGr {
+  font-size: 2em;
+  font-style: italic;
+  fill: #00cc00;
+  color: #00cc00;
+  font-weight: bold;
+}
+
+.nodeText{
+  fill:#000000;
+  font-family: Serif, Georgia;
+  font-weight: bold;
+}
 
 /*--- CONFRIMED IN USE ABOVE HERE --------------------------------------------*/
 
 
 /*---- OLD BELOW HERE -------------------------------------------------------*/
 /*---- LEGEND ---------------------------------------------------------------*/
-.emphGr {
-  font-size: 28pt;
-  color: #00cc00;
-  font-weight: bold;
-}
 
 .legendTitle, .explainText, labelBarchart {
   /* stroke: #eee8d5; */
@@ -98,14 +106,14 @@ text.monoLG {
 
     /*fill: #aaa;*/
 }
-
+/*
 .nodetext{
    font-size:24px;
-   fill: #eee8d5;  /* keep with moon.css theme */
-   text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+   fill: #eee8d5;  /* keep with moon.css theme */ /*
+   text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow *//*
 
 }
-
+*/
 .node:not(:hover) .nodetext{
     display: none;
 }
@@ -211,17 +219,7 @@ text.monoLG {
     font-weight:bold;
 }
 
-.nodeText{
-    fill:#000000;
-    font-family: Serif, Georgia;
-    font-size: 24px;
-    font-weight: bold;
-}
-.node {
-    fill: black;
-    font-size: 13px;
-    font-weight:bold;
-}
+
 /* Nodes coloured by Phase/Pool on a Brewer Scale */
 .Phase1-node{
  fill:#e41a1c;
