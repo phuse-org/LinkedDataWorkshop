@@ -214,7 +214,8 @@
 
 <section><!---- Thing 1, Thing 2   -------------------------------------------->
   <h2>Data as a Graph?</h2>
-  <img src="images/Thing12Rel.jpg" left=0px  height=320px style="border:0px; box-shadow:none;" >
+  <img src="images/Thing12Rel.jpg" left=0px  height=320px
+    style="border:0px; box-shadow:none;" >
 </section>
 
 <section><!-------------------------------------------------------------------->
@@ -223,30 +224,30 @@
     <div>Property Graph</div>
     <div>Resource Description Framework (RDF)</div>
     <div style="background-color:white;"">
-      <img src="images/apache-tinkerpop_logo.png" left=0px height=100px style="border:0px; box-shadow:none;" >
+      <img src="images/apache-tinkerpop_logo.png" left=0px height=100px
+        style="border:0px; box-shadow:none;" >
       <br>
-      <img src="images/neo4j_logo.png" left=0px height=80px style="border:0px; box-shadow:none;" >
+      <img src="images/neo4j_logo.png" left=0px height=80px
+        style="border:0px; box-shadow:none;" >
     </div>
     <div style="background-color:white;">
-      <img src="images/semanticWeb_logo.png" height=150px style="border:0px; box-shadow:none;">
-      <img src="images/rdf_logo.png" height=70px style="border:0px; box-shadow:none;">
-      <img src="images/sparql_logo.png" height=70px style="border:0px; box-shadow:none;">
+      <img src="images/semanticWeb_logo.png" height=150px
+        style="border:0px; box-shadow:none;">
+      <img src="images/rdf_logo.png" height=70px
+        style="border:0px; box-shadow:none;">
+      <img src="images/sparql_logo.png" height=70px
+        style="border:0px; box-shadow:none;">
       <br>
-      <img src="images/stardog_logo.png" height=100px style="border:0px; box-shadow:none;">
+      <img src="images/stardog_logo.png" height=100px
+        style="border:0px; box-shadow:none;">
     </div>
   </div>
 </section>
 
 <section><!-------------------------------------------------------------------->
-  <h3>The RDF MODEL</h3>
-  (S-P-O) and Instance data (PERSON1 -treatment-TREAT1)
-  <font class="todo">slide from prev workshop showing model and instance data</font>
-</section>
-
-<section><!-------------------------------------------------------------------->
-  The SEMANTIC WEB:  Adding meaning to data
-  (S-P-O) and Instance data (PERSON1 -treatment-TREAT1)
-  <font class="todo">slide from prev workshop showing model and instance data</font>
+  <h3>RDF</h3>
+  <br>
+  <a href="http://localhost:8000/RDF-SPOModel.html">Model and Instance Data</a>
 </section>
 
 <!-- TO HERE ----------------------------------------------------------------------------------------->
@@ -264,7 +265,6 @@
   </ul>
   <font class="todo">add diagram </font>
 </section>
-
 
 
 <section>
@@ -289,85 +289,19 @@
     </table>
   </section>
 
-  <section>
-    <h3> 2.2 Assign Object Type</h3>
-    <ol>
-      <li>Add the Object Type in each row.
-    </ol>
-  </section>
-
-  <!---- Diagram to Spreadsheet   -------------------------------------------->
-  <section>
-    <h3> 2.2 Assign Object Type</h3>
-    <img src="images/RDFSpreadsheet.png"  left=0px  style="border:0px; box-shadow:none;" >
-  </section>
-
-
-  <section>
-    <h3> 2.3 Create RDF (TTL) File</h3>
-    <h3> 2.4 Query and Visualize</h3>
-  </section>
-
 
 
 <!---------------------------------------------------------------------------->
 <!-- End RDF section --------------------------------------------------------->
-<!----  When to use which graph? ----------------------------------------->
-<section>
-  <h3>Which to choose: Neo4j or RDF?</h3>
-  <h3 align=left>Neo4j</h3>
-    <ul>
-      <li>Graph path traversal
-      <li>Process flow
-      <li>Changing (transactional) data
-      <li>Where connections/relations(links) are key
-    </ul>
-</section>
-
-<section>
-  <h3>Which to choose: Neo4j or RDF?</h3>
-  <h3 align=left>RDF</h3>
-    <ul>
-      <li>Classification (ontologies)
-      <li>Rules and Logic
-      <li>Datatyping, Time concepts
-      <li>Non-transactional data
-    </ul>
-</section>
-
-<!---- OUTLINE: RDF   ---------------------------------------------------->
-<section>
-  <h2>Outline</h2>
-  <ul>
-    <font class="deEmph">
-    <li>Introduction
-      <ul>
-        <li>Server Login
-        <li>Data as a Graph
-      </ul>
-    <li>Exercises
-      <ol>
-        <li>Neo4j Labeled Property Graph (LPG)
-        <li>Resource Description Framework (RDF)
-      </ol>
-    </font>
-    <font class="emphGr">
-    <li>Demonstrations (time permitting)
-    </font>
-  </ul>
-</section>
-
 <!---- Acknowledgements --------------------------------------------->
 <section>
   <h2>But first: Acknowledgements</h2>
   <div align=left>
   <ul>
     <li>PhUSE - server costs
+    <li>Stardog Union - Triplestore, configuration, support.
     <li><font class="emphSmallBlue">Lauren White, Wendy Dobson, Tora Whitworth</font> and the entire PhUSE admin team
     <li><font class="emphSmallBlue">Chris Decker</font> - server cloning
-    <li><font class="emphSmallBlue">Johannes Ulander</font> - Neo4j SDTM Demo, exercises review, assistant
-    <li><font class="emphSmallBlue">Scott Bahlavooni</font> - assistant
-    <li><font class="emphSmallBlue">Mark Foxwell, Paula Finch</font> - Workshop coordinators
     <li>...and everyone else I forgot to mention
     <li>...and: <font class="emphSmallBlue">YOU</font>!
   </ul>
@@ -379,38 +313,10 @@
   <h2>But Second: Resources</h2>
   <ul>
     <li>Workshop materials, including the SPARQL and CYPHER scripts, plus PDF of this presentation:<br>
-      <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/Annual2017-EU</a>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/</a>
 </section>
 
-
-<!---- SLIDE: Resources ------------------------------------------------------>
-<section>
-  <h3>Neo4j Resources</h3>
-  <div class="gridResources">
-    <div>Recommended Overview
-    </div>
-    <div><a href="https://neo4j.com/developer/graph-database/">https://neo4j.com/developer/graph-database/</a>
-    </div>
-
-    <div>Overview of graph db and Neo4j [optional]
-    </div>
-    <div><a href="https://youtu.be/U8ZGVx1NmQg">https://youtu.be/U8ZGVx1NmQg</a> [45min]
-    </div>
-
-    <div>Intro to Cypher
-    </div>
-    <div><a href="https://www.youtube.com/watch?v=1TSBXZMv6tc ">https://www.youtube.com/watch?v=1TSBXZMv6tc</a> [49min]
-    </div>
-
-    <div>Graph Modeling
-    </div>
-    <div><a href="https://www.youtube.com/watch?v=AaJS-DGBQX4">https://www.youtube.com/watch?v=AaJS-DGBQX4</a> [42min]
-    </div>
-
-  </div>
-</section>
-
-<!---- SLIDE: RDF ------------------------------------------------------------>
+<!---- SLIDE: RDF Resources---------------------------------------------------->
 <section>
   <h3>RDF and Protege Resources</h3>
   <div class="gridResources">
@@ -438,6 +344,8 @@
 
 <!---------------------------------------------------------------------------->
 <!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
+<!---------------------------------------------------------------------------->
+
       </div>
     </div>
 

@@ -58,16 +58,60 @@ body {
     pointer-events: none;
 }
 
+/*
 .uri{
   color: #0000ff;
   font-size: 1em;
 }
+*/
+.uri{
+    stroke: blue;
+}
+/* Local sources: white fill */
+.uri.study{
+  fill: white;
+}
+/* Ontology sources: orange fill */
+.uri.ontology{
+  fill: orange;
+}
 
+
+.literal{
+    stroke: #e70000; /* bright red */
+}
+
+/* Literal string */
+.literal.string{
+   fill: #a6f1a6;  /* light green */
+  }
+
+/* Literal integer */
+.literal.int{
+     fill: #b1d9e9;  /* light blue */
+}
+
+/* Liternal unknown */
+.literal.unknown{
+     fill: #d3d3d3;  /* light grey */
+}
+
+
+text.nodeText{
+  fill: #000000;
+  stroke: none;
+  font-family: Serif, Georgia;
+  font-weight: bold;
+}
+
+
+/*
 .uriInstance{
     stroke-width: 5px;
     stroke: #b30000;
     fill: white;
 }
+*/
 .emphGr {
   font-size: 2em;
   font-style: italic;
@@ -76,11 +120,6 @@ body {
   font-weight: bold;
 }
 
-.nodeText{
-  fill:#000000;
-  font-family: Serif, Georgia;
-  font-weight: bold;
-}
 
 /*--- CONFRIMED IN USE ABOVE HERE --------------------------------------------*/
 

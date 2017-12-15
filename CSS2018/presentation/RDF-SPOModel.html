@@ -2,18 +2,15 @@
 <!-----------------------------------------------------------------------------
 ###############################################################################
 # FILE : /RDF=-SPOModel.html
-# DSCR : The basic S-P-O Model
-# VIEW :
-# SRC  :
-# KEYS :
+# DSCR : The basic S-P-O Model and Instance datas
+#        Double clck on the right to show Instance nodes
+# VIEW : http://localhost:8000/RDF-SPOModel.html
 # NOTES:
-#
-# INPUT: Internal JSON-type data
-#      :
-# OUT  : None.
+# INPUT: Internal JSON
+# OUT  : None
 # REQ  :
-# TODO :
-#
+# TODO : instead of change opacity on curtain, remove() it to allow interactivty
+#          with the instance nodes.
 ###############################################################################
 ------------------------------------------------------------------------------>
 <html lang="en">
@@ -33,28 +30,34 @@ var w = 1100,
 
 var dataset = {
   "nodes":[
-    {"id":0,"name":"Subject","type":"NeoNode", "x":110, "y":110,
+    {"id":0,"name":"Subject","entity":"uri", "graphSource":"study", "x":110, "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Subject</i></b>"},
 
-    {"id":1,"name":"Object","type":"NeoNode", "x":380, "y":110,
+    {"id":1,"name":"Object","entity":"uri", "graphSource":"study", "x":380, "y":110,
      "fixed":"TRUE",
       "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
 
-    {"id":2,"name":"PERSON1","type":"uriInstance", "x":550, "y":110,
+    {"id":2,"name":"PERSON1","entity":"uri", "graphSource":"study", "x":550, "y":110,
      "type":"uriInstance", "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Person1</i></b> "},
-    {"id":3,"name":"TREAT1","type":"uriInstance", "x":860, "y":110,
+
+    {"id":3,"name":"TREAT1","entity":"uri", "graphSource":"study", "x":860, "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Treat1</i></b>"},
 
-    {"id":4,"name":"PERSON","type":"uriInstance", "x":800, "y":310, "fixed":"TRUE"},
+    {"id":4,"name":"PERSON","entity":"uri", "graphSource":"ontology", "x":830, "y":270, "fixed":"TRUE",
+     "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>PERSON</i></b>"},
 
-    {"id":5,"name":"TREATMENT","type":"uriInstance",  "x":1000, "y":310, "fixed":"TRUE"},
+    {"id":5,"name":"TREATMENT","entity":"uri",  "graphSource":"ontology", "x":1030, "y":280, "fixed":"TRUE",
+     "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>TREATMENT</i></b>"},
 
-    {"id":6,"name":"Bob","type":"uriInstance",  "x":450, "y":310, "fixed":"TRUE"},
+    {"id":6,"name":"Bob","entity":"literal",  "graphSource":"string", "x":470, "y":390, "fixed":"TRUE"},
 
-    {"id":7,"name":"32","type":"uriInstance",  "x":600, "y":310, "fixed":"TRUE"},
+    {"id":7,"name":"32","entity":"literal",  "graphSource":"int", "x":660, "y":350, "fixed":"TRUE"},
+
+    {"id":8,"name":"Object","entity":"literal",  "graphSource":"unknown", "x":80, "y":410, "fixed":"TRUE"},
+
   ],
   "edges":[
     {"source":0,"target":1,"value":"predicate",
@@ -71,8 +74,11 @@ var dataset = {
     {"source":2,"target":7,"value":"age",
       "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/#age</font>"},
 
+    {"source":3,"target":5,"value":"type",
+      "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
 
-
+    {"source":0,"target":8,"value":"predicate",
+     "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"}
   ]
 }
 
@@ -82,9 +88,9 @@ var svg = d3.select("body").append("svg")
 
 svg.append("text")
   .classed('emphGr', true)
-  .attr("x",200)
+  .attr("x",170)
   .attr("y",25)
-  .text("Model");
+  .text("S-P-O Model");
 
 svg.append("text")
   .classed('emphGr', true)
@@ -100,7 +106,7 @@ svg.append("defs")
   .attr({
     "id": String,
     "viewBox": "0 -5 10 10",
-    "refX": 5,  // Increase this number to back the arrow away from the target node
+    "refX": nodeRadius-15,  // Move arrow back from node
     "refY": 0,
     "fill": "#756bb1",
     "stroke": "white",
@@ -145,50 +151,93 @@ var edges = svg.selectAll("line")
       tooltip.transition()
         .duration(500)
         .style("opacity", 0);
-    })
-;
-var nodes = svg.selectAll("g.node")
+    });
+
+var node = svg.selectAll("g.node")
   .data(dataset.nodes)
   .enter()
   .append("g")
-    .attr("class", "node")
-    .on("dblclick", dblclick)
+    //.attr("class", "node")
+    .attr("class", function (d) {
+        if (d.entity == "literal") {
+           return "literal";
+        } else {
+           return "uri";
+        }
+    })
+
+
     .call(drag);
 
-nodes.append("circle")
-  .attr("r", nodeRadius)
-  .attr("class", function(d,i){return d.type})
-  // Mousover Node - highlight node by fading the node colour during mouseover
-  .on('mouseover', function(d){
-         var nodeSelection = d3.select(this).style({opacity:'0.5'});
-
-             tooltip.transition()
-                 .duration(200)
-                 .style("opacity", .9);
-             tooltip.html(d.props)
-                 .style("left", (d3.event.pageX + 6) + "px")
-                 .style("top", (d3.event.pageY - 10) + "px");
-
+d3.selectAll(".literal").append("rect")
+  .attr("width", "100px")
+  .attr("height", "40px")
+  .attr("class", function (d) {
+      return (d.entity +" "+ d.graphSource)
+        //return d.entity;
+    })
+    .on('mouseover', function(d){
+      var nodeSelection = d3.select(this).style({opacity:'0.5'});
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(d.props)
+        .style("left", (d3.event.pageX + 6) + "px")
+        .style("top", (d3.event.pageY - 10) + "px");
     })
     //Mouseout Node  - bring node back to full colour
     .on('mouseout', function(d){
-         var nodeSelection= d3.select(this).style({opacity:'1.0',})
+      var nodeSelection= d3.select(this).style({opacity:'1.0',})
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+    });
 
-             tooltip.transition()
-                 .duration(500)
-                 .style("opacity", 0);
+d3.selectAll(".uri").append("circle")
+  //entity for outline and graphSource for fill
+  .attr("class", function (d) {
+        return (d.entity +" "+ d.graphSource)
+  })
 
-    })
-// dx sets how close to the node the label appears
-nodes.append("text")
-    .attr("class", function(d,i){return 'nodeText';})
-    .attr("font-size", function(d,i){
-      if (d.name.length > 7){return '.9em';} //smaller font for longer names
-      else {return '1.2em';}
-    })
-    .attr("text-anchor", "middle")
-    .text(function(d) { return d.name })
-    ;
+  //.attr("class", function (d) {
+//        return d.graphSource;     // sets fill for node //
+//  })
+
+  .attr("r", nodeRadius)
+  .attr("stroke-width", "5px")
+  .on('mouseover', function(d){
+    var nodeSelection = d3.select(this).style({opacity:'0.5'});
+    tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+    tooltip.html(d.props)
+      .style("left", (d3.event.pageX + 6) + "px")
+      .style("top", (d3.event.pageY - 10) + "px");
+  })
+  //Mouseout Node  - bring node back to full colour
+  .on('mouseout', function(d){
+    var nodeSelection= d3.select(this).style({opacity:'1.0',})
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+  });
+
+node.append("text")
+  .attr("class", function(d,i){return 'nodeText';})
+  .attr("font-size", function(d,i){
+  if (d.name.length > 7){return '.9em';} //smaller font for longer names
+    else {return '1.2em';}
+  })
+
+   // URI Cicles: anchor text in middle
+  // Literal rect: position with dx,dy offsets
+  .attr("text-anchor", function(d,i){
+    if (d.entity == 'uri'){ return 'middle'} })
+  .attr("dx", function(d,i){
+    if (d.entity == 'literal'){return "20px";} })
+  .attr("dy", function(d,i){
+    if (d.entity == 'literal'){return "25px";}})
+  .text(function(d) { return d.name });
 
 // Edge Paths
 var edgepaths = svg.selectAll(".edgepath")
@@ -213,7 +262,7 @@ var edgelabels = svg.selectAll(".edgelabel")
     .attr({'class':'edgeLabel',
         'id':function(d,i){return 'edgelabel'+i},
         'dx':80,
-        'dy':-10
+        'dy':-18
     })
     ;
 
@@ -226,10 +275,11 @@ edgelabels.append('textPath')
 force.on("tick", function() {
     edges.attr("x1", function(d) {return d.source.x; })
         .attr("y1", function(d) {return d.source.y; })
-        .attr("x2", function(d) { return d.target.x-(nodeRadius+17);})  // Increase this value to move the edge away from node center.
+        //.attr("x2", function(d) { return d.target.x-(nodeRadius+17);})  // Increase this value to move the edge away from node center.
                                                            // Coordinate with arrow size and placement.
+        .attr("x2", function(d) { return d.target.x+20;})  // +20 move edge onto rect for literals
         .attr("y2", function(d) { return d.target.y;})
-    nodes.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
     edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
         //console.log(d)
@@ -237,8 +287,9 @@ force.on("tick", function() {
     });
 
     // positioning of the label along the edge
+    // -30 to not trigger the flip right at the line up of the two nodes.
     edgelabels.attr('transform',function(d,i){
-        if (d.target.x<d.source.x){
+        if (d.target.x<d.source.x-30){
           bbox = this.getBBox();
           rx = bbox.x+bbox.width/2;
           ry = bbox.y+bbox.height/2;
@@ -250,17 +301,44 @@ force.on("tick", function() {
     });
 });
 
-// Double click to 'unfix' the node and have forces start to act on it again.
-function dblclick(d) {
-    d3.select(this).classed("fixed", d.fixed = false);
-}
+var curtain = svg.append("rect")
+  .attr({
+    "id": "curtain",
+    "x": "460px",
+    "y": "1px",
+    "height": "500px",
+    "width": "650px",
+    "fill":  "#002b36"
+  })
+  /* remove on double click to show the instance nodes */
+
+  .on('dblclick', function(d){
+    var rectSelection = d3.select(this).style({opacity:'0'});
+ });
+    // var rectSelection = d3.select(this).style({opacity:'0'});
+
+
+    // .attr('onclick', removeRect("curtain")
+
+//function removeRect(id){
+//  console.log("id: " +id)
+//}
+// d3.selectAll("#"+id).remove();
+
 // Set the "fixed" property of the dragged node to TRUE when a dragstart event is initiated,
 //   - removes "forces" from acting on that node and changing its position.
 function dragstart(d) {
     d3.select(this).classed("fixed", d.fixed = true);
 }
 </script>
-</body>
-<a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html#/13">back</a>
+<div align=right>
+  <a href="http://localhost:8000/LDWkshp-CSS2018.html#/14">
+    <img src="/images/rightNavArrow.png">
+  </a>
+</div>
 
+</body>
+<!--
+<a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html#/13">back</a>
+-->
 </html>
