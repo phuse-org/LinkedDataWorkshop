@@ -1,0 +1,36 @@
+---
+title: "CSS 2018 Linked Data Workshop InfoSheets"
+output: pdf_document
+---
+# Handouts for Each Attendee
+##  04 March 2018
+
+\newpage
+
+
+```{r echo=FALSE, results="asis", warning=FALSE}
+# results=asis: needed for the page breaking
+# Read the source file
+library(knitr)
+library(rmarkdown)
+library(readxl)
+
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/ClassInfo.xlsx", sheet = "Servers", col_names=TRUE))
+
+## Loop
+for (i in 1:nrow(servers)){
+  cat("Handout for Attendee", i, "\n")
+  cat("\n\n")
+  cat("IP Address: ", servers[i,2], "\n")
+  cat("\n\n")
+  cat("Study: STUDY", i, "\n")
+  cat("\n\n")
+  cat("First Person: PERSON", i,"-1\n")
+  cat("\n\n")
+  cat("Second Person: PERSON", i, "-2\n")
+  cat("\n\n")  
+  cat("OPTIONAL: Additional People: PERSON",i,"-3, PERSON",i,"-4 ...PERSON",i,"-n\n")
+  cat("\n\n")
+  cat("\n\n\\pagebreak\n")
+      
+}
