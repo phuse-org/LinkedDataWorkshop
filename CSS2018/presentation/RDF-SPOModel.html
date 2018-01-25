@@ -26,38 +26,68 @@
 //Width and height for SVG area. Match to the style definition in the slide deck.
 var w = 1100,
   h = 600,
-  nodeRadius = 55;
+  nodeWidth  = 150,
+  nodeHeight = 30,
+  nodeRadius = 65;
+
 
 var dataset = {
   "nodes":[
-    {"id":0,"name":"Subject","entity":"uri", "graphSource":"study", "x":110, "y":110,
+    {"id":0,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"Subject","entity":"uri", 
+     "graphSource":"study", "x":110, "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Subject</i></b>"},
 
-    {"id":1,"name":"Object","entity":"uri", "graphSource":"study", "x":380, "y":110,
+    {"id":1,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"Object","entity":"uri", "graphSource":"study", "x":380, "y":110,
      "fixed":"TRUE",
       "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
 
-    {"id":2,"name":"PERSON1","entity":"uri", "graphSource":"study", "x":550, "y":110,
+    {"id":2,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"PERSON1","entity":"uri", "graphSource":"study", "x":550, "y":110,
      "type":"uriInstance", "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Person1</i></b> "},
 
-    {"id":3,"name":"TREAT1","entity":"uri", "graphSource":"study", "x":860, "y":110,
+    {"id":3,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"TREAT1","entity":"uri", "graphSource":"study", "x":860, "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Treat1</i></b>"},
 
-    {"id":4,"name":"PERSON","entity":"uri", "graphSource":"ontology", "x":830, "y":270, "fixed":"TRUE",
+    {"id":4,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"PERSON","entity":"uri", "graphSource":"ontology", "x":830, "y":270, "fixed":"TRUE",
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>PERSON</i></b>"},
 
-    {"id":5,"name":"TREATMENT","entity":"uri",  "graphSource":"ontology", "x":1030, "y":280, "fixed":"TRUE",
+    {"id":5,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"TREATMENT","entity":"uri",  "graphSource":"ontology", "x":1030, "y":280, "fixed":"TRUE",
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>TREATMENT</i></b>"},
 
-    {"id":6,"name":"Bob","entity":"literal",  "graphSource":"string", "x":470, "y":390, "fixed":"TRUE"},
+    {"id":6,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"Bob","entity":"literal",  "graphSource":"string", "x":470, "y":390, "fixed":"TRUE"},
 
-    {"id":7,"name":"32","entity":"literal",  "graphSource":"int", "x":660, "y":350, "fixed":"TRUE"},
+    {"id":7,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"32","entity":"literal",  "graphSource":"int", "x":660, "y":350, "fixed":"TRUE"},
 
-    {"id":8,"name":"Object","entity":"literal",  "graphSource":"unknown", "x":80, "y":410, "fixed":"TRUE"},
-
+    {"id":8,
+     "type": "URI",
+     "prefix": "eg",
+     "label":"Object","entity":"literal",  "graphSource":"unknown", "x":80, "y":410, "fixed":"TRUE"},
   ],
   "edges":[
     {"source":0,"target":1,"value":"predicate",
@@ -81,6 +111,7 @@ var dataset = {
      "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"}
   ]
 }
+
 
 var svg = d3.select("body").append("svg")
   .attr("width", w)
@@ -116,6 +147,7 @@ svg.append("defs")
   .append("svg:path")
   .attr("d", "M0,-5L10,0L0,5");
 
+
 var tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
@@ -129,6 +161,7 @@ var force = d3.layout.force()
 var drag = force.drag()
   .on("dragstart", dragstart);
 
+/*
 // Relationship lines
 var edges = svg.selectAll("line")
   .data(dataset.edges)
@@ -153,9 +186,33 @@ var edges = svg.selectAll("line")
         .style("opacity", 0);
     });
 
+*/
+
 var node = svg.selectAll("g.node")
-  .data(dataset.nodes)
-  .enter()
+    .data(dataset.nodes)
+    .enter();
+
+node.append("rect")
+    .attr("width", function(d){ return nodeWidth; })
+    .attr("height", nodeHeight)
+    .attr("rx", 5) // Round edges
+    .attr("ry", 5)
+    .attr("id", function(d, i) {return("rect"+d.id) ; })  // ID used to update class
+    .attr("class", function(d,i){
+        if (d.type == "STRING"){ return "node string";}
+        else if (d.type == "INT"){ return "node int"; }
+        // Other external ontologies would need to be added here along with schema
+        else if (d.prefix == "schema"   ||
+            d.prefix  == "ncit"     ||
+            d.prefix == "sdtmterm" ||
+            d.prefix == "cto"){ return "node iriont"; }
+        else if (d.prefix == "eg"){ return "node iri"; }
+        else {return "node unspec";}
+        })
+     .call(force.drag)
+;
+
+/*
   .append("g")
     //.attr("class", "node")
     .attr("class", function (d) {
@@ -165,9 +222,8 @@ var node = svg.selectAll("g.node")
            return "uri";
         }
     })
-
-
     .call(drag);
+*/
 
 d3.selectAll(".literal").append("rect")
   .attr("width", "100px")
@@ -225,7 +281,7 @@ d3.selectAll(".uri").append("circle")
 node.append("text")
   .attr("class", function(d,i){return 'nodeText';})
   .attr("font-size", function(d,i){
-  if (d.name.length > 7){return '.9em';} //smaller font for longer names
+  if (d.label.length > 7){return '.9em';} //smaller font for longer names
     else {return '1.2em';}
   })
 
@@ -237,8 +293,8 @@ node.append("text")
     if (d.entity == 'literal'){return "20px";} })
   .attr("dy", function(d,i){
     if (d.entity == 'literal'){return "25px";}})
-  .text(function(d) { return d.name });
-
+  .text(function(d) { return d.label });
+/*
 // Edge Paths
 var edgepaths = svg.selectAll(".edgepath")
     .data(dataset.edges)
@@ -271,15 +327,35 @@ edgelabels.append('textPath')
     .style("pointer-events", "none")
     .text(function(d,i){return d.value})
     ;
+*/
+
+// Curtain to hide left pane
+var curtain = svg.append("rect")
+  .attr({
+    "id": "curtain",
+    "x": "460px",
+    "y": "1px",
+    "height": "500px",
+    "width": "650px",
+    "fill":  "#002b36"
+  })
+  /* remove on double click to show the instance nodes */
+
+  .on('dblclick', function(d){
+    var rectSelection = d3.select(this).style({opacity:'0'});
+ });
+
+
 
 force.on("tick", function() {
+
+/*
     edges.attr("x1", function(d) {return d.source.x; })
         .attr("y1", function(d) {return d.source.y; })
         //.attr("x2", function(d) { return d.target.x-(nodeRadius+17);})  // Increase this value to move the edge away from node center.
                                                            // Coordinate with arrow size and placement.
         .attr("x2", function(d) { return d.target.x+20;})  // +20 move edge onto rect for literals
         .attr("y2", function(d) { return d.target.y;})
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
     edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
         //console.log(d)
@@ -299,31 +375,16 @@ force.on("tick", function() {
           return 'rotate(0)';
         }
     });
+
+
+*/
+    svg.selectAll(".node").attr("transform", function(d) { 
+       return "translate(" + d.x + "," + d.y + ")"; 
+    });
+
+
 });
 
-var curtain = svg.append("rect")
-  .attr({
-    "id": "curtain",
-    "x": "460px",
-    "y": "1px",
-    "height": "500px",
-    "width": "650px",
-    "fill":  "#002b36"
-  })
-  /* remove on double click to show the instance nodes */
-
-  .on('dblclick', function(d){
-    var rectSelection = d3.select(this).style({opacity:'0'});
- });
-    // var rectSelection = d3.select(this).style({opacity:'0'});
-
-
-    // .attr('onclick', removeRect("curtain")
-
-//function removeRect(id){
-//  console.log("id: " +id)
-//}
-// d3.selectAll("#"+id).remove();
 
 // Set the "fixed" property of the dragged node to TRUE when a dragstart event is initiated,
 //   - removes "forces" from acting on that node and changing its position.
