@@ -1,0 +1,11 @@
+# 300-GetDataPool.rq  Obtain data pool from instructor
+# Assumes instructor's server is : 52.14.114.74
+INSERT {?s ?p ?o}
+WHERE
+{
+    SERVICE <http://52.14.114.74:5820/Drug1Pool/query>
+    {
+        SELECT *
+        WHERE { ?s ?p ?o  }
+    }
+}

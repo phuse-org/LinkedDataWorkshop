@@ -1,0 +1,9 @@
+# 103-NamesInTreatmentType.rq  Names of Persons in each type of treatment
+SELECT ?treattype ?name
+WHERE {
+  ?person eg:enrolledin ?trial ;
+          schema:name   ?name ;
+          eg:treatment  ?treatment.
+  ?treatment eg:treatmenttype ?treattype;                      
+}
+ORDER BY ?treattype

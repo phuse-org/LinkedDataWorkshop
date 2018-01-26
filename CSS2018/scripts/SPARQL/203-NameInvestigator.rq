@@ -1,0 +1,7 @@
+# 203-NameInvestigator.rq  Names of Trial Investigators 
+#   Reasoner must be ON.
+SELECT ?name 
+WHERE {
+  ?person a eg:Investigator   ;
+          schema:name   ?name .
+}

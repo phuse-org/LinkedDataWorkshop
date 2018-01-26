@@ -1,0 +1,5 @@
+# 303-Drug1CountHSS.rq  Drug1 trials by phase
+SELECT  (COUNT(?person) as ?numSubjects)
+WHERE{
+  ?person a eg:HumanStudySubject.
+}

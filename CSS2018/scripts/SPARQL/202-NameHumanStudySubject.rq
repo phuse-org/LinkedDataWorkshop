@@ -1,0 +1,7 @@
+# 202-NameHumanStudySubject.rq  Names of HumanStudySubjects in Trial
+#   Reasoner must be ON.
+SELECT ?name 
+WHERE {
+  ?person a eg:HumanStudySubject;
+          schema:name   ?name .
+}

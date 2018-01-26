@@ -1,0 +1,6 @@
+# 102-NameEnrolledIn.rq  Names of Persons enrolled in Trial
+SELECT ?name 
+WHERE {
+  ?person eg:enrolledin ?trial ;
+          schema:name   ?name .
+}
