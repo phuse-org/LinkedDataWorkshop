@@ -58,6 +58,12 @@ body {
     pointer-events: none;
 }
 
+
+
+.node.iri {
+  fill: #bcf5bc ;
+  stroke: black;
+}
 /*
 .uri{
   color: #0000ff;
