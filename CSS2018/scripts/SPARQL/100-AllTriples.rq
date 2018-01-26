@@ -1,0 +1,5 @@
+# 100-EntireGraph.rq  Entire Graph
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o
+}

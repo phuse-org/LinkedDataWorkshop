@@ -1,0 +1,5 @@
+# 101-EnrolledIn.rq  Count of Persons enrolled in Trial
+SELECT (COUNT (?person) AS ?numP)
+WHERE {
+  ?person eg:enrolledin ?trial .
+}

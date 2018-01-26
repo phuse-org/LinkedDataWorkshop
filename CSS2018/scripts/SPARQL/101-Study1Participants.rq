@@ -1,0 +1,7 @@
+# 201-STUDY1Participants.rq
+PREFIX phuse: <http://www.example.org/phuse/workshop/>
+SELECT ?name 
+WHERE {
+  ?person phuse:enrolledin phuse:STUDY1 .
+  ?person phuse:firstname ?name .
+}
