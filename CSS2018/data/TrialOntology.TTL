@@ -19,10 +19,14 @@ eg:enrolledin  rdf:type rdfs:Property;
   rdfs:domain   eg:HumanStudySubject;
   rdfs:range  eg:Study .
   
-eg:investigator rdf:type rdfs:Property;
-  rdfs:domain   eg:Investigator;
+ 
+eg:primaryinvestigator rdf:type rdfs:Property;
+  rdfs:domain   eg:PrimaryInvestigator;
   rdfs:range  eg:Study .
 
+eg:PrimaryInvestigator  rdf:type rdfs:Class;
+   rdfs:subClassOf  eg:Investigator.
+  
 eg:drugname rdf:type rdfs:Property;
   rdfs:domain eg:Drug;
   rdfs:range   eg:Drugname.
@@ -37,8 +41,3 @@ eg:treatmentarm rdf:type rdfs:Property;
 eg:treatmenttype rdf:type rdfs:Property;
   rdfs:domain eg:Treatment;
   rdfs:range   eg:TreatmentType.
-
-
-
-eg:Person1  eg:enrolledin  eg:Study1  .
-eg:Person3  eg:investigator eg:Study1 .

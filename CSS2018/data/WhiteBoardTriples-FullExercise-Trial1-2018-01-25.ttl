@@ -19,7 +19,7 @@ eg:Person11 eg:treatment eg:Treat1-1.
 eg:Person12 eg:treatment eg:Treat1-2.
 eg:Person13 eg:gender eg:Male.
 eg:Person11 eg:gender eg:Female.
-eg:Person12 eg:female eg:Female.
+eg:Person12 eg:gender eg:Female.
 eg:Person13 schema:name "Bob"^^xsd:string.
 eg:Person11 schema:name "Sally"^^xsd:string.
 eg:Person12 schema:name "Betty"^^xsd:string.

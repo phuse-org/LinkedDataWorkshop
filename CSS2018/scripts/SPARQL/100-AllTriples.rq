@@ -1,5 +1,6 @@
-# 100-EntireGraph.rq  Entire Graph
+# 100-AllTriples.rq All triples in the graph
 SELECT ?s ?p ?o
 WHERE {
   ?s ?p ?o
 }
+ORDER BY ?s ?p
