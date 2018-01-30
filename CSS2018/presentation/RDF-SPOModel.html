@@ -29,17 +29,6 @@ var w = 1100,
   nodeWidth  = 150,
   nodeHeight = 30,
   nodeRadius = 65;
-/*
-
-{ "id": 0,
-  "prefix":"eg",
-  "label":"Drug1",
-  "type":"IRI",
-  "x":400,
-  "y":10,
-  "fixed":true},
-
-*/
 
 var dataset = {
   "nodes":[
@@ -56,7 +45,7 @@ var dataset = {
      "prefix": "eg",
      "label":"Object",
      "type": "URI",
-     "x":380,
+     "x":310,
      "y":110,
      "fixed":true,
      "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
@@ -65,7 +54,7 @@ var dataset = {
      "prefix": "eg",
      "label":"PERSON1",
      "type": "URI",
-     "x":550,
+     "x":540,
      "y":110,
      "fixed":true,
      "type":"uriInstance", "fixed":"TRUE",
@@ -83,7 +72,7 @@ var dataset = {
      "prefix": "eg",
      "label":"PERSON",
      "type": "URI",
-     "x":830, 
+     "x":720,
      "y":270,
      "fixed":true,
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>PERSON</i></b>"},
@@ -92,8 +81,8 @@ var dataset = {
      "prefix": "eg",
      "label":"TREATMENT",
      "type": "URI",
-     "x":1030, 
-     "y":280, 
+     "x":900,
+     "y":280,
      "fixed":true,
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>TREATMENT</i></b>"},
 
@@ -101,8 +90,8 @@ var dataset = {
      "prefix": "",
      "label":"Bob",
      "type": "STRING",
-     "x":470, 
-     "y":390, 
+     "x":530,
+     "y":390,
      "fixed":true,
 },
 
@@ -110,8 +99,8 @@ var dataset = {
      "prefix": "",
      "label":"32",
      "type": "INT",
-     "x":660, 
-     "y":350, 
+     "x":660,
+     "y":350,
      "fixed":true,
     },
 
@@ -119,8 +108,8 @@ var dataset = {
      "prefix": "eg",
      "label":"Object",
      "type": "URI",
-     "x":80, 
-     "y":410, 
+     "x":80,
+     "y":410,
      "fixed":true,
     },
   ],
@@ -159,14 +148,14 @@ var dataset = {
     {"id":5,
      "source":3,
      "target":5,
-     "prefix":"eg",  
+     "prefix":"eg",
      "label":"type",
      "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
 
     {"id":6,
      "source":0,
      "target":8,
-     "prefix":"pfx",  
+     "prefix":"pfx",
      "value":"predicate",
     }
   ]
@@ -197,7 +186,7 @@ svg.append("defs")
   .attr({
     "id": 'arrowhead',
     "viewBox": "0 -5 10 10",
-    "refX": nodeRadius-35,  // Move arrow back from node
+    "refX": 60,  // Move arrow back from node
     "refY": 0,
     "fill": "#756bb1",
     "stroke": "white",

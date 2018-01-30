@@ -58,51 +58,74 @@ body {
     pointer-events: none;
 }
 
-
-
+/* For RDF intro graph */
 .node.iri {
   fill: #bcf5bc ;
   stroke: black;
 }
-/*
-.uri{
-  color: #0000ff;
-  font-size: 1em;
+
+.node.unspec {
+  fill: white ;
+  stroke: black;
+  stroke-width: 4;
+  stroke-dasharray: 2;
 }
-*/
-.uri{
-    stroke: blue;
+
+.node.iri.subjectLink,
+.node.iriont.subjectLink,
+.node.unspec.subjectLink {
+  fill: yellow ;
+  stroke: red;
+  stroke-width: 6;
+  stroke-dasharray: 2;
 }
-/* Local sources: white fill */
-.uri.study{
+.node.string {
+  fill:   #e4e4e4;
+  stroke: #646464;
+  stroke-width: 4;
+}
+.node.int {
+  fill: #c1e1eC ; /* light blue */
+  stroke: #1a1aff;
+  stroke-width: 4;
+}
+.node.iriont {
+  fill: #ffc862 ;
+  stroke: black;
+}
+.link{
+    stroke: gray;
+    stroke-width: 3;
+}
+/* text for link labels */
+.edgelabel{
+  flood-opacity:1;
+  font: 12pt sans-serif;
+  text-anchor: middle;
+}
+
+.edgelabel.extont{
+  fill: #cc7000;  /* dark orange, similar to external ont nodes */
+}
+
+.edgelabel.rdf{
+  fill: #0000d8;  /* dark blue */
+}
+
+.edgelabel.unspec{
   fill: white;
 }
-/* Ontology sources: orange fill */
-.uri.ontology{
-  fill: orange;
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
 }
 
 
-.literal{
-    stroke: #e70000; /* bright red */
-}
-
-/* Literal string */
-.literal.string{
-   fill: #a6f1a6;  /* light green */
-  }
-
-/* Literal integer */
-.literal.int{
-     fill: #b1d9e9;  /* light blue */
-}
-
-/* Liternal unknown */
-.literal.unknown{
-     fill: #d3d3d3;  /* light grey */
-}
 
 
+
+
+/* end RDF intro graph */
 text.nodeText{
   fill: #000000;
   stroke: none;
