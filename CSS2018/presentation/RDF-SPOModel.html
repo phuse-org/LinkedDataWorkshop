@@ -29,86 +29,139 @@ var w = 1100,
   nodeWidth  = 150,
   nodeHeight = 30,
   nodeRadius = 65;
+/*
+
+{ "id": 0,
+  "prefix":"eg",
+  "label":"Drug1",
+  "type":"IRI",
+  "x":400,
+  "y":10,
+  "fixed":true},
+
+*/
+
 
 
 var dataset = {
   "nodes":[
     {"id":0,
-     "type": "URI",
      "prefix": "eg",
-     "label":"Subject","entity":"uri", 
-     "graphSource":"study", "x":110, "y":110,
+     "label":"Subject",
+     "type": "URI",
+     "x":110,
+     "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Subject</i></b>"},
 
     {"id":1,
-     "type": "URI",
      "prefix": "eg",
-     "label":"Object","entity":"uri", "graphSource":"study", "x":380, "y":110,
+     "label":"Object",
+     "type": "URI",
+     "x":380,
+     "y":110,
      "fixed":"TRUE",
-      "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
+     "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
 
     {"id":2,
-     "type": "URI",
      "prefix": "eg",
-     "label":"PERSON1","entity":"uri", "graphSource":"study", "x":550, "y":110,
+     "label":"PERSON1",
+     "type": "URI",
+     "x":550,
+     "y":110,
      "type":"uriInstance", "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Person1</i></b> "},
 
     {"id":3,
-     "type": "URI",
      "prefix": "eg",
-     "label":"TREAT1","entity":"uri", "graphSource":"study", "x":860, "y":110,
+     "label":"TREAT1",
+     "type": "URI",
+     "x":860, "y":110,
      "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Treat1</i></b>"},
 
     {"id":4,
-     "type": "URI",
      "prefix": "eg",
-     "label":"PERSON","entity":"uri", "graphSource":"ontology", "x":830, "y":270, "fixed":"TRUE",
+     "label":"PERSON",
+     "type": "URI",
+     "x":830, "y":270, "fixed":"TRUE",
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>PERSON</i></b>"},
 
     {"id":5,
-     "type": "URI",
      "prefix": "eg",
-     "label":"TREATMENT","entity":"uri",  "graphSource":"ontology", "x":1030, "y":280, "fixed":"TRUE",
+     "label":"TREATMENT",
+     "type": "URI",
+     "x":1030, "y":280, "fixed":"TRUE",
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>TREATMENT</i></b>"},
 
     {"id":6,
-     "type": "URI",
-     "prefix": "eg",
-     "label":"Bob","entity":"literal",  "graphSource":"string", "x":470, "y":390, "fixed":"TRUE"},
+     "prefix": "",
+     "label":"Bob",
+     "type": "STRING",
+     "x":470, 
+     "y":390, "fixed":"TRUE"},
 
     {"id":7,
-     "type": "URI",
-     "prefix": "eg",
-     "label":"32","entity":"literal",  "graphSource":"int", "x":660, "y":350, "fixed":"TRUE"},
+     "prefix": "",
+     "label":"32",
+     "type": "INT",
+     "x":660, 
+     "y":350, 
+     "fixed":"TRUE"},
 
     {"id":8,
-     "type": "URI",
      "prefix": "eg",
-     "label":"Object","entity":"literal",  "graphSource":"unknown", "x":80, "y":410, "fixed":"TRUE"},
+     "label":"Object",
+     "type": "URI",
+     "x":80, 
+     "y":410, 
+     "fixed":"TRUE"},
   ],
   "edges":[
-    {"source":0,"target":1,"value":"predicate",
-     "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/></font><b><i>predicate</i></b>"},
-    {"source":2,"target":3,"value":"treatment",
-       "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/></font><b><i>treatment</i></b>"},
+    {"id":0,
+     "source":0,
+     "target":1,
+     "prefix":"",
+     "label": "Predicate"
+    },
+    {"id":1,
+     "source":2,
+     "target":3,
+     "prefix":"pfx",
+     "label":"treatment"
+     },
+    {"id":2,
+     "source":2,
+     "target":4,
+     "prefix":"pfx",
+     "label":"type"
+     },
+    {"id":3,
+     "source":2,
+     "target":6,
+     "prefix":"pfx",
+     "label":"firstname",
+    },
+    {"id":4,
+     "source":2,
+     "target":7,
+     "prefix":"pfx",
+     "label":"age",
+     "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/#age</font>"},
 
-    {"source":2,"target":4,"value":"type",
-          "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
+    {"id":5,
+     "source":3,
+     "target":5,
+     "prefix":"pfx",  
+     "label":"type",
+     "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
 
-    {"source":2,"target":6,"value":"firstname",
-     "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/#firstname</font>"},
-
-    {"source":2,"target":7,"value":"age",
-      "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/#age</font>"},
-
-    {"source":3,"target":5,"value":"type",
-      "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
-
-    {"source":0,"target":8,"value":"predicate",
-     "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"}
+    {"id":6,
+     "source":0,
+     "target":8,
+     "prefix":"pfx",  
+     "value":"predicate",
+    }
   ]
 }
 
@@ -152,6 +205,13 @@ var tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
+    // Create parent group for links, nodes and set their order so the nodes always
+    //   appear on top of the links
+    svg.append("g").attr("id", "links");
+    svg.append('g').attr("id", "edgepaths");
+    svg.append('g').attr("id", "edgelabels");
+    svg.append("g").attr("id", "nodes");
+
 var force = d3.layout.force()
   .nodes(dataset.nodes)
   .links(dataset.edges)
@@ -188,7 +248,7 @@ var edges = svg.selectAll("line")
 
 */
 
-var node = svg.selectAll("g.node")
+var node = svg.select("#nodes").selectAll(".node")
     .data(dataset.nodes)
     .enter();
 
@@ -203,97 +263,41 @@ node.append("rect")
         else if (d.type == "INT"){ return "node int"; }
         // Other external ontologies would need to be added here along with schema
         else if (d.prefix == "schema"   ||
-            d.prefix  == "ncit"     ||
-            d.prefix == "sdtmterm" ||
-            d.prefix == "cto"){ return "node iriont"; }
+                 d.prefix  == "ncit"    ||
+                 d.prefix == "sdtmterm" ||
+                 d.prefix == "cto"){ return "node iriont"; }
         else if (d.prefix == "eg"){ return "node iri"; }
         else {return "node unspec";}
         })
      .call(force.drag)
 ;
 
-/*
-  .append("g")
-    //.attr("class", "node")
-    .attr("class", function (d) {
-        if (d.entity == "literal") {
-           return "literal";
-        } else {
-           return "uri";
-        }
-    })
-    .call(drag);
-*/
+// Data for node text
+let nodeText_update = svg.selectAll(".nodeText").data(
+// let nodeText_update = svg.selectAll(".nodeText").data(
+    dataset.nodes,
+    function(d){ return "nodeText"+d.id;}
+);
 
-d3.selectAll(".literal").append("rect")
-  .attr("width", "100px")
-  .attr("height", "40px")
-  .attr("class", function (d) {
-      return (d.entity +" "+ d.graphSource)
-        //return d.entity;
+// Add id (nodeTextn) and the text
+nodeText_update.enter().append("text")
+    .attr({
+        // 'id':    function(d, i) {return("nodeText"+i) ; },
+        // ID linkes to editing window
+        'id':    function(d, i) {return "nodeText"+d.id ; },
+        'class': 'nodeText'
     })
-    .on('mouseover', function(d){
-      var nodeSelection = d3.select(this).style({opacity:'0.5'});
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", .9);
-      tooltip.html(d.props)
-        .style("left", (d3.event.pageX + 6) + "px")
-        .style("top", (d3.event.pageY - 10) + "px");
-    })
-    //Mouseout Node  - bring node back to full colour
-    .on('mouseout', function(d){
-      var nodeSelection= d3.select(this).style({opacity:'1.0',})
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
+    .text(function(d,i) {
+        //No prefix for INT, STRING
+        if (d.type ==='INT' || d.type ==='STRING') { return d.label; }
+        // Prefix for all other types
+        else{ return d.prefix+":"+d.label; }
     });
 
-d3.selectAll(".uri").append("circle")
-  //entity for outline and graphSource for fill
-  .attr("class", function (d) {
-        return (d.entity +" "+ d.graphSource)
-  })
+// Remove nodeText
+     nodeText_update.exit().remove();
 
-  //.attr("class", function (d) {
-//        return d.graphSource;     // sets fill for node //
-//  })
 
-  .attr("r", nodeRadius)
-  .attr("stroke-width", "5px")
-  .on('mouseover', function(d){
-    var nodeSelection = d3.select(this).style({opacity:'0.5'});
-    tooltip.transition()
-      .duration(200)
-      .style("opacity", .9);
-    tooltip.html(d.props)
-      .style("left", (d3.event.pageX + 6) + "px")
-      .style("top", (d3.event.pageY - 10) + "px");
-  })
-  //Mouseout Node  - bring node back to full colour
-  .on('mouseout', function(d){
-    var nodeSelection= d3.select(this).style({opacity:'1.0',})
-      tooltip.transition()
-        .duration(500)
-        .style("opacity", 0);
-  });
-
-node.append("text")
-  .attr("class", function(d,i){return 'nodeText';})
-  .attr("font-size", function(d,i){
-  if (d.label.length > 7){return '.9em';} //smaller font for longer names
-    else {return '1.2em';}
-  })
-
-   // URI Cicles: anchor text in middle
-  // Literal rect: position with dx,dy offsets
-  .attr("text-anchor", function(d,i){
-    if (d.entity == 'uri'){ return 'middle'} })
-  .attr("dx", function(d,i){
-    if (d.entity == 'literal'){return "20px";} })
-  .attr("dy", function(d,i){
-    if (d.entity == 'literal'){return "25px";}})
-  .text(function(d) { return d.label });
 /*
 // Edge Paths
 var edgepaths = svg.selectAll(".edgepath")
@@ -321,11 +325,10 @@ var edgelabels = svg.selectAll(".edgelabel")
         'dy':-18
     })
     ;
-
 edgelabels.append('textPath')
     .attr('xlink:href',function(d,i) {return '#edgepath'+i})
     .style("pointer-events", "none")
-    .text(function(d,i){return d.value})
+    .text(function(d,i){return d.label})
     ;
 */
 
@@ -344,8 +347,6 @@ var curtain = svg.append("rect")
   .on('dblclick', function(d){
     var rectSelection = d3.select(this).style({opacity:'0'});
  });
-
-
 
 force.on("tick", function() {
 
@@ -378,9 +379,19 @@ force.on("tick", function() {
 
 
 */
-    svg.selectAll(".node").attr("transform", function(d) { 
-       return "translate(" + d.x + "," + d.y + ")"; 
+    svg.selectAll(".node")
+        .attr("transform", function(d) {
+            if (d.x > w ) {d.x = w-nodeWidth;}  // right
+            if (d.x < -40 ) {d.x = nodeWidth;}  // left
+            if (d.y < 0 ) {d.y = nodeWidth;}    // top
+            if (d.y > h ) {d.y = h-nodeWidth;}  // bottom
+            return "translate(" + d.x + "," + d.y + ")";
     });
+
+    // Node Text label
+    svg.selectAll(".nodeText")
+        .attr("x", function(d){ return d.x+5;})
+        .attr("y", function(d){ return d.y+17;});
 
 
 });
