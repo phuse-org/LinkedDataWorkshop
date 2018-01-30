@@ -41,8 +41,6 @@ var w = 1100,
 
 */
 
-
-
 var dataset = {
   "nodes":[
     {"id":0,
@@ -130,38 +128,38 @@ var dataset = {
     {"id":0,
      "source":0,
      "target":1,
-     "prefix":"",
+     "prefix":"eg",
      "label": "Predicate"
     },
     {"id":1,
      "source":2,
      "target":3,
-     "prefix":"pfx",
+     "prefix":"eg",
      "label":"treatment"
      },
     {"id":2,
      "source":2,
      "target":4,
-     "prefix":"pfx",
+     "prefix":"eg",
      "label":"type"
      },
     {"id":3,
      "source":2,
      "target":6,
-     "prefix":"pfx",
+     "prefix":"eg",
      "label":"firstname",
     },
     {"id":4,
      "source":2,
      "target":7,
-     "prefix":"pfx",
+     "prefix":"eg",
      "label":"age",
      "type":"Neo","relProps":"<font class=uri>http://www.example.org/ldw/#age</font>"},
 
     {"id":5,
      "source":3,
      "target":5,
-     "prefix":"pfx",  
+     "prefix":"eg",  
      "label":"type",
      "type":"Neo","relProps":"<font class=uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</font>"},
 
@@ -199,7 +197,7 @@ svg.append("defs")
   .attr({
     "id": 'arrowhead',
     "viewBox": "0 -5 10 10",
-    "refX": nodeRadius-15,  // Move arrow back from node
+    "refX": nodeRadius-35,  // Move arrow back from node
     "refY": 0,
     "fill": "#756bb1",
     "stroke": "white",
@@ -225,8 +223,6 @@ var force = d3.layout.force()
   .links(dataset.edges)
   .size([w, h])
   .start();
-
-
 
 // Relationship lines
 var link = svg.select("#links").selectAll(".link")
@@ -254,6 +250,46 @@ var link = svg.select("#links").selectAll(".link")
 
     })
 */
+    ;
+
+// Edge Paths
+var edgepath = svg.select("#edgepaths").selectAll(".edgepath")
+    .data(dataset.edges)
+    .enter()
+    .append('path')
+    .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+        'class':'edgepath',
+        'fill-opacity':0,
+        'stroke-opacity':0,
+        'fill':'blue',
+        'stroke':'red',
+        'id':function(d,i) {return 'edgepath'+d.id}
+    })
+    .style("pointer-events", "none");
+
+// dx : the starting distance of the label from the source node
+var edgelabel = svg.select("#edgelabels").selectAll(".edgelabel")
+    .data(dataset.edges)
+    .enter()
+    .append('text')
+    .attr("class", function(d,i){
+        if (d.prefix == "schema" || d.prefix == "ncit"){ return "edgelabel extont";}
+        else if (d.prefix == "rdf" || d.prefix == "rdfs"){ return "edgelabel rdf";}
+        else {return "edgelabel unspec";}
+    })
+    .attr("dy", -1) // place above line. 5 for inline
+    .append('textPath')
+    .style("text-anchor", "middle")
+    .attr("startOffset", "50%")
+    .attr('xlink:href', function(d,i) {
+
+       return '#edgepath'+d.id;
+      //TW return ("ep" + d.source.id + "-" + d.target.id);
+    })
+    .attr('id', function(d,i){
+      return "edgelabel" + d.id
+    })
+    .text(function(d,i){return d.prefix+":"+d.label})
     ;
 
 var node = svg.select("#nodes").selectAll(".node")
@@ -307,37 +343,6 @@ nodeText_update.enter().append("text")
 
 
 /*
-// Edge Paths
-var edgepaths = svg.selectAll(".edgepath")
-    .data(dataset.edges)
-    .enter()
-    .append('path')
-    .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
-        'class':'edgepath',
-        'fill-opacity':0,
-        'stroke-opacity':0,
-        'fill':'blue',
-        'stroke':'red',
-        'id':function(d,i) {return 'edgepath'+i}
-    })
-    .style("pointer-events", "none");
-
-// dx : the starting distance of the label from the source node
-var edgelabels = svg.selectAll(".edgelabel")
-    .data(dataset.edges)
-    .enter()
-    .append('text')
-    .attr({'class':'edgeLabel',
-        'id':function(d,i){return 'edgelabel'+i},
-        'dx':80,
-        'dy':-18
-    })
-    ;
-edgelabels.append('textPath')
-    .attr('xlink:href',function(d,i) {return '#edgepath'+i})
-    .style("pointer-events", "none")
-    .text(function(d,i){return d.label})
-    ;
 */
 
 // Curtain to hide left pane
@@ -366,28 +371,33 @@ force.on("tick", function() {
             return 'M' + xposSource + ',' + yposSource + 'L' + xposTarget + ',' + yposTarget;
         });
 
-/*
-    edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
-        //console.log(d)
-        return path
+   svg.selectAll(".edgepath")
+    //DEL edgepath.attr('d', function(d) {
+    .attr('d', function(d) {
+        //Adjust for rectangle shape
+        let xposSource = d.source.x + nodeWidth/2,
+            xposTarget = d.target.x + nodeWidth/2,
+            yposSource = d.source.y + nodeHeight/2,
+            yposTarget = d.target.y + nodeHeight/2;
+
+        let path='M '+ xposSource + ' ' + yposSource+' L '+ xposTarget + ' ' + yposTarget;
+
+        // let path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+        return path;
     });
 
-    // positioning of the label along the edge
-    // -30 to not trigger the flip right at the line up of the two nodes.
-    edgelabels.attr('transform',function(d,i){
-        if (d.target.x<d.source.x-30){
-          bbox = this.getBBox();
-          rx = bbox.x+bbox.width/2;
-          ry = bbox.y+bbox.height/2;
-          return 'rotate(180 '+rx+' '+ry+')';
+    svg.selectAll(".edgelabel")
+    //DEL  edgelabel.attr('transform',function(d,i){
+    .attr('transform',function(d,i){
+        if (d.target.x<d.source.x){
+            let bbox = this.getBBox();
+            let rx = bbox.x+bbox.width/2;
+            let ry = bbox.y+bbox.height/2;
+            return 'rotate(180 '+rx+' '+ry+')';
         }
-        else {
-          return 'rotate(0)';
-        }
+        else { return 'rotate(0)'; }
     });
 
-
-*/
     svg.selectAll(".node")
         .attr("transform", function(d) {
             if (d.x > w ) {d.x = w-nodeWidth;}  // right
