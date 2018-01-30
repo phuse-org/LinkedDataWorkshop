@@ -49,9 +49,9 @@ var dataset = {
      "prefix": "eg",
      "label":"Subject",
      "type": "URI",
-     "x":110,
+     "x":10,
      "y":110,
-     "fixed":"TRUE",
+     "fixed":true,
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Subject</i></b>"},
 
     {"id":1,
@@ -60,7 +60,7 @@ var dataset = {
      "type": "URI",
      "x":380,
      "y":110,
-     "fixed":"TRUE",
+     "fixed":true,
      "props":"<font class=uri>http://www.example.org/ldw/></font><b><i>Object</i></b>"},
 
     {"id":2,
@@ -69,6 +69,7 @@ var dataset = {
      "type": "URI",
      "x":550,
      "y":110,
+     "fixed":true,
      "type":"uriInstance", "fixed":"TRUE",
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Person1</i></b> "},
 
@@ -77,21 +78,25 @@ var dataset = {
      "label":"TREAT1",
      "type": "URI",
      "x":860, "y":110,
-     "fixed":"TRUE",
+     "fixed":true,
      "props":"<font class=uri>http://www.example.org/ldw/</font><b><i>Treat1</i></b>"},
 
     {"id":4,
      "prefix": "eg",
      "label":"PERSON",
      "type": "URI",
-     "x":830, "y":270, "fixed":"TRUE",
+     "x":830, 
+     "y":270,
+     "fixed":true,
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>PERSON</i></b>"},
 
     {"id":5,
      "prefix": "eg",
      "label":"TREATMENT",
      "type": "URI",
-     "x":1030, "y":280, "fixed":"TRUE",
+     "x":1030, 
+     "y":280, 
+     "fixed":true,
      "props":"<font class=uri>http://www.standardsOnt.org/ont#</font><b><i>TREATMENT</i></b>"},
 
     {"id":6,
@@ -99,7 +104,9 @@ var dataset = {
      "label":"Bob",
      "type": "STRING",
      "x":470, 
-     "y":390, "fixed":"TRUE"},
+     "y":390, 
+     "fixed":true,
+},
 
     {"id":7,
      "prefix": "",
@@ -107,7 +114,8 @@ var dataset = {
      "type": "INT",
      "x":660, 
      "y":350, 
-     "fixed":"TRUE"},
+     "fixed":true,
+    },
 
     {"id":8,
      "prefix": "eg",
@@ -115,7 +123,8 @@ var dataset = {
      "type": "URI",
      "x":80, 
      "y":410, 
-     "fixed":"TRUE"},
+     "fixed":true,
+    },
   ],
   "edges":[
     {"id":0,
@@ -188,18 +197,17 @@ svg.append("defs")
   .data(["end"])      // Different link/path types can be defined here
   .enter().append("marker")    // This section adds in the arrows
   .attr({
-    "id": String,
+    "id": 'arrowhead',
     "viewBox": "0 -5 10 10",
     "refX": nodeRadius-15,  // Move arrow back from node
     "refY": 0,
     "fill": "#756bb1",
     "stroke": "white",
-    "markerWidth": 2.5,  // Arrow height
-    "markerHeight": 2.5, // Arrow width
+    "markerWidth": 5,  // Arrow height
+    "markerHeight": 5, // Arrow width
     "orient": "auto" })
   .append("svg:path")
   .attr("d", "M0,-5L10,0L0,5");
-
 
 var tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
@@ -218,18 +226,17 @@ var force = d3.layout.force()
   .size([w, h])
   .start();
 
-var drag = force.drag()
-  .on("dragstart", dragstart);
 
-/*
+
 // Relationship lines
-var edges = svg.selectAll("line")
+var link = svg.select("#links").selectAll(".link")
   .data(dataset.edges)
   .enter()
-  .append("line")
-  .attr("id",function(d,i){return 'edge'+i})
-  .attr("class", "edges")
-  .attr("marker-end", "url(#end)")
+  .append("path")
+  .attr("class", "link")
+  .attr("id",function(d,i){return 'edge'+ d.id})
+  .attr("marker-end", "url(#arrowhead)")
+/*
   .on('mouseover', function(d){
     var nodeSelection = d3.select(this).style({opacity:'0.5'});
     tooltip.transition()
@@ -244,9 +251,10 @@ var edges = svg.selectAll("line")
       tooltip.transition()
         .duration(500)
         .style("opacity", 0);
-    });
 
+    })
 */
+    ;
 
 var node = svg.select("#nodes").selectAll(".node")
     .data(dataset.nodes)
@@ -336,7 +344,7 @@ edgelabels.append('textPath')
 var curtain = svg.append("rect")
   .attr({
     "id": "curtain",
-    "x": "460px",
+    "x": "520px",
     "y": "1px",
     "height": "500px",
     "width": "650px",
@@ -349,15 +357,16 @@ var curtain = svg.append("rect")
  });
 
 force.on("tick", function() {
+    svg.selectAll(".link")
+        .attr('d', function(d) {
+            let xposSource = d.source.x + nodeWidth/2,
+                xposTarget = d.target.x + nodeWidth/2,
+                yposSource = d.source.y + nodeHeight/2,
+                yposTarget = d.target.y + nodeHeight/2;
+            return 'M' + xposSource + ',' + yposSource + 'L' + xposTarget + ',' + yposTarget;
+        });
 
 /*
-    edges.attr("x1", function(d) {return d.source.x; })
-        .attr("y1", function(d) {return d.source.y; })
-        //.attr("x2", function(d) { return d.target.x-(nodeRadius+17);})  // Increase this value to move the edge away from node center.
-                                                           // Coordinate with arrow size and placement.
-        .attr("x2", function(d) { return d.target.x+20;})  // +20 move edge onto rect for literals
-        .attr("y2", function(d) { return d.target.y;})
-
     edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
         //console.log(d)
         return path
@@ -396,12 +405,6 @@ force.on("tick", function() {
 
 });
 
-
-// Set the "fixed" property of the dragged node to TRUE when a dragstart event is initiated,
-//   - removes "forces" from acting on that node and changing its position.
-function dragstart(d) {
-    d3.select(this).classed("fixed", d.fixed = true);
-}
 </script>
 <div align=right>
   <a href="http://localhost:8000/LDWkshp-CSS2018.html#/14">
