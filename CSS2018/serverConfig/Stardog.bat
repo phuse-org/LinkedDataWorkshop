@@ -1,0 +1,1 @@
+stardog-admin.bat server start --disable-security
