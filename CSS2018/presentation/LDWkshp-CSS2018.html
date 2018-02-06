@@ -60,7 +60,7 @@
   <h3>Instructors</h3>
   <div class="gridTrainers">
     <div align=left>Tim Williams</div>
-    <div align=left>Statistical Systems Analyst<br>
+    <div align=left>Principal Statistical Systems Analyst<br>
         UCB BioSciences<br>
         Raleigh, NC, USA<br>
         <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
@@ -71,58 +71,54 @@
       -->
     </div>
     <div align=left>Johannes Ulander</div>
-    <div align=left>Principle Consultant <br>
+    <div align=left>Principal Consultant <br>
           S-Cubed ApS<br>
           ADDRESS<br>
-          <a href="mailto:foo@bar.com">ju@s-cubed.dk</a>
+          <a href="mailto:ju@s-cubed.dk">ju@s-cubed.dk</a>
     </div>
   </div>
+  <div align=right class="fragment" data-fragment-index="1">
+  <img src="images/stardog_logo.png" height=180x; width=130px;
+    style="border:0px; box-shadow:none;">
+  </div>
+</section>
+<section>
   Workshop Files, Presentation PDF:<br>
   <div align=left>
     <font class="linkSmallBlue">
+      <br>
       <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/CSS2018</a>
     </font>
   </div>
+  <br>
+  (for later)
 </section>
 
 <!---- OUTLINE   -------------------------------------------------------------->
 <section>
   <h2>Outline</h2>
   <ol>
-    <li>Workshop Materials</li>
-    <li>Introduction to Linked Data</li>
-    <li>White Board Exercises</li>
-    <li>Ontologies and Reasoning</li>
-    <li>Querying the Data</li>
+    <li>(very brief) Introduction to Linked Data</li>
+    <li>"Whiteboard" a Clinical Trial</li>
+    <li>Explore the RDF Graph</li>
+    <li>Ontology and Reasoning</li>
+    <li>Merge Across Trials</li>
+    <li>Linked Data Demos</li>
   </ol>
 </section>
 
-<!---- OUTLINE: Materials ---- ------------------------------------------------>
+<!---- Preparation ------------------------------------------------------------>
 <section>
-  <h2>Outline</h2>
-  <ol>
-    <font class="emphGr">
-      <li>Workshop Materials</li>
-    </font>
-    <font class="deEmph">
-      <li>Introduction to Linked Data</li>
-      <li>Hands-on Activities</li>
-    </font>
-  </ol>
-</section>
-
-<!---- Materials -------------------------------------------------------------->
-<section>
-  <h2>Workshop Materials</h2>
+  <h2>Preparation</h2>
   <ul>
     <li>Your laptop [Power up!]
-    <li>Exercises
-    <li>SPARQL Reference
-    <li>Information Sheet
-    <ul>
-      <li>Server Address
-      <li>Information to build your diagram (study name, etc.)
-    </ul>
+    <li>Copy of:
+    <ol>
+      <li>Exercises
+      <li>Information sheet
+      <li>SPARQL reference
+    </ol>
+    <li>Cloud Server Login
   </ul>
 </section>
 
@@ -157,24 +153,28 @@
   </table>
 </section>
 
-<!----------------------------------------------------------------------------->
-<!-- Introduction to Linked Data ---------------------------------------------->
-<!----------------------------------------------------------------------------->
-<!---- OUTLINE: Introduction to Linked Data ----------------------------------->
+<!---- OUTLINE: Introduction ---- ------------------------------------------------>
 <section>
-  <h2>introduction-linked-data</h2>
+  <h2>Outline</h2>
   <ol>
-    <font class="deEmph">
-      <li>Workshop Materials</li>
-    </font>
     <font class="emphGr">
       <li>Introduction to Linked Data</li>
     </font>
     <font class="deEmph">
-      <li>Hands-on Activities</li>
+      <li>"Whiteboard" a Clinical Trial</li>
+      <li>Explore the RDF Graph</li>
+      <li>Ontology and Reasoning</li>
+      <li>Merge Across Trials</li>
+      <li>Linked Data Demos</li>
     </font>
   </ol>
 </section>
+
+
+
+<!----------------------------------------------------------------------------->
+<!-- Introduction to Linked Data ---------------------------------------------->
+<!----------------------------------------------------------------------------->
 
 <!---- Problem Statement  ----------------------------------------------------->
 <section>
@@ -224,8 +224,8 @@
   <h3>Different types of Linked Data</h3>
   <div class="grid5050">
     <div>Property Graph</div>
-    <div>Resource Description Framework (RDF)</div>
-    <div style="background-color:white;"">
+    <div>RDF</div>
+    <div style="background-color:white;">
       <img src="images/apache-tinkerpop_logo.png" left=0px height=100px
         style="border:0px; box-shadow:none;" >
       <br>
@@ -268,7 +268,6 @@
   <font class="todo">add diagram </font>
 </section>
 
-
 <section>
     <h3>Object Types</h3>
     <table>
@@ -291,13 +290,92 @@
     </table>
   </section>
 
+<!---- OUTLINE: Whiteboard --- ------------------------------------------------>
+<section>
+    <h2>Outline</h2>
+    <ol>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+      </font>
+      <font class="emphGr">
+        <li>"Whiteboard" a Clinical Trial</li>
+      </font>
+      <font class="deEmph">
+        <li>Explore the RDF Graph</li>
+        <li>Ontology and Reasoning</li>
+        <li>Merge Across Trials</li>
+        <li>Linked Data Demos</li>
+      </font>
+    </ol>
+</section>
+
+<!---- OUTLINE: Explore RDF Graph --------------------------------------------->
+<section>
+    <h2>Outline</h2>
+    <ol>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>"Whiteboard" a Clinical Trial</li>
+      </font>
+      <font class="emphGr">
+        <li>Explore the RDF Graph</li>
+      </font>
+      <font class="deEmph">
+        <li>Ontology and Reasoning</li>
+        <li>Merge Across Trials</li>
+        <li>Linked Data Demos</li>
+      </font>
+    </ol>
+</section>
+
+<!---- OUTLINE: Ontology ------------------------------------------------------>
+<section>
+  <h2>Outline</h2>
+    <ol>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>"Whiteboard" a Clinical Trial</li>
+        <li>Explore the RDF Graph</li>
+      </font>
+      <font class="emphGr">
+        <li>Ontology and Reasoning</li>
+      </font>
+      <font class="deEmph">
+        <li>Merge Across Trials</li>
+        <li>Linked Data Demos</li>
+      </font>
+    </ol>
+  </section>
+
+  <!---- OUTLINE: Merge ------------------------------------------------------>
+  <section>
+    <h2>Outline</h2>
+    <ol>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>"Whiteboard" a Clinical Trial</li>
+        <li>Explore the RDF Graph</li>
+        <li>Ontology and Reasoning</li>
+      </font>
+      <font class="emphGr">
+        <li>Merge Across Trials</li>
+      </font>
+      <font class="deEmph">
+        <li>Linked Data Demos</li>
+      </font>
+    </ol>
+  </section>
 
 <section>
-  <h3>With RDF, Merging becomes automagic!</h3>
+  <h3>With RDF, Merging be like:</h3>
   <img src="/images/mergeGraphs.gif" style="border:0px; box-shadow:none;"></img>
+  <br>
+  <a href="http://localhost:8000/Trial1and2.html">What? How? </a>
+
 </section>
 
 <section>
+
   <p>.. Two trial graphs :IMAGE 1,2 . Have as images with fragment display.
  <p> Two trial graphs: Merged!
 </section>
@@ -308,11 +386,22 @@
 </section>
 
 
-
-
-
-
-
+<!---- OUTLINE: Demos --------------------------------------------------------->
+<section>
+  <h2>Outline</h2>
+  <ol>
+    <font class="deEmph">
+      <li>Introduction to Linked Data</li>
+      <li>"Whiteboard" a Clinical Trial</li>
+      <li>Explore the RDF Graph</li>
+      <li>Ontology and Reasoning</li>
+      <li>Merge Across Trials</li>
+    </font>
+    <font class="emphGr">
+      <li>Linked Data Demos</li>
+    </font>
+  </ol>
+</section>
 
 <!---------------------------------------------------------------------------->
 <!-- End RDF section --------------------------------------------------------->
@@ -335,7 +424,7 @@
 <section>
   <h2>But Second: Resources</h2>
   <ul>
-    <li>Workshop materials, including the SPARQL and CYPHER scripts, plus PDF of this presentation:<br>
+    <li>Workshop materials, including the Graph Editor, SPARQL scripts, PDF of this presentation:<br>
       <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/</a>
 </section>
 
