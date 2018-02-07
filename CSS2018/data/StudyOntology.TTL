@@ -17,12 +17,11 @@ eg:Investigator  rdf:type  owl:Class;
 
 eg:participatesIn  rdf:type rdfs:Property;
   rdfs:domain   eg:HumanStudySubject;
-  rdfs:range  eg:Study .
+  rdfs:range  ncit:Study .
   
- 
 eg:coordinatingInvestigator rdf:type rdfs:Property;
   rdfs:domain   eg:CoordinatingInvestigator;
-  rdfs:range  eg:Study .
+  rdfs:range  ncit:Study .
 
 eg:CoordinatingInvestigator  rdf:type owl:Class;
    rdfs:subClassOf  eg:Investigator.
@@ -33,11 +32,11 @@ eg:drugProductName rdf:type rdfs:Property;
 
 eg:DrugProduct rdf:type owl:Class;
   rdfs:subClassOf  eg:Product.
+     
+eg:treatmentArm rdf:type rdfs:Property;
+  rdfs:domain ncit:Study;
+  rdfs:range   eg:TreatmentArm.
 
-eg:treatmentarm rdf:type rdfs:Property;
-  rdfs:domain eg:Study;
-  rdfs:range   eg:Treatmentarm.
-
-eg:treatmenttype rdf:type rdfs:Property;
-  rdfs:domain eg:Treatment;
-  rdfs:range   eg:TreatmentType.
+eg:treatmentArmType rdf:type rdfs:Property;
+  rdfs:domain eg:TreatmentArm;
+  rdfs:range   eg:TreatmentArmType.
