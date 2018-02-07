@@ -15,10 +15,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <title>CSS 2018-LDWkshop</title> <link rel="stylesheet"
-  href="css/reveal.css"> <link rel="stylesheet" href="css/theme/black.css"> <!--
-  Theme used for syntax highlighting of code --> <link rel="stylesheet"
-  href="css/theme/moon.css"> <link rel="stylesheet" href="css/PhUSE2018.css">
+  <title>CSS 2018-LDWkshop</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css"> <!--Theme used for syntax highlighting of code -->
+  <link rel="stylesheet"  href="css/theme/moonTW.css"> <!-- Change fonts from moon default -->
+  <link rel="stylesheet" href="css/PhUSE2018.css">
   <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html
   2. start web service to that path. 2. Start an older version of Chrome.
   Current version does not support PDF preview.
@@ -62,7 +63,6 @@
     <div align=left>Tim Williams</div>
     <div align=left>Principal Statistical Systems Analyst<br>
         UCB BioSciences<br>
-        Raleigh, NC, USA<br>
         <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
         <!--
         <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
@@ -73,7 +73,6 @@
     <div align=left>Johannes Ulander</div>
     <div align=left>Principal Consultant <br>
           S-Cubed ApS<br>
-          ADDRESS<br>
           <a href="mailto:ju@s-cubed.dk">ju@s-cubed.dk</a>
     </div>
   </div>
@@ -245,17 +244,14 @@
     </div>
   </div>
 </section>
+<section><!-------------------------------------------------------------------->
+  <a href="http://lod-cloud.net/">The LOD cloud</a>
+</section>
 
 <section><!-------------------------------------------------------------------->
   <h3>RDF</h3>
   <br>
   <a href="http://localhost:8000/RDF-SPOModel.html">Model and Instance Data</a>
-</section>
-
-<!-- TO HERE ----------------------------------------------------------------------------------------->
-<section><!-------------------------------------------------------------------->
-  The LOD cloud
-  <font class="todo">add diagram </font>
 </section>
 
 <section><!-------------------------------------------------------------------->
@@ -267,6 +263,58 @@
   </ul>
   <font class="todo">add diagram </font>
 </section>
+
+<section>
+  <h3>IRI: Internationalized Resource Identifier</h3>
+  <ul>
+    <li>a way to uniquely identify things in RDF
+    <li>Uses HTTP://xxxxx  as part of the identifier
+    <li>prefixes are used to improve human readability
+  </ul>
+</section>
+
+<section>
+  <h3>Prefixes</h3>
+   http://www.example.org/Trial1
+   becomes
+   eg:Trial1
+</section>
+
+<section>
+  <h3>Workshop Prefixes</h3>
+  <table>
+    <tr>
+      <td>eg
+      <td>http://www.example.org
+    </tr>
+  </table>
+</section>
+
+
+<section>
+  <h3>RDF Terms</h3>
+  <div align=left>
+  subject  = IRI or blank node <br>
+  predicate = IRI <br>
+  object = IRI, or literal, or blank node<br>
+</div>
+</section>
+
+<section>
+    <h3>RDF literals</h3>
+    <ul>
+      <font class="emphItalicGreen" >
+        <li>strings
+      </font>
+      <li>numbers
+        <ul>
+          <font class="emphItalicGreen">
+          <li>integers (INT)
+          </font>
+        </ul>
+      <li>dates
+</section>
+
 
 <section>
     <h3>Object Types</h3>
@@ -308,6 +356,16 @@
       </font>
     </ol>
 </section>
+
+<section>
+  <img src="/images/OprahEveryoneGetsAGraph.png" style="border:0px; box-shadow:none;"></img>
+</section>
+
+<section>
+<h3>Create your Graph</h3>
+<p>Exercises: X.X.X
+</section>
+
 
 <!---- OUTLINE: Explore RDF Graph --------------------------------------------->
 <section>
@@ -430,7 +488,7 @@
 
 <!---- SLIDE: RDF Resources---------------------------------------------------->
 <section>
-  <h3>RDF and Protege Resources</h3>
+  <h3>Resources</h3>
   <div class="gridResources">
       <div>Introduction to Semantic Web
       </div>
@@ -445,10 +503,6 @@
       <div>Introduction to Linked data
       </div>
       <div><a href="http://www.cambridgesemantics.com/semantic-university/introduction-linked-data">http://www.cambridgesemantics.com/semantic-university/introduction-linked-data</a>
-      </div>
-      <div>Protege Application
-      </div>
-      <div><a href="https://www.youtube.com/watch?v=8Nf2xf5akoM">https://www.youtube.com/watch?v=8Nf2xf5akoM</a>
       </div>
   </div>
 </section>
