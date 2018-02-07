@@ -5,14 +5,14 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-schema:Study  rdf:type rdfs:Class .
+schema:Study  rdf:type owl:Class .
 
-schema:Person rdf:type rdfs:Class .
+schema:Person rdf:type owl:Class .
 
-eg:HumanStudySubject rdf:type rdfs:Class;
+eg:HumanStudySubject rdf:type owl:Class;
     rdfs:subClassOf  schema:Person .
 
-eg:Investigator  rdf:type  rdfs:Class;
+eg:Investigator  rdf:type  owl:Class;
     rdfs:subClassOf  schema:Person .
 
 eg:enrolledin  rdf:type rdfs:Property;
@@ -24,14 +24,14 @@ eg:primaryinvestigator rdf:type rdfs:Property;
   rdfs:domain   eg:PrimaryInvestigator;
   rdfs:range  eg:Study .
 
-eg:PrimaryInvestigator  rdf:type rdfs:Class;
+eg:PrimaryInvestigator  rdf:type owl:Class;
    rdfs:subClassOf  eg:Investigator.
   
 eg:drugname rdf:type rdfs:Property;
   rdfs:domain eg:Drug;
   rdfs:range   eg:Drugname.
 
-eg:Drug rdf:type rdfs:Class;
+eg:Drug rdf:type owl:Class;
   rdfs:subClassOf  eg:Product.
 
 eg:treatmentarm rdf:type rdfs:Property;
