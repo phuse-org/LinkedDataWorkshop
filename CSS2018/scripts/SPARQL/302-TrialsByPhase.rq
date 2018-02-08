@@ -1,6 +1,0 @@
-# 301-GetDataPool.rq  Count of all triples in the database
-SELECT (COUNT(?s) AS ?triples)
-WHERE
-{
- ?s ?p ?o
-}

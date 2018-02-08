@@ -1,5 +1,5 @@
-# 101-EnrolledIn.rq  Count of Persons enrolled in Trial
+# 220-CountParticipants.rq  Count of Persons who participate in the study
 SELECT (COUNT (?person) AS ?numP)
 WHERE {
-  ?person eg:enrolledin ?trial .
+  ?person eg:participatesIn ?study .
 }

@@ -1,0 +1,6 @@
+# 435-Drug1CountPeople.rq  Count all people involved in Drug1 studies
+# Reasoner must be ON
+SELECT  (COUNT(?person) as ?numSubjects)
+WHERE{
+  ?person a schema:Person.
+}

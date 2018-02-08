@@ -1,7 +1,0 @@
-# 204-NamesAllPeople.rq  Names of all people in trial 
-#   Reasoner must be ON.
-SELECT ?name 
-WHERE {
-  ?person a schema:Person  ;
-          schema:name   ?name .
-}

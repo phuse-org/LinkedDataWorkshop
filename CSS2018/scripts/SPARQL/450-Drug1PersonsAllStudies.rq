@@ -1,0 +1,18 @@
+# 450-Drug1PersonsAllStudies.rq  Count all people involved in Drug1 studies
+# 
+SELECT  ?person ?personName ?study ?personType 
+WHERE{
+   {
+      ?person eg:participatesIn  ?study ;
+		  schema:givenName ?personName .
+	  BIND ("HumanStudySubject" as ?personType)	  
+	}
+    UNION
+	{
+	  ?person eg:coordinatingInvestigator  ?study ;
+	      schema:givenName ?personName .
+	    BIND ("Investigator" as ?personType)
+    }
+} ORDER BY ?person ?personNamme 
+
+

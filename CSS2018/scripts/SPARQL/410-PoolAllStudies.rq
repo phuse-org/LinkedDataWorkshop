@@ -1,0 +1,14 @@
+# 410-PoolAllStudies.rq  
+# Federated query, pulling from all student graphs.
+# ** RESOURCE INTENSIVE: ONLY RUN WHEN ADVISED BY INSTRUCTOR
+# TODO: To be developed by script and tested first.
+# Assumes instructor's server is : 52.14.114.74
+INSERT {?s ?p ?o}
+WHERE
+{
+    SERVICE <http://52.14.114.74:5820/Drug1Pool/query>
+    {
+        SELECT *
+        WHERE { ?s ?p ?o  }
+    }
+}

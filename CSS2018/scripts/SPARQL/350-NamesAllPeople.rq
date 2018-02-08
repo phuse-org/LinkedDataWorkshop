@@ -1,0 +1,7 @@
+# 350-NamesAllPeople.rq  Names of all people in study 
+#   Reasoner must be ON.
+SELECT ?name 
+WHERE {
+  ?person a schema:Person  ;
+          schema:givenName   ?name .
+}

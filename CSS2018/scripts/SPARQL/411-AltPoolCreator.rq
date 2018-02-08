@@ -1,4 +1,5 @@
-# 300-GetDataPool.rq  Obtain data pool from instructor
+# 411-AltPoolCreator.rq  Alternative Pool Creation Method
+#   ** DO NOT RUN UNLESS ADVISED BY INSTRUCTOR **
 # Assumes instructor's server is : 52.14.114.74
 INSERT {?s ?p ?o}
 WHERE

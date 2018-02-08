@@ -1,6 +1,6 @@
-# 102-NameEnrolledIn.rq  Names of Persons enrolled in Trial
+# 230-NameParticipants.rq  Names of Persons who participate in the study
 SELECT ?name 
 WHERE {
-  ?person eg:enrolledin ?trial ;
-          schema:name   ?name .
+  ?person eg:participatesIn ?study ;
+          schema:givenName  ?name .
 }

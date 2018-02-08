@@ -1,4 +1,5 @@
-# 303-Drug1CountHSS.rq  Drug1 trials by phase
+# 303-Drug1CountHSS.rq  Drug1 studies by phase
+# Reasoner must be ON
 SELECT  (COUNT(?person) as ?numSubjects)
 WHERE{
   ?person a eg:HumanStudySubject.
