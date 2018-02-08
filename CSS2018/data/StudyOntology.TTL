@@ -12,19 +12,19 @@ schema:Person rdf:type owl:Class .
 eg:HumanStudySubject rdf:type owl:Class;
     rdfs:subClassOf  schema:Person .
 
-eg:Investigator  rdf:type  owl:Class;
+eg:DataExpert  rdf:type  owl:Class;
     rdfs:subClassOf  schema:Person .
 
 eg:participatesIn  rdf:type rdfs:Property;
   rdfs:domain   eg:HumanStudySubject;
   rdfs:range  ncit:Study .
   
-eg:coordinatingInvestigator rdf:type rdfs:Property;
-  rdfs:domain   eg:CoordinatingInvestigator;
+eg:LDExpert rdf:type rdfs:Property;
+  rdfs:domain   eg:LinkedDataExpert;
   rdfs:range  ncit:Study .
 
-eg:CoordinatingInvestigator  rdf:type owl:Class;
-   rdfs:subClassOf  eg:Investigator.
+eg:LinkedDataExpert  rdf:type owl:Class;
+   rdfs:subClassOf  eg:DataExpert.
   
 eg:drugProductName rdf:type rdfs:Property;
   rdfs:domain eg:DrugProduct;
