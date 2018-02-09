@@ -1,0 +1,41 @@
+# 410-PoolAllStudies-DEVELOPMENT.rq  
+# Development template for creation of 410-PoolAllStudies.rq
+#  Hard code of server address and subqueries to develop multiple
+#  UNION statements.
+# Development on machine 18.218.251.17
+INSERT {?s ?p ?o}
+WHERE
+{  
+    # Graph 1
+    {
+        SERVICE <http://52.14.114.74:5820/Study1MergeSource/query>
+        {
+            SELECT *
+            WHERE { eg:Person11 ?p ?o .
+                ?s ?p ?o .      
+            } 
+        }
+     }
+     UNION
+     # Graph 2  
+     {
+        SERVICE <http://52.14.114.74:5820/Study1MergeSource/query>
+        {
+            SELECT *
+            WHERE { eg:Person12 ?p ?o .
+                ?s ?p ?o .      
+            } 
+        }
+     }
+     UNION
+     # Graph 3  
+     {
+        SERVICE <http://52.14.114.74:5820/Study1MergeSource/query>
+        {
+            SELECT *
+            WHERE { eg:Person13 ?p ?o .
+                ?s ?p ?o .      
+            } 
+        }
+     }
+}
