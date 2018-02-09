@@ -3,6 +3,7 @@
 #  Hard code of server address and subqueries to develop multiple
 #  UNION statements.
 # Development on machine 18.218.251.17
+
 INSERT {?s ?p ?o}
 WHERE
 {  

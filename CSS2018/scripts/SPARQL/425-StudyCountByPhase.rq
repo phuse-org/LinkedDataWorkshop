@@ -1,7 +1,8 @@
-# 425-StudyCountByPhase.rq   List studies by Phase
+# 425-StudyCountByPhase.rq Count of studies in each Phase
 #  Execute on the Pooled Database
+
 SELECT ?phase (COUNT(?phase) AS ?count)
 WHERE
 {
- ?study ncit:phase ?phase
-} GROUP BY ?phase
+    ?study ncit:phase ?phase
+}GROUP BY ?phase

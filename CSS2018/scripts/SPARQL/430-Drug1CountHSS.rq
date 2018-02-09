@@ -1,6 +1,8 @@
-# 303-Drug1CountHSS.rq  Drug1 studies by phase
+# 430-Drug1CountHSS.rq Number HSS in all Drug1 studies
+# Execute on the Pooled Database
 # Reasoner must be ON
+
 SELECT  (COUNT(?person) as ?numSubjects)
 WHERE{
-  ?person a eg:HumanStudySubject.
+    ?person a eg:HumanStudySubject.
 }
