@@ -1,0 +1,16 @@
+# DeleteAllTriples.rq
+# !! Careful you must be, young Jedi !!
+# ---- This script deletes ALL TRIPLES in your graph -----
+# Are you sure this is really what you want to do?  
+DELETE{
+  ?s ?p ?o
+}
+WHERE{
+  ?s ?p ?o
+}
+
+# Confirm the horror of what you have done. No going back now.
+SELECT *
+WHERE{
+  ?s ?p ?o .
+} 
