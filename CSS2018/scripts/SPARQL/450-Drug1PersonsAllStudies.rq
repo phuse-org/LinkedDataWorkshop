@@ -14,4 +14,4 @@ WHERE{
                 schema:givenName ?personName .
       BIND ("Investigator" as ?personType)
     }
-} ORDER BY ?person ?personNamme 
+} ORDER BY ?person ?personName 
