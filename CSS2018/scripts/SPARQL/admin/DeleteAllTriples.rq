@@ -8,9 +8,3 @@ DELETE{
 WHERE{
   ?s ?p ?o
 }
-
-# Confirm the horror of what you have done. No going back now.
-SELECT *
-WHERE{
-  ?s ?p ?o .
-} 
