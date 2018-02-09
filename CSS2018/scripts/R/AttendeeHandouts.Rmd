@@ -1,9 +1,14 @@
 ---
 title: "CSS 2018 Linked Data Workshop InfoSheets"
 output: pdf_document
+fontsize: 14pt
 ---
 # Handouts for Each Attendee
 ##  04 March 2018
+
+\fontfamily{cmr}
+\fontsize{12}{22}
+\selectfont
 
 \newpage
 
@@ -19,18 +24,39 @@ servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/
 
 ## Loop
 for (i in 1:nrow(servers)){
-  cat("Handout for Attendee", i, "\n")
   cat("\n\n")
-  cat("IP Address: ", servers[i,2], "\n")
+  cat("#**Info Sheet**\n")
   cat("\n\n")
-  cat("Study: STUDY", i, "\n")
+  cat("##Attendee", i, "\n")
   cat("\n\n")
-  cat("First Person: PERSON", i,"-1\n")
   cat("\n\n")
-  cat("Second Person: PERSON", i, "-2\n")
+  cat("##Server Information  ")
+  cat("\n\n")
+  cat(paste0("IP Address: **",servers[i,2],"**\n"))
+  cat("\n\n")
+  cat("User Name: **phuseldw** \n")
+  cat("\n\n")
+  cat("Password: **Silver11!** \n")
+
+  cat("\n\n")
+  
+  cat("****")
+  cat("\n\n")
+  cat("\n\n")
+  
+  cat("##Values for Exercises\n")
+  cat(paste0("Study:  **Study", i,"**\n"))
+  cat("\n\n")
+  cat(paste0("Treat Arm One: **TreatmentArm",i,"-1**\n"))
+  cat("\n\n")
+  cat(paste0("Treat Arm Two: **TreatmentArm",i,"-2**\n"))
   cat("\n\n")  
-  cat("OPTIONAL: Additional People: PERSON",i,"-3, PERSON",i,"-4 ...PERSON",i,"-n\n")
+  
+  cat(paste0("Person One: \t**Person",i,"1**\n"))
+  cat("\n\n")  
+  cat(paste0("Person Two: **Person",i,"2**\n"))
+  cat("\n\n")  
+  cat(paste0("Person Three: **Person",i,"3**\n"))
   cat("\n\n")
   cat("\n\n\\pagebreak\n")
-      
 }
