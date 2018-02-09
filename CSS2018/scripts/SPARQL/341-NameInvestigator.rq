@@ -1,7 +1,0 @@
-# 341-NameInvestigator.rq  Names of Study Investigators 
-#   Reasoner must be ON.
-SELECT ?name 
-WHERE {
-  ?person a eg:Investigator   ;
-          schema:givenName   ?name .
-}

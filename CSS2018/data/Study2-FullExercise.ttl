@@ -12,7 +12,7 @@ eg:Study2 ncit:phase ncit:Phase3;
     eg:treatmentArm eg:TreatmentArm2-1, eg:TreatmentArm2-2.
 eg:TreatmentArm2-1 eg:treatmentArmType eg:PlaceboArm.
 eg:TreatmentArm2-2 eg:treatmentArmType eg:ActiveArm.
-eg:Person11 eg:paricipatesIn eg:Study2.
+eg:Person11 eg:participatesIn eg:Study2.
 eg:Person12 eg:participatesIn eg:Study2.
 eg:Person11 eg:randomizedTo eg:TreatmentArm2-1.
 eg:Person12 eg:randomizedTo eg:TreatmentArm2-2.

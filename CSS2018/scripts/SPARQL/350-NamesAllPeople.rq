@@ -1,7 +1,8 @@
-# 350-NamesAllPeople.rq  Names of all people in study 
+# 350-NamesAllPeople.rq  Names and Types of all people with some role in study 
 #   Reasoner must be ON.
-SELECT ?name 
+SELECT *
 WHERE {
   ?person a schema:Person  ;
-          schema:givenName   ?name .
-}
+          schema:givenName ?personName ;
+          a ?personType.
+}ORDER BY ?personName ?personType

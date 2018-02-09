@@ -5,34 +5,15 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-schema:Study  rdf:type owl:Class .
+eg:DrugProduct rdf:type owl:Class;
+  rdfs:subClassOf  eg:Product.
 
-schema:Person rdf:type owl:Class .
-
-eg:HumanStudySubject rdf:type owl:Class;
-    rdfs:subClassOf  schema:Person .
-
-eg:DataExpert  rdf:type  owl:Class;
-    rdfs:subClassOf  schema:Person .
-
-eg:participatesIn  rdf:type rdfs:Property;
-  rdfs:domain   eg:HumanStudySubject;
-  rdfs:range  ncit:Study .
-  
-eg:LDExpert rdf:type rdfs:Property;
-  rdfs:domain   eg:LinkedDataExpert;
-  rdfs:range  ncit:Study .
-
-eg:LinkedDataExpert  rdf:type owl:Class;
-   rdfs:subClassOf  eg:DataExpert.
-  
 eg:drugProductName rdf:type rdfs:Property;
   rdfs:domain eg:DrugProduct;
   rdfs:range   eg:DrugProductName.
 
-eg:DrugProduct rdf:type owl:Class;
-  rdfs:subClassOf  eg:Product.
-     
+schema:Study  rdf:type owl:Class .
+
 eg:treatmentArm rdf:type rdfs:Property;
   rdfs:domain ncit:Study;
   rdfs:range   eg:TreatmentArm.
@@ -40,3 +21,22 @@ eg:treatmentArm rdf:type rdfs:Property;
 eg:treatmentArmType rdf:type rdfs:Property;
   rdfs:domain eg:TreatmentArm;
   rdfs:range   eg:TreatmentArmType.
+
+schema:Person rdf:type owl:Class .
+
+eg:HumanStudySubject rdf:type owl:Class;
+    rdfs:subClassOf  schema:Person .
+
+eg:participatesIn  rdf:type rdfs:Property;
+  rdfs:domain   eg:HumanStudySubject;
+  rdfs:range  ncit:Study .
+
+eg:LinkedDataExpert  rdf:type owl:Class;
+   rdfs:subClassOf  eg:DataExpert.
+
+eg:DataExpert  rdf:type  owl:Class;
+    rdfs:subClassOf  schema:Person .
+
+eg:LDExpert rdf:type rdfs:Property;
+  rdfs:domain   eg:LinkedDataExpert;
+  rdfs:range  ncit:Study .

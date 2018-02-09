@@ -1,10 +1,8 @@
 # 240-NamesInTreatmentType.rq  Names of Persons in each type of treatment 
-SELECT ?treatArmType ?personName
+SELECT ?treatType ?personName
 WHERE {
-  # Easy part: names all people
-  ?person schema:givenName ?personName; 
-          # Follow the path from person to treatment type
-          eg:randomizedTo  ?treatmentArm .
-  ?treatmentArm eg:treatmentArmType ?treatmentArmType .
+  ?person eg:randomizedTo  ?treatmentArm ;       # person to treatment arm
+          schema:givenName ?personName.  
+  ?treatmentArm eg:treatmentArmType ?treatType . # treatment arm to type
 }
-ORDER BY ?treatmentArmType ?personName
+ORDER BY ?treatType ?personName
