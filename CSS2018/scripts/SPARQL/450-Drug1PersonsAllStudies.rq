@@ -1,17 +1,17 @@
 # 450-Drug1PersonsAllStudies.rq  Count all people involved in Drug1 studies
 # Execute on the Pooled Database
 
-SELECT  ?person ?personName ?study ?personType 
+SELECT  ?person ?person_name ?study ?person_type
 WHERE{
     {
         ?person eg:participatesIn  ?study ;
-                schema:givenName ?personName .
-        BIND ("HumanStudySubject" as ?personType)   
+                schema:givenName ?person_name .
+        BIND ("HumanStudySubject" as ?person_type)
     }
     UNION
     {
         ?person eg:coordinatingInvestigator  ?study ;
-                schema:givenName ?personName .
-      BIND ("Investigator" as ?personType)
+                schema:givenName ?person_name .
+      BIND ("Investigator" as ?person_type)
     }
-} ORDER BY ?person ?personName 
+} ORDER BY ?person ?person_name

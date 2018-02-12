@@ -1,8 +1,8 @@
-# 341-NameDataExperts.rq  Names of Data Experts 
+# 341-NameDataExperts.rq  Names of Data Experts
 #   Reasoner must be ON.
 
-SELECT ?personName 
+SELECT ?person_name
 WHERE {
     ?person a eg:DataExpert   ;
-            schema:givenName   ?personName .
+            schema:givenName   ?person_name .
 }

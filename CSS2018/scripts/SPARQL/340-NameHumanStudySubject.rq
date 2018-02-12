@@ -1,8 +1,8 @@
 # 340-NameHumanStudySubject.rq  Names of HumanStudySubjects in Study
 #   Reasoner must be ON.
 
-SELECT ?name 
+SELECT ?person_name
 WHERE {
     ?person a eg:HumanStudySubject;
-            schema:givenName   ?name .
+            schema:givenName   ?person_name .
 }

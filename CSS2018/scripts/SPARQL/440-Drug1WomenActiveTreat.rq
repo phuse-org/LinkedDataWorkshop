@@ -4,6 +4,6 @@
 SELECT  (COUNT(?person) as ?numWomenActive)
 WHERE{
     ?person ncit:gender ncit:Female ;
-            eg:randomizedTo ?treatArm .
-    ?treatArm eg:treatmentArmType eg:ActiveArm		  
+            eg:randomizedTo ?trt_arm .
+    ?trt_arm eg:treatmentArmType eg:ActiveArm
 }
