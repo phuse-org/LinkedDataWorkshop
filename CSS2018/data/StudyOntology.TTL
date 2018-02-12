@@ -14,13 +14,13 @@ eg:drugProductName rdf:type rdfs:Property;
 
 schema:Study  rdf:type owl:Class .
 
-eg:treatmentArm rdf:type rdfs:Property;
+eg:trtArm rdf:type rdfs:Property;
   rdfs:domain ncit:Study;
-  rdfs:range   eg:TreatmentArm.
+  rdfs:range   eg:TrtArm.
 
-eg:treatmentArmType rdf:type rdfs:Property;
-  rdfs:domain eg:TreatmentArm;
-  rdfs:range   eg:TreatmentArmType.
+eg:trtArmType rdf:type rdfs:Property;
+  rdfs:domain eg:TrtArm;
+  rdfs:range   eg:TrtArmType.
 
 schema:Person rdf:type owl:Class .
 

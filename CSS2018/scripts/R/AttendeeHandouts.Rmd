@@ -47,9 +47,9 @@ for (i in 1:nrow(servers)){
   cat("##Values for Exercises\n")
   cat(paste0("Study:  **Study", i,"**\n"))
   cat("\n\n")
-  cat(paste0("Treat Arm One: **TreatmentArm",i,"-1**\n"))
+  cat(paste0("Treat Arm One: **TrtArm",i,"-1**\n"))
   cat("\n\n")
-  cat(paste0("Treat Arm Two: **TreatmentArm",i,"-2**\n"))
+  cat(paste0("Treat Arm Two: **TrtArm",i,"-2**\n"))
   cat("\n\n")  
   
   cat(paste0("Person One: \t**Person",i,"1**\n"))
