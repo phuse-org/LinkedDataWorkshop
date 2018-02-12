@@ -3,25 +3,24 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix schema: <http://schema.org/>.
-@prefix sdtmterm: <https://raw.githubusercontent.com/phuse-org/CTDasRDF/master/data/rdf/sdtm-terminology.rdf#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-eg:Drug1 eg:drugname eg:Serum114;
+eg:Drug1 ncit:drugname eg:Serum114;
     ncit:study eg:Study2.
-eg:Study2 ncit:phase ncit:Phase3;
-    eg:treatmentArm eg:TreatmentArm2-1, eg:TreatmentArm2-2.
-eg:TreatmentArm2-1 eg:treatmentArmType eg:PlaceboArm.
-eg:TreatmentArm2-2 eg:treatmentArmType eg:ActiveArm.
-eg:Person11 eg:participatesIn eg:Study2.
-eg:Person12 eg:participatesIn eg:Study2.
-eg:Person11 eg:randomizedTo eg:TreatmentArm2-1.
-eg:Person12 eg:randomizedTo eg:TreatmentArm2-2.
-eg:Person11 ncit:gender ncit:Male.
-eg:Person12 ncit:gender ncit:Female.
-eg:Person11 schema:givenName "Rashid"^^xsd:string.
-eg:Person12 schema:givenName "Betty"^^xsd:string.
-eg:Person11 eg:age "23"^^xsd:integer.
-eg:Person12 eg:age "52"^^xsd:integer.
-eg:Person13 schema:givenName "Mary"^^xsd:string;
+eg:Person11 eg:age "29"^^xsd:integer;
+    eg:participatesIn eg:Study2;
+    eg:randomizedTo eg:TrtArm2-1;
+    ncit:gender ncit:Male;
+    schema:givenName "John"^^xsd:string.
+eg:Person12 eg:age "31"^^xsd:integer;
+    eg:participatesIn eg:Study2;
+    eg:randomizedTo eg:TrtArm2-2;
     ncit:gender ncit:Female;
-    eg:LDExpert eg:Study2.
+    schema:givenName "Sue"^^xsd:string.
+eg:Person13 eg:LDExpert eg:Study2;
+    ncit:gender ncit:Female;
+    schema:givenName "Mike"^^xsd:string.
+eg:Study2 eg:trtArm eg:TrtArm2-1, eg:TrtArm2-2;
+    ncit:phase ncit:Phase3.
+eg:TrtArm2-1 eg:trtArmType eg:PlaceboArm.
+eg:TrtArm2-2 eg:trtArmType eg:ActiveArm.
