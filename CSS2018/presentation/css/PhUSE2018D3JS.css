@@ -93,6 +93,27 @@ body {
   fill: #ffc862 ;
   stroke: black;
 }
+
+.node.equal {
+  fill: #FFFF99 ;
+  stroke: black;
+}
+
+.node.study1 {
+  fill: #EF3C2D ;
+  stroke: black;
+}
+.node.study2 {
+  fill: #046EAD ;
+  stroke: black;
+}
+.node.person13 {
+  fill: #7FC97F ;
+  stroke: black;
+}
+
+
+
 .link{
     stroke: gray;
     stroke-width: 3;
