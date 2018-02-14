@@ -96,12 +96,12 @@
 <!---- OUTLINE   -------------------------------------------------------------->
 <section>
   <h2>Outline</h2>
-  <ol>
+  <ol start=0>
     <li>(very brief) Introduction to Linked Data</li>
-    <li>"Whiteboard" Study Concepts</li>
-    <li>Explore the RDF Graph</li>
-    <li>Ontology and Reasoning</li>
-    <li>Merge Across Studie</li>
+    <li>Create a Study Graph</li>
+    <li>Query Graph Data</li>
+    <li>Ontology and Inference</li>
+    <li>Merge Studies</li>
     <li>Linked Data Demos</li>
   </ol>
 </section>
@@ -124,15 +124,15 @@
 <!---- OUTLINE: Introduction ---- --------------------------------------------->
 <section>
   <h2>Outline</h2>
-  <ol>
+  <ol start=0>
     <font class="emphGr">
       <li>Introduction to Linked Data</li>
     </font>
     <font class="deEmph">
-      <li>"Whiteboard" Study Concepts</li>
-      <li>Explore the RDF Graph</li>
-      <li>Ontology and Reasoning</li>
-      <li>Merge Across Studies</li>
+      <li>Create a Study Graph</li>
+      <li>Query Graph Data</li>
+      <li>Ontology and Inference</li>
+      <li>Merge Studies</li>
       <li>Linked Data Demos</li>
     </font>
   </ol>
@@ -141,51 +141,6 @@
 <!----------------------------------------------------------------------------->
 <!-- Introduction to Linked Data ---------------------------------------------->
 <!----------------------------------------------------------------------------->
-
-<!---- Problem Statement  ----------------------------------------------------->
-<section>
-  <h2>Problem Statement</h2>
-  What is wrong, and how can Linked Data fix it?
-</section>
-<section><!---- SDTM can be improved ----------------------------------------->
-  <h3>SDTM can be improved</h3>
-  <div class="gridPicLeft">
-    <div align=left><img src="images/DMVSDomains2.png" height=380x; width=350px;></div>
-    <div>
-      <ul>
-        <li>Non-extensible, two dimensional
-        <li>Data repetition
-        <li>Terminology, codes not linked
-        <li><i>Version Conversion</i>: time, <font class=emphLgGr>$&pound;&euro;</font>
-        <li>Does not model study entities
-        <li>Lacks integral metadata<br>
-         ... and more. <br>
-        <li class="fragment" data-fragment-index="1">
-        <font class="emph">26% of CDER SDTM applications: at least 1 error</font></li>
-      </ul>
-    </div>
-  </div>
-</section>
-<!---- Additional Opportunties------------------------------------------------->
-<section>
-  <h3>Opportunites</h3>
-  <ul>
-    <li>Merge data from diverse sources (no silos!)
-    <li>Data integration across the life cycle
-    <li>Integral Metadata
-    <li>High quality submissions data
-    <li>New ways to explore and analyze
-    <li>Build a foundation for AI and ML
-    <li>[!! YOUR IMAGINATION !!]
-  </ul>
-</section>
-
-<section><!---- Thing 1, Thing 2   -------------------------------------------->
-  <h2>Data as a Graph?</h2>
-  <img src="images/Thing12Rel.jpg" left=0px  height=320px
-    style="border:0px; box-shadow:none;" >
-</section>
-
 <section><!-------------------------------------------------------------------->
   <h3>Different types of Linked Data</h3>
   <div class="grid5050">
@@ -212,18 +167,24 @@
   </div>
 </section>
 
+<section><!---- Thing 1, Thing 2   -------------------------------------------->
+  <h2>Data as a Graph?</h2>
+  <img src="images/Thing12Rel.jpg" left=0px  height=320px
+    style="border:0px; box-shadow:none;" >
+</section>
+
 <section>
   <img src="images/Triples-Person1Bob.png" height=500px;
     style="border:0px; box-shadow:none;">
 </section>
 
 <section>
-  <img src="images/Triples-Person1Study1.png" height=500px;
+  <img src="images/Triples-Drug1Study1.png" height=500px;
     style="border:0px; box-shadow:none;">
 </section>
 
 <section>
-  <img src="images/SPOSPO.png" height=500px;
+  <img src="images/Triples-DrugStudyPhase.png" height=500px;
     style="border:0px; box-shadow:none;">
 </section>
 
@@ -253,16 +214,6 @@
   </table>
 </section>
 
-
-<section>
-  <h3>RDF Terms</h3>
-  <div align=left>
-  subject  = IRI or blank node <br>
-  predicate = IRI <br>
-  object = IRI, or literal, or blank node<br>
-</div>
-</section>
-
 <section>
     <h3>RDF literals</h3>
     <ul>
@@ -278,43 +229,20 @@
       <li>dates
 </section>
 
-
-<section>
-    <h3>Object Types</h3>
-    <table>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><font class="emphItalicRed">iri</font></td>
-        <td>Object links to another node or <i>could</i> link to another node</td>
-      </tr>
-      <tr>
-        <td><font class="emphItalicGreen">string</font></td>
-        <td>Character string/value that does not link to other nodes</td>
-      </tr>
-      <tr>
-        <td><font class="emphItalicBlue" >int</font></td>
-        <td>Integer number. No link to other nodes</td>
-      </tr>
-    </table>
-  </section>
-
 <!---- OUTLINE: Whiteboard --- ------------------------------------------------>
 <section>
     <h2>Outline</h2>
-    <ol>
+    <ol start=0>
       <font class="deEmph">
         <li>Introduction to Linked Data</li>
       </font>
       <font class="emphGr">
-        <li>"Whiteboard" Study Concepts</li>
+        <li>Create a Study Graph</li>
       </font>
       <font class="deEmph">
-        <li>Explore the RDF Graph</li>
-        <li>Ontology and Reasoning</li>
-        <li>Merge Across Studies</li>
+        <li>Query Graph Data</li>
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
         <li>Linked Data Demos</li>
       </font>
     </ol>
@@ -330,43 +258,48 @@
 </section>
 
 <section>
-<h3>Create your Graph</h3>
-<p>Exercises: X.X.X
+  <h3 align=left>Exercise</h3>
+  <br>
+  <p>1. Create a Study Graph
 </section>
 
-<!---- OUTLINE: Explore RDF Graph --------------------------------------------->
+<!---- OUTLINE: Query Graph data ---------------------------------------------->
 <section>
     <h2>Outline</h2>
-    <ol>
+    <ol start=0>
       <font class="deEmph">
         <li>Introduction to Linked Data</li>
-        <li>"Whiteboard" Study Concepts</li>
+        <li>Create a Study Graph</li>
       </font>
       <font class="emphGr">
-        <li>Explore the RDF Graph</li>
+        <li>Query Graph Data</li>
       </font>
       <font class="deEmph">
-        <li>Ontology and Reasoning</li>
-        <li>Merge Across Studies</li>
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
         <li>Linked Data Demos</li>
       </font>
     </ol>
 </section>
-
+<section>
+    <h3 align=left>Exercise</h3>
+    <br>
+    <p>2. Query Graph Data
+</section>
 <!---- OUTLINE: Ontology ------------------------------------------------------>
 <section>
   <h2>Outline</h2>
-    <ol>
+    <ol start=0>
       <font class="deEmph">
         <li>Introduction to Linked Data</li>
-        <li>"Whiteboard" Study Concepts</li>
-        <li>Explore the RDF Graph</li>
+        <li>Create a Study Graph</li>
+        <li>Query Graph Data</li>
       </font>
       <font class="emphGr">
-        <li>Ontology and Reasoning</li>
+        <li>Ontology and Inference</li>
       </font>
       <font class="deEmph">
-        <li>Merge Across Studies</li>
+        <li>Merge Studies</li>
         <li>Linked Data Demos</li>
       </font>
     </ol>
@@ -392,18 +325,24 @@
   <p>StudyOntology.TTL
 </section>
 
+<section>
+    <h3 align=left>Exercise</h3>
+    <br>
+    <p>2. Ontology and Inference
+</section>
+
 <!---- OUTLINE: Merge ------------------------------------------------------>
 <section>
     <h2>Outline</h2>
-    <ol>
+    <ol start=0>
       <font class="deEmph">
         <li>Introduction to Linked Data</li>
-        <li>"Whiteboard" Study Concepts</li>
-        <li>Explore the RDF Graph</li>
-        <li>Ontology and Reasoning</li>
+        <li>Create a Study Graph</li>
+        <li>Query Graph Data</li>
+        <li>Ontology and Inference</li>
       </font>
       <font class="emphGr">
-        <li>Merge Across Studies</li>
+        <li>Merge Studies</li>
       </font>
       <font class="deEmph">
         <li>Linked Data Demos</li>
@@ -419,8 +358,6 @@
   </div>
 </section>
 
-
-
 <section>
   <h3>With RDF, Merging be like:</h3>
   <img src="/images/mergeGraphs.gif" style="border:0px; box-shadow:none;"></img>
@@ -433,16 +370,22 @@
     <img src="/images/StudiesToDataPool.png" style="border:0px; box-shadow:none;"></img>
 </section>
 
+<section>
+  <h3 align=left>Exercise</h3>
+  <br>
+  <p>4. Merge Studies
+</section>
+
 <!---- OUTLINE: Demos --------------------------------------------------------->
 <section>
   <h2>Outline</h2>
-  <ol>
+  <ol start=0>
     <font class="deEmph">
       <li>Introduction to Linked Data</li>
-      <li>"Whiteboard" Study Concepts</li>
-      <li>Explore the RDF Graph</li>
-      <li>Ontology and Reasoning</li>
-      <li>Merge Across Studies</li>
+      <li>Create a Study Graph</li>
+      <li>Query Graph Data</li>
+      <li>Ontology and Inference</li>
+      <li>Merge Studies</li>
     </font>
     <font class="emphGr">
       <li>Linked Data Demos</li>
@@ -450,8 +393,6 @@
   </ol>
 </section>
 
-<!---------------------------------------------------------------------------->
-<!-- End RDF section --------------------------------------------------------->
 <!---- Acknowledgements --------------------------------------------->
 <section>
   <h3>But first: Acknowledgements</h3>
@@ -495,6 +436,13 @@
       </div>
   </div>
 </section>
+
+<section>
+  <h3 align=left>DEMO TIME!</h3>
+  <br>
+  <p>StarDog Demo
+</section>
+
 <section>
   <h3>Extra Slides</h3>
 </section>
@@ -502,6 +450,59 @@
 <section><!-------------------------------------------------------------------->
   <a href="http://lod-cloud.net/">The LOD cloud</a>
 </section>
+<section><!---- SDTM can be improved ----------------------------------------->
+  <h3>SDTM can be improved</h3>
+  <div class="gridPicLeft">
+    <div align=left><img src="images/DMVSDomains2.png" height=380x; width=350px;></div>
+    <div>
+      <ul>
+        <li>Non-extensible, two dimensional
+        <li>Data repetition
+        <li>Terminology, codes not linked
+        <li><i>Version Conversion</i>: time, <font class=emphLgGr>$&pound;&euro;</font>
+        <li>Does not model study entities
+        <li>Lacks integral metadata<br>
+         ... and more. <br>
+        <li class="fragment" data-fragment-index="1">
+        <font class="emph">26% of CDER SDTM applications: at least 1 error</font></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!---- Additional Opportunties------------------------------------------------->
+<section>
+  <h3>Opportunites</h3>
+  <ul>
+    <li>Merge data from diverse sources (no silos!)
+    <li>Data integration across the life cycle
+    <li>Integral Metadata
+    <li>High quality submissions data
+    <li>New ways to explore and analyze
+    <li>Build a foundation for AI and ML
+    <li>[!! YOUR IMAGINATION !!]
+  </ul>
+</section>
+<section>
+    <h3>Object Types</h3>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><font class="emphItalicRed">iri</font></td>
+        <td>Object links to another node or <i>could</i> link to another node</td>
+      </tr>
+      <tr>
+        <td><font class="emphItalicGreen">string</font></td>
+        <td>Character string/value that does not link to other nodes</td>
+      </tr>
+      <tr>
+        <td><font class="emphItalicBlue" >int</font></td>
+        <td>Integer number. No link to other nodes</td>
+      </tr>
+    </table>
+  </section>
 
 <!---------------------------------------------------------------------------->
 <!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
