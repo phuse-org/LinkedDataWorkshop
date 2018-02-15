@@ -7,12 +7,22 @@
 # NOTE: Visualize requires query to return s,p,o. 
 # TODO: 1. Improve parsing of the nodes and relations in the Visualization.
 #         See code in the ValidateTTLScript.R for a nice Regex.
+#       2. visnetwork styles to match GraphEditor : Shapes, colours
+#       0. TTL validation and output.
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
 library(shiny)
 library(redland)
 library(visNetwork)
+
+
+# Setup the file read for redland
+world   <- new("World")
+storage <- new("Storage", world, "hashes", name="", options="hash-type='memory'")
+model   <- new("Model", world=world, storage, options="")
+parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
+
 
 #------------------------------------------------------------------------------
 # UI 
@@ -21,33 +31,37 @@ ui <- navbarPage("TTL File Query",
     theme = "spacelab.css",
     tabPanel("Query",
         wellPanel(
-          column(6, fileInput('fileTTL', '.TTL File', accept=c('.ttl'))),
-          column(6, fileInput('fileRQ',   'OPTIONAL: .RQ Query File')),
-          fluidRow(
-              textAreaInput(inputId="query", "SPARQL Query", rows=10, width='90%', 
-                 "SELECT * 
-                  WHERE{
-                      ?s ?p ?o
-                  }"),
-        actionButton(inputId = "runQuery", label="Run query")
+            column(6, fileInput('fileTTL', '.TTL File', accept=c('.ttl'))),
+            column(6, fileInput('fileRQ',   'OPTIONAL: .RQ Query File')),
+            fluidRow(
+                textAreaInput(inputId="query", "SPARQL Query", rows=10, width='90%', 
+"# To Visualize, results must be ?s ?p ?o
+SELECT ?s ?p ?o 
+WHERE{
+    ?s ?p ?o
+}"),
+            actionButton(inputId = "runQuery", label="Run query")
         )
     ),
     fluidRow(
-         HTML('<br><label for="endpoint">Query Result:</label>'),
+        HTML('<br><label for="endpoint">Query Result:</label>'),
         dataTableOutput("queryresult")
     )
+    ),
+    tabPanel("QC Check",
+        h2("QC Results"),
+        p("Any values listed should be reviewed in the exercise steps."),
+        h3("Nodes"),
+        verbatimTextOutput("flaggedNodes"),
+        br(),
+        h3("Relations"),
+        verbatimTextOutput("flaggedRelations")
     ),
     tabPanel("Visualize",
         visNetworkOutput("network",height = '400px')
     ),
-    tabPanel("QC Check",
-        h2("QC Results"),
-        h3("Nodes"),
-        verbatimTextOutput("flaggedNodes"),
-        br(),
-      
-        h3("Relations"),
-        verbatimTextOutput("flaggedRelations")
+      tabPanel("DEV",
+        dataTableOutput("dev")
     )
 )
 
@@ -55,36 +69,7 @@ ui <- navbarPage("TTL File Query",
 # SERVER 
 #------------------------------------------------------------------------------
 server <- function(input, output, session) {
-  
-  # Setup the file read for redland
-  world   <- new("World")
-  storage <- new("Storage", world, "hashes", name="", options="hash-type='memory'")
-  model   <- new("Model", world=world, storage, options="")
-  parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
 
-  data <- eventReactive(input$runQuery, {
-    inFileTTL <- input$fileTTL
-        
-        # redland::parseFileIntoModel(parser, world, "data/rdf/cdiscpilot01.ttl", model)
-        redland::parseFileIntoModel(parser, world, inFileTTL$datapath, model)
-        
-        #OLD  sourceTTL = load.rdf(inFileTTL$datapath, format="N3")
-        # triples <- sparql.rdf(sourceTTL, input$query)
-        # triples
-        # Construct and execute the query
-        # queryString <- 'SELECT * WHERE { ?s ?p ?o . } LIMIT 10'
-        queryResults = NULL;
-        query <- new("Query", world, input$query, base_uri=NULL, query_language="sparql", query_uri=NULL)
-        queryResult <- executeQuery(query, model)
-
-        # Need to wrap the getNextResult into a loop that runs until NULL is returned.
-        repeat{
-          nextResult <- getNextResult(queryResult)
-          queryResults <- rbind(queryResults, data.frame(nextResult))
-          if(is.null(nextResult)){ break }
-        }
-        triples<-queryResults
-    })
     queryText <- observeEvent(input$fileRQ, {
         filePath <- input$fileRQ$datapath
         queryText <- paste(readLines(filePath), collapse = "\n")
@@ -95,33 +80,90 @@ server <- function(input, output, session) {
     })
     output$query <- renderPrint({ queryText() })    
 
+    data <- eventReactive(input$runQuery, {
+        inFileTTL <- input$fileTTL
+            redland::parseFileIntoModel(parser, world, inFileTTL$datapath, model)
+            queryResults = NULL;
+            query <- new("Query", world, input$query, base_uri=NULL, query_language="sparql", query_uri=NULL)
+            queryResult <- executeQuery(query, model)
+    
+            # getNextResult in a loop until NULL is returned.
+            repeat{
+                nextResult <- getNextResult(queryResult)
+                queryResults <- rbind(queryResults, data.frame(nextResult))
+                if(is.null(nextResult)){ break }
+            }
+        triples<-queryResults
+    })
+
     # Query Result
     output$queryresult= renderDataTable({ data() });
 
     
+    #---- Data Massage --------------------------------------------------------
+    #   Massage data for both QC Check and Visualization
+    prefData = reactive ({
+        # Replace IRI with prefixes for both plotting and data QC
+        temp <- as.data.frame(data())
+        
+        # Convert IRI to us prefixes
+        # TODO: change into apply loop within fnt
+        iriToPref <- function(elem)
+        {
+            elem <- gsub("<http://example.org/LDWorkshop#", "eg:", elem)
+            # ncit:
+            elem <- gsub("<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#", "ncit:",elem)
+            # schema
+            elem <- gsub("<http://schema.org/", "schema:", elem)
+            # Remove the trailing >
+            elem <- gsub(">", "", elem)
+            
+            # Object literals require removal of quotes and type to get value only
+            
+            elem <- gsub("^\"", "", elem)  # quote at start of value
+            elem <- gsub("\"\\S+", "", elem)  # quote value end and type
+            
+        }  
+        
+        temp$s <- iriToPref(temp$s) # Subjects
+        temp$p <- iriToPref(temp$p) # Predicates
+        temp$o <- iriToPref(temp$o) # Objects
+
+        temp  # return the dataframe
+        })
+  
+  
+    output$dev = renderDataTable({ prefData() });
+
+  
+          
+
     #---- Data QC -------------------------------------------------------------
+    
+##    #---- Nodes
+##    flaggedNodes <- vector(mode='character', length=0);
+##    flaggedNodes <- c("eg:One", "eg:Two")
+##    if (length(flaggedNodes)<1){
+##      flaggedNodes <-c("All QC checks passed.")
+##    }
+##    output$flaggedNodes <- renderPrint({
+##       flaggedNodes
+##    })
+##
+##    #---- Relations
+##    flaggedRelations <- vector(mode='character', length=0);
+##    # flaggedRelations <- c("eg:oneone", "eg:twotwo")
+##    if (length(flaggedRelations)<1){
+##      flaggedRelations <-c("All QC checks passed.")
+##    }
+##    output$flaggedRelations <- renderPrint({
+##       flaggedRelations
+##    })
 
-    #---- Nodes
-    flaggedNodes <- vector(mode='character', length=0);
-    flaggedNodes <- c("eg:One", "eg:Two")
-    if (length(flaggedNodes)<1){
-      flaggedNodes <-c("All QC checks passed.")
-    }
-    output$flaggedNodes <- renderPrint({
-       flaggedNodes
-    })
+    
+    
 
-    #---- Relations
-    flaggedRelations <- vector(mode='character', length=0);
-    # flaggedRelations <- c("eg:oneone", "eg:twotwo")
-    if (length(flaggedRelations)<1){
-      flaggedRelations <-c("All QC checks passed.")
-    }
-    output$flaggedRelations <- renderPrint({
-       flaggedRelations
-    })
-
-
+    
     #-- Graph -----------------------------------------------------------------
     output$network <- renderVisNetwork({
         RDFTriples <<- as.data.frame(data())

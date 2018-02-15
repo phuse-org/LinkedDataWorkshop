@@ -15,7 +15,7 @@
 library(reshape2) # melt
 library(redland)
 setwd("C:/_github/LinkedDataWorkshop/CSS2018")
-       
+
 #---- Values to check ---------------------------------------------------------
 #    Nodes that should be present in all graphs
 standardNodes <- c("eg:ActiveArm", "eg:Drug1", "eg:PlaceboArm", "eg:Serum114", "ncit:Female", "ncit:Male")
@@ -72,13 +72,10 @@ ttlRelations <- sort(unique(ttlRelations))
 #---- Compare and flag values
 flaggedRelations <-setdiff(ttlRelations, standardRelations)
 
-
-
 # ---- NODES
 nodeList <- melt(queryResults, id.vars=c("p" ))
 nodes <- nodeList$value
 nodes <-sort(unique(nodes))
-
 
 # Change IRI to use prefixes  TODO: Create function for this step for Nodes,Relations
 # eg:
@@ -141,7 +138,6 @@ sapply(personNodes, function(person){
   }
 }) 
 
-
 # TrtArm : Check: "TrtArm" + attendeeNum+ "-"+ number 
 armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
 sapply(armNodes, function(arm){
@@ -158,10 +154,3 @@ sapply(armNodes, function(arm){
 flaggedRelations
 
 flaggedNodes
-
-
-
-
-
-
-
