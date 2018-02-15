@@ -93,7 +93,7 @@ cleanNodes<-processNodes[!grepl("integer|string", processNodes)]
 cleanNodes <- gsub("\\S*/(?:LDWorkshop#|Thesaurus.owl#)*(\\S+)>", "\\1", cleanNodes)
 cleanNodes
 
-# Parsse Study node obtain attendee number used to check 
+# Parse Study node obtain attendee number used to check 
 #    other nodes: Person<n>, TrtArm<n-n>.
 studyNode <-cleanNodes[grepl("(S|s)tudy", cleanNodes)] 
 

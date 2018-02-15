@@ -24,6 +24,15 @@ model   <- new("Model", world=world, storage, options="")
 parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
 
 
+#---- Values to check ---------------------------------------------------------
+#    Nodes that should be present in all graphs
+standardNodes <- c("eg:ActiveArm", "eg:Drug1", "eg:PlaceboArm", "eg:Serum114", "ncit:Female", "ncit:Male")
+
+#    Relations that should be present in all graphs
+standardRelations <- c("eg:age", "eg:LDExpert", "eg:participatesIn", "eg:randomizedTo",
+  "eg:trtArm", "eg:trtArmType", "ncit:drugname", "ncit:gender", "ncit:phase", "ncit:study",
+  "schema:givenName")
+
 #------------------------------------------------------------------------------
 # UI 
 #------------------------------------------------------------------------------
@@ -99,12 +108,12 @@ server <- function(input, output, session) {
     # Query Result
     output$queryresult= renderDataTable({ data() });
 
-    
     #---- Data Massage --------------------------------------------------------
     #   Massage data for both QC Check and Visualization
+    #   prefData - prefixes instead of IRIs
     prefData = reactive ({
         # Replace IRI with prefixes for both plotting and data QC
-        temp <- as.data.frame(data())
+        toPref <- as.data.frame(data())
         
         # Convert IRI to us prefixes
         # TODO: change into apply loop within fnt
@@ -119,27 +128,93 @@ server <- function(input, output, session) {
             elem <- gsub(">", "", elem)
             
             # Object literals require removal of quotes and type to get value only
-            
             elem <- gsub("^\"", "", elem)  # quote at start of value
             elem <- gsub("\"\\S+", "", elem)  # quote value end and type
-            
         }  
-        
-        temp$s <- iriToPref(temp$s) # Subjects
-        temp$p <- iriToPref(temp$p) # Predicates
-        temp$o <- iriToPref(temp$o) # Objects
-
-        temp  # return the dataframe
+        toPref$s <- iriToPref(toPref$s) # Subjects
+        toPref$p <- iriToPref(toPref$p) # Predicates
+        toPref$o <- iriToPref(toPref$o) # Objects
+        toPref  # return the dataframe
         })
   
-  
-    output$dev = renderDataTable({ prefData() });
-
-  
-          
+    # output$dev = renderDataTable({ prefData() });
 
     #---- Data QC -------------------------------------------------------------
+    qcData  = reactive ({
+     
+        nodeList <- melt(prefData(), id.vars=c("p"))
+        nodes <- nodeList$value
+        uValues <-sort(unique(nodes))
+
+        # Only iriNodes will be used for QC Checking
+        iriNodes <- uValues[grepl("^\\S+:", uValues)]
+        # as.character conversion needed here due to coercion within Shiny 
+        #   that was not present outside of Shiny!! 
+        iriNodes <-as.character(iriNodes)
+            ## print(c("------QC: iriNodes = ", iriNodes))
+
+        # Parse Study node obtain attendee number used to check 
+        #    other nodes: Person<n>, TrtArm<n-n>.
+        studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
+        print(c("QC: studyNode = ", studyNode))
+##        
+##        
+##        
+##        # Extr. Attendee Num, assuming Study Num is correct!
+##        attendeeNum <-gsub("eg:Study", "", studyNode)
+##
+##        # Phase Node
+##        phaseNode <<-iriNodes[grepl("Phase", iriNodes)] 
+##        print(c("phaseNode = ", phaseNode))
+##        
+##        # Person Nodes
+##        personNodes <-iriNodes[grepl("Person", iriNodes)] 
+##        
+##        # TrtArm Nodes
+##        armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
+##        
+##        # Nodes that should be in all studies
+##        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase", iriNodes)] 
+##        
+##        flaggedNodes <- setdiff(ttlNodes, standardNodes)
+########################## START NEW 
+        # Nodes unique to each Attendee. Flag those not fitting req pattern
+        # Study<n> NOT checked: is used to extract the attendeeNum, so it
+        #   is always correct in this code logic. 
+        
+        # Phase : Check that it is "Phase" then: Phase3, PhaseIIb, Phase2b all acceptable.
+ ##       if (!grepl("ncit:Phase\\S{1-4}", phaseNode)) {
+ ##           print ("----ERROR: Phase Pattern fail.")
+ ##           print (c("----------: ", phaseNode))
+ ##           flaggedNodes<<-append(flaggedNodes, phaseNode)
+ ##       }
+##        
+##        # Person : Check : "Person" + "attendeeNum" + <n>
+##        personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
+##        sapply(personNodes, function(person){
+##          if (!grepl(personRegex, person)) {
+##              print ("----ERROR: Person Node fail.")
+##              flaggedNodes<<-append(flaggedNodes, person)
+##          }
+##        }) 
+##        
+##        # TrtArm : Check: "TrtArm" + attendeeNum+ "-"+ number 
+##        armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
+##        sapply(armNodes, function(arm){
+##            if (!grepl(armRegex, arm)) {
+##                print ("----ERROR: Arm Node fail.")
+##                flaggedNodes<<-append(flaggedNodes, arm)
+##          }
+##        }) 
+##        
+        
+######################## END NEW         
+      as.data.frame(iriNodes) # just for QC
+    # as.data.frame(flaggedNodes) # just for QC
+     
+   })
     
+    output$dev = renderDataTable({ qcData() });
 ##    #---- Nodes
 ##    flaggedNodes <- vector(mode='character', length=0);
 ##    flaggedNodes <- c("eg:One", "eg:Two")
