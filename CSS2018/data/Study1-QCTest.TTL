@@ -20,7 +20,7 @@ eg:Person12 eg:age "33"^^xsd:integer;
 eg:Person13 eg:LDExpert eg:Study1;
     ncit:gender ncit:Female;
     schema:givenName "Tara"^^xsd:string.
-eg:Study1 eg:trtArm eg:TrtArm1-1, eg:TrtArm1-2;
+eg:Study1 eg:trtArm eg:TrtArm1-1, eg:TrtArm2-2;
     eg:phase eg:Phase3.
 eg:TrtArm1-1 eg:trtArmType eg:PlaceboArm.
 eg:TrtArm1-2 eg:trtArmType eg:ActiveArm.

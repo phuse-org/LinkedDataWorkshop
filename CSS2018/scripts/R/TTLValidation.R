@@ -137,11 +137,17 @@ server <- function(input, output, session) {
         toPref  # return the dataframe
         })
   
-    # output$dev = renderDataTable({ prefData() });
+    ## output$dev = renderDataTable({ prefData() });
 
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
      
+        # Initialize qcData to null. It will later either have values picked up 
+        # in QC checks or an "all passed" message.
+        qcData <- data.frame()
+        
+        
+        #---- Nodes -----------------------------------------------------------
         nodeList <- melt(prefData(), id.vars=c("p"))
         nodes <- nodeList$value
         uValues <-sort(unique(nodes))
@@ -149,72 +155,85 @@ server <- function(input, output, session) {
         # Only iriNodes will be used for QC Checking
         iriNodes <- uValues[grepl("^\\S+:", uValues)]
         # as.character conversion needed here due to coercion within Shiny 
-        #   that was not present outside of Shiny!! 
+        #   that was not in external code dev
         iriNodes <-as.character(iriNodes)
-            ## print(c("------QC: iriNodes = ", iriNodes))
 
-        # Parse Study node obtain attendee number used to check 
+        # Parse Study node to obtain attendee number used to check 
         #    other nodes: Person<n>, TrtArm<n-n>.
         studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
-        print(c("QC: studyNode = ", studyNode))
-##        
-##        
-##        
-##        # Extr. Attendee Num, assuming Study Num is correct!
-##        attendeeNum <-gsub("eg:Study", "", studyNode)
-##
-##        # Phase Node
-##        phaseNode <<-iriNodes[grepl("Phase", iriNodes)] 
-##        print(c("phaseNode = ", phaseNode))
-##        
-##        # Person Nodes
-##        personNodes <-iriNodes[grepl("Person", iriNodes)] 
-##        
-##        # TrtArm Nodes
-##        armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
-##        
-##        # Nodes that should be in all studies
-##        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase", iriNodes)] 
-##        
-##        flaggedNodes <- setdiff(ttlNodes, standardNodes)
-########################## START NEW 
+
+        # Extr. Attendee Num, assuming Study Num is correct!
+        attendeeNum <-gsub("eg:Study", "", studyNode)
+
+        # Phase Node  TW: was a << assignment. WHY?
+        phaseNode <-iriNodes[grepl("Phase", iriNodes)] 
+
+        # Person Nodes
+        personNodes <-iriNodes[grepl("Person", iriNodes)] 
+
+        # TrtArm Nodes
+        armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
+        
+        # Nodes that should be in all studies
+        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase", iriNodes)] 
+        
+        flaggedNodes <- setdiff(ttlNodes, standardNodes)
+
         # Nodes unique to each Attendee. Flag those not fitting req pattern
-        # Study<n> NOT checked: is used to extract the attendeeNum, so it
+        # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
         #   is always correct in this code logic. 
         
-        # Phase : Check that it is "Phase" then: Phase3, PhaseIIb, Phase2b all acceptable.
- ##       if (!grepl("ncit:Phase\\S{1-4}", phaseNode)) {
- ##           print ("----ERROR: Phase Pattern fail.")
- ##           print (c("----------: ", phaseNode))
- ##           flaggedNodes<<-append(flaggedNodes, phaseNode)
- ##       }
-##        
-##        # Person : Check : "Person" + "attendeeNum" + <n>
-##        personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
-##        sapply(personNodes, function(person){
-##          if (!grepl(personRegex, person)) {
-##              print ("----ERROR: Person Node fail.")
-##              flaggedNodes<<-append(flaggedNodes, person)
-##          }
-##        }) 
-##        
-##        # TrtArm : Check: "TrtArm" + attendeeNum+ "-"+ number 
-##        armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
-##        sapply(armNodes, function(arm){
-##            if (!grepl(armRegex, arm)) {
-##                print ("----ERROR: Arm Node fail.")
-##                flaggedNodes<<-append(flaggedNodes, arm)
-##          }
-##        }) 
-##        
+        # Phase : Check that it is "Phase" then: Phase3, PhaseIIb, Phase2b etc.
+        if (!grepl("ncit:Phase\\S{1-4}", phaseNode)) {
+            print ("----ERROR: Phase Pattern fail.")
+            print (c("----------: ", phaseNode))
+            flaggedNodes<-append(flaggedNodes, phaseNode)
+        }
         
-######################## END NEW         
-      as.data.frame(iriNodes) # just for QC
-    # as.data.frame(flaggedNodes) # just for QC
+        # Person : Check : "Person" + "attendeeNum" + <n>
+        #     use of << within sapply
+        personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
+        sapply(personNodes, function(person){
+            if (!grepl(personRegex, person)) {
+                print ("----ERROR: Person Node fail.")
+                print (c("----------: ", person))
+                flaggedNodes<<-append(flaggedNodes, person)
+            }
+        }) 
+
+        # TrtArm : Check: "TrtArm" + attendeeNum+ "-"+ number 
+        #     use of << within sapply
+        armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
+        sapply(armNodes, function(arm){
+            if (!grepl(armRegex, arm)) {
+                print ("----ERROR: Arm Node fail.")
+                print (c("----------: ", arm))
+                flaggedNodes<<-append(flaggedNodes, arm)
+          }
+        }) 
+        
+        qcData <- as.data.frame(list(item=flaggedNodes))
+        qcData$type <-"Node"
+      
+        #---- Relations -------------------------------------------------------      
+      
+      
+      
+        #---- Pretty-Pretty -----------------------------------------------------
+        # Re-order for display
+        qcData <- qcData[c("type", "item")]
      
-   })
-    
+        print(c("---- qcData = ", qcData))
+        ## After all checks complete (Nodes and Relaions) 
+        ## if (nrow(qcData) == 0){
+            # Set the returned value is a single column name "Message" with value:
+          # "All QC Checks Passed."
+        ## }
+        qcData     # return the qc set, with values or with OK message.
+    })
+
     output$dev = renderDataTable({ qcData() });
+   ## output$dev = renderDataTable({ qcData() });
 ##    #---- Nodes
 ##    flaggedNodes <- vector(mode='character', length=0);
 ##    flaggedNodes <- c("eg:One", "eg:Two")
