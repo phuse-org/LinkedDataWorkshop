@@ -105,7 +105,7 @@ server <- function(input, output, session) {
     flaggedNodes <- vector(mode='character', length=0);
     flaggedNodes <- c("eg:One", "eg:Two")
     if (length(flaggedNodes)<1){
-      flaggedNodes <-c("All nodes passed QC checks")
+      flaggedNodes <-c("All QC checks passed.")
     }
     output$flaggedNodes <- renderPrint({
        flaggedNodes
@@ -115,7 +115,7 @@ server <- function(input, output, session) {
     flaggedRelations <- vector(mode='character', length=0);
     # flaggedRelations <- c("eg:oneone", "eg:twotwo")
     if (length(flaggedRelations)<1){
-      flaggedRelations <-c("All relations passed QC checks")
+      flaggedRelations <-c("All QC checks passed.")
     }
     output$flaggedRelations <- renderPrint({
        flaggedRelations
