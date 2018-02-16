@@ -5,7 +5,7 @@
 # OUT : N/A
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
-# TODO: 1. Change to the TTL and new query result does not reset QC Check data.
+# TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
@@ -53,19 +53,10 @@ WHERE{
     )
     ),
     tabPanel("QC Check",
-        h2("QC Results"),
-        p("Any values listed should be reviewed in the exercise steps."),
-        h3("Nodes"),
-        verbatimTextOutput("flaggedNodes"),
-        br(),
-        h3("Relations"),
-        verbatimTextOutput("flaggedRelations")
+        uiOutput("ui")
     ),
     tabPanel("Visualize",
         visNetworkOutput("network",height = '400px')
-    ),
-    tabPanel("DEV",
-        dataTableOutput("dev")
     )
 )
 
@@ -77,7 +68,7 @@ server <- function(input, output, session) {
     queryText <- observeEvent(input$fileRQ, {
         filePath <- input$fileRQ$datapath
         queryText <- paste(readLines(filePath), collapse = "\n")
-        # update text area with file content
+        # Update text area with file content
         updateTextAreaInput(session, "query", value = queryText)
         # return the text to be displayed in text Outputs
         return(queryText)
@@ -111,7 +102,6 @@ server <- function(input, output, session) {
         toPref <- as.data.frame(data())
         
         # Convert IRI to us prefixes
-        # TODO: change into apply loop within fnt
         iriToPref <- function(elem)
         {
             elem <- gsub("<http://example.org/LDWorkshop#", "eg:", elem)
@@ -135,11 +125,11 @@ server <- function(input, output, session) {
     #--------------------------------------------------------------------------
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
-     
         # Initialize qcData to null. It will later either have values picked up 
         # in QC checks or an "all passed" message.
-        qcData <- data.frame()
-        
+        # item="" row is later removed to decide on message to be displayed
+        qcData <- as.data.frame(list(type="All QC Checks Passed", item=""))
+
         #---- Nodes -----------------------------------------------------------
         nodeList <- melt(prefData(), id.vars=c("p"))
         nodes <- nodeList$value
@@ -205,37 +195,45 @@ server <- function(input, output, session) {
           }
         }) 
         
-        qcNode <- as.data.frame(list(item=flaggedNodes))
-        qcNode$type <-"Node"
-        qcNode <- qcNode[c("type", "item")]  # Order columns
+        if (length(flaggedNodes > 0)){
+            qcNode <- as.data.frame(list(item=flaggedNodes))
+            qcNode$type <-"Node"
+            qcNode <- qcNode[c("type", "item")]  # Order columns
+            # Append to qcData 
+            qcData <- rbind(qcData, qcNode)
+        }
+        
         #---- Relations -------------------------------------------------------      
         ttlRelations <- prefData()$p
         ttlRelations <- sort(unique(ttlRelations))
         flaggedRelations <- setdiff(ttlRelations, standardRelations)
-            ## print(c("----ttlRelations = ", ttlRelations))
-      
+
+        if (length(flaggedNodes > 0)){
+            qcRel <- as.data.frame(list(item=flaggedRelations))
+            qcRel$type <- "Relation"
+            qcRel <- qcRel[c("type", "item")]  # Order columns
         
-        qcRel <- as.data.frame(list(item=flaggedRelations))
-        qcRel$type <- "Relation"
-        qcRel <- qcRel[c("type", "item")]  # Order columns
-        
-        # Append to qcData 
-        qcData <- rbind(qcNode, qcRel)
-        
+            # Append to qcData 
+            qcData <- rbind(qcData, qcRel)
+        }
         print(c("---- qcData = ", qcData))
-        
-        ## After all checks complete (Nodes and Relaions) 
-  #      if (nrow(qcData) == 0){
-  #       # Set the returned value is a single column name "Message" with value:
-  #        # "All QC Checks Passed."
-  #        qcData$type<- "All QC Checks Passed."
-  #        qcData$item<- "All QC Checks Passed."
-  #      }
-        qcData     # return the qc set, with values or with OK message.
+        print(c("---- nrow(qcData = ", nrow(qcData)))
+        qcData     # Return the qc set, with values or with default OK message.
     })
 
-    output$dev = renderDataTable({ qcData() });
-    
+    output$ui = renderUI({ 
+      qcReport <-qcData();
+      qcReport <-qcReport[!(qcReport$item==""),]  # Remove the default row for no items
+      
+      if (nrow(qcReport) < 1)
+          return("All QC Checks Passed") # Message if no findings
+          tableOutput("table") # Otherwise, return the data as a table         
+    })
+    # Table must be defined separately
+    output$table <- renderTable({
+        qcData()
+    })
+  
     #--------------------------------------------------------------------------
     #-- Visualize -------------------------------------------------------------
     output$network <- renderVisNetwork({
@@ -261,12 +259,7 @@ server <- function(input, output, session) {
         nodeList <- rename(nodeList, c("value" = "id" ))
         nodes<- as.data.frame(nodeList[c("id")])
 
-        # Kludgy grouping of nodes to assign color values based on if they are
-        # uri, int, or string, similar to the spreadsheet source
-        # NOTE: Will not scale to custom entries by students. 
-        #nodeMatch <- c("^Person", "^Study", "^Treat", "^Protocol")
-        #nodes$group[grepl(paste(nodeMatch, collapse="|"), nodes$id, perl=TRUE)]  <- "uri"  
-        # Default to type =uri, then reassign for best guess at int and string.
+        # Assign node color based on content (int, string) then based on prefixes
         nodes$group <- 'iri'
         nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)] <- "string"
         nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)] <- "int"
@@ -274,27 +267,19 @@ server <- function(input, output, session) {
         nodes$group[grepl("eg:", nodes$id, perl=TRUE)] <- "iri"
         
         nodes$shape <- "box"
-
-        # remove prefixes if present
-        # nodes$title <- sub("^\\S+:", "", nodes$id)
-        nodes$title <-  nodes$id
-        # Label includes prefix
-        nodes$label <- nodes$title
+        nodes$title <-  nodes$id  # mouseover. 
+        nodes$label <- nodes$title # label on node (always displayed)
 
         
         #---- Edges
-        # Create list of edges by keeping the Subject and Predicate from query result.
+        # Create list of edges with from, to for visNetwork 
         edges<-as.data.frame(rename(RDFTriples, c("s" = "from", "o" = "to")))
         
         # Edge values
-        #   use edges$label for values always displayed
-        #   use edges$title for values only displayed on mouseover
-        # edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
-        edges$title <- sub(".*/", "", edges$p)  # Everything ahead of the value
-        edges$title <- sub(">.*", "", edges$title)  # Everything ahead of the value  
-          
-        # ORIGINAL TESTING visNetwork(nodes, edges)
-        
+        #   edges$label : always displayed, so not set in current vis.
+        #   edges$title : only displayed on mouseover. Used in current vis.
+        edges$title <- edges$p
+
         visNetwork(nodes, edges, height = "1200px", width = "100%") %>%
             visOptions(selectedBy = "group", 
                 highlightNearest = TRUE, 
@@ -325,9 +310,5 @@ server <- function(input, output, session) {
                     springLength = 50
             ))  
     })
-    
-    
-    
-    
 }
 shinyApp(ui = ui, server = server)
