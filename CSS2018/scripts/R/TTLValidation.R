@@ -231,7 +231,9 @@ server <- function(input, output, session) {
     })
     # Table must be defined separately
     output$table <- renderTable({
-        qcData()
+      qcReport <-qcData();
+      qcReport <-qcReport[!(qcReport$item==""),]  # Remove the default row for no items
+      qcReport
     })
   
     #--------------------------------------------------------------------------
