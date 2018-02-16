@@ -66,10 +66,13 @@ WHERE{
         h3("Relations"),
         verbatimTextOutput("flaggedRelations")
     ),
+    tabPanel("Old Vis",
+        visNetworkOutput("networkOld",height = '400px')
+    ),
     tabPanel("Visualize",
         visNetworkOutput("network",height = '400px')
     ),
-      tabPanel("DEV",
+    tabPanel("DEV",
         dataTableOutput("dev")
     )
 )
@@ -135,10 +138,9 @@ server <- function(input, output, session) {
         toPref$p <- iriToPref(toPref$p) # Predicates
         toPref$o <- iriToPref(toPref$o) # Objects
         toPref  # return the dataframe
-        })
+    })
   
-    ## output$dev = renderDataTable({ prefData() });
-
+    #--------------------------------------------------------------------------
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
      
@@ -165,7 +167,7 @@ server <- function(input, output, session) {
         # Extr. Attendee Num, assuming Study Num is correct!
         attendeeNum <-gsub("eg:Study", "", studyNode)
 
-        # Phase Node  TW: was a << assignment. WHY?
+        # Phase Node
         phaseNode <-iriNodes[grepl("Phase", iriNodes)] 
 
         # Person Nodes
@@ -233,33 +235,10 @@ server <- function(input, output, session) {
     })
 
     output$dev = renderDataTable({ qcData() });
-   ## output$dev = renderDataTable({ qcData() });
-##    #---- Nodes
-##    flaggedNodes <- vector(mode='character', length=0);
-##    flaggedNodes <- c("eg:One", "eg:Two")
-##    if (length(flaggedNodes)<1){
-##      flaggedNodes <-c("All QC checks passed.")
-##    }
-##    output$flaggedNodes <- renderPrint({
-##       flaggedNodes
-##    })
-##
-##    #---- Relations
-##    flaggedRelations <- vector(mode='character', length=0);
-##    # flaggedRelations <- c("eg:oneone", "eg:twotwo")
-##    if (length(flaggedRelations)<1){
-##      flaggedRelations <-c("All QC checks passed.")
-##    }
-##    output$flaggedRelations <- renderPrint({
-##       flaggedRelations
-##    })
-
     
-    
-
-    
-    #-- Graph -----------------------------------------------------------------
-    output$network <- renderVisNetwork({
+    #--------------------------------------------------------------------------
+    #-- Visualize -------------------------------------------------------------
+    output$networkOld <- renderVisNetwork({
         RDFTriples <<- as.data.frame(data())
         
         RDFTriples<-RDFTriples[!(RDFTriples$o==""),]
@@ -352,6 +331,99 @@ server <- function(input, output, session) {
                 damping = 0.9,
                 springLength = 10
             ))  
-     })
+    })
+    
+    # NEW VIS 
+    output$network <- renderVisNetwork({
+        RDFTriples <<- as.data.frame(prefData())
+        
+        RDFTriples<-RDFTriples[!(RDFTriples$o==""),]
+        
+        # Remove duplicates from the query
+        RDFTriples <- RDFTriples[!duplicated(RDFTriples),]
+
+        #---- Nodes Construction
+        # Get the unique list of nodes by combine Subject and Object into 
+        # single column.
+        # "id.vars" = list of columns to keep untouched whil the unamed (s,o) are 
+        # melted into the "value" column.
+        nodeList <- melt(RDFTriples, id.vars=c("p" ))
+
+        # A node can be both a Subject and a Predicate so ensure a unique list of node names
+        #  by dropping duplicate values.
+        nodeList <- nodeList[!duplicated(nodeList$value),]
+
+        # Rename to ID for use in visNetwork and keep only that column
+        nodeList <- rename(nodeList, c("value" = "id" ))
+        nodes<- as.data.frame(nodeList[c("id")])
+
+        # Kludgy grouping of nodes to assign color values based on if they are
+        # uri, int, or string, similar to the spreadsheet source
+        # NOTE: Will not scale to custom entries by students. 
+        #nodeMatch <- c("^Person", "^Study", "^Treat", "^Protocol")
+        #nodes$group[grepl(paste(nodeMatch, collapse="|"), nodes$id, perl=TRUE)]  <- "uri"  
+        # Default to type =uri, then reassign for best guess at int and string.
+        nodes$group <- 'iri'
+        nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)] <- "string"
+        nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)] <- "int"
+        nodes$group[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "iriont"
+        nodes$group[grepl("eg:", nodes$id, perl=TRUE)] <- "iri"
+        
+        nodes$shape <- "box"
+
+        # remove prefixes if present
+        # nodes$title <- sub("^\\S+:", "", nodes$id)
+        nodes$title <-  nodes$id
+        # Label includes prefix
+        nodes$label <- nodes$title
+
+        
+        #---- Edges
+        # Create list of edges by keeping the Subject and Predicate from query result.
+        edges<-as.data.frame(rename(RDFTriples, c("s" = "from", "o" = "to")))
+        
+        # Edge values
+        #   use edges$label for values always displayed
+        #   use edges$title for values only displayed on mouseover
+        # edges$title <-gsub("\\S+:", "", edges$p)   # label : text always present
+        edges$title <- sub(".*/", "", edges$p)  # Everything ahead of the value
+        edges$title <- sub(">.*", "", edges$title)  # Everything ahead of the value  
+          
+        # ORIGINAL TESTING visNetwork(nodes, edges)
+        
+        visNetwork(nodes, edges, height = "1200px", width = "100%") %>%
+            visOptions(selectedBy = "group", 
+                highlightNearest = TRUE, 
+                nodesIdSelection = TRUE) %>%
+            visEdges(arrows = list(to = list(enabled = TRUE, scaleFactor = 0.5)),
+                     color  = "gray",
+                     smooth = list(enabled = FALSE, type = "cubicBezier", roundness=.8)) %>%
+            visGroups(groupname = "iri",    color = list(background = "#BCF5BC", 
+                                                         border     = "#CCCCCC",
+                                                         highlight  = "#FFFF33")) %>%
+
+            visGroups(groupname = "iriont", color = list(background = "#FFC862",
+                                                         border     = "#CCCCCC", 
+                                                         highlight  = "#FFFF33")) %>%
+
+            visGroups(groupname = "string", color = list(background = "#E4E4E4", 
+                                                         border     = "#CCCCCC", 
+                                                         highlight  = "#FFFF33")) %>%
+            visGroups(groupname = "int",    color = list(background = "#C1E1EC", 
+                                                         border     = "#CCCCCC",
+                                                         highlight  = "#FFFF33" )) %>%
+            visPhysics(stabilization=FALSE, 
+                barnesHut = list(
+                    avoidOverlap=1,
+                    gravitationalConstant = -2000,
+                    springConstant = 0.01,
+                    damping = 0.2,
+                    springLength = 50
+            ))  
+    })
+    
+    
+    
+    
 }
 shinyApp(ui = ui, server = server)
