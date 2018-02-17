@@ -1,4 +1,4 @@
-# 350-NamesAllPeople.rq  Names and Types of all people with some role in study
+# 350-PersonNamesAllTypes.rq  Names and Types of all people in the study
 #   Reasoner must be ON.
 
 SELECT ?person ?person_name ?person_type
