@@ -6,36 +6,44 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 eg:DrugProduct rdf:type owl:Class;
-  rdfs:subClassOf  eg:Product.
+  rdfs:subClassOf  eg:Product;
+  rdfs:label  "Drug is a type of product"^^xsd:string .
 
 eg:drugProductName rdf:type rdfs:Property;
   rdfs:domain eg:DrugProduct;
-  rdfs:range   eg:DrugProductName.
+  rdfs:range  eg:DrugProductName;
+  rdfs:label  "Common product name for a drug"^^xsd:string .
 
 schema:Study  rdf:type owl:Class .
 
 eg:trtArm rdf:type rdfs:Property;
   rdfs:domain ncit:Study;
-  rdfs:range   eg:TrtArm.
+  rdfs:range   eg:TrtArm;
+  rdfs:label  "Treatment arm in a clinical study."^^xsd:string .
 
 eg:trtArmType rdf:type rdfs:Property;
   rdfs:domain eg:TrtArm;
-  rdfs:range   eg:TrtArmType.
+  rdfs:range   eg:TrtArmType;
+  rdfs:label  "Type of treatment arm in a study: active or placebo"^^xsd:string .
 
 schema:Person rdf:type owl:Class .
 
 eg:HumanStudySubject rdf:type owl:Class;
-    rdfs:subClassOf  schema:Person .
+    rdfs:subClassOf  schema:Person ;
+    rdfs:label  "Parcipant in a clinical study/trial"^^xsd:string .
 
 eg:participatesIn  rdf:type rdfs:Property;
   rdfs:domain   eg:HumanStudySubject;
-  rdfs:range  ncit:Study .
+  rdfs:range  ncit:Study ;
+  rdfs:label  "The act of participating in a clinical study"^^xsd:string .
 
 eg:LinkedDataExpert  rdf:type owl:Class;
-   rdfs:subClassOf  eg:DataExpert.
+   rdfs:subClassOf  eg:DataExpert ;
+   rdfs:label  "An expert in the field of Linked Data/RDF"^^xsd:string .
 
 eg:DataExpert  rdf:type  owl:Class;
-    rdfs:subClassOf  schema:Person .
+    rdfs:subClassOf  schema:Person ;
+    rdfs:label  "An expert in data modeling and manipulation"^^xsd:string .
 
 eg:LDExpert rdf:type rdfs:Property;
   rdfs:domain   eg:LinkedDataExpert;
