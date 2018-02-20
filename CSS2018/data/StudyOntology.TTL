@@ -16,7 +16,7 @@
 #################################################################
 
 eg:LDExpert rdf:type owl:ObjectProperty ;
-            rdfs:domain eg:Person ;
+            rdfs:domain eg:LinkedDataExpert;
             rdfs:range ncit:Study .
 
 eg:drugProductName rdf:type owl:ObjectProperty ;

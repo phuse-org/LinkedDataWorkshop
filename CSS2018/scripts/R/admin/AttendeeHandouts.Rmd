@@ -32,9 +32,9 @@ for (i in 1:nrow(servers)){
   cat("\n\n")
   cat("##Server Information  ")
   cat("\n\n")
-  cat(paste0("IP Address: **",servers[i,2],"**\n"))
+  cat(paste0("Computer: **",servers[i,2],"**\n"))
   cat("\n\n")
-  cat("User Name: **phuseldw** \n")
+  cat("User name: **phuseldw** \n")
   cat("\n\n")
   cat("Password: **Silver11!** \n")
 

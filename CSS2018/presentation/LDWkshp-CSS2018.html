@@ -70,16 +70,26 @@
         <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
       -->
     </div>
+
     <div align=left>Johannes Ulander</div>
     <div align=left>Principal Consultant <br>
           S-Cubed ApS<br>
           <a href="mailto:ju@s-cubed.dk">ju@s-cubed.dk</a>
     </div>
-  </div>
-  <div align=right class="fragment" data-fragment-index="1">
+
+  <div align=left class="fragment" data-fragment-index="1">
+    Assisted by:
+     <ul>
+           <li>AJ Cook
+           <li>Stephen  Nowell
+     </ul>
+    </div>
+  <div align=left class="fragment" data-fragment-index="1">
   <img src="images/stardog_logo.png" height=180x; width=130px;
     style="border:0px; box-shadow:none;">
   </div>
+</div>
+
 </section>
 <section>
   Workshop Files, Presentation PDF:<br>
@@ -114,6 +124,7 @@
     <li>Copy of:
     <ol>
       <li>Exercises
+      <li>Graph Editor Introduction
       <li>Info sheet
       <li>SPARQL reference
     </ol>
@@ -145,7 +156,7 @@
   <h3>Different types of Linked Data</h3>
   <div class="grid5050">
     <div>Property Graph</div>
-    <div>RDF</div>
+    <div>Resource Description Framework (<b>RDF</b>)</div>
     <div style="background-color:white;">
       <img src="images/apache-tinkerpop_logo.png" left=0px height=100px
         style="border:0px; box-shadow:none;" >
@@ -189,19 +200,27 @@
 </section>
 
 <section>
-  <h3>IRI: Internationalized Resource Identifier</h3>
+  <h3>"Things" need unique identifiers</h3>
+  <h4>IRI: Internationalized Resource Identifier</h4>
   <ul>
     <li>Unique Identifier
-    <li>Uses HTTP://xxxxx
-    <li>Prefixes can help human readability
+    <li>Uses HTTP://xx.xx.xx/<font class="emphItalicGreen">xxxx</font>
   </ul>
+  <img src="images/Drug1Study1-IRIs.png"
+    style="border:0px; box-shadow:none;">
 </section>
 
 <section>
   <h3>Prefixes</h3>
-   http://www.example.org/Study1  <br>
-   becomes<br>
-   eg:Study1
+    <ul>
+      <li>Prefixes shorten IRIs for readability
+    </ul>
+  <pre>
+    @prefix eg: &lt;http://example.org/LDWorkshop#&gt; .
+    @prefix ncit: &lt;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#&gt; .
+</pre>
+  <img src="images/Drug1Study1-Prefixed.png"
+    style="border:0px; box-shadow:none;">
 </section>
 
 <section>
@@ -209,13 +228,23 @@
   <table>
     <tr>
       <td>eg
-      <td>http://www.example.org
+      <td>http://example.org/LDWorkshop#
+    </tr>
+    <tr>
+      <td>ncit
+      <td>http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#
+    </tr>
+    <tr>
+      <td>schema
+      <td>http://schema.org/
     </tr>
   </table>
 </section>
 
 <section>
-    <h3>RDF literals</h3>
+    <h3>literals</h3>
+    No outward going links.
+TW: Add image: string and Int
     <ul>
       <font class="emphItalicGreen" >
         <li>strings
@@ -350,7 +379,7 @@
     </ol>
 </section>
 <section>
-  <p>When IRIs are the <font class="emphGr">same</font>, merging becomes
+  <p>When IRIs are the <font class="emphGr">same</font>, merging is
     <font class="emphItalicRed">automatic!</font>
   <div align=center>
       <img src="/images/Magic.gif" height=300px;
@@ -438,7 +467,7 @@
 </section>
 
 <section>
-  <h3 align=left>DEMO TIME!</h3>
+  <h3 align=left>Woof!<br> It is DEMO TIME!</h3>
   <br>
   <p>StarDog Demo
 </section>
