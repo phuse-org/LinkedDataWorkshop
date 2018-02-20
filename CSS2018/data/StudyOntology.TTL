@@ -61,13 +61,13 @@ eg:TrtArm rdf:type owl:Class .
 eg:TrtArmType rdf:type owl:Class .
 
 ### Person and Types of Persons
-eg:Person rdf:type owl:Class .
+schema:Person rdf:type owl:Class .
 
 eg:HumanStudySubject rdf:type owl:Class ;
-                     rdfs:subClassOf eg:Person .
+                     rdfs:subClassOf schema:Person .
 
 eg:DataExpert rdf:type owl:Class ;
-              rdfs:subClassOf eg:Person .
+              rdfs:subClassOf schema:Person .
 
 eg:LinkedDataExpert rdf:type owl:Class ;
                     rdfs:subClassOf eg:DataExpert .
