@@ -1,0 +1,276 @@
+# xRx-PoolAllStudies.rq  - Pool all Drug1 Studies. 
+#   Script created by CreatePoolScript.R based on list of servers
+INSERT {?s ?p ?o}
+WHERE
+{  
+
+    # Graph 1
+    {
+        SERVICE <http://123.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 2
+    {
+        SERVICE <http://223.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 3
+    {
+        SERVICE <http://323.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 4
+    {
+        SERVICE <http://423.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 5
+    {
+        SERVICE <http://523.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 6
+    {
+        SERVICE <http://623.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 7
+    {
+        SERVICE <http://723.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 8
+    {
+        SERVICE <http://823.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 9
+    {
+        SERVICE <http://923.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 10
+    {
+        SERVICE <http://12.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 11
+    {
+        SERVICE <http://13.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 12
+    {
+        SERVICE <http://14.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 13
+    {
+        SERVICE <http://15.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 14
+    {
+        SERVICE <http://16.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 15
+    {
+        SERVICE <http://17.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 16
+    {
+        SERVICE <http://18.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 17
+    {
+        SERVICE <http://19.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 18
+    {
+        SERVICE <http://29.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 19
+    {
+        SERVICE <http://20.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 20
+    {
+        SERVICE <http://21.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 21
+    {
+        SERVICE <http://22.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 22
+    {
+        SERVICE <http://23.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 23
+    {
+        SERVICE <http://24.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 24
+    {
+        SERVICE <http://25.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 25
+    {
+        SERVICE <http://26.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 26
+    {
+        SERVICE <http://27.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 27
+    {
+        SERVICE <http://28.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 28
+    {
+        SERVICE <http://29.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 29
+    {
+        SERVICE <http://39.456.789:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 30
+    {
+        SERVICE <http://410.456.778:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+}

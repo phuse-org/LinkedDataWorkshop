@@ -10,16 +10,15 @@
 library(readxl)
 servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/ClassInfo.xlsx", sheet = "Servers", col_names=TRUE))
 
+rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2018/scripts/SPARQL/410-PoolAllStudies.rq", "w")
 
-# sink("C:/_gitHub/LinkedDataWorkshop/CSS2018/scripts/SPARQL/XRX-PoolAllStudies.rq")
-rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2018/scripts/SPARQL/XRX-PoolAllStudies.rq", "w")
-
-scriptP1 <-"# xRx-PoolAllStudies.rq  - Pool all Drug1 Studies. 
-#   Script created by CreatePoolScript.R based on list of servers
+scriptP1 <-paste("# 410-PoolAllStudies.rq  - Pool all Drug1 Studies. 
+#   Script created", Sys.time(), "by CreatePoolScript.R 
+#       based on list of servers in ClassInfo.xlsx
 INSERT {?s ?p ?o}
 WHERE
-{  
-"
+{"  
+)
 
 writeLines(scriptP1, con=rqFile)
 

@@ -1,15 +1,24 @@
-# 410-PoolAllStudies.rq  
-# Federated query, pulling from all student graphs.
-# ** RESOURCE INTENSIVE: ONLY RUN WHEN ADVISED BY INSTRUCTOR
-# TODO: To be developed by script and tested first.
-# Assumes instructor's server is : 52.14.114.74
-
+# 410-PoolAllStudies.rq  - Pool all Drug1 Studies. 
+#   Script created 2018-02-20 12:26:47 by CreatePoolScript.R 
+#       based on list of servers in ClassInfo.xlsx
 INSERT {?s ?p ?o}
 WHERE
 {
-    SERVICE <http://52.14.114.74:5820/Drug1Pool/query>
+    # Graph 1
     {
-        SELECT *
-        WHERE { ?s ?p ?o  }
+        SERVICE <http://52.14.114.74:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 2
+    {
+        SERVICE <http://18.218.251.17:5820/LDWStudy/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
     }
 }
