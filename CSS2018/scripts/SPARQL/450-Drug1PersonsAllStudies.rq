@@ -1,17 +1,10 @@
-# 450-Drug1PersonsAllStudies.rq  Count all people involved in Drug1 studies
-# Execute on the Pooled Database
-
-SELECT  ?person ?person_name ?study ?person_type
+# 450-Drug1PersonsAllStudies.rq  List all Persons and their role in Drug1 Studies
+#   Execute on the Pooled Database.  
+#   Reasoner must be ON.
+SELECT  ?person ?personName ?study ?personType
 WHERE{
-    {
-        ?person eg:participatesIn  ?study ;
-                schema:givenName ?person_name .
-        BIND ("HumanStudySubject" as ?person_type)
-    }
-    UNION
-    {
-        ?person eg:coordinatingInvestigator  ?study ;
-                schema:givenName ?person_name .
-      BIND ("Investigator" as ?person_type)
-    }
-} ORDER BY ?person ?person_name
+  ?person schema:givenName ?personName ;
+          a                ?personType ;
+          eg:participatesIn|eg:LDExpert ?study.
+  ?personType  rdfs:subClassOf  schema:Person ;
+}ORDER BY ?person ?study ?personType
