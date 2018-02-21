@@ -1,8 +1,9 @@
-# 435-Drug1CountPeople.rq  Count all people involved in Drug1 studies
+# 435-Drug1CountPeople.rq  Count all Persons involved in Drug1 studies
+#  (not just patients who participateIn a study)
 # Execute on the Pooled Database
 # Reasoner must be ON
 
-SELECT  (COUNT(?person) as ?numSubjects)
+SELECT  (COUNT(?person) as ?numAllPersons)
 WHERE{
   ?person a schema:Person.
 }
