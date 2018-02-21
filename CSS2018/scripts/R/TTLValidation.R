@@ -13,12 +13,6 @@ library(shiny)
 library(redland)
 library(visNetwork)
 
-# Setup the file read for redland
-world   <- new("World")
-storage <- new("Storage", world, "hashes", name="", options="hash-type='memory'")
-model   <- new("Model", world=world, storage, options="")
-parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
-
 #---- Values to check ---------------------------------------------------------
 #    Nodes that should be present in all graphs
 standardNodes <- c("eg:ActiveArm", "eg:Drug1", "eg:PlaceboArm", "eg:Serum114", "ncit:Female", "ncit:Male")
@@ -76,12 +70,20 @@ server <- function(input, output, session) {
     output$query <- renderPrint({ queryText() })    
 
     data <- eventReactive(input$runQuery, {
+
+        # Setup the file read for redland
+        world   <- new("World")
+        storage <- new("Storage", world, "hashes", name="", options="hash-type='memory'")
+        model   <- new("Model", world=world, storage, options="")
+        parser  <- new("Parser", world, name = 'turtle', mimeType = 'text/turtle')
+
         inFileTTL <- input$fileTTL
             redland::parseFileIntoModel(parser, world, inFileTTL$datapath, model)
-
+       
+            queryResults = c(); 
             query <- new("Query", world, input$query, base_uri=NULL, query_language="sparql", query_uri=NULL)
             queryResult <- executeQuery(query, model)
-    
+            
             # getNextResult in a loop until NULL is returned.
             repeat{
                 nextResult <- getNextResult(queryResult)
@@ -96,7 +98,7 @@ server <- function(input, output, session) {
 
     #---- Data Massage --------------------------------------------------------
     #   Massage data for both QC Check and Visualization
-    #   prefData - prefixes instead of IRIs
+    #   prefData = prefixes instead of IRIs
     prefData = reactive ({
         # Replace IRI with prefixes for both plotting and data QC
         toPref <- as.data.frame(data())
@@ -126,7 +128,6 @@ server <- function(input, output, session) {
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
         
-       
         # Initialize exceptions to message for success. It will be reset if 
         # exceptions are found. 
         # item="" row is later removed when passed message displayed
@@ -169,9 +170,10 @@ server <- function(input, output, session) {
         #   is always correct in this code logic. 
         
         # Phase : Check that it is "Phase" then: Phase3, PhaseIIb, Phase2b etc.
-        if (!grepl("ncit:Phase\\S{1-4}", phaseNode)) {
+        if ( length(phaseNode > 0) &&  !grepl("ncit:Phase\\S{1-4}", phaseNode) ) {
             print ("----ERROR: Phase Pattern fail.")
             print (c("----------: ", phaseNode))
+            print ("pattern: ncit:Phase\\S{1-4}")
             flaggedNodes<-append(flaggedNodes, phaseNode)
         }
         
@@ -179,7 +181,7 @@ server <- function(input, output, session) {
         #     use of << within sapply
         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
         sapply(personNodes, function(person){
-            if (!grepl(personRegex, person)) {
+            if (length(person > 0) && !grepl(personRegex, person)) {   #TW 
                 print ("----ERROR: Person Node fail.")
                 print (c("----------: ", person))
                 flaggedNodes<<-append(flaggedNodes, person)
@@ -190,13 +192,14 @@ server <- function(input, output, session) {
         #     use of << within sapply
         armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
         sapply(armNodes, function(arm){
-            if (!grepl(armRegex, arm)) {
+            if (length(arm > 0) && !grepl(armRegex, arm)) {
                 print ("----ERROR: Arm Node fail.")
                 print (c("----------: ", arm))
                 flaggedNodes<<-append(flaggedNodes, arm)
           }
         }) 
         
+        # if any node exceptions are found, add them to dataExceptions
         if (length(flaggedNodes > 0)){
             qcNode <- as.data.frame(list(item=flaggedNodes))
             qcNode$type <-"Node"
@@ -224,8 +227,8 @@ server <- function(input, output, session) {
     })
 
     output$ui = renderUI({ 
-      qcReport <-qcData();
-      qcReport <-qcReport[!(qcReport$item==""),]  # Remove the default row for no items
+      qcReport <- qcData();
+      qcReport <- qcReport[!(qcReport$item==""),]  # Remove the default row for no items
       
       if (nrow(qcReport) < 1)
           return("All QC Checks Passed") # Message if no findings
