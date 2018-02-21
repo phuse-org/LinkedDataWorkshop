@@ -45,7 +45,7 @@
   <div class="reveal">
     <div class="slides">
 
-<!---- Title Slide  ----------------------------------------------------------->
+<!---- Title ------------------------------------------------------------------>
 <section>
   <h3>Linked Data for Clinical Trials</h3>
   <h3>Hands-on Workshop</h3>
@@ -70,27 +70,26 @@
         <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
       -->
     </div>
-
     <div align=left>Johannes Ulander</div>
     <div align=left>Principal Consultant <br>
           S-Cubed ApS<br>
           <a href="mailto:ju@s-cubed.dk">ju@s-cubed.dk</a>
     </div>
 
-  <div align=left class="fragment" data-fragment-index="1">
-    Assisted by:
-     <ul>
-           <li>AJ Cook
-           <li>Stephen  Nowell
-     </ul>
+    <div align=left class="fragment" data-fragment-index="1">
+      Assisted by:
+       <ul>
+        <li>AJ Cook
+        <li>Stephen  Nowell
+       </ul>
     </div>
-  <div align=left class="fragment" data-fragment-index="1">
-  <img src="images/stardog_logo.png" height=180x; width=130px;
-    style="border:0px; box-shadow:none;">
+    <div align=left class="fragment" data-fragment-index="1">
+    <img src="images/stardog_logo.png" height=180x; width=130px;
+      style="border:0px; box-shadow:none;">
+    </div>
   </div>
-</div>
-
 </section>
+
 <section>
   Workshop Files, Presentation PDF:<br>
   <div align=left>
@@ -152,7 +151,7 @@
 <!----------------------------------------------------------------------------->
 <!-- Introduction to Linked Data ---------------------------------------------->
 <!----------------------------------------------------------------------------->
-<section><!-------------------------------------------------------------------->
+<section>
   <h3>Different types of Linked Data</h3>
   <div class="grid5050">
     <div>Property Graph</div>
@@ -218,7 +217,7 @@
   <pre>
     @prefix eg: &lt;http://example.org/LDWorkshop#&gt; .
     @prefix ncit: &lt;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#&gt; .
-</pre>
+  </pre>
   <img src="images/Drug1Study1-Prefixed.png"
     style="border:0px; box-shadow:none;">
 </section>
@@ -243,19 +242,22 @@
 
 <section>
     <h3>literals</h3>
-    No outward going links.
-TW: Add image: string and Int
+    <img src="images/Literals-StringInt.png"
+      style="border:0px; box-shadow:none;">
+    <br>
     <ul>
       <font class="emphItalicGreen" >
-        <li>strings
+        <li>string
       </font>
-      <li>numbers
+      <li>number
         <ul>
           <font class="emphItalicGreen">
-          <li>integers (INT)
+          <li>integer (INT)
           </font>
         </ul>
-      <li>dates
+      <li>date
+    </ul>
+    <p>No links <i>from</i> a literal </p>
 </section>
 
 <!---- OUTLINE: Whiteboard --- ------------------------------------------------>
@@ -287,7 +289,7 @@ TW: Add image: string and Int
 </section>
 
 <section>
-  <h3 align=left>Exercise</h3>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
   <br>
   <p>1. Create a Study Graph
 </section>
@@ -310,11 +312,13 @@ TW: Add image: string and Int
       </font>
     </ol>
 </section>
+
 <section>
-    <h3 align=left>Exercise</h3>
+    <h2 style="color:red; font-style: italic;">Exercise</h2>
     <br>
     <p>2. Query Graph Data
 </section>
+
 <!---- OUTLINE: Ontology ------------------------------------------------------>
 <section>
   <h2>Outline</h2>
@@ -332,9 +336,30 @@ TW: Add image: string and Int
         <li>Linked Data Demos</li>
       </font>
     </ol>
-  </section>
+</section>
 
 <section>
+    Ontologies, Reasoners &amp; Inference<br>
+    <div class="gridTrainers">
+      <div align=right><font class="emphLtBlue">Ontology</font></div>
+      <div align=left>
+        <p>A vocabulary of things and how they relate to each other</p>
+        <ul>
+          <li>...just more nodes and links
+          <li>Tools: Protege, TopBraid
+         </ul>
+      </div>
+      <div align=right><font class="emphLtBlue">Reasoner</font></div>
+      <div align=left>
+        <p>An <i>engine</i> that applies the ontology to the graph and
+          <font class="emphItalicGreen">infers</font> values and relationships
+          <u>not in your original data</u>.
+      </div>
+    </div>
+</section>
+
+<section>
+   <h3>Think about that again:</h3>
     <p>Ontologies and Reasoning create <font class="emphGr">values</font>
       and   <font class="emphGr">relations</font>
       <font class="emphItalicRed">not in your original data!</font><br>
@@ -342,20 +367,17 @@ TW: Add image: string and Int
       <img src="/images/mindblown.gif" height=300px;
        style="border:0px; box-shadow:none; height=336px; width=232px;"></img>
     </div>
+<p>StudyOntology.TTL
+</section>
+
+<section data-background="images/Reasoner-Infer.png" data-background-size="1100px">
+</section>
+
+<section data-background="/images/Reasoner-Class.png" data-background-size="1100px">
 </section>
 
 <section>
-    Reasoning  ADD DEFINITION <br>
-   <br>
-    Ontology - a vocabulary of things and how they relate to each other<br>
-     - tools: Protege, TopBraid <br>
-     - is just more triples!<br>
-   <br>
-  <p>StudyOntology.TTL
-</section>
-
-<section>
-    <h3 align=left>Exercise</h3>
+    <h2 style="color:red; font-style: italic;">Exercise</h2>
     <br>
     <p>2. Ontology and Inference
 </section>
@@ -378,6 +400,7 @@ TW: Add image: string and Int
       </font>
     </ol>
 </section>
+
 <section>
   <p>When IRIs are the <font class="emphGr">same</font>, merging is
     <font class="emphItalicRed">automatic!</font>
@@ -392,7 +415,6 @@ TW: Add image: string and Int
   <img src="/images/mergeGraphs.gif" style="border:0px; box-shadow:none;"></img>
   <br>
   <a href="http://localhost:8000/GraphMerge.html" target="_blank">What? How? </a>
-
 </section>
 
 <section><!-- Schematic of merging all study data into central pool -->
@@ -400,7 +422,7 @@ TW: Add image: string and Int
 </section>
 
 <section>
-  <h3 align=left>Exercise</h3>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
   <br>
   <p>4. Merge Studies
 </section>
@@ -479,6 +501,7 @@ TW: Add image: string and Int
 <section><!-------------------------------------------------------------------->
   <a href="http://lod-cloud.net/">The LOD cloud</a>
 </section>
+
 <section><!---- SDTM can be improved ----------------------------------------->
   <h3>SDTM can be improved</h3>
   <div class="gridPicLeft">
@@ -511,6 +534,7 @@ TW: Add image: string and Int
     <li>[!! YOUR IMAGINATION !!]
   </ul>
 </section>
+
 <section>
     <h3>Object Types</h3>
     <table>
@@ -531,7 +555,7 @@ TW: Add image: string and Int
         <td>Integer number. No link to other nodes</td>
       </tr>
     </table>
-  </section>
+</section>
 
 <!---------------------------------------------------------------------------->
 <!---- END OF SLIDE DEFINITIONS ---------------------------------------------->

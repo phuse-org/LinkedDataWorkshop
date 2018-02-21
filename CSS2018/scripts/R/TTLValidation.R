@@ -78,7 +78,7 @@ server <- function(input, output, session) {
     data <- eventReactive(input$runQuery, {
         inFileTTL <- input$fileTTL
             redland::parseFileIntoModel(parser, world, inFileTTL$datapath, model)
-            queryResults = NULL;
+
             query <- new("Query", world, input$query, base_uri=NULL, query_language="sparql", query_uri=NULL)
             queryResult <- executeQuery(query, model)
     
@@ -125,10 +125,12 @@ server <- function(input, output, session) {
     #--------------------------------------------------------------------------
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
-        # Initialize qcData to null. It will later either have values picked up 
-        # in QC checks or an "all passed" message.
-        # item="" row is later removed to decide on message to be displayed
-        qcData <- as.data.frame(list(type="All QC Checks Passed", item=""))
+        
+       
+        # Initialize exceptions to message for success. It will be reset if 
+        # exceptions are found. 
+        # item="" row is later removed when passed message displayed
+        dataExceptions <- as.data.frame(list(type="All QC Checks Passed", item=""))
 
         #---- Nodes -----------------------------------------------------------
         nodeList <- melt(prefData(), id.vars=c("p"))
@@ -200,7 +202,7 @@ server <- function(input, output, session) {
             qcNode$type <-"Node"
             qcNode <- qcNode[c("type", "item")]  # Order columns
             # Append to qcData 
-            qcData <- rbind(qcData, qcNode)
+            dataExceptions <- rbind(dataExceptions, qcNode)
         }
         
         #---- Relations -------------------------------------------------------      
@@ -213,12 +215,12 @@ server <- function(input, output, session) {
             qcRel$type <- "Relation"
             qcRel <- qcRel[c("type", "item")]  # Order columns
         
-            # Append to qcData 
-            qcData <- rbind(qcData, qcRel)
+            # Append to exceptions 
+            dataExceptions <- rbind(dataExceptions, qcRel)
         }
-        print(c("---- qcData = ", qcData))
-        print(c("---- nrow(qcData = ", nrow(qcData)))
-        qcData     # Return the qc set, with values or with default OK message.
+        print(c("---- dataExceptions = ", dataExceptions))
+        print(c("---- nrow(dataExceptions) = ", nrow(dataExceptions)))
+        dataExceptions     # Return the exceptions set, with values or with default OK message.
     })
 
     output$ui = renderUI({ 

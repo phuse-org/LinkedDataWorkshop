@@ -24,7 +24,6 @@ p {
   color: #fff;
   font-size: 75%;
 }
-
 .gridPicLeft{
   display: grid;
   grid-template-columns: 28% 72% ;  /* flexible grid units instead of px or % */
@@ -238,12 +237,19 @@ p {
   font-weight: bold;
   font-style: italic;
 }
+.emphLtBlue {
+  font-size: 110%;
+  color: #8181FF;
+  font-weight: bold;
+}
+
 .emphItalicBlue {
   font-size: 110%;
   color: #3333ff;
   font-weight: bold;
   font-style: italic;
 }
+
 .linkSmallBlue {
   font-size: 70%;
   color: #0000b3;
@@ -343,8 +349,6 @@ html.img-left div.slide-background.present {
     box-shadow: none;
     background: none;
 }
-
-
 .reveal table#rdfTable {
  table-layout: auto;
  width: 100%;
