@@ -14,7 +14,8 @@ library(pingr)
 servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/ClassInfo-Dev.xlsx", sheet = "Servers", col_names=TRUE))
 
 for (i in 1:nrow(servers)){
-    pingResult<-ping(servers[i,2], count = 1, timeout = 1)
+    ip <- gsub(" ", "",servers[i,2])
+    pingResult<-ping(ip, count = 1, timeout = 1)
     if (!is.na(pingResult)){
       status<-"Pass"
     }  else {
