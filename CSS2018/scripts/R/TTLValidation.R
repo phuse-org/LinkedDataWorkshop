@@ -19,7 +19,7 @@ standardNodes <- c("eg:ActiveArm", "eg:Drug1", "eg:PlaceboArm", "eg:Serum114", "
 
 #    Relations that should be present in all graphs
 standardRelations <- c("eg:age", "eg:LDExpert", "eg:participatesIn", "eg:randomizedTo",
-  "eg:trtArm", "eg:trtArmType", "ncit:drugname", "ncit:gender", "ncit:phase", "ncit:study",
+  "eg:trtArm", "eg:trtArmType", "eg:drugname", "ncit:gender", "ncit:phase", "ncit:study",
   "schema:givenName")
 
 #------------------------------------------------------------------------------
