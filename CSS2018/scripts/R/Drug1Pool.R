@@ -2,13 +2,17 @@
 # FILE: /scripts/r/Drug1Pool.R
 # DESC: Create JSON for read by D3JS FN graph
 # IN  : 
-# OUT : 
-# REQ : 
+# OUT : C:/_gitHub/LinkedDataWorkshop/CSS2018/presentation/Drug1Pool.JSON
+# REQ : Stardog running with data in Drug1Pool database, loaded from LDW workshop
+#       exercises.
 # NOTE: 
 # Sauce: CTDasRDF\vis\r\Person-FNGRAPH.R - data manip post query
 # TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
 ###############################################################################
 library(SPARQL)
+library(reshape2)
+library(plyr)
+library(jsonlite)
 ep = "http://localhost:5820/Drug1Pool/query" # not working as of 2017-01-16
 # ep = "http://localhost:5820/#/databases/Drug1Pool/query"
 #METHOD 2: Service
@@ -31,7 +35,6 @@ WHERE
 
 qd <- SPARQL(url=ep, query=query, ns=namespaces)
 triples <- as.data.frame(qd$results)
-triples
 
 #---- Nodes -------------------------------------------------------------------
 # Get the unique list of nodes as needed by the JSON file:
@@ -82,12 +85,72 @@ nodeList$type[grepl("^ncit:", nodeList$name, perl=TRUE)] <- "ncit"
 # schema
 nodeList$type[grepl("^schema:", nodeList$name, perl=TRUE)] <- "schema"
 
-nodeList
+
+# nodeCategory used for grouping in the FN graph. Assign grouping based on type
+#   Make this smarter later: sort on unique type and assign index value.
+#   Must now be updated manually when a new node type appears. Boo. Bad code.Bad!
+# Types that are NOT clustered: literal
+nodeList$nodeCategory <- '6'   # Assign to IRI by default, then reassign based on tyep
+nodeList$nodeCategory[grepl('string', nodeList$type)]  <- '1'      
+nodeList$nodeCategory[grepl('int',    nodeList$type)]  <- '2'
+nodeList$nodeCategory[grepl('person',   nodeList$type)]  <- '3'      
+nodeList$nodeCategory[grepl('study',  nodeList$type)]  <- '4'
+nodeList$nodeCategory[grepl('ncit',    nodeList$type)]  <- '5'      
+nodeList$nodeCategory[grepl('schema',   nodeList$type)]  <- '5'
+nodeList$nodeCategory[grepl('iri',    nodeList$type)]  <- '6'      
+
+nodes<-data.frame(id=nodeList$id,
+                  type=nodeList$type,
+                  label=nodeList$name,
+                  nodeCategory=nodeList$nodeCategory)
+
+#---- Edges -------------------------------------------------------------------
+# Now assign the node ID numbers to the Subject and Object nodes
+#-- Subject Nodes, ID becomes the subject ID node
+#   Assign node ID values to the Subject nodes
+edgesList <- merge (triples, nodeList, by.x="s", by.y="name")
+
+# Merge by 's', so 'id' becomes 'subjectID' 
+#    'p' becomes 'predicate'
+edgesList<-rename(edgesList, c("id" = "subjectID", "p" = "predicate"))
+
+# Clean it up
+edgesList<-edgesList[c("s", "subjectID", "predicate", "o")] 
+
+# Merge by 'o' to assign node ID values to the Object nodes
+edgesList <- merge (edgesList, nodeList, by.x="o", by.y="name")
+
+# p is renamed to "value" for use in LINKS dataframe. "value" is needed above here.
+edgesList<-rename(edgesList, c("id"="objectID"))   #TW was just 'id' not id.x here.
+edgesList<-edgesList[c("s", "subjectID", "predicate", "o", "objectID")] 
 
 
+#---- Edge types
+edgesList$edgeType <- 'other'  # Default/unassigned as Other
+
+# class
+edgesList$edgeType[grepl('rdf:type|rdfs:subClassOf', edgesList$predicate, perl=TRUE)] <- 'class'  # Present? 
+
+# schema ontology
+edgesList$edgeType[grepl('schema:', edgesList$predicate, perl=TRUE)] <- 'schema'
+
+# ncit ontology
+edgesList$edgeType[grepl('ncit:', edgesList$predicate, perl=TRUE)] <- 'ncit'
+
+# study
+edgesList$edgeType[grepl('eg:', edgesList$predicate, perl=TRUE)] <- 'study'
 
 
-nodes$type[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "iriont"
-nodes$type[grepl("eg:", nodes$id, perl=TRUE)] <- "iri"
-        
+# Create edges dataframe that contains: source, target, value, and type columns
+edgesList<-rename(edgesList, c("subjectID"="source", "objectID"="target", "predicate"="value", "edgeType"="edgeType"))
+edges<- as.data.frame(edgesList[c("source", "target", "value", "edgeType")])
 
+#-- Combine the nodes and edges into a single dataframe for conversion to JSON
+all <- list(nodes=nodes,
+            edges=edges)
+# Write out to JSON
+# fileConn<-file("./vis/d3/data/Person-FNGraph.JSON") # for CTDasRDF Project
+fileConn<-file("C:/_gitHub/LinkedDataWorkshop/CSS2018/presentation/Drug1Pool.JSON") # for CTDasRDF Project
+
+writeLines(toJSON(all, pretty=TRUE), fileConn)
+close(fileConn)
