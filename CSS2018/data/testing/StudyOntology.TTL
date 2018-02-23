@@ -1,0 +1,60 @@
+@prefix eg: <http://example.org/LDWorkshop#>.
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>.
+
+eg:Product rdf:type owl:Class;
+
+eg:DrugProduct rdf:type owl:Class;
+  rdfs:subClassOf  eg:Product;
+  rdfs:label  "A Drug product"^^xsd:string .
+
+eg:ProductName rdf:type owl:Class;
+
+eg:DrugProductName rdf:type owl:Class;
+  rdfs:subClassOf  eg:ProductName;
+  rdfs:label  "The official name of a aDrug product"^^xsd:string .
+
+eg:drugProductName rdf:type rdfs:Property;
+  rdfs:domain eg:DrugProduct;
+  rdfs:range  eg:DrugProductName;
+  rdfs:label  "Common product name for a drug"^^xsd:string .
+
+ncit:Study  rdf:type owl:Class .
+eg:TrtArm  rdf:type owl:Class .
+
+eg:trtArm rdf:type rdfs:Property;
+  rdfs:domain ncit:Study;
+  rdfs:range   eg:TrtArm;
+  rdfs:label  "Treatment arm in a clinical study."^^xsd:string .
+
+eg:trtArmType rdf:type rdfs:Property;
+  rdfs:domain eg:TrtArm;
+  rdfs:range   eg:TrtArmType;
+  rdfs:label  "Type of treatment arm in a study: active or placebo"^^xsd:string .
+
+eg:Person rdf:type owl:Class .
+
+eg:DataExpert  rdf:type  owl:Class;
+    rdfs:subClassOf  eg:Person ;
+    rdfs:label  "An expert in data modeling and manipulation"^^xsd:string .
+
+eg:LinkedDataExpert  rdf:type owl:Class;
+   rdfs:subClassOf  eg:DataExpert ;
+   rdfs:label  "An expert in the field of Linked Data/RDF"^^xsd:string .
+
+eg:HumanStudySubject rdf:type owl:Class;
+    rdfs:subClassOf  eg:Person ;
+    rdfs:label  "Participant in a clinical study/trial"^^xsd:string .
+
+eg:participatesIn  rdf:type rdfs:Property;
+  rdfs:domain   eg:HumanStudySubject;
+  rdfs:range  ncit:Study ;
+  rdfs:label  "The act of participating in a clinical study"^^xsd:string .
+
+eg:LDExpert rdf:type rdfs:Property;
+  rdfs:domain   eg:Person;
+  rdfs:range  ncit:Study .
