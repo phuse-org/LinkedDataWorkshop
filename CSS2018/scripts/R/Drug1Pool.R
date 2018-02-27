@@ -13,7 +13,7 @@ library(SPARQL)
 library(reshape2)
 library(plyr)
 library(jsonlite)
-ep = "http://localhost:5820/Drug1Pool/query" # not working as of 2017-01-16
+ep = "http://localhost:5820/PoolTest/query" # not working as of 2017-01-16
 # ep = "http://localhost:5820/#/databases/Drug1Pool/query"
 #METHOD 2: Service
 
@@ -79,11 +79,20 @@ nodeList$type[grepl("^eg:Person\\d+", nodeList$name, perl=TRUE)] <- "person"
 # study
 nodeList$type[grepl("^eg:Study\\d+", nodeList$name, perl=TRUE)] <- "study"
 
+# Special study 99 that has subjects from all the different studies. 
+nodeList$type[grepl("^eg:Study99", nodeList$name, perl=TRUE)] <- "crossstudy"
+
+
 # ncit
 nodeList$type[grepl("^ncit:", nodeList$name, perl=TRUE)] <- "ncit"
 
 # schema
 nodeList$type[grepl("^schema:", nodeList$name, perl=TRUE)] <- "schema"
+
+
+# Drug 1 product
+nodeList$type[grepl("eg:Drug1", nodeList$name, perl=TRUE)] <- "product"
+
 
 
 # nodeCategory used for grouping in the FN graph. Assign grouping based on type

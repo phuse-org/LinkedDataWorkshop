@@ -33,11 +33,8 @@ eg:Person201 eg:participatesIn eg:Study99;
     eg:randomizedTo eg:TrtArm99-2.
 eg:Person21 eg:participatesIn eg:Study99;
     eg:randomizedTo eg:TrtArm99-2.
-eg:Person301 eg:participatesIn eg:Study99.
-eg:Person302 eg:participatesIn eg:Study99;
+eg:Person301 eg:participatesIn eg:Study99;
     eg:randomizedTo eg:TrtArm99-1.
-eg:Person303 eg:LDExpert eg:Study99;
-    eg:randomizedTo eg:TrtArm99-2.
 eg:Person31 eg:participatesIn eg:Study99;
     eg:randomizedTo eg:TrtArm99-1.
 eg:Person41 eg:participatesIn eg:Study99;
