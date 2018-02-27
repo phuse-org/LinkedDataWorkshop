@@ -1,6 +1,6 @@
 ---
 title: "CSS 2018 Linked Data Workshop InfoSheets"
-output: word_document
+output: pdf_document
 fontsize: 14pt
 ---
 # Handouts for Each Attendee

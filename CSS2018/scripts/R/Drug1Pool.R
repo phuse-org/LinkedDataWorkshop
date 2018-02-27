@@ -102,7 +102,6 @@ nodeList$type[grepl("^schema:", nodeList$name, perl=TRUE)] <- "schema"
 nodeList$type[grepl("eg:Drug1", nodeList$name, perl=TRUE)] <- "product"
 
 
-
 # nodeCategory used for grouping in the FN graph. Assign grouping based on type
 #   Make this smarter later: sort on unique type and assign index value.
 #   Must now be updated manually when a new node type appears. Boo. Bad code.Bad!
