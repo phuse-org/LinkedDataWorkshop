@@ -1,0 +1,4098 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "type": "int",
+      "label": "10",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 1,
+      "type": "int",
+      "label": "12",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 2,
+      "type": "int",
+      "label": "13",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 3,
+      "type": "int",
+      "label": "15",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 4,
+      "type": "int",
+      "label": "17",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 5,
+      "type": "int",
+      "label": "18",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 6,
+      "type": "int",
+      "label": "19",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 7,
+      "type": "int",
+      "label": "2",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 8,
+      "type": "int",
+      "label": "22",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 9,
+      "type": "int",
+      "label": "23",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 10,
+      "type": "int",
+      "label": "25",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 11,
+      "type": "int",
+      "label": "26",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 12,
+      "type": "int",
+      "label": "27",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 13,
+      "type": "int",
+      "label": "28",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 14,
+      "type": "int",
+      "label": "29",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 15,
+      "type": "int",
+      "label": "32",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 16,
+      "type": "int",
+      "label": "33",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 17,
+      "type": "int",
+      "label": "34",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 18,
+      "type": "int",
+      "label": "35",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 19,
+      "type": "int",
+      "label": "36",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 20,
+      "type": "int",
+      "label": "37",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 21,
+      "type": "int",
+      "label": "38",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 22,
+      "type": "int",
+      "label": "39",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 23,
+      "type": "int",
+      "label": "40",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 24,
+      "type": "int",
+      "label": "41",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 25,
+      "type": "int",
+      "label": "42",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 26,
+      "type": "int",
+      "label": "49",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 27,
+      "type": "int",
+      "label": "6",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 28,
+      "type": "int",
+      "label": "62",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 29,
+      "type": "int",
+      "label": "65",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 30,
+      "type": "int",
+      "label": "69",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 31,
+      "type": "int",
+      "label": "72",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 32,
+      "type": "int",
+      "label": "77",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 33,
+      "type": "string",
+      "label": "Bob",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 34,
+      "type": "string",
+      "label": "Bob10",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 35,
+      "type": "string",
+      "label": "Bob11",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 36,
+      "type": "string",
+      "label": "Bob12",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 37,
+      "type": "string",
+      "label": "Bob13",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 38,
+      "type": "string",
+      "label": "Bob14",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 39,
+      "type": "string",
+      "label": "Bob15",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 40,
+      "type": "string",
+      "label": "Bob16",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 41,
+      "type": "string",
+      "label": "Bob18",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 42,
+      "type": "string",
+      "label": "Bob19",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 43,
+      "type": "string",
+      "label": "Bob2",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 44,
+      "type": "string",
+      "label": "Bob20",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 45,
+      "type": "string",
+      "label": "Bob3",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 46,
+      "type": "string",
+      "label": "Bob30",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 47,
+      "type": "string",
+      "label": "Bob4",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 48,
+      "type": "string",
+      "label": "Bob5",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 49,
+      "type": "string",
+      "label": "Bob6",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 50,
+      "type": "string",
+      "label": "Bob7",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 51,
+      "type": "string",
+      "label": "Bob77",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 52,
+      "type": "string",
+      "label": "Bob8",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 53,
+      "type": "string",
+      "label": "Bob9",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 54,
+      "type": "trtAct",
+      "label": "eg:ActiveArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 55,
+      "type": "product",
+      "label": "eg:Drug1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 56,
+      "type": "person",
+      "label": "eg:Person101",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 57,
+      "type": "person",
+      "label": "eg:Person102",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 58,
+      "type": "person",
+      "label": "eg:Person103",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 59,
+      "type": "person",
+      "label": "eg:Person11",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 60,
+      "type": "person",
+      "label": "eg:Person111",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 61,
+      "type": "person",
+      "label": "eg:Person112",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 62,
+      "type": "person",
+      "label": "eg:Person113",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 63,
+      "type": "person",
+      "label": "eg:Person12",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 64,
+      "type": "person",
+      "label": "eg:Person121",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 65,
+      "type": "person",
+      "label": "eg:Person122",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 66,
+      "type": "person",
+      "label": "eg:Person123",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 67,
+      "type": "person",
+      "label": "eg:Person13",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 68,
+      "type": "person",
+      "label": "eg:Person131",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 69,
+      "type": "person",
+      "label": "eg:Person132",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 70,
+      "type": "person",
+      "label": "eg:Person133",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 71,
+      "type": "person",
+      "label": "eg:Person141",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 72,
+      "type": "person",
+      "label": "eg:Person142",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 73,
+      "type": "person",
+      "label": "eg:Person143",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 74,
+      "type": "person",
+      "label": "eg:Person151",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 75,
+      "type": "person",
+      "label": "eg:Person152",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 76,
+      "type": "person",
+      "label": "eg:Person153",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 77,
+      "type": "person",
+      "label": "eg:Person161",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 78,
+      "type": "person",
+      "label": "eg:Person162",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 79,
+      "type": "person",
+      "label": "eg:Person163",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 80,
+      "type": "person",
+      "label": "eg:Person171",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 81,
+      "type": "person",
+      "label": "eg:Person172",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 82,
+      "type": "person",
+      "label": "eg:Person173",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 83,
+      "type": "person",
+      "label": "eg:Person181",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 84,
+      "type": "person",
+      "label": "eg:Person182",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 85,
+      "type": "person",
+      "label": "eg:Person183",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 86,
+      "type": "person",
+      "label": "eg:Person191",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 87,
+      "type": "person",
+      "label": "eg:Person192",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 88,
+      "type": "person",
+      "label": "eg:Person193",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 89,
+      "type": "person",
+      "label": "eg:Person201",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 90,
+      "type": "person",
+      "label": "eg:Person202",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 91,
+      "type": "person",
+      "label": "eg:Person203",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 92,
+      "type": "person",
+      "label": "eg:Person21",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 93,
+      "type": "person",
+      "label": "eg:Person22",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 94,
+      "type": "person",
+      "label": "eg:Person23",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 95,
+      "type": "person",
+      "label": "eg:Person301",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 96,
+      "type": "person",
+      "label": "eg:Person302",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 97,
+      "type": "person",
+      "label": "eg:Person303",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 98,
+      "type": "person",
+      "label": "eg:Person31",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 99,
+      "type": "person",
+      "label": "eg:Person32",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 100,
+      "type": "person",
+      "label": "eg:Person33",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 101,
+      "type": "person",
+      "label": "eg:Person41",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 102,
+      "type": "person",
+      "label": "eg:Person42",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 103,
+      "type": "person",
+      "label": "eg:Person43",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 104,
+      "type": "person",
+      "label": "eg:Person51",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 105,
+      "type": "person",
+      "label": "eg:Person52",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 106,
+      "type": "person",
+      "label": "eg:Person53",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 107,
+      "type": "person",
+      "label": "eg:Person61",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 108,
+      "type": "person",
+      "label": "eg:Person62",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 109,
+      "type": "person",
+      "label": "eg:Person63",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 110,
+      "type": "person",
+      "label": "eg:Person71",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 111,
+      "type": "person",
+      "label": "eg:Person72",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 112,
+      "type": "person",
+      "label": "eg:Person73",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 113,
+      "type": "person",
+      "label": "eg:Person81",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 114,
+      "type": "person",
+      "label": "eg:Person82",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 115,
+      "type": "person",
+      "label": "eg:Person83",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 116,
+      "type": "person",
+      "label": "eg:Person91",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 117,
+      "type": "person",
+      "label": "eg:Person92",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 118,
+      "type": "person",
+      "label": "eg:Person93",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 119,
+      "type": "trtPlc",
+      "label": "eg:PlaceboArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 120,
+      "type": "iri",
+      "label": "eg:Serum114",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 121,
+      "type": "study",
+      "label": "eg:Study1",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 122,
+      "type": "study",
+      "label": "eg:Study10",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 123,
+      "type": "study",
+      "label": "eg:Study11",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 124,
+      "type": "study",
+      "label": "eg:Study12",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 125,
+      "type": "study",
+      "label": "eg:Study13",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 126,
+      "type": "study",
+      "label": "eg:Study14",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 127,
+      "type": "study",
+      "label": "eg:Study15",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 128,
+      "type": "study",
+      "label": "eg:Study16",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 129,
+      "type": "study",
+      "label": "eg:Study17",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 130,
+      "type": "study",
+      "label": "eg:Study18",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 131,
+      "type": "study",
+      "label": "eg:Study19",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 132,
+      "type": "study",
+      "label": "eg:Study2",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 133,
+      "type": "study",
+      "label": "eg:Study20",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 134,
+      "type": "study",
+      "label": "eg:Study3",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 135,
+      "type": "study",
+      "label": "eg:Study30",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 136,
+      "type": "study",
+      "label": "eg:Study4",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 137,
+      "type": "study",
+      "label": "eg:Study5",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 138,
+      "type": "study",
+      "label": "eg:Study6",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 139,
+      "type": "study",
+      "label": "eg:Study7",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 140,
+      "type": "study",
+      "label": "eg:Study8",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 141,
+      "type": "study",
+      "label": "eg:Study9",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 142,
+      "type": "crossstudy",
+      "label": "eg:Study99",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 143,
+      "type": "iri",
+      "label": "eg:TrtArm1-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 144,
+      "type": "iri",
+      "label": "eg:TrtArm1-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 145,
+      "type": "iri",
+      "label": "eg:TrtArm10-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 146,
+      "type": "iri",
+      "label": "eg:TrtArm10-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 147,
+      "type": "iri",
+      "label": "eg:TrtArm11-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 148,
+      "type": "iri",
+      "label": "eg:TrtArm11-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 149,
+      "type": "iri",
+      "label": "eg:TrtArm12-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 150,
+      "type": "iri",
+      "label": "eg:TrtArm12-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 151,
+      "type": "iri",
+      "label": "eg:TrtArm13-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 152,
+      "type": "iri",
+      "label": "eg:TrtArm13-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 153,
+      "type": "iri",
+      "label": "eg:TrtArm14-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 154,
+      "type": "iri",
+      "label": "eg:TrtArm14-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 155,
+      "type": "iri",
+      "label": "eg:TrtArm15-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 156,
+      "type": "iri",
+      "label": "eg:TrtArm15-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 157,
+      "type": "iri",
+      "label": "eg:TrtArm16-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 158,
+      "type": "iri",
+      "label": "eg:TrtArm16-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 159,
+      "type": "iri",
+      "label": "eg:TrtArm17-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 160,
+      "type": "iri",
+      "label": "eg:TrtArm17-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 161,
+      "type": "iri",
+      "label": "eg:TrtArm18-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 162,
+      "type": "iri",
+      "label": "eg:TrtArm18-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 163,
+      "type": "iri",
+      "label": "eg:TrtArm19-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 164,
+      "type": "iri",
+      "label": "eg:TrtArm19-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 165,
+      "type": "iri",
+      "label": "eg:TrtArm2-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 166,
+      "type": "iri",
+      "label": "eg:TrtArm2-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 167,
+      "type": "iri",
+      "label": "eg:TrtArm20-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 168,
+      "type": "iri",
+      "label": "eg:TrtArm20-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 169,
+      "type": "iri",
+      "label": "eg:TrtArm3-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 170,
+      "type": "iri",
+      "label": "eg:TrtArm3-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 171,
+      "type": "iri",
+      "label": "eg:TrtArm30-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 172,
+      "type": "iri",
+      "label": "eg:TrtArm30-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 173,
+      "type": "iri",
+      "label": "eg:TrtArm4-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 174,
+      "type": "iri",
+      "label": "eg:TrtArm4-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 175,
+      "type": "iri",
+      "label": "eg:TrtArm5-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 176,
+      "type": "iri",
+      "label": "eg:TrtArm5-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 177,
+      "type": "iri",
+      "label": "eg:TrtArm6-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 178,
+      "type": "iri",
+      "label": "eg:TrtArm6-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 179,
+      "type": "iri",
+      "label": "eg:TrtArm7-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 180,
+      "type": "iri",
+      "label": "eg:TrtArm7-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 181,
+      "type": "iri",
+      "label": "eg:TrtArm8-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 182,
+      "type": "iri",
+      "label": "eg:TrtArm8-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 183,
+      "type": "iri",
+      "label": "eg:TrtArm9-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 184,
+      "type": "iri",
+      "label": "eg:TrtArm9-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 185,
+      "type": "iri",
+      "label": "eg:TrtArm99-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 186,
+      "type": "iri",
+      "label": "eg:TrtArm99-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 187,
+      "type": "female",
+      "label": "ncit:Female",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 188,
+      "type": "male",
+      "label": "ncit:Male",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 189,
+      "type": "ncit",
+      "label": "ncit:Phase2",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 190,
+      "type": "ncit",
+      "label": "ncit:Phase3",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 191,
+      "type": "ncit",
+      "label": "ncit:Phase4",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 192,
+      "type": "string",
+      "label": "Peter",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 193,
+      "type": "string",
+      "label": "Peter10",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 194,
+      "type": "string",
+      "label": "Peter11",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 195,
+      "type": "string",
+      "label": "Peter12",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 196,
+      "type": "string",
+      "label": "Peter13",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 197,
+      "type": "string",
+      "label": "Peter14",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 198,
+      "type": "string",
+      "label": "Peter15",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 199,
+      "type": "string",
+      "label": "Peter16",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 200,
+      "type": "string",
+      "label": "Peter18",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 201,
+      "type": "string",
+      "label": "Peter19",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 202,
+      "type": "string",
+      "label": "Peter2",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 203,
+      "type": "string",
+      "label": "Peter20",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 204,
+      "type": "string",
+      "label": "Peter3",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 205,
+      "type": "string",
+      "label": "Peter30",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 206,
+      "type": "string",
+      "label": "Peter4",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 207,
+      "type": "string",
+      "label": "Peter5",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 208,
+      "type": "string",
+      "label": "Peter6",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 209,
+      "type": "string",
+      "label": "Peter7",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 210,
+      "type": "string",
+      "label": "Peter77",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 211,
+      "type": "string",
+      "label": "Peter8",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 212,
+      "type": "string",
+      "label": "Peter9",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 213,
+      "type": "string",
+      "label": "Sue",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 214,
+      "type": "string",
+      "label": "Sue10",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 215,
+      "type": "string",
+      "label": "Sue11",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 216,
+      "type": "string",
+      "label": "Sue12",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 217,
+      "type": "string",
+      "label": "Sue13",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 218,
+      "type": "string",
+      "label": "Sue14",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 219,
+      "type": "string",
+      "label": "Sue15",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 220,
+      "type": "string",
+      "label": "Sue16",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 221,
+      "type": "string",
+      "label": "Sue18",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 222,
+      "type": "string",
+      "label": "Sue19",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 223,
+      "type": "string",
+      "label": "Sue2",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 224,
+      "type": "string",
+      "label": "Sue20",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 225,
+      "type": "string",
+      "label": "Sue3",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 226,
+      "type": "string",
+      "label": "Sue30",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 227,
+      "type": "string",
+      "label": "Sue4",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 228,
+      "type": "string",
+      "label": "Sue5",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 229,
+      "type": "string",
+      "label": "Sue6",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 230,
+      "type": "string",
+      "label": "Sue7",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 231,
+      "type": "string",
+      "label": "Sue77",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 232,
+      "type": "string",
+      "label": "Sue8",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 233,
+      "type": "string",
+      "label": "Sue9",
+      "nodeCategory": "1"
+    }
+  ],
+  "edges": [
+    {
+      "source": 56,
+      "target": 0,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 1,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 69,
+      "target": 1,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 84,
+      "target": 1,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 68,
+      "target": 2,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 75,
+      "target": 2,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 3,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 4,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 5,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 57,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 117,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 93,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 7,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 8,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 8,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 99,
+      "target": 9,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 105,
+      "target": 10,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 108,
+      "target": 11,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 111,
+      "target": 12,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 95,
+      "target": 12,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 114,
+      "target": 13,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 63,
+      "target": 14,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 15,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 98,
+      "target": 16,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 17,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 18,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 19,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 20,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 21,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 116,
+      "target": 22,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 23,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 72,
+      "target": 24,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 102,
+      "target": 24,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 25,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 90,
+      "target": 26,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 87,
+      "target": 26,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 27,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 28,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 96,
+      "target": 29,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 30,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 81,
+      "target": 31,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 32,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 33,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 56,
+      "target": 34,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 60,
+      "target": 35,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 64,
+      "target": 36,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 68,
+      "target": 37,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 71,
+      "target": 38,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 74,
+      "target": 39,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 77,
+      "target": 40,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 83,
+      "target": 41,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 86,
+      "target": 42,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 92,
+      "target": 43,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 89,
+      "target": 44,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 98,
+      "target": 45,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 95,
+      "target": 46,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 101,
+      "target": 47,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 104,
+      "target": 48,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 107,
+      "target": 49,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 110,
+      "target": 50,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 80,
+      "target": 51,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 113,
+      "target": 52,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 116,
+      "target": 53,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 148,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 150,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 152,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 154,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 156,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 144,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 158,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 172,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 160,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 174,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 162,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 176,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 164,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 178,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 166,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 180,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 168,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 182,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 170,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 184,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 185,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 146,
+      "target": 54,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 143,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 157,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 145,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 186,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 147,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 161,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 149,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 163,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 151,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 165,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 153,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 167,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 155,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 169,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 183,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 171,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 159,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 173,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 175,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 177,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 179,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 181,
+      "target": 119,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 120,
+      "value": "eg:drugname",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 121,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 67,
+      "target": 121,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 63,
+      "target": 121,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 121,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 122,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 58,
+      "target": 122,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 122,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 57,
+      "target": 122,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 123,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 62,
+      "target": 123,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 123,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 123,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 66,
+      "target": 124,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 124,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 124,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 124,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 70,
+      "target": 125,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 68,
+      "target": 125,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 125,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 69,
+      "target": 125,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 73,
+      "target": 126,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 126,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 71,
+      "target": 126,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 72,
+      "target": 126,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 75,
+      "target": 127,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 127,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 76,
+      "target": 127,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 127,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 55,
+      "target": 128,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 78,
+      "target": 128,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 79,
+      "target": 128,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 128,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 129,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 82,
+      "target": 129,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 129,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 81,
+      "target": 129,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 84,
+      "target": 130,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 130,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 83,
+      "target": 130,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 130,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 88,
+      "target": 131,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 131,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 87,
+      "target": 131,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 131,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 92,
+      "target": 132,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 93,
+      "target": 132,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 94,
+      "target": 132,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 132,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 91,
+      "target": 133,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 133,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 90,
+      "target": 133,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 133,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 98,
+      "target": 134,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 99,
+      "target": 134,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 134,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 100,
+      "target": 134,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 95,
+      "target": 135,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 96,
+      "target": 135,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 135,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 97,
+      "target": 135,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 102,
+      "target": 136,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 136,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 136,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 103,
+      "target": 136,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 137,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 106,
+      "target": 137,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 105,
+      "target": 137,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 137,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 138,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 109,
+      "target": 138,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 108,
+      "target": 138,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 138,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 111,
+      "target": 139,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 139,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 139,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 112,
+      "target": 139,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 115,
+      "target": 140,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 140,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 113,
+      "target": 140,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 114,
+      "target": 140,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 117,
+      "target": 141,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 118,
+      "target": 141,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 116,
+      "target": 141,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 141,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 68,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 142,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 116,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 98,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 95,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 142,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 121,
+      "target": 143,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 121,
+      "target": 144,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 63,
+      "target": 144,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 122,
+      "target": 145,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 145,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 57,
+      "target": 146,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 122,
+      "target": 146,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 123,
+      "target": 147,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 147,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 123,
+      "target": 148,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 148,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 149,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 124,
+      "target": 149,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 124,
+      "target": 150,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 150,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 68,
+      "target": 151,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 125,
+      "target": 151,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 125,
+      "target": 152,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 69,
+      "target": 152,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 126,
+      "target": 153,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 153,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 72,
+      "target": 154,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 126,
+      "target": 154,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 127,
+      "target": 155,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 155,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 127,
+      "target": 156,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 75,
+      "target": 156,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 128,
+      "target": 157,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 157,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 128,
+      "target": 158,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 158,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 129,
+      "target": 159,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 159,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 81,
+      "target": 160,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 129,
+      "target": 160,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 161,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 130,
+      "target": 161,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 84,
+      "target": 162,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 130,
+      "target": 162,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 131,
+      "target": 163,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 163,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 87,
+      "target": 164,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 131,
+      "target": 164,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 132,
+      "target": 165,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 165,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 93,
+      "target": 166,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 132,
+      "target": 166,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 133,
+      "target": 167,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 167,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 133,
+      "target": 168,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 90,
+      "target": 168,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 134,
+      "target": 169,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 98,
+      "target": 169,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 134,
+      "target": 170,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 99,
+      "target": 170,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 135,
+      "target": 171,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 95,
+      "target": 171,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 135,
+      "target": 172,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 96,
+      "target": 172,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 136,
+      "target": 173,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 173,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 102,
+      "target": 174,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 136,
+      "target": 174,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 137,
+      "target": 175,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 175,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 137,
+      "target": 176,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 105,
+      "target": 176,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 177,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 138,
+      "target": 177,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 108,
+      "target": 178,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 138,
+      "target": 178,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 139,
+      "target": 179,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 179,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 139,
+      "target": 180,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 111,
+      "target": 180,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 181,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 140,
+      "target": 181,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 140,
+      "target": 182,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 114,
+      "target": 182,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 141,
+      "target": 183,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 116,
+      "target": 183,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 117,
+      "target": 184,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 141,
+      "target": 184,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 142,
+      "target": 185,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 95,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 98,
+      "target": 185,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 116,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 68,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 186,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 142,
+      "target": 186,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 63,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 99,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 57,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 81,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 87,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 93,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 105,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 75,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 65,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 78,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 114,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 84,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 69,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 108,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 102,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 90,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 61,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 111,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 117,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 96,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 72,
+      "target": 187,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 86,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 62,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 106,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 89,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 82,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 113,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 88,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 109,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 115,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 118,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 100,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 116,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 64,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 73,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 66,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 98,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 103,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 92,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 110,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 112,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 71,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 60,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 74,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 83,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 56,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 80,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 59,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 68,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 58,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 76,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 95,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 85,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 77,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 94,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 107,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 97,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 70,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 79,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 101,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 104,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 67,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 91,
+      "target": 188,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 130,
+      "target": 189,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 124,
+      "target": 189,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 126,
+      "target": 189,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 135,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 134,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 121,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 136,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 132,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 131,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 137,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 133,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 129,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 138,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 122,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 140,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 139,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 142,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 141,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 128,
+      "target": 190,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 127,
+      "target": 191,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 123,
+      "target": 191,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 125,
+      "target": 191,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 67,
+      "target": 192,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 58,
+      "target": 193,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 62,
+      "target": 194,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 66,
+      "target": 195,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 70,
+      "target": 196,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 73,
+      "target": 197,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 76,
+      "target": 198,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 79,
+      "target": 199,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 85,
+      "target": 200,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 88,
+      "target": 201,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 94,
+      "target": 202,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 91,
+      "target": 203,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 100,
+      "target": 204,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 97,
+      "target": 205,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 103,
+      "target": 206,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 106,
+      "target": 207,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 109,
+      "target": 208,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 112,
+      "target": 209,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 82,
+      "target": 210,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 115,
+      "target": 211,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 118,
+      "target": 212,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 63,
+      "target": 213,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 57,
+      "target": 214,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 61,
+      "target": 215,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 65,
+      "target": 216,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 69,
+      "target": 217,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 72,
+      "target": 218,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 75,
+      "target": 219,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 78,
+      "target": 220,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 84,
+      "target": 221,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 87,
+      "target": 222,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 93,
+      "target": 223,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 90,
+      "target": 224,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 99,
+      "target": 225,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 96,
+      "target": 226,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 102,
+      "target": 227,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 105,
+      "target": 228,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 108,
+      "target": 229,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 111,
+      "target": 230,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 81,
+      "target": 231,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 114,
+      "target": 232,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 117,
+      "target": 233,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    }
+  ]
+}
