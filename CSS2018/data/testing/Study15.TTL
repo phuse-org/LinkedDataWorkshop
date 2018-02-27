@@ -7,17 +7,17 @@
 
 eg:Drug1 eg:drugname eg:Serum114;
     ncit:study eg:Study15.
-eg:Person51 eg:age "15"^^xsd:integer;
+eg:Person151 eg:age "15"^^xsd:integer;
     eg:participatesIn eg:Study15;
     eg:randomizedTo eg:TrtArm15-1;
     ncit:gender ncit:Male;
     schema:givenName "Bob15"^^xsd:string.
-eg:Person52 eg:age "13"^^xsd:integer;
+eg:Person152 eg:age "13"^^xsd:integer;
     eg:participatesIn eg:Study15;
     eg:randomizedTo eg:TrtArm15-2;
     ncit:gender ncit:Female;
     schema:givenName "Sue15"^^xsd:string.
-eg:Person53 eg:LDExpert eg:Study15;
+eg:Person153 eg:LDExpert eg:Study15;
     ncit:gender ncit:Male;
     schema:givenName "Peter15"^^xsd:string.
 eg:Study15 eg:trtArm eg:TrtArm15-1, eg:TrtArm15-2;

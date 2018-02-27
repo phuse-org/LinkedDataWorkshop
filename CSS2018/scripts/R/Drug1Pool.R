@@ -78,13 +78,21 @@ nodeList$type[grepl("^eg:Person\\d+", nodeList$name, perl=TRUE)] <- "person"
 
 # study
 nodeList$type[grepl("^eg:Study\\d+", nodeList$name, perl=TRUE)] <- "study"
-
-# Special study 99 that has subjects from all the different studies. 
+# Study: special:  99 that has subjects from all the different studies. 
 nodeList$type[grepl("^eg:Study99", nodeList$name, perl=TRUE)] <- "crossstudy"
+
+
+# TrtType
+nodeList$type[grepl("^eg:ActiveArm", nodeList$name, perl=TRUE)] <- "trtAct"
+nodeList$type[grepl("^eg:PlaceboArm", nodeList$name, perl=TRUE)] <- "trtPlc"
+
 
 
 # ncit
 nodeList$type[grepl("^ncit:", nodeList$name, perl=TRUE)] <- "ncit"
+nodeList$type[grepl("^ncit:Male", nodeList$name, perl=TRUE)] <- "male"
+nodeList$type[grepl("^ncit:Female", nodeList$name, perl=TRUE)] <- "female"
+
 
 # schema
 nodeList$type[grepl("^schema:", nodeList$name, perl=TRUE)] <- "schema"
