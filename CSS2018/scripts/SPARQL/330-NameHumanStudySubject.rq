@@ -1,4 +1,4 @@
-# 340-NameHumanStudySubject.rq  Names of HumanStudySubjects in Study
+# 330-NameHumanStudySubject.rq  Names of HumanStudySubjects in Study
 #   Reasoner must be ON.
 
 SELECT ?person_name

@@ -1,4 +1,4 @@
-# 341-NameDataExperts.rq  Names of Data Experts
+# 331-NameDataExperts.rq  Names of Data Experts
 #   Reasoner must be ON.
 
 SELECT ?person_name
