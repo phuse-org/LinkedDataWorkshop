@@ -22,12 +22,14 @@ library(readxl)
 
 servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/admin/ClassInfo-Dev.xlsx", sheet = "Servers", col_names=TRUE))
 
+servers <- servers[ order(servers[,4], servers[,3]), ]
+
 ## Loop
 for (i in 1:nrow(servers)){
   cat("\n\n")
   cat("#**Info Sheet**\n")
   cat("\n\n")
-  cat("##Attendee", i, "\n")
+  cat("##Attendee", i, "   ", servers[i,3], " ",  servers[i,4], "\n")
   cat("\n\n")
   cat("\n\n")
   cat("##Server Information  ")
