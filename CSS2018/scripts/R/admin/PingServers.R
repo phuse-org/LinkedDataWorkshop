@@ -11,7 +11,7 @@
 library(readxl)
 library(pingr)
 
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/ClassInfo-Dev.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/admin/ClassInfo-Dev.xlsx", sheet = "Servers", col_names=TRUE))
 
 for (i in 1:nrow(servers)){
     ip <- gsub(" ", "",servers[i,2])
