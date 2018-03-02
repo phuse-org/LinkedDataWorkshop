@@ -8,7 +8,9 @@
 # TODO: 
 ###############################################################################
 library(readxl)
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/ClassInfo.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/admin/ClassInfo-dev.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- servers[ order(servers[,4], servers[,3]), ]
+
 
 rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2018/scripts/SPARQL/410-PoolAllStudies.rq", "w")
 
