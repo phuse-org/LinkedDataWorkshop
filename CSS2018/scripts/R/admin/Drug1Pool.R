@@ -13,9 +13,8 @@ library(SPARQL)
 library(reshape2)
 library(plyr)
 library(jsonlite)
-ep = "http://localhost:5820/PoolTest/query" # not working as of 2017-01-16
-# ep = "http://localhost:5820/#/databases/Drug1Pool/query"
-#METHOD 2: Service
+
+ep = "http://localhost:5820/Drug1Pool/query"
 
 # Define the namespaces
 namespaces <- c('eg', '<http://example.org/LDWorkshop#>',
