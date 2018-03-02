@@ -1,0 +1,188 @@
+# 410-PoolAllStudies.rq  - Pool all Drug1 Studies. 
+#   Script created 2018-03-02 08:48:53 by CreatePoolScript.R , then modified
+#   to query the Test DB on each server to test pooling from all source studies
+#   in advance of the workshop.
+#       based on list of servers in ClassInfo.xlsx
+INSERT {?s ?p ?o}
+WHERE
+{
+    # Graph 1
+    {
+        SERVICE <http://18.219.97.220:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 2
+    {
+        SERVICE <http://18.222.8.41:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 3
+    {
+        SERVICE <http://18.222.37.226:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 4
+    {
+        SERVICE <http://18.219.251.173:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 5
+    {
+        SERVICE <http://18.222.76.241:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 6
+    {
+        SERVICE <http://18.222.105.80:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 7
+    {
+        SERVICE <http://18.219.9.219:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 8
+    {
+        SERVICE <http://13.58.110.24:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 9
+    {
+        SERVICE <http://18.219.146.1:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 10
+    {
+        SERVICE <http://18.219.26.232:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 11
+    {
+        SERVICE <http://18.218.91.67:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 12
+    {
+        SERVICE <http://18.218.251.84:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 13
+    {
+        SERVICE <http://18.219.255.98:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 14
+    {
+        SERVICE <http://18.219.245.198:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 15
+    {
+        SERVICE <http://18.219.113.159:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 16
+    {
+        SERVICE <http://18.219.152.196:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 17
+    {
+        SERVICE <http://18.221.143.21:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 18
+    {
+        SERVICE <http://18.222.48.243:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 19
+    {
+        SERVICE <http://54.160.7.17:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+    UNION
+    # Graph 20
+    {
+        SERVICE <http://54.167.99.89:5820/Test/query>
+        {
+            SELECT ?s ?p ?o
+            WHERE { ?s ?p ?o .} 
+        }
+    }
+}
