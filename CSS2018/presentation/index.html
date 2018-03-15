@@ -3,7 +3,7 @@
   <head>
 
 <!--
-  Start HTTP server with D3Wkshp-css.bat, then:
+  Start HTTP server with httpSlidesToPDF.bat, then:
   VIEW: http://localhost:8000/LDWkshp-CSS2018.html
 -->
 
@@ -29,7 +29,8 @@
   as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check
   option for printing background images. Uncheck for printing header/footer to
   remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width
-  and height in initialize fnt at bottom <link rel="stylesheet"
+  and height in initialize fnt at bottom 
+<link rel="stylesheet"
   href="css/print/pdf.css"> -->
 
     <!-- Printing and PDF exports -->
@@ -90,6 +91,22 @@
   </div>
 </section>
 
+<!---- Preparation ------------------------------------------------------------>
+<section>
+  <h2>Preparation</h2>
+  <ul>
+    <li>Your laptop [Power up!]
+    <li>Copy of:
+    <ol>
+      <li>Exercises
+      <li>Graph Editor Introduction
+      <li>Info sheet
+      <li>SPARQL reference
+    </ol>
+    <li>Log in to Cloud Server
+  </ul>
+</section>
+
 <section>
   Workshop Files, Presentation PDF:<br>
   <div align=left>
@@ -115,21 +132,6 @@
   </ol>
 </section>
 
-<!---- Preparation ------------------------------------------------------------>
-<section>
-  <h2>Preparation</h2>
-  <ul>
-    <li>Your laptop [Power up!]
-    <li>Copy of:
-    <ol>
-      <li>Exercises
-      <li>Graph Editor Introduction
-      <li>Info sheet
-      <li>SPARQL reference
-    </ol>
-    <li>Log in to Cloud Server
-  </ul>
-</section>
 
 <!---- OUTLINE: Introduction ---- --------------------------------------------->
 <section>
@@ -282,6 +284,8 @@
   <h3>Numbering</h3>
   <img src="images/Numbering.png"
     style="border:0px; box-shadow:none">
+  <br/>
+  <p>Unique IRIs!</p>
 </section>
 
 <section>
@@ -368,7 +372,7 @@
   </section>
   <section>
     <h4>A Subset of the study ontology file</h4>
-    <img src="images/StudyOntologySS.png" height=500px;
+    <img src="images/StudyOntologySS.png" height=1500px;
      style="border:0px; box-shadow:none; "></img>
   </section>
 </section>
@@ -570,7 +574,9 @@
       // - https://github.com/hakimel/reveal.js#dependencies
       // Shows the slide number using default formatting
 
-     //Reveal.configure({ slideNumber: true });
+   //  Reveal.configure({ slideNumber: true });
+   Reveal.configure({ pdfMaxPagesPerSlide: 1 }) ;
+
 
   Reveal.initialize({
     width: '100%',
