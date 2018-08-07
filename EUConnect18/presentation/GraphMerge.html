@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!-----------------------------------------------------------------------------
+###############################################################################
+# FILE : GraphMerge.html
+# DSCR : Two studies, then merged
+# NOTES:
+# INPUT: Internal JSON
+# OUT  : None
+# REQ  :
+# TODO :
+###############################################################################
+------------------------------------------------------------------------------>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>GraphMerge</title>
+    <script type="text/javascript" src="d3/d3/d3.v3.min.js"></script>
+    <link rel="stylesheet"        href="css/PhUSE2018D3JS.css">
+</head>
+<body>
+<h3>Graph Merge</h3>
+<script type="text/javascript">
+//Width and height for SVG area. Match to the style definition in the slide deck.
+var w = 1100,
+  h = 1600,
+  nodeWidth  = 150,
+  nodeHeight = 30,
+  nodeRadius = 65;
+
+var dataset = {
+  "nodes":[
+    {"id":0,
+     "prefix": "equal",
+     "label":"Drug1",
+     "type": "IRI COMMON",
+     "x":150,
+     "y":0,
+     "fixed":true,
+    },
+    {"id":1,
+     "prefix": "study1",
+     "label":"Study1",
+     "type": "IRI",
+     "x":150,
+     "y":160,
+     "fixed":true,
+    },
+    {"id":2,
+     "prefix": "equal",
+     "label":"Phase3",
+     "type": "IRI",
+     "x":270,
+     "y":60,
+     "fixed":true,
+    },
+    {"id":3,
+     "prefix": "eg",
+     "label":"Person11",
+     "type": "IRI",
+     "x":30,
+     "y":260,
+     "fixed":true,
+    },
+    {"id":4,
+     "prefix": "equal",
+     "label":"Person12",
+     "type": "IRI",
+     "x":270,
+     "y":260,
+     "fixed":true,
+    },
+    {"id":5,
+     "prefix":"equal",
+     "label":"Drug1",
+     "type": "IRI",
+     "x":670,
+     "y":0,
+     "fixed":true,
+    },
+    {"id":6,
+     "prefix": "study2",
+     "label":"Study2",
+     "type": "IRI",
+     "x":670,
+     "y":160,
+     "fixed":true,
+    },
+    {"id":7,
+     "prefix": "equal",
+     "label":"Phase3",
+     "type": "IRI",
+     "x":550,
+     "y":60,
+     "fixed":true,
+    },
+    {"id":8,
+     "prefix": "equal",
+     "label":"Person12",
+     "type": "IRI",
+     "x":550,
+     "y":260,
+     "fixed":true
+    },
+    {"id":9,
+      "prefix": "person13",
+      "label":"Person13",
+      "type": "IRI",
+      "x":790,
+      "y":260,
+      "fixed":true},
+
+    {"id":10,
+      "prefix": "equal",
+      "label":"Drug1",
+      "type": "IRI",
+      "x":410 ,
+      "y":420,
+      "fixed":true},
+    {"id":11,
+      "prefix": "equal",
+      "label":"Phase3",
+      "type": "IRI",
+      "x":410,
+      "y":500,
+      "fixed":true},
+
+    {"id":12,
+      "prefix": "study1",
+      "label":"Study1",
+      "type": "IRI",
+      "x":150,
+      "y":500,
+      "fixed":true},
+    {"id":13,
+      "prefix": "study2",
+      "label":"Study2",
+      "type": "IRI",
+      "x":670,
+      "y":500,
+      "fixed":true},
+
+    {"id":14,
+      "prefix": "eg",
+      "label":"Person11",
+      "type": "IRI",
+      "x":30,
+      "y":600,
+      "fixed":true},
+
+    {"id":15,
+      "prefix": "equal",
+      "label":"Person12",
+      "type": "IRI",
+      "x":410,
+      "y":600,
+      "fixed":true},
+    {"id":16,
+      "prefix": "person13",
+      "label":"Person13",
+      "type": "IRI",
+      "x":790,
+      "y":600,
+      "fixed":true},
+  ],
+  "edges":[
+    {"source":0,
+     "target":1,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":1,
+     "target":2 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":3,
+     "target":1 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":5,
+     "target":6 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":6,
+     "target":7 ,
+     "prefix":"",
+     "label": ""
+    },
+
+    {"source":4,
+     "target":1 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":8,
+     "target":6 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":9,
+     "target":6 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":10,
+     "target":12 ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":10,
+     "target":13,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":12,
+     "target":11  ,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":13,
+     "target":11,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":14,
+     "target":12,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":15,
+     "target":12,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":15,
+     "target":13,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":16,
+     "target":13,
+     "prefix":"",
+     "label": ""
+    },
+    {"source":5,
+     "target":6,
+     "prefix":"",
+     "label":""
+     },
+  ]
+}
+
+
+var svg = d3.select("body").append("svg")
+  .attr("width", w)
+  .attr("height", h);
+
+// Build the arrow for RDF Triple
+svg.append("defs")
+  .selectAll("marker")
+  .data(["end"])      // Different link/path types can be defined here
+  .enter().append("marker")    // This section adds in the arrows
+  .attr({
+    "id": 'arrowhead',
+    "viewBox": "0 -5 10 10",
+    "refX": 100,  // Move arrow back from node
+    "refY": 0,
+    "fill": "#756bb1",
+    "stroke": "white",
+    "markerWidth": 3,  // Arrow height
+    "markerHeight": 3, // Arrow width
+    "orient": "auto" })
+  .append("svg:path")
+  .attr("d", "M0,-5L10,0L0,5");
+
+// Merge Image
+var foo = svg.append("svg:image")
+  .attr('x', 400)
+  .attr('y', 310)
+  .attr('id', "mergeImage")
+//  .attr('width', 100)
+  .attr('height', 90)
+  .attr("xlink:href", "images/mergeGraphs.gif")
+  .on('click', function(d){
+      d3.select('#mergeImage').remove(); // remove distracting image
+});
+
+
+
+
+
+var tooltip = d3.select("body").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
+
+    // Create parent group for links, nodes and set their order so the nodes always
+    //   appear on top of the links
+    svg.append("g").attr("id", "links");
+    svg.append('g').attr("id", "edgepaths");
+    svg.append('g').attr("id", "edgelabels");
+    svg.append("g").attr("id", "nodes");
+
+
+
+var force = d3.layout.force()
+  .nodes(dataset.nodes)
+  .links(dataset.edges)
+  .size([w, h])
+  .start();
+
+// Relationship lines
+var link = svg.select("#links").selectAll(".link")
+  .data(dataset.edges)
+  .enter()
+  .append("path")
+  .attr("class", "link")
+  //.attr("id",function(d,i){return 'edge'+ d.id})
+  .attr("marker-end", "url(#arrowhead)");
+
+// Edge Paths
+var edgepath = svg.select("#edgepaths").selectAll(".edgepath")
+    .data(dataset.edges)
+    .enter()
+    .append('path')
+    .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+        'class':'edgepath',
+        'fill-opacity':0,
+        'stroke-opacity':0,
+        'fill':'blue',
+        'stroke':'red',
+        //'id':function(d,i) {return 'edgepath'+d.id}
+    })
+    .style("pointer-events", "none");
+
+// dx : the starting distance of the label from the source node
+var edgelabel = svg.select("#edgelabels").selectAll(".edgelabel")
+    .data(dataset.edges)
+    .enter()
+    .append('text')
+    .attr("class", function(d,i){
+        if (d.prefix == "schema" || d.prefix == "ncit"){ return "edgelabel extont";}
+        else if (d.prefix == "rdf" || d.prefix == "rdfs"){ return "edgelabel rdf";}
+        else {return "edgelabel unspec";}
+    })
+    .attr("dy", -1) // place above line. 5 for inline
+    .append('textPath')
+    .style("text-anchor", "middle")
+    .attr("startOffset", "50%")
+    .attr('xlink:href', function(d,i) {
+
+       return '#edgepath'+i;
+      //TW return ("ep" + d.source.id + "-" + d.target.id);
+    })
+    .attr('id', function(d,i){
+      return "edgelabel" + i
+    })
+    .text(function(d,i){return d.label});
+
+var node = svg.select("#nodes").selectAll(".node")
+    .data(dataset.nodes)
+    .enter();
+
+node.append("rect")
+    .attr("width", function(d){ return nodeWidth; })
+    .attr("height", nodeHeight)
+    .attr("rx", 5) // Round edges
+    .attr("ry", 5)
+    .attr("id", function(d, i) {return("rect"+d.id) ; })  // ID used to update class
+    .attr("class", function(d,i){
+        if (d.type == "STRING"){ return "node string";}
+        else if (d.type == "INT"){ return "node int"; }
+        // Other external ontologies would need to be added here along with schema
+        else if (d.prefix == "schema"   ||
+                 d.prefix  == "ncit"    ||
+                 d.prefix == "sdtmterm" ||
+                 d.prefix == "cto"){ return "node iriont"; }
+        else if (d.prefix == "eg"){ return "node iri"; }
+        else if (d.prefix == "study1"){ return "node study1"; }
+        else if (d.prefix == "study2"){ return "node study2"; }
+        else if (d.prefix == "person13"){ return "node person13"; }
+        else if (d.prefix == "equal"){ return "node equal"; }
+        else {return "node unspec";}
+        })
+     .call(force.drag)
+;
+
+// Data for node text
+let nodeText_update = svg.selectAll(".nodeText").data(
+// let nodeText_update = svg.selectAll(".nodeText").data(
+    dataset.nodes,
+    function(d){ return "nodeText"+d.id;}
+);
+
+// Add id (nodeTextn) and the text
+nodeText_update.enter().append("text")
+    .attr({
+        // 'id':    function(d, i) {return("nodeText"+i) ; },
+        // ID linkes to editing window
+        'id':    function(d, i) {return "nodeText"+d.id ; },
+        'class': 'nodeText'
+    })
+    .text(function(d,i) {
+        //No prefix for INT, STRING
+        if (d.type ==='INT' || d.type ==='STRING') { return d.label+"--"+d.id; }
+        // Prefix for all other types
+        //else{ return d.prefix+":"+d.label+"--"+d.id; }
+       // else{ return d.label+"--"+d.id; }
+       else{ return d.label; }
+    });
+
+// Remove nodeText
+     nodeText_update.exit().remove();
+force.on("tick", function() {
+    svg.selectAll(".link")
+        .attr('d', function(d) {
+            let xposSource = d.source.x + nodeWidth/2,
+                xposTarget = d.target.x + nodeWidth/2,
+                yposSource = d.source.y + nodeHeight/2,
+                yposTarget = d.target.y + nodeHeight/2;
+            return 'M' + xposSource + ',' + yposSource + 'L' + xposTarget + ',' + yposTarget;
+        });
+
+   svg.selectAll(".edgepath")
+    //DEL edgepath.attr('d', function(d) {
+    .attr('d', function(d) {
+        //Adjust for rectangle shape
+        let xposSource = d.source.x + nodeWidth/2,
+            xposTarget = d.target.x + nodeWidth/2,
+            yposSource = d.source.y + nodeHeight/2,
+            yposTarget = d.target.y + nodeHeight/2;
+
+        let path='M '+ xposSource + ' ' + yposSource+' L '+ xposTarget + ' ' + yposTarget;
+
+        // let path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+        return path;
+    });
+
+    svg.selectAll(".edgelabel")
+    //DEL  edgelabel.attr('transform',function(d,i){
+    .attr('transform',function(d,i){
+        if (d.target.x<d.source.x){
+            let bbox = this.getBBox();
+            let rx = bbox.x+bbox.width/2;
+            let ry = bbox.y+bbox.height/2;
+            return 'rotate(180 '+rx+' '+ry+')';
+        }
+        else { return 'rotate(0)'; }
+    });
+
+    svg.selectAll(".node")
+        .attr("transform", function(d) {
+            if (d.x > w ) {d.x = w-nodeWidth;}  // right
+            if (d.x < -40 ) {d.x = nodeWidth;}  // left
+            if (d.y < 0 ) {d.y = nodeWidth;}    // top
+            if (d.y > h ) {d.y = h-nodeWidth;}  // bottom
+            return "translate(" + d.x + "," + d.y + ")";
+    });
+
+    // Node Text label
+    svg.selectAll(".nodeText")
+        .attr("x", function(d){ return d.x+5;})
+        .attr("y", function(d){ return d.y+17;});
+});
+
+</script>
+<!-- NOT IN USE
+<div align=right>
+  <a href="http://localhost:8000/LDWkshp-CSS2018.html#/14">
+    <img src="/images/rightNavArrow.png">
+  </a>
+</div>
+-->
+</body>
+<!--
+<a href="http://localhost:8000/LinkedDataWorkshop/Annual2017-EU/presentation/Ann2017-LDWkshp.html#/13">back</a>
+-->
+</html>

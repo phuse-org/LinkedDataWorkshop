@@ -1,0 +1,3150 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "type": "iri",
+      "label": "<http://www.example.org/LDWorkshop/Study-ontology>",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 1,
+      "type": "iri",
+      "label": "<http://www.w3.org/2002/07/owl#Class>",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 2,
+      "type": "iri",
+      "label": "<http://www.w3.org/2002/07/owl#ObjectProperty>",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 3,
+      "type": "iri",
+      "label": "<http://www.w3.org/2002/07/owl#Ontology>",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 4,
+      "type": "int",
+      "label": "18",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 5,
+      "type": "int",
+      "label": "19",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 6,
+      "type": "int",
+      "label": "20",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 7,
+      "type": "int",
+      "label": "22",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 8,
+      "type": "int",
+      "label": "24",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 9,
+      "type": "int",
+      "label": "25",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 10,
+      "type": "int",
+      "label": "28",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 11,
+      "type": "int",
+      "label": "29",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 12,
+      "type": "int",
+      "label": "30",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 13,
+      "type": "int",
+      "label": "32",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 14,
+      "type": "int",
+      "label": "34",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 15,
+      "type": "int",
+      "label": "35",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 16,
+      "type": "int",
+      "label": "36",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 17,
+      "type": "int",
+      "label": "37",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 18,
+      "type": "int",
+      "label": "39",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 19,
+      "type": "int",
+      "label": "4",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 20,
+      "type": "int",
+      "label": "40",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 21,
+      "type": "int",
+      "label": "41",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 22,
+      "type": "int",
+      "label": "43",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 23,
+      "type": "int",
+      "label": "45",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 24,
+      "type": "int",
+      "label": "8",
+      "nodeCategory": "2"
+    },
+    {
+      "id": 25,
+      "type": "string",
+      "label": "ABC",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 26,
+      "type": "string",
+      "label": "Al",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 27,
+      "type": "string",
+      "label": "Albert",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 28,
+      "type": "string",
+      "label": "Bauer",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 29,
+      "type": "string",
+      "label": "Bob",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 30,
+      "type": "string",
+      "label": "Bob9",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 31,
+      "type": "string",
+      "label": "Cindy",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 32,
+      "type": "string",
+      "label": "Debbie",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 33,
+      "type": "string",
+      "label": "Drashtti",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 34,
+      "type": "trtAct",
+      "label": "eg:ActiveArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 35,
+      "type": "iri",
+      "label": "eg:DataExpert",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 36,
+      "type": "product",
+      "label": "eg:Drug1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 37,
+      "type": "iri",
+      "label": "eg:DrugProduct",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 38,
+      "type": "iri",
+      "label": "eg:drugProductName",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 39,
+      "type": "iri",
+      "label": "eg:DrugProductName",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 40,
+      "type": "iri",
+      "label": "eg:gender",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 41,
+      "type": "iri",
+      "label": "eg:HumanStudySubject",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 42,
+      "type": "iri",
+      "label": "eg:LDExpert",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 43,
+      "type": "iri",
+      "label": "eg:LinkedDataExpert",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 44,
+      "type": "iri",
+      "label": "eg:participatesIn",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 45,
+      "type": "person",
+      "label": "eg:Person101",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 46,
+      "type": "person",
+      "label": "eg:Person102",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 47,
+      "type": "person",
+      "label": "eg:Person103",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 48,
+      "type": "person",
+      "label": "eg:Person11",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 49,
+      "type": "person",
+      "label": "eg:Person11-1",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 50,
+      "type": "person",
+      "label": "eg:Person11-2",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 51,
+      "type": "person",
+      "label": "eg:Person11-3",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 52,
+      "type": "person",
+      "label": "eg:Person111",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 53,
+      "type": "person",
+      "label": "eg:Person112",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 54,
+      "type": "person",
+      "label": "eg:Person113",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 55,
+      "type": "person",
+      "label": "eg:Person121",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 56,
+      "type": "person",
+      "label": "eg:Person122",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 57,
+      "type": "person",
+      "label": "eg:Person123",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 58,
+      "type": "person",
+      "label": "eg:Person131",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 59,
+      "type": "person",
+      "label": "eg:Person132",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 60,
+      "type": "person",
+      "label": "eg:Person133",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 61,
+      "type": "person",
+      "label": "eg:Person141",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 62,
+      "type": "person",
+      "label": "eg:Person142",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 63,
+      "type": "person",
+      "label": "eg:Person143",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 64,
+      "type": "person",
+      "label": "eg:Person151",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 65,
+      "type": "person",
+      "label": "eg:Person161",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 66,
+      "type": "person",
+      "label": "eg:Person162",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 67,
+      "type": "person",
+      "label": "eg:Person163",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 68,
+      "type": "person",
+      "label": "eg:Person171",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 69,
+      "type": "person",
+      "label": "eg:Person181",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 70,
+      "type": "person",
+      "label": "eg:Person191",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 71,
+      "type": "person",
+      "label": "eg:Person192",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 72,
+      "type": "person",
+      "label": "eg:Person193",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 73,
+      "type": "person",
+      "label": "eg:Person201",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 74,
+      "type": "person",
+      "label": "eg:Person21",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 75,
+      "type": "person",
+      "label": "eg:Person22",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 76,
+      "type": "person",
+      "label": "eg:Person23",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 77,
+      "type": "person",
+      "label": "eg:Person301",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 78,
+      "type": "person",
+      "label": "eg:Person31",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 79,
+      "type": "person",
+      "label": "eg:Person32",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 80,
+      "type": "person",
+      "label": "eg:Person33",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 81,
+      "type": "person",
+      "label": "eg:Person41",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 82,
+      "type": "person",
+      "label": "eg:Person51",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 83,
+      "type": "person",
+      "label": "eg:Person52",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 84,
+      "type": "person",
+      "label": "eg:Person53",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 85,
+      "type": "person",
+      "label": "eg:Person61",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 86,
+      "type": "person",
+      "label": "eg:Person62",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 87,
+      "type": "person",
+      "label": "eg:Person63",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 88,
+      "type": "person",
+      "label": "eg:Person71",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 89,
+      "type": "person",
+      "label": "eg:Person72",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 90,
+      "type": "person",
+      "label": "eg:Person73",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 91,
+      "type": "person",
+      "label": "eg:Person81",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 92,
+      "type": "person",
+      "label": "eg:Person91",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 93,
+      "type": "person",
+      "label": "eg:Person92",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 94,
+      "type": "person",
+      "label": "eg:Person93",
+      "nodeCategory": "3"
+    },
+    {
+      "id": 95,
+      "type": "trtPlc",
+      "label": "eg:PlaceboArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 96,
+      "type": "iri",
+      "label": "eg:praceboarm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 97,
+      "type": "iri",
+      "label": "eg:Product",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 98,
+      "type": "iri",
+      "label": "eg:ProductName",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 99,
+      "type": "iri",
+      "label": "eg:Serum114",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 100,
+      "type": "study",
+      "label": "eg:Study10",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 101,
+      "type": "iri",
+      "label": "eg:study11",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 102,
+      "type": "study",
+      "label": "eg:Study11",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 103,
+      "type": "study",
+      "label": "eg:Study12",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 104,
+      "type": "study",
+      "label": "eg:Study13",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 105,
+      "type": "study",
+      "label": "eg:Study14",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 106,
+      "type": "study",
+      "label": "eg:Study16",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 107,
+      "type": "study",
+      "label": "eg:Study19",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 108,
+      "type": "study",
+      "label": "eg:Study2",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 109,
+      "type": "study",
+      "label": "eg:Study3",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 110,
+      "type": "study",
+      "label": "eg:Study5",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 111,
+      "type": "study",
+      "label": "eg:Study6",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 112,
+      "type": "study",
+      "label": "eg:Study7",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 113,
+      "type": "study",
+      "label": "eg:Study9",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 114,
+      "type": "crossstudy",
+      "label": "eg:Study99",
+      "nodeCategory": "4"
+    },
+    {
+      "id": 115,
+      "type": "iri",
+      "label": "eg:trtArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 116,
+      "type": "iri",
+      "label": "eg:TrtArm",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 117,
+      "type": "iri",
+      "label": "eg:TrtArm10-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 118,
+      "type": "iri",
+      "label": "eg:TrtArm10-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 119,
+      "type": "iri",
+      "label": "eg:TrtArm11-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 120,
+      "type": "iri",
+      "label": "eg:TrtArm11-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 121,
+      "type": "iri",
+      "label": "eg:TrtArm12-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 122,
+      "type": "iri",
+      "label": "eg:TrtArm12-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 123,
+      "type": "iri",
+      "label": "eg:TrtArm13-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 124,
+      "type": "iri",
+      "label": "eg:TrtArm13-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 125,
+      "type": "iri",
+      "label": "eg:TrtArm14-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 126,
+      "type": "iri",
+      "label": "eg:TrtArm14-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 127,
+      "type": "iri",
+      "label": "eg:TrtArm16-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 128,
+      "type": "iri",
+      "label": "eg:TrtArm16-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 129,
+      "type": "iri",
+      "label": "eg:TrtArm19-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 130,
+      "type": "iri",
+      "label": "eg:TrtArm19-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 131,
+      "type": "iri",
+      "label": "eg:TrtArm2-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 132,
+      "type": "iri",
+      "label": "eg:TrtArm3-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 133,
+      "type": "iri",
+      "label": "eg:TrtArm3-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 134,
+      "type": "iri",
+      "label": "eg:TrtArm5-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 135,
+      "type": "iri",
+      "label": "eg:TrtArm5-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 136,
+      "type": "iri",
+      "label": "eg:TrtArm6-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 137,
+      "type": "iri",
+      "label": "eg:TrtArm6-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 138,
+      "type": "iri",
+      "label": "eg:TrtArm7-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 139,
+      "type": "iri",
+      "label": "eg:TrtArm7-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 140,
+      "type": "iri",
+      "label": "eg:TrtArm9-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 141,
+      "type": "iri",
+      "label": "eg:TrtArm9-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 142,
+      "type": "iri",
+      "label": "eg:TrtArm99-1",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 143,
+      "type": "iri",
+      "label": "eg:TrtArm99-2",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 144,
+      "type": "iri",
+      "label": "eg:trtArmType",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 145,
+      "type": "iri",
+      "label": "eg:TrtArmType",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 146,
+      "type": "string",
+      "label": "Fred",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 147,
+      "type": "string",
+      "label": "Ippei",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 148,
+      "type": "string",
+      "label": "Jane",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 149,
+      "type": "string",
+      "label": "Jenny",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 150,
+      "type": "string",
+      "label": "Julie",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 151,
+      "type": "string",
+      "label": "Liz",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 152,
+      "type": "string",
+      "label": "Lizzie",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 153,
+      "type": "string",
+      "label": "Mary",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 154,
+      "type": "string",
+      "label": "Nancy",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 155,
+      "type": "female",
+      "label": "ncit:Female",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 156,
+      "type": "male",
+      "label": "ncit:Male",
+      "nodeCategory": "6"
+    },
+    {
+      "id": 157,
+      "type": "ncit",
+      "label": "ncit:Phase2",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 158,
+      "type": "ncit",
+      "label": "ncit:Phase3",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 159,
+      "type": "ncit",
+      "label": "ncit:Study",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 160,
+      "type": "string",
+      "label": "Nick",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 161,
+      "type": "string",
+      "label": "Pat",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 162,
+      "type": "string",
+      "label": "Peter9",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 163,
+      "type": "string",
+      "label": "Praveen",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 164,
+      "type": "string",
+      "label": "Riona",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 165,
+      "type": "string",
+      "label": "Romir",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 166,
+      "type": "string",
+      "label": "Sally",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 167,
+      "type": "schema",
+      "label": "schema:Person",
+      "nodeCategory": "5"
+    },
+    {
+      "id": 168,
+      "type": "string",
+      "label": "Subject1",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 169,
+      "type": "string",
+      "label": "Subject2",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 170,
+      "type": "string",
+      "label": "Sue9",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 171,
+      "type": "string",
+      "label": "Sumeet",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 172,
+      "type": "string",
+      "label": "Thomas",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 173,
+      "type": "string",
+      "label": "Tim",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 174,
+      "type": "string",
+      "label": "Ting",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 175,
+      "type": "string",
+      "label": "William",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 176,
+      "type": "string",
+      "label": "XYZ",
+      "nodeCategory": "1"
+    },
+    {
+      "id": 177,
+      "type": "string",
+      "label": "Zhihai",
+      "nodeCategory": "1"
+    }
+  ],
+  "edges": [
+    {
+      "source": 35,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 97,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 98,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 116,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 167,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 37,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 145,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 159,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 41,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 39,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 43,
+      "target": 1,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 115,
+      "target": 2,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 44,
+      "target": 2,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 144,
+      "target": 2,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 42,
+      "target": 2,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 38,
+      "target": 2,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "value": "rdf:type",
+      "edgeType": "class"
+    },
+    {
+      "source": 88,
+      "target": 4,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 93,
+      "target": 5,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 75,
+      "target": 6,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 66,
+      "target": 7,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 49,
+      "target": 8,
+      "value": "eg:Age",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 9,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 10,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 11,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 53,
+      "target": 11,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 79,
+      "target": 11,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 62,
+      "target": 12,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 52,
+      "target": 13,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 70,
+      "target": 13,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 13,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 14,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 15,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 16,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 17,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 18,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 19,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 45,
+      "target": 20,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 82,
+      "target": 20,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 46,
+      "target": 21,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 22,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 50,
+      "target": 23,
+      "value": "eg:Age",
+      "edgeType": "study"
+    },
+    {
+      "source": 58,
+      "target": 24,
+      "value": "eg:age",
+      "edgeType": "study"
+    },
+    {
+      "source": 52,
+      "target": 25,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 74,
+      "target": 26,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 84,
+      "target": 27,
+      "value": "eg:givenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 40,
+      "target": 28,
+      "value": "eg:givenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 76,
+      "target": 28,
+      "value": "eg:givenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 49,
+      "target": 29,
+      "value": "eg:GivenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 29,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 65,
+      "target": 29,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 61,
+      "target": 29,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 70,
+      "target": 29,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 92,
+      "target": 30,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 57,
+      "target": 31,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 83,
+      "target": 32,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 63,
+      "target": 33,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 124,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 130,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 133,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 120,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 122,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 141,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 137,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 118,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 138,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 128,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 116,
+      "target": 34,
+      "value": "ncit:TrtArm",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 53,
+      "target": 34,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 135,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 126,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 142,
+      "target": 34,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 120,
+      "target": 34,
+      "value": "eg:ArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 43,
+      "target": 35,
+      "value": "rdfs:subClassOf",
+      "edgeType": "class"
+    },
+    {
+      "source": 38,
+      "target": 37,
+      "value": "rdfs:domain",
+      "edgeType": "other"
+    },
+    {
+      "source": 38,
+      "target": 39,
+      "value": "rdfs:range",
+      "edgeType": "other"
+    },
+    {
+      "source": 44,
+      "target": 41,
+      "value": "rdfs:domain",
+      "edgeType": "other"
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "value": "rdfs:domain",
+      "edgeType": "other"
+    },
+    {
+      "source": 155,
+      "target": 56,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 156,
+      "target": 74,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 155,
+      "target": 75,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 134,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 131,
+      "target": 95,
+      "value": "ncit:trtArmType",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 136,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 143,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 52,
+      "target": 95,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 121,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 132,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 139,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 123,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 129,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 125,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 140,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 127,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 117,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 119,
+      "target": 95,
+      "value": "eg:trtArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 119,
+      "target": 96,
+      "value": "eg:ArmType",
+      "edgeType": "study"
+    },
+    {
+      "source": 37,
+      "target": 97,
+      "value": "rdfs:subClassOf",
+      "edgeType": "class"
+    },
+    {
+      "source": 39,
+      "target": 98,
+      "value": "rdfs:subClassOf",
+      "edgeType": "class"
+    },
+    {
+      "source": 36,
+      "target": 99,
+      "value": "eg:drugname",
+      "edgeType": "study"
+    },
+    {
+      "source": 46,
+      "target": 100,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 45,
+      "target": 100,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 100,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 47,
+      "target": 100,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 50,
+      "target": 101,
+      "value": "eg:ParticipateIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 51,
+      "target": 101,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 49,
+      "target": 101,
+      "value": "eg:ParticipateIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 101,
+      "value": "ncit:study11",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 53,
+      "target": 102,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 54,
+      "target": 102,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 102,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 52,
+      "target": 102,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 103,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 103,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 57,
+      "target": 103,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 103,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 58,
+      "target": 104,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 104,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 60,
+      "target": 104,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 104,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 63,
+      "target": 105,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 62,
+      "target": 105,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 105,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 61,
+      "target": 105,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 106,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 67,
+      "target": 106,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 106,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 66,
+      "target": 106,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 107,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 72,
+      "target": 107,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 107,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 70,
+      "target": 107,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 76,
+      "target": 108,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 108,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 74,
+      "target": 108,
+      "value": "eg:participatein",
+      "edgeType": "study"
+    },
+    {
+      "source": 75,
+      "target": 108,
+      "value": "eg:Participatein",
+      "edgeType": "study"
+    },
+    {
+      "source": 79,
+      "target": 109,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 109,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 109,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 109,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 36,
+      "target": 110,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 82,
+      "target": 110,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 84,
+      "target": 110,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 110,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 87,
+      "target": 111,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 111,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 111,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 86,
+      "target": 111,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 112,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 90,
+      "target": 112,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 112,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 88,
+      "target": 112,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 94,
+      "target": 113,
+      "value": "eg:LDExpert",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 113,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 93,
+      "target": 113,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 113,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 36,
+      "target": 114,
+      "value": "ncit:study",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 68,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 88,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 81,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 52,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 48,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 58,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 82,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 73,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 91,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 45,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 69,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 70,
+      "target": 114,
+      "value": "eg:participatesIn",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 115,
+      "value": "eg:randomizedto",
+      "edgeType": "study"
+    },
+    {
+      "source": 115,
+      "target": 116,
+      "value": "rdfs:range",
+      "edgeType": "other"
+    },
+    {
+      "source": 108,
+      "target": 116,
+      "value": "ncit:trtArm",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 144,
+      "target": 116,
+      "value": "rdfs:domain",
+      "edgeType": "other"
+    },
+    {
+      "source": 100,
+      "target": 117,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 45,
+      "target": 117,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 46,
+      "target": 118,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 100,
+      "target": 118,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 102,
+      "target": 119,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 119,
+      "value": "eg:trtarm",
+      "edgeType": "study"
+    },
+    {
+      "source": 49,
+      "target": 119,
+      "value": "eg:RandomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 50,
+      "target": 120,
+      "value": "eg:RandomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 101,
+      "target": 120,
+      "value": "eg:trtarm",
+      "edgeType": "study"
+    },
+    {
+      "source": 102,
+      "target": 120,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 103,
+      "target": 121,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 121,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 122,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 103,
+      "target": 122,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 123,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 58,
+      "target": 123,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 104,
+      "target": 124,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 59,
+      "target": 124,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 105,
+      "target": 125,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 62,
+      "target": 125,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 126,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 105,
+      "target": 126,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 127,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 106,
+      "target": 127,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 106,
+      "target": 128,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 66,
+      "target": 128,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 129,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 70,
+      "target": 129,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 71,
+      "target": 130,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 107,
+      "target": 130,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 108,
+      "target": 131,
+      "value": "ncit:trtArmType",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 75,
+      "target": 131,
+      "value": "eg:RandomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 79,
+      "target": 132,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 109,
+      "target": 132,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 133,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 109,
+      "target": 133,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 134,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 82,
+      "target": 134,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 83,
+      "target": 135,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 110,
+      "target": 135,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 111,
+      "target": 136,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 136,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 86,
+      "target": 137,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 111,
+      "target": 137,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 112,
+      "target": 138,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 89,
+      "target": 138,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 112,
+      "target": 139,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 88,
+      "target": 139,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 140,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 140,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 113,
+      "target": 141,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 93,
+      "target": 141,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 61,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 114,
+      "target": 142,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 48,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 70,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 65,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 77,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 88,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 85,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 82,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 68,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 45,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 52,
+      "target": 142,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 74,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 64,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 114,
+      "target": 143,
+      "value": "eg:trtArm",
+      "edgeType": "study"
+    },
+    {
+      "source": 92,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 58,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 73,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 69,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 81,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 55,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 91,
+      "target": 143,
+      "value": "eg:randomizedTo",
+      "edgeType": "study"
+    },
+    {
+      "source": 144,
+      "target": 145,
+      "value": "rdfs:range",
+      "edgeType": "other"
+    },
+    {
+      "source": 82,
+      "target": 146,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 51,
+      "target": 147,
+      "value": "eg:GivenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 56,
+      "target": 148,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 66,
+      "target": 149,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 54,
+      "target": 150,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 86,
+      "target": 151,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 62,
+      "target": 152,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 46,
+      "target": 153,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 155,
+      "target": 154,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 86,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 71,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 79,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 93,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 83,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 62,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 54,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 46,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 66,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 63,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 88,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 59,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 57,
+      "target": 155,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 53,
+      "target": 155,
+      "value": "eg:gender",
+      "edgeType": "study"
+    },
+    {
+      "source": 50,
+      "target": 155,
+      "value": "eg:gender",
+      "edgeType": "study"
+    },
+    {
+      "source": 78,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 89,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 84,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 58,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 47,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 94,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 90,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 61,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 55,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 67,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 72,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 65,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 85,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 49,
+      "target": 156,
+      "value": "eg:gender",
+      "edgeType": "study"
+    },
+    {
+      "source": 80,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 45,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 87,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 92,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 70,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 82,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 60,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 52,
+      "target": 156,
+      "value": "ncit:gender",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 110,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 104,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 107,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 109,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 105,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 108,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 101,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 112,
+      "target": 157,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 100,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 114,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 113,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 102,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 111,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 106,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 103,
+      "target": 158,
+      "value": "ncit:phase",
+      "edgeType": "ncit"
+    },
+    {
+      "source": 42,
+      "target": 159,
+      "value": "rdfs:range",
+      "edgeType": "other"
+    },
+    {
+      "source": 115,
+      "target": 159,
+      "value": "rdfs:domain",
+      "edgeType": "other"
+    },
+    {
+      "source": 44,
+      "target": 159,
+      "value": "rdfs:range",
+      "edgeType": "other"
+    },
+    {
+      "source": 85,
+      "target": 160,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 55,
+      "target": 161,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 94,
+      "target": 162,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 90,
+      "target": 163,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 59,
+      "target": 164,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 58,
+      "target": 165,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 71,
+      "target": 166,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 79,
+      "target": 166,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 50,
+      "target": 166,
+      "value": "eg:GivenName",
+      "edgeType": "study"
+    },
+    {
+      "source": 41,
+      "target": 167,
+      "value": "rdfs:subClassOf",
+      "edgeType": "class"
+    },
+    {
+      "source": 35,
+      "target": 167,
+      "value": "rdfs:subClassOf",
+      "edgeType": "class"
+    },
+    {
+      "source": 88,
+      "target": 168,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 89,
+      "target": 169,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 93,
+      "target": 170,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 60,
+      "target": 171,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 80,
+      "target": 172,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 45,
+      "target": 173,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 72,
+      "target": 173,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 47,
+      "target": 174,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 87,
+      "target": 175,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 53,
+      "target": 176,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    },
+    {
+      "source": 67,
+      "target": 177,
+      "value": "schema:givenName",
+      "edgeType": "schema"
+    }
+  ]
+}

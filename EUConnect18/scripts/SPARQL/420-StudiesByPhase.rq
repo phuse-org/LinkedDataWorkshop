@@ -1,0 +1,8 @@
+# 420-StudiesByPhase.rq   List studies by Phase
+#  Execute on the Pooled Database
+
+SELECT ?phase ?study
+WHERE
+{
+   ?study ncit:phase ?phase
+} ORDER BY ?phase ?study

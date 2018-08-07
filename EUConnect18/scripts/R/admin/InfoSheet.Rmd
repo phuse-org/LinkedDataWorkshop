@@ -1,0 +1,64 @@
+---
+title: "CSS 2018 Linked Data Workshop InfoSheets"
+output: pdf_document
+fontsize: 14pt
+---
+# Handouts for Each Attendee
+##  04 March 2018
+
+\fontfamily{cmr}
+\fontsize{12}{22}
+\selectfont
+
+\newpage
+
+
+```{r echo=FALSE, results="asis", warning=FALSE}
+# results=asis: needed for the page breaking
+# Read the source file
+library(knitr)
+library(rmarkdown)
+library(readxl)
+
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/admin/ClassInfo-Dev.xlsx", sheet = "Servers", col_names=TRUE))
+
+servers <- servers[ order(servers[,4], servers[,3]), ]
+
+## Loop
+for (i in 1:nrow(servers)){
+  cat("\n\n")
+  cat("#**Info Sheet**\n")
+  cat("\n\n")
+  cat("##Attendee", i, "   ", servers[i,3], " ",  servers[i,4], "\n")
+  cat("\n\n")
+  cat("\n\n")
+  cat("##Server Information  ")
+  cat("\n\n")
+  cat(paste0("Computer: **",servers[i,2],"**\n"))
+  cat("\n\n")
+  cat("User name: **phuseldw** \n")
+  cat("\n\n")
+  cat("Password: **Silver11!** \n")
+
+  cat("\n\n")
+  
+  cat("****")
+  cat("\n\n")
+  cat("\n\n")
+  
+  cat("##Values for Exercises\n")
+  cat(paste0("Study:  **Study", i,"**\n"))
+  cat("\n\n")
+  cat(paste0("Treat Arm One: **TrtArm",i,"-1**\n"))
+  cat("\n\n")
+  cat(paste0("Treat Arm Two: **TrtArm",i,"-2**\n"))
+  cat("\n\n")  
+  
+  cat(paste0("Person One: \t**Person",i,"1**\n"))
+  cat("\n\n")  
+  cat(paste0("Person Two: **Person",i,"2**\n"))
+  cat("\n\n")  
+  cat(paste0("Person Three: **Person",i,"3**\n"))
+  cat("\n\n")
+  cat("\n\n\\pagebreak\n")
+}

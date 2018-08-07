@@ -1,0 +1,10 @@
+# 341-PersonStudyTypes.rq  Types people IN THE STUDY
+#   Reasoner must be ON.
+
+SELECT ?person ?person_name ?person_type
+WHERE {
+    ?person a schema:Person  ;
+            schema:givenName ?person_name ;
+            a ?person_type.
+    FILTER ( strstarts(str(?person_type), "http://example.org/LDWorkshop#") )
+}ORDER BY ?person_name ?person_type

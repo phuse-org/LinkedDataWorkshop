@@ -1,0 +1,9 @@
+# 340-NamesPersonTypes.rq  Names and Types of all people in the study
+#   Reasoner must be ON.
+
+SELECT ?person ?person_name ?person_type
+WHERE {
+    ?person a schema:Person  ;
+            schema:givenName ?person_name ;
+            a ?person_type.
+}ORDER BY ?person_name ?person_type

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-----------------------------------------------------------------------------
+FILE: Person-FNGraph.html
+DSCR: Network graph of Data Relations in the SDTM Data as RDF Project
+
+SRC :   C:\_gitHub\CTDasRDF\vis\d3\Person-FNGraph.html
+ Based on: (svn) /Phuse/Anual/2016/d3/Attendees-FNGraph.html
+INPUT:  /data/DataRelations-FNGraph-test.JSON  - for development
+        /data/Attendees-FNGraph-R.JSON , from R,   [TODO!!!]
+VIEW  :  http://localhost:8000/ctdasRDF/vis/d3/Person-FNGraph.html
+REQ  : DataRelations-FNGraph.js, SDTMasRDF.css
+NOTES:
+TODO: :
+        Convert to V4 D3
+
+------------------------------------------------------------------------------>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Drug1DataPool</title>
+    <script type="text/javascript" src="d3/d3/d3.v3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/Drug1Pool.css">
+</head>
+<body>
+<h3>Drug 1 Data Pool </h3>
+<script type="text/javascript">
+var w = 1000;
+var h = 800;
+
+// Factors affecting node display (spread, clustering, etc.)
+// Note: Colours set in .CSS
+var gravity      = .01
+var charge       = -240
+var linkDistance = 80
+var edgeWidth    = 3
+var nodeRadius   = 5  // default radius
+
+//Width and height for SVG area
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+// Double click to 'unfix' the node and have forces start to act on it again.
+function dblclick(d) {
+  d3.select(this).classed("fixed", d.fixed = false);
+}
+// Set the "fixed" property of the dragged node to TRUE when a dragstart event is initiated,
+//   - removes "forces" from acting on that node and changing its position.
+function dragstart(d) {
+  d3.select(this).classed("fixed", d.fixed = true);
+}
+
+// Variables for clustering
+var nb_group=6 // divide display into  n regions, 1 for nodeCategory value
+var angle = 2*Math.PI/nb_group; // Angle to divide up the display
+var intensity = 300; // increase intensity if many groups
+
+var tooltip = d3.select("body").append("div")
+      .attr("class", "tooltipLegend")
+      .style("opacity", 0);
+
+d3.json("Drug1Pool.JSON", function(dataset) {
+  var force = d3.layout.force()
+    .nodes(dataset.nodes)
+    .links(dataset.edges)
+    .gravity(gravity)
+    .charge(charge)
+    .linkDistance(linkDistance)
+    .size([w, h])
+    .start();
+  var drag = force.drag()
+    .on("dragstart", dragstart);
+
+  // id value - used to identify the edge. Where is it referenced?
+  var edges = svg.selectAll("line")
+    .data(dataset.edges)
+    .enter()
+    .append("line")
+      .attr("id",function(d,i){return 'edge'+i})
+      .attr("class", "edge")
+      .attr("class", function (d) {
+        return d.edgeType;
+      });
+  // Add tooltip mouseover text for Edges (links)
+  edges.append("title")
+    .text(function(d) { return d.value });
+
+  var nodes = svg.selectAll("g.node")
+    .data(dataset.nodes)
+    .enter()
+    .append("g")
+      .attr("class", "node")
+      .on("dblclick", dblclick)
+      .on("click", function (d) {
+        if (d3.event.ctrlKey) { location.href = d.url;}
+      })
+      .call(drag);
+
+  nodes.append("circle")
+    .attr("r", function (d) {
+      if (d.type=="study" || d.type=="crossstudy") {return 8}
+
+      else if (d.label=="eg:Drug1"){return 12}
+      else {return nodeRadius}
+    })
+    .attr("class", function (d) {
+      return ("node "+ d.type);
+    })
+    // Mousover Node - highlight node by fading the node colour during mouseover
+    .on('mouseover', function(d){
+      var nodeSelection = d3.select(this).style({opacity:'0.5'});
+    })
+    //Mouseout Node  - bring node back to full colour
+    .on('mouseout', function(d){
+      var nodeSelection= d3.select(this).style({opacity:'1.0',})
+    })
+    // dx sets how close to the node the label appears
+    //TW TODO: Move font size and color to CSS STYLE
+    // id=nodegroup3  - a separate style for this node type. See #nodegroup3 in CSS section
+  nodes.append("text")
+    .attr("class", "nodetext")
+    .attr("dx", -15)  // offset the text from the node.
+    .attr("dy", "-1.5em") // Offset label from node. Move above node with -
+    .attr("text-anchor", "middle")  // Center text horizontally
+    // .text(function(d) { return d.label + "-"+ d.id })            // Just the name
+    .text(function(d) { return d.label });            // Just the name
+  // Egdge Paths
+  //TODO remove stroke and path: are part of CSS now
+  var edgepaths = svg.selectAll(".edgepath")
+    .data(dataset.edges)
+    .enter()
+    .append('path')
+      .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+        'class':'edgepath',
+        'fill-opacity':0,
+        'stroke-opacity':0,
+        'id':function(d,i) {return 'edgepath'+i}})
+      .style("pointer-events", "none");
+
+  force.on("tick", function(e) {
+    // Position regulator for nodes must update d.x and d.y BEFORE edges are positioned
+    // angle is used for clustering based on nodeCatetory
+    nodes.attr("transform", function(d) {
+      d.x += (intensity*Math.cos(angle*(d.nodeCategory)) + w/2 - d.x)*e.alpha;
+      d.y += (intensity*Math.sin(angle*(d.nodeCategory)) + h/2 - d.y)*e.alpha;
+      return "translate(" + d.x + "," + d.y + ")";
+    });
+    edges.attr("x1", function(d) { return d.source.x; })
+        .attr("y1",  function(d) { return d.source.y; })
+        .attr("x2",  function(d) { return d.target.x; })
+        .attr("y2",  function(d) { return d.target.y; });
+
+    edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+      return path});
+    });
+});
+</script>
+</body>
+</html>

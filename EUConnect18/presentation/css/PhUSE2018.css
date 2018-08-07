@@ -1,0 +1,448 @@
+/*
+  Addtional css by TW for the presentation
+*/
+/*---- Basic HTML styling ----------------------------------------------------*/
+p {
+  text-align:left;
+}
+
+/*---- Grid Layouts ----------------------------------------------------------*/
+* {box-sizing:border-box;}
+.gridTrainers{
+  display: grid;
+/*  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-columns: 30%  70%;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+}
+.gridTrainers div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+.gridPicLeft{
+  display: grid;
+  grid-template-columns: 28% 72% ;  /* flexible grid units instead of px or % */
+  grid-template-rows:  800px;
+  grid-gap: 1px;  /* column and row */
+}
+.gridPicLeft div{
+  border: 0px solid rgb(0.95,107);
+  border-radius: 0px;
+  background-color: #002b36; /* moon background */
+  padding: 0.01em;
+}
+
+.grid5050{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  100px 700px;
+  grid-gap: 1em;  /* column and row */
+}
+.grid5050 div{
+  text-align: left;
+  background-color: none; /* #002b36;moon background */
+  padding: 1em;
+}
+/*---- Fonts -----------------------------------------------------------------*/
+.todo{
+    font-size: 1.1em;
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*---- Images ----------------------------------------------------------------*/
+/* NOT WORKING> REMOVE */
+.reveal .noborder{
+  border:0px;
+  box-shadow:none;
+}
+
+/* ABOVE HERE IS CONFIRMED */
+/*----- OLDE BELOW HERE ------------------------------------------------------*/
+* {box-sizing:border-box;}
+.gridTwoCol{
+  display: grid;
+  grid-template-columns: 50%  50%;  /* flexible grid units instead of px or % */
+  grid-template-rows: 100px 100px;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+
+}
+.gridTwoCol div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+
+/* two columns, 1 row */
+.gridExercise{
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-rows: 200px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
+
+}
+.gridExercise div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+
+/* two columns, 1 row */
+.gridResources{
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(200px, 800px);  /* flexible grid units instead of px or % */
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+
+}
+.gridResources div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  border: 1px solid gray; // try border-left and border-right
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+
+/*
+# Possible Color Selections
+# "#FFFFFF", // 1-Wht
+# "#00FF00", // 2-BrGre
+# "#99FF99", // 3-LtGre
+# "#FF0000", // 4-BrRed
+# "#FA7D7D", // 5-LtRed
+# "#0000FF", // 6-BrBlu
+# "#8080FF", // 7-LtBlu
+# "#FF6600", // 8-BrOr
+# "#FFB280", // 9-LtOr
+# "#CC00FF", // 10-BrPur
+# "#EB99FF", // 11-LtPur
+# "#FFFF00", // 12-BrYel
+# "#FFFF80", // 13-LtYel
+# "#006666", // 14-SlGre
+# "#99C2C2", // 15-LtSlGre
+# "#666699", // 16-BlGry
+# "#A3A3C2"  // 17-LtBlGr
+*/
+
+.gridOwlComp{
+  display: grid;
+  grid-template-columns: repeat(2,minmax(100px, 150px));  /* 2 columns */
+  grid-template-rows:   50px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
+}
+.gridOwlComp div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+/* A single, wide column that will hold the 3 components of an axiom. */
+.gridOwlAxiom{
+  display: grid;
+  grid-template-columns: minmax(600px, 620px);  /* flexible grid units instead of px or % */
+  grid-template-rows:   75px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
+}
+/* define the subitems witin the gridOwlAxiom column */
+.gridOwlAxiom .subitems{
+  display: grid;
+  grid-template-columns: repeat(3,190px);  /* The size of each of 3 items in the axiom */
+  grid-template-rows:   50px;
+  font-size: 75%;
+  grid-gap: 10px;
+}
+
+.gridOwlAxiom div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  color: #fff;  /* sets font color within the block */
+}
+.gridOwlAxiomComponents{
+  display: grid;
+  grid-template-columns: repeat(3,190px) ;
+  grid-template-rows:   50px;
+  grid-gap: 10px;  /* shorthand for both column and row gaps */
+}
+.gridOwlAxiomComponents div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  padding: 0.2em;
+  font-size: 75%;
+}
+.reveal .axiomTitle{
+  text-align: left;
+  color:#4dff4d;
+  font-size: 75%;
+}
+.owlClass      {background-color:#F79646;}
+.owlProperty   {background-color:#4F81BD;}
+.owlIndividual {background-color:#8064A2;}
+.owlLiteral    {background-color:#ccccb3;}
+.owlAxiom      {background-color:#4dff4d; }  /* green */
+
+/* Emphasis within Bullets */
+.emphSmall {
+  font-size: 110%;
+    color: red;
+  font-weight: bold;
+}
+.emphSmallBlue {
+  font-size: 100%;
+    color: #4d4dff;
+  font-weight: bold;
+}
+
+
+/* Emphasis for Property terms */
+.emphProp {
+  font-size: 110%;
+  color: #4d4dff;
+  font-weight: bold;
+  font-style: italic;
+}
+/* emph Italics */
+.emphItalic {
+  font-size: 110%;
+  color: #4d4dff;
+  font-weight: bold;
+  font-style: italic;
+}
+.emphItalicGreen {
+  font-size: 110%;
+  color: #00cc00;
+  font-weight: bold;
+  font-style: italic;
+}
+.emphItalicRed {
+  font-size: 110%;
+  color: #ff0000;
+  font-weight: bold;
+  font-style: italic;
+}
+.emphLtBlue {
+  font-size: 110%;
+  color: #8181FF;
+  font-weight: bold;
+}
+
+.emphItalicBlue {
+  font-size: 110%;
+  color: #3333ff;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.linkSmallBlue {
+  font-size: 70%;
+  color: #0000b3;
+}
+
+
+/* predicate italicized */
+.predIt {
+  font-family: 'Courier New', courier , sans;
+  font-style: italic;
+  font-weight: bold;
+  color:  #8080ff;
+}
+
+/* Emphasis. Used in section Breaks to show upcomin section */
+.emph {
+  font-size: 35pt;
+  color: red;
+  font-weight: bold;
+}
+.emphGr {
+  font-size: 28pt;
+  color: #00cc00;
+  font-weight: bold;
+}
+/* Small italics green. Eg: UL titles */
+.emphSmItGr {
+  font-size: 110%;
+  color: #00cc00;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.deEmph {
+  font-size: 20pt;
+  color: grey;
+  font-weight: normal;
+}
+
+
+
+/*------------- OLDE SHITE BELOW HERE -------------------------*/
+/* Clean this up or no ice cream for you! */
+
+/*---- SLIDE FORMATTING -----------------------------------------------------*/
+/* New stuff added 19Aug. Source:  https://github.com/hakimel/reveal.js/issues/180
+   at bottom of comments
+*/
+reveal.slide .slides > section, .reveal.slide .slides > section > section {
+  min-height: 100%;
+  min-width: 100%;
+/*  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+*/
+  position: absolute !important;
+  top: 0 !important;
+
+}
+/* Dork with this to get the print working */
+.print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
+  min-height: 770px !important;
+  position: relative !important;
+}
+
+/*---- END SLIDE FORMATTING -------------------------------------------------*/
+img{
+  position: relative;
+}
+img .ulRight{
+    position: absolute;
+    top:0;
+}
+/* used on title slide */
+html.img-left div.slide-background.present {
+    background-position: left;
+}
+.reveal .imageHardLeft{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: none;
+    box-shadow:none;
+}
+
+.reveal .itemColumnRight{
+    position: relative;
+    left: 200px;
+    top: 0px;
+    width:300px;
+}
+
+ .reveal .imageLeftStack{
+    position: relative;
+    left: 0px;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+.reveal table#rdfTable {
+ table-layout: auto;
+ width: 100%;
+ background-color: lightgrey;
+
+}
+/* font within the rdfTable */
+.reveal table#rdfTable td{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family:sans-serif;
+    font-size:16pt;
+    color:black;
+}
+.reveal table#rdfTable td a{
+    color:blue;
+}
+
+/* FOLLOWING IS NOT WORKING */
+.reveal table#attribTable td{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family: Helvetica, sans-serif;
+    font-size:14pt;
+
+}
+
+
+/* Tool tips for the URL values the RDF Table
+  See : http://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip
+  NOT USED due to restriction of the table cell being unable to show the enlarged tip
+*/
+.reveal .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.reveal .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 520px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.reveal .tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.reveal .highlightGreen{
+  background-color:#91cf60;
+  color:blue;
+}
+
+iframe.noScrolling{
+    width:  500px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.quiz {
+  font-family: Helvetica, sans-serif;
+  font-size: 25pt;
+/*  color: #cc3300; */
+  color: red;
+  font-weight: bold;
+}
+
+codeExcerpt
+{
+    font-size: 47px;
+    line-height: 32;
+}
+
+.reveal pre code{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 27px;
+    line-height: 32px;
+}
+
+.bigScript{
+  font-family: Lucida Handwriting;
+  font-size: 85px;
+  color: #eee8d5;
+
+}

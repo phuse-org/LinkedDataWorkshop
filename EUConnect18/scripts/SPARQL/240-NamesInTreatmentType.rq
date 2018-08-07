@@ -1,0 +1,9 @@
+# 240-NamesInTreatmentType.rq  Names of Persons in each type of treatment
+
+SELECT ?trt_type ?person_name
+WHERE {
+    ?person eg:randomizedTo  ?trt_arm ;       # person to treatment arm
+            schema:givenName ?person_name.
+    ?trt_arm eg:trtArmType ?trt_type . # treatment arm to treatment type type
+}
+ORDER BY ?trt_type ?person_name

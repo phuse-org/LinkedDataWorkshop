@@ -1,0 +1,7 @@
+# 210-AllTriples.rq All triples in the graph
+
+SELECT ?s ?p ?o
+WHERE {
+    ?s ?p ?o
+}
+ORDER BY ?s ?p

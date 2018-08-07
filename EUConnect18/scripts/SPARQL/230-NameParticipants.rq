@@ -1,0 +1,7 @@
+# 230-NameParticipants.rq  Names of Persons who participate in the study
+
+SELECT ?person_name
+WHERE {
+    ?person eg:participatesIn ?study ;
+            schema:givenName  ?person_name .
+}

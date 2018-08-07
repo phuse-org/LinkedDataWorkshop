@@ -1,0 +1,605 @@
+<!doctype html>
+<html>
+  <head>
+
+<!--
+  Start HTTP server with httpSlidesToPDF.bat, then:
+  VIEW: http://localhost:8000/LDWkshp-CSS2018.html
+-->
+
+<!-- Uses Chalkboard for drawing:  https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
+   'c' to activate
+   'del' to remove lines or backspace
+-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <title>CSS 2018-LDWkshop</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css"> <!--Theme used for syntax highlighting of code -->
+  <link rel="stylesheet"  href="css/theme/moonTW.css"> <!-- Change fonts from moon default -->
+  <link rel="stylesheet" href="css/PhUSE2018.css">
+  <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html
+  2. start web service to that path. 2. Start an older version of Chrome.
+  Current version does not support PDF preview.
+  C:/downloads/chrome64_55.0.2883.75/Chrome.exe 3. Open in Chrome:
+  http://localhost:8000/?print-pdf#/. 4. Ctrl P :  Landscape, no s, Print
+  Background Images. 5. use Print Preview to check fmarginor blank sides 6. Save
+  as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check
+  option for printing background images. Uncheck for printing header/footer to
+  remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width
+  and height in initialize fnt at bottom 
+<link rel="stylesheet"
+  href="css/print/pdf.css"> -->
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<!---- Title ------------------------------------------------------------------>
+<section>
+  <h3>Linked Data for Clinical Trials</h3>
+  <h3>Hands-on Workshop</h3>
+  <br>
+  <h4> PhUSE CSS 2018</h4>
+  <br>
+  Silver Spring MD<br>
+  04 March, 2018
+</section>
+
+<!---- Instructors ------------------------------------------------------------>
+<section>
+  <h3>Instructors</h3>
+  <div class="gridTrainers">
+    <div align=left>Tim Williams</div>
+    <div align=left>Principal Statistical Systems Analyst<br>
+        UCB BioSciences<br>
+        <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
+        <!--
+        <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
+        <img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img><br>
+        <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
+      -->
+    </div>
+    <div align=left>Johannes Ulander</div>
+    <div align=left>Principal Consultant <br>
+          S-Cubed ApS<br>
+          <a href="mailto:ju@s-cubed.dk">ju@s-cubed.dk</a>
+    </div>
+
+    <div align=left class="fragment" data-fragment-index="1">
+      Assisted by:
+       <ul>
+        <li>AJ Cook
+        <li>Stephen  Nowell
+       </ul>
+    </div>
+    <div align=left class="fragment" data-fragment-index="1">
+    <img src="images/stardog_logo.png" height=180x; width=130px;
+      style="border:0px; box-shadow:none;">
+    </div>
+  </div>
+</section>
+
+<!---- Preparation ------------------------------------------------------------>
+<section>
+  <h2>Preparation</h2>
+  <ul>
+    <li>Your laptop [Power up!]
+    <li>Copy of:
+    <ol>
+      <li>Exercises
+      <li>Graph Editor Introduction
+      <li>Info sheet
+      <li>SPARQL reference
+    </ol>
+    <li>Log in to Cloud Server
+  </ul>
+</section>
+
+<section>
+  Workshop Files, Presentation PDF:<br>
+  <div align=left>
+    <font class="linkSmallBlue">
+      <br>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop">https://github.com/phuse-org/LinkedDataWorkshop/CSS2018</a>
+    </font>
+  </div>
+  <br>
+  (for later)
+</section>
+
+<!---- OUTLINE   -------------------------------------------------------------->
+<section>
+  <h2>Outline</h2>
+  <ol start=0>
+    <li>(very brief) Introduction to Linked Data</li>
+    <li>Create a Study Graph</li>
+    <li>Query Graph Data</li>
+    <li>Ontology and Inference</li>
+    <li>Merge Studies</li>
+    <li>Linked Data in the Real World</li>
+  </ol>
+</section>
+
+
+<!---- OUTLINE: Introduction ---- --------------------------------------------->
+<section>
+  <h2>Outline</h2>
+  <ol start=0>
+    <font class="emphGr">
+      <li>Introduction to Linked Data</li>
+    </font>
+    <font class="deEmph">
+      <li>Create a Study Graph</li>
+      <li>Query Graph Data</li>
+      <li>Ontology and Inference</li>
+      <li>Merge Studies</li>
+      <li>Linked Data in the Real World</li>
+    </font>
+  </ol>
+</section>
+
+<!----------------------------------------------------------------------------->
+<!-- Introduction to Linked Data ---------------------------------------------->
+<!----------------------------------------------------------------------------->
+<section>
+  <h4>Different types of Linked Data</h4>
+  <div class="grid5050">
+    <div>Property Graph</div>
+    <div>Resource Description Framework (<b>RDF</b>)</div>
+    <div style="background-color:white; height:350px">
+      <img src="images/apache-tinkerpop_logo.png" left=0px height=100px
+        style="border:0px; box-shadow:none;" >
+      <br>
+      <img src="images/neo4j_logo.png" left=0px height=80px
+        style="border:0px; box-shadow:none;" >
+    </div>
+    <div style="background-color:white; height:350px">
+      <img src="images/semanticWeb_logo.png" height=150px
+        style="border:0px; box-shadow:none;">
+      <img src="images/rdf_logo.png" height=70px
+        style="border:0px; box-shadow:none;">
+      <img src="images/sparql_logo.png" height=70px
+        style="border:0px; box-shadow:none;">
+      <br>
+      <img src="images/stardog_logo.png" height=100px
+        style="border:0px; box-shadow:none;">
+    </div>
+  </div>
+</section>
+
+<section><!---- Thing 1, Thing 2   -------------------------------------------->
+  <h2>Data as a Graph?</h2>
+  <img src="images/Thing12Rel.jpg" left=0px  height=320px
+    style="border:0px; box-shadow:none;" >
+</section>
+
+<section>
+  <img src="images/Triples-Person1Bob.png" height=500px;
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+  <img src="images/Triples-Drug1Study1.png" height=500px;
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+  <img src="images/Triples-DrugStudyPhase.png" height=500px;
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+  <h3>"Things" need unique identifiers</h3>
+  <h4>IRI: Internationalized Resource Identifier</h4>
+  <ul>
+    <li>Unique Identifier
+    <li>Uses HTTP://xx.xx.xx/<font class="emphItalicGreen">xxxx</font>
+  </ul>
+  <img src="images/Drug1Study1-IRIs.png"
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+  <h3>Workshop Prefixes</h3>
+    <ul>
+      <li>Prefixes shorten IRIs for readability
+    </ul>
+  <pre>
+@prefix eg: &lt;http://example.org/LDWorkshop#&gt; .
+@prefix ncit: &lt;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#&gt; .
+@prefix schema: &lt;http://schema.org/&gt; .
+  </pre>
+  <img src="images/Drug1Study1-Prefixed.png"
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+    <h3>literals</h3>
+    <img src="images/Literals-StringInt.png"
+      style="border:0px; box-shadow:none;">
+    <br>
+    <ul>
+      <font class="emphItalicGreen" >
+        <li>string
+      </font>
+      <li>number
+        <ul>
+          <font class="emphItalicGreen">
+          <li>integer (INT)
+          </font>
+        </ul>
+      <li>date
+    </ul>
+    <p>No links <i>from</i> a literal </p>
+</section>
+<!---- OUTLINE: Whiteboard --- ------------------------------------------------>
+<section>
+    <h2>Outline</h2>
+    <ol start=0>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+      </font>
+      <font class="emphGr">
+        <li>Create a Study Graph</li>
+      </font>
+      <font class="deEmph">
+        <li>Query Graph Data</li>
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
+        <li>Linked Data in the Real World</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+  <img src="images/EveryoneGetsAStudy.png" height=450px;
+      style="border:0px; box-shadow:none;"></img>
+</section>
+
+<section>
+    <h3>Introduction to the Graph Editor</h3>
+    <br><br>
+    Reference: .../doc/<b>Graph Editor Introduction.pdf</b>
+</section>
+
+<section>
+  <h3>Case</h3>
+  <img src="images/UpperLowerCase.png"
+    style="border:0px; box-shadow:none; height:500px">
+</section>
+
+<section>
+  <h3>Numbering</h3>
+  <img src="images/Numbering.png"
+    style="border:0px; box-shadow:none">
+  <br/>
+  <p>Unique IRIs!</p>
+</section>
+
+<section>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
+  <br>
+  <p>1. Create a Study Graph
+</section>
+
+<!---- OUTLINE: Query Graph data ---------------------------------------------->
+<section>
+    <h2>Outline</h2>
+    <ol start=0>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>Create a Study Graph</li>
+      </font>
+      <font class="emphGr">
+        <li>Query Graph Data</li>
+      </font>
+      <font class="deEmph">
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
+        <li>Linked Data in the Real World</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+    <h2 style="color:red; font-style: italic;">Exercise</h2>
+    <br>
+    <p>2. Query Graph Data
+</section>
+
+<!---- OUTLINE: Ontology ------------------------------------------------------>
+<section>
+  <h2>Outline</h2>
+    <ol start=0>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>Create a Study Graph</li>
+        <li>Query Graph Data</li>
+      </font>
+      <font class="emphGr">
+        <li>Ontology and Inference</li>
+      </font>
+      <font class="deEmph">
+        <li>Merge Studies</li>
+        <li>Linked Data in the Real World</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+    Ontologies, Reasoners &amp; Inference<br>
+    <div class="gridTrainers">
+      <div align=right><font class="emphLtBlue">Ontology</font></div>
+      <div align=left>
+        <p>A vocabulary of things and how they relate to each other</p>
+        <ul>
+          <li>...just more nodes and links
+          <li>Tools: Protege, TopBraid
+         </ul>
+      </div>
+      <div align=right><font class="emphLtBlue">Reasoner</font></div>
+      <div align=left>
+        <p>An <i>engine</i> that applies the ontology to the graph and
+          <font class="emphItalicGreen">infers</font> values and relationships
+          <u>not in your original data</u>.
+      </div>
+    </div>
+</section>
+
+<section>
+  <section>
+    <h3>Think about that again:</h3>
+      <p>Ontologies and Reasoning create <font class="emphGr">values</font>
+        and   <font class="emphGr">relations</font>
+        <font class="emphItalicRed">not in your original data!</font><br>
+      <div align=center>
+        <img src="images/mindblown.gif" height=300px;
+         style="border:0px; box-shadow:none; height=336px; width=232px;"></img>
+      </div>
+    <p>StudyOntology.TTL
+  </section>
+  <section>
+    <h4>A Subset of the study ontology file</h4>
+    <img src="images/StudyOntologySS.png" height=1500px;
+     style="border:0px; box-shadow:none; "></img>
+  </section>
+</section>
+
+
+<section data-background="images/Reasoner-Infer.png" data-background-size="1100px">
+</section>
+
+<section data-background="images/Reasoner-Class.png" data-background-size="1100px">
+</section>
+
+<section>
+    <h2 style="color:red; font-style: italic;">Exercise</h2>
+    <br>
+    <p>3. Ontology and Inference
+</section>
+
+<!---- OUTLINE: Merge ------------------------------------------------------>
+<section>
+    <h2>Outline</h2>
+    <ol start=0>
+      <font class="deEmph">
+        <li>Introduction to Linked Data</li>
+        <li>Create a Study Graph</li>
+        <li>Query Graph Data</li>
+        <li>Ontology and Inference</li>
+      </font>
+      <font class="emphGr">
+        <li>Merge Studies</li>
+      </font>
+      <font class="deEmph">
+        <li>Linked Data in the Real World</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+  <p>When IRIs are the <font class="emphGr">same</font>, merging is
+    <font class="emphItalicRed">automagic!</font>
+  <div align=center>
+      <img src="images/Magic.gif" height=300px;
+          style="border:0px; box-shadow:none;"></img>
+  </div>
+</section>
+
+<section>
+  <section>
+    <h3>With RDF, Merging be like:</h3>
+    <img src="images/mergeGraphs.gif" style="border:0px; box-shadow:none;"></img>
+    <br>
+    <a href="http://localhost:8000/presentation/GraphMerge.html" target="_blank">What? How? </a>
+  </section>
+  <section>
+    <img src="images/GraphMergeSS.png" height=500px;
+        style="border:0px; box-shadow:none;"></img>
+  </section>
+</section>
+<section><!-- Schematic of merging all study data into central pool -->
+    <img src="images/StudiesToDataPool.png" style="border:0px; box-shadow:none;"></img>
+</section>
+
+<section>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
+  <br>
+  <p>4. Merge Studies
+</section>
+
+<section>
+  <section>
+    <h3>Drug 1 Pool</h3>
+    <a href="http://localhost:8000/presentation/Drug1Pool-FNGraph.html" target="_blank">Network Graph</a>
+  </section>
+  <section>
+    <img src="images/DataPoolSS.png" height=500px; style="border:0px; box-shadow:none;"></img>
+  </section>
+</section>
+
+<!---- OUTLINE: Linked Data in the Real World---------------------------------->
+<section>
+  <h2>Outline</h2>
+  <ol start=0>
+    <font class="deEmph">
+      <li>Introduction to Linked Data</li>
+      <li>Create a Study Graph</li>
+      <li>Query Graph Data</li>
+      <li>Ontology and Inference</li>
+      <li>Merge Studies</li>
+    </font>
+    <font class="emphGr">
+      <li>Linked Data in the Real World</li>
+    </font>
+  </ol>
+</section>
+
+<!---- Acknowledgements --------------------------------------------->
+<section>
+  <h4>But first: Acknowledgements</h4>
+  <div align=left>
+  <ul>
+    <li>PhUSE - server costs
+    <li><font class="emphSmallBlue">Stephen Bamford</font>
+    <li><font class="emphSmallBlue">Chris Decker</font> - server cloning
+    <li><font class="emphSmallBlue">Lauren, Wendy, Jane, Tora</font> and the entire PhUSE admin team
+    <li><b>Stardog Union</b> - Triplestore, configuration, support.
+    <li>...everyone else I forgot to mention
+    <li>And: <font class="emphSmallBlue">YOU</font>!
+  </ul>
+</div>
+</section>
+
+<!---- SLIDE: Resources Workshop --------------------------------------------->
+<section>
+  <h3>But Second: Resources</h3>
+  <ul>
+    <li>Workshop materials, including the Graph Editor, SPARQL scripts, PDF of this presentation:<br>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop/CSS2018">https://github.com/phuse-org/LinkedDataWorkshop/CSS2018</a>
+</section>
+
+<!---- SLIDE: RDF Resources---------------------------------------------------->
+<section>
+  <h3>Resources</h3>
+  <div class="gridResources">
+      <div>Introduction to Semantic Web
+      </div>
+      <div><a href="https://www-stage.cambridgesemantics.com/semantic-university/introduction-semantic-web">https://www-stage.cambridgesemantics.com/semantic-university/introduction-semantic-web</a>
+      </div>
+
+      <div>What is Linked Data?
+      </div>
+      <div><a href="https://www-stage.cambridgesemantics.com/semantic-university/what-linked-data">https://www-stage.cambridgesemantics.com/semantic-university/what-linked-data</a>
+      </div>
+
+      <div>Introduction to Linked data
+      </div>
+      <div><a href="https://www-stage.cambridgesemantics.com/semantic-university/introduction-linked-data">https://www-stage.cambridgesemantics.com/semantic-university/introduction-linked-data</a>
+      </div>
+  </div>
+</section>
+
+<section>
+  <h3 align=left>Linked Data in the Real World</h3>
+  <br>
+  <p>StarDog Union
+</section>
+
+<section>
+  <h3>Extra Slides</h3>
+</section>
+
+<section><!-------------------------------------------------------------------->
+  <a href="http://lod-cloud.net/">The LOD cloud</a>
+</section>
+
+<section><!---- SDTM can be improved ----------------------------------------->
+  <h3>SDTM can be improved</h3>
+  <div class="gridPicLeft">
+    <div align=left><img src="images/DMVSDomains2.png" height=380x; width=350px;></div>
+    <div>
+      <ul>
+        <li>Non-extensible, two dimensional
+        <li>Data repetition
+        <li>Terminology, codes not linked
+        <li><i>Version Conversion</i>: time, <font class=emphLgGr>$&pound;&euro;</font>
+        <li>Does not model study entities
+        <li>Lacks integral metadata<br>
+         ... and more. <br>
+        <li class="fragment" data-fragment-index="1">
+        <font class="emph">26% of CDER SDTM applications: at least 1 error</font></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!---- Additional Opportunties------------------------------------------------->
+<section>
+  <h3>Opportunites</h3>
+  <ul>
+    <li>Merge data from diverse sources (no silos!)
+    <li>Data integration across the life cycle
+    <li>Integral Metadata
+    <li>High quality submissions data
+    <li>New ways to explore and analyze
+    <li>Build a foundation for AI and ML
+    <li>[!! YOUR IMAGINATION !!]
+  </ul>
+</section>
+<!---------------------------------------------------------------------------->
+<!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      // Shows the slide number using default formatting
+
+   //  Reveal.configure({ slideNumber: true });
+   Reveal.configure({ pdfMaxPagesPerSlide: 1 }) ;
+
+
+  Reveal.initialize({
+    width: '100%',
+    height: '100%',
+    chalkboard: {
+          // optionally load pre-recorded chalkboard drawing from file
+          //src: "chalkboard.json",
+    },
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/chalkboard/chalkboard.js' },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ],
+    keyboard: {
+      67: function() { RevealChalkboard.toggleNotesCanvas() },  // toggle notes canvas when 'c' is pressed
+      66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+      46: function() { RevealChalkboard.clear() },  // clear chalkboard when 'DEL' is pressed
+       8: function() { RevealChalkboard.reset() },  // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+      68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+    }
+  });
+    </script>
+  </body>
+</html>

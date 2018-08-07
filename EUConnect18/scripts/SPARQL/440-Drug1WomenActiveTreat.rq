@@ -1,0 +1,9 @@
+# 440-Drug1WomenActiveTreat.rq  Count of all women on active treatment.
+# Execute on the Pooled Database
+
+SELECT  (COUNT(?person) as ?numWomenActive)
+WHERE{
+    ?person ncit:gender ncit:Female ;
+            eg:randomizedTo ?trt_arm .
+    ?trt_arm eg:trtArmType eg:ActiveArm
+}
