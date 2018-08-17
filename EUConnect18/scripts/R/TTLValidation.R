@@ -1,11 +1,12 @@
 ###############################################################################
-# FILE: /scripts/r/SelectTTLToQuery.R
-# DESC: LDWorkshop: Select, query, visuzalize a TTL file.
-# IN  : data/RDFModel.TTL
+# FILE: /scripts/r/TTLValidation.R
+# DESC: LDWorkshop: Select, query, validate, and visuzalize a TTL file.
+# IN  : 
 # OUT : N/A
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
 # TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
+#       
 ###############################################################################
 library(plyr)     #  rename
 library(reshape)  #  melt
@@ -50,7 +51,7 @@ WHERE{
         uiOutput("ui")
     ),
     tabPanel("Visualize",
-        visNetworkOutput("network",height = '400px')
+        visNetworkOutput("network",height = '900px')
     )
 )
 
