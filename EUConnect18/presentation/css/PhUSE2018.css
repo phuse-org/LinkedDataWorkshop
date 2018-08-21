@@ -6,6 +6,12 @@ p {
   text-align:left;
 }
 
+.reveal .imgNoBorder{
+  border: 0px;
+  background: none;
+  box-shadow: none;
+}
+
 /*---- Grid Layouts ----------------------------------------------------------*/
 * {box-sizing:border-box;}
 .gridTrainers{
@@ -24,6 +30,44 @@ p {
   color: #fff;
   font-size: 75%;
 }
+/* Split into 3rds */
+.gridThirds{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;  /* flexible grid units instead of px or % */
+    grid-template-rows: minmax(40px, 80px);
+    grid-gap: 1px;  /* shorthand for both column and row gaps */
+}
+
+.thirdsr1c1{
+  grid-row: 1;
+  grid-column: 1 ;
+}
+
+.thirdsr1c2{
+  grid-row: 1;
+  grid-column: 2 ;
+  margin: 0;
+  position: relative;
+/*  top: 50%; */
+  transform: translate(0%, 25%);
+
+}
+
+.thirdsr1c3{
+  grid-row: 1;
+  grid-column: 3 ;
+}
+
+/* old folllows */
+
+.gridThirds div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 1px;
+  background-color: #002b36; /* moon background */
+  color: #fff;
+  align-content: center;
+}
+
 .gridPicLeft{
   display: grid;
   grid-template-columns: 28% 72% ;  /* flexible grid units instead of px or % */
@@ -48,6 +92,10 @@ p {
   background-color: none; /* #002b36;moon background */
   padding: 1em;
 }
+
+
+
+
 /*---- Fonts -----------------------------------------------------------------*/
 .todo{
     font-size: 1.1em;
@@ -55,6 +103,18 @@ p {
     font-weight: bold;
     font-style: italic;
 }
+
+/* predicate italicized, large */
+.predItLg {
+  font-family: 'Courier New', courier , sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: .8em;
+  color:  #8080ff;
+}
+
+
+
 
 /*---- Images ----------------------------------------------------------------*/
 /* NOT WORKING> REMOVE */
@@ -255,7 +315,6 @@ p {
   color: #0000b3;
 }
 
-
 /* predicate italicized */
 .predIt {
   font-family: 'Courier New', courier , sans;
@@ -263,6 +322,7 @@ p {
   font-weight: bold;
   color:  #8080ff;
 }
+
 
 /* Emphasis. Used in section Breaks to show upcomin section */
 .emph {
