@@ -1,5 +1,15 @@
 /*
   Addtional css by TW for the presentation
+Oranges:
+        predicate value:
+       node fill: 255,200,98
+Purple: Predicate:  128,128,255
+Background: 0.43,54
+
+Beige :  #eee8d5 / 238, 232, 213  default text
+
+Font Styles:
+  Non-title: Source sans-pro
 */
 /*---- Basic HTML styling ----------------------------------------------------*/
 p {
@@ -35,9 +45,8 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;  /* flexible grid units instead of px or % */
     grid-template-rows: minmax(40px, 80px);
-    grid-gap: 1px;  /* shorthand for both column and row gaps */
+    grid-gap: 5px;  /* shorthand for both column and row gaps */
 }
-
 .thirdsr1c1{
   grid-row: 1;
   grid-column: 1 ;
@@ -48,15 +57,32 @@ p {
   grid-column: 2 ;
   margin: 0;
   position: relative;
-/*  top: 50%; */
   transform: translate(0%, 25%);
-
 }
-
 .thirdsr1c3{
   grid-row: 1;
   grid-column: 3 ;
 }
+.thirdsr2c1{
+  grid-row: 2;
+  grid-column: 1 ;
+  transform: translate(10%, 0%);
+}
+.thirdsr2c2{
+  grid-row: 2;
+  grid-column: 2 ;
+  margin: 0;
+  position: relative;
+  transform: translate(10%, 0%);
+}
+.thirdsr2c3{
+  grid-row: 2;
+  grid-column: 3 ;
+  transform: translate(10%, 0%);
+}
+
+
+
 
 /* old folllows */
 
@@ -109,7 +135,14 @@ p {
   font-family: 'Courier New', courier , sans;
   font-style: italic;
   font-weight: bold;
-  font-size: .8em;
+  font-size: 0.8em;
+  color:  #8080ff;
+}
+.predItLgLg {
+  font-family: 'Courier New', courier , sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1em;
   color:  #8080ff;
 }
 
