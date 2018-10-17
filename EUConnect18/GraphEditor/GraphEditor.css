@@ -172,13 +172,13 @@ text.id {
   color: black;
 }
 .help td:nth-child(1){
-  width:300px;
+  width:250px;
   font-weight:normal;
 }
 .help td:nth-child(2){
-  width:300px;
+  width:340px;
   font-weight: bold;
   bgcolor: #d2f8d2;
   font-family: courier;
-  font-size: .9em;
+  font-size: .8em;
 }
