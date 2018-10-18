@@ -1,6 +1,9 @@
 # 330-NameHumanStudySubject.rq  Names of HumanStudySubjects in Study
 #   Reasoner must be ON.
 
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
 SELECT ?person_name
 WHERE {
     ?person a eg:HumanStudySubject;

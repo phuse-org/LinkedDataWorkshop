@@ -1,5 +1,8 @@
 # 230-NameParticipants.rq  Names of Persons who participate in the study
 
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
 SELECT ?person_name
 WHERE {
     ?person eg:participatesIn ?study ;

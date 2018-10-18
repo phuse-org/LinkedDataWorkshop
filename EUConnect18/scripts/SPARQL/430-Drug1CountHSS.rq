@@ -2,6 +2,8 @@
 # Execute on the Pooled Database
 # Reasoner must be ON
 
+PREFIX eg: <http://example.org/LDWorkshop#>
+
 SELECT  (COUNT(?person) as ?numSubjects)
 WHERE{
     ?person a eg:HumanStudySubject.

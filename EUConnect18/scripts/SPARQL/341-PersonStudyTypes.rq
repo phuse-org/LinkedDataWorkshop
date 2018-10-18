@@ -1,6 +1,9 @@
 # 341-PersonStudyTypes.rq  Types people IN THE STUDY
 #   Reasoner must be ON.
 
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
 SELECT ?person ?person_name ?person_type
 WHERE {
     ?person a schema:Person  ;

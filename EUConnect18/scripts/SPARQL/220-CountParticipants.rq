@@ -1,5 +1,7 @@
 # 220-CountParticipants.rq  Count of Persons who participate in the study
 
+PREFIX eg: <http://example.org/LDWorkshop#>
+
 SELECT (COUNT (?person) AS ?numP)
 WHERE {
     ?person eg:participatesIn ?study .

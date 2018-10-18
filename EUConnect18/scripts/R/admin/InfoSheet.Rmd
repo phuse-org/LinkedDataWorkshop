@@ -38,7 +38,7 @@ for (i in 1:nrow(servers)){
   cat("\n\n")
   cat("User name: **phuseldw** \n")
   cat("\n\n")
-  cat("Password: **Silver11!** \n")
+  cat("Password: **Frank23** \n")
 
   cat("\n\n")
   
