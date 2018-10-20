@@ -3,6 +3,9 @@
 # Execute on the Pooled Database
 # Reasoner must be ON
 
+PREFIX schema: <http://schema.org/>
+
+
 SELECT  (COUNT(?person) as ?numAllPersons)
 WHERE{
   ?person a schema:Person.

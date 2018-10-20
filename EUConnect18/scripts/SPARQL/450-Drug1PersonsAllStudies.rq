@@ -1,6 +1,10 @@
 # 450-Drug1PersonsAllStudies.rq  List all Persons and their role in Drug1 Studies
 #   Execute on the Pooled Database.  
 #   Reasoner must be ON.
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
 SELECT  ?person ?personName ?study ?personType
 WHERE{
   ?person schema:givenName ?personName ;

@@ -496,6 +496,11 @@ function nodeIsTarget(nodeId,edgesData){
     });
     return isTargetList.length !== 0;
 }
+function doit(){
+    let found = document.querySelectorAll('[currentlabel="me"]');
+    console.log("I found: "+found)
+    console.log(found)
+}
 
 //   Edit either a "node" or an "edge"
 function edit(d, i, source, graph){
@@ -529,8 +534,6 @@ function edit(d, i, source, graph){
     d3.select("#buttons").style("opacity", 0);
     let div = d3.select("#edit");
 
-
-
     div.append("p")
         .text(function() {
           // Use 'Link values' for edges to match exercises (for comprehension)
@@ -538,22 +541,12 @@ function edit(d, i, source, graph){
           else {return (upSource + " values");}
         });  // Select div for appending
 
-    // PREFIX - both nodes and edges
-    let prefixText = div.append("p")
-                        .text("Prefix: ");
-    let prefixData = ["eg","ncit","rdf", "rdfs", "schema" ]
-    let prefixInput = prefixText.append("select")
-                        .attr('class','select');
-    let prefixSelect = prefixInput.selectAll('option')
-                        .data(prefixData).enter()
-                        .append('option')
-                        .text(function (d) { return d; })
-                        .property("selected", function(g){ return g === d.prefix; });
 
     //TYPE - NODES only
-    let typeText   = "";
-    let typeInput  = "";
-    let typeSelect = "";
+    let typeText    = "";
+    let typeInput   = "";
+    let typeSelect  = "";
+
 
     if(source=="node"){
         typeText     = div.append("p")
@@ -568,22 +561,80 @@ function edit(d, i, source, graph){
         }
         typeInput    = typeText.append("select")
                             .attr('class','select')
+                            .attr('onchange', "doit()");
         typeSelect   = typeInput.selectAll('option')
                             .data(typeData).enter()
                             .append('option')
                             .text(function (d) { return d; })
                             .property("selected", function(g){ return g === d.type; });
+
     }
 
-    // Label  - both nodes and edge
-    let labelText = div.append("p")
+    // PREFIX - nodes
+    let prefixText = "";
+    let prefixData = "";
+    let prefixInput = "";
+    let prefixSelect = "";
+    if(source=="node"){
+        prefixText = div.append("p")
+                            .text("Prefix: ");
+        prefixData = ["eg","ncit","rdf", "rdfs", "schema" ]
+        prefixInput = prefixText.append("select")
+                            .attr('class','select');
+        prefixSelect = prefixInput.selectAll('option')
+                            .data(prefixData).enter()
+                            .append('option')
+                            .text(function (d) { return d; })
+                            .property("selected", function(g){ return g === d.prefix; });
+    }
+    // Label
+    let labelInput  = "";
+    let labelSelect = "";
+    let labelText   = "";
+
+
+    // Label  - for nodes
+    if(source=="node"){
+    // Label  - for edges
+        labelText = div.append("p")
                         .text("Label: ");
-    let labelInput = labelText.append("input")
-                        .attr({
-                          'size': '15',
-                          'type': 'text',
-                          'value': d.label
-                        });
+        labelInput = labelText.append("input")
+                            .attr({
+                              'size': '15',
+                              'type': 'text',
+                              'value': d.label
+                            });
+    } else {
+
+        labelText = div.append("p")
+                        .attr("currentlabel","me")
+                        .text("Predicate: ");
+        let labelData = [
+                            "eg:age",
+                            "eg:drugName",
+                            "eg:LDExpert",
+                            "eg:participatesIn",
+                            "eg:randomizedTo",
+                            "eg:trtArm",
+                            "eg:trtArmType",
+                            "ncit:gender",
+                            "ncit:phase",
+                            "ncit:study",
+                            "schema:givenName"
+                        ];
+        labelInput    = labelText.append("select")
+                            .attr('class','select')
+        labelSelect   = labelInput.selectAll('option')
+                            .data(labelData).enter()
+                            .append('option')
+                            .text(function (d) { return d; })
+                            .property("selected", function(g){ return g === d.prefix+":"+d.label; });
+                            // .property("selected", function(g){ console.log("nu:"+g+"="+d.prefix+":"+d.label);console.log("true:"+(g === d.prefix+":"+d.label)); return g === d.prefix+":"+d.label; });
+
+
+    }
+console.log("labelText: "+labelText)
+
 
     //---- UPDATE BUTTON -------------------------------------------------------
     let button =  div.append("button")
@@ -619,8 +670,9 @@ function edit(d, i, source, graph){
                           if(source=="edge"){
                             console.log("Updating Edge")
                             // 1. Values for the data array
-                            d.prefix = prefixInput.node().value;
-                            d.label = labelInput.node().value;
+                            let splitInfo = labelInput.node().value.split(":");
+                            d.prefix = splitInfo[0];
+                            d.label = splitInfo[1];
                             d3.select("#edgetext" + d.id)
                               .attr("class", "")  // Remove all classes (node, iri, string, int)
                               .attr("class", "edgelabel") // Add the node class back in.
