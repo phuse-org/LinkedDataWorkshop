@@ -652,6 +652,15 @@ console.log("labelText: "+labelText)
                                     return
                                 }
                               }
+                              if (typeInput.node().value == "IRI") {
+                                let inputValue = labelInput.node().value
+                                labelInput.node().value = labelInput.node().value.replace(/study/ig,"Study");
+                                labelInput.node().value = labelInput.node().value.replace(/trtarm/ig,"TrtArm");
+                                labelInput.node().value = labelInput.node().value.replace(/person/ig,"Person");
+                                if (labelInput.node().value !== inputValue) {
+                                    console.log("Corrected IRI label:"+inputValue+" -> "+labelInput.node().value)
+                                }
+                              }
                               // Prevent creation of node with same label
                               let nodeLabelExist = graph.nodesData.filter(function(l) {
                                   return l.label === labelInput.node().value && l.prefix === prefixInput.node().value && l.id !== d.id;
