@@ -118,7 +118,95 @@
     <li>Discussion</li>
   </ol>
 </section>
+<!---- OUTLINE overview  ------------------------------------------------------>
+<section>
+  <h2>Outline</h2>
+<!-- <div style="background-color: grey"> -->
+<div>
+<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 800 600" width="800" height="600"> -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" width="800" height="600">
+    <defs>
+        <clipPath id="_clipPath_Lx4AdMH6eSzwwi7fMwJXynRRDYaSTUTT">
+            <rect width="800" height="600"/>
+        </clipPath>
+        <!-- <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"> -->
+        <!-- <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"> -->
+            <!-- <polygon points="0 0, 10 3.5, 0 7" /> -->
+        <!-- </marker> -->
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+        </marker>
+    </defs>
+    <!-- First fragment -->
+    <g  class="fragment">
+        <!-- <image x="510" y="6" xlink:href="images/outline-1-create-graph.svg" height="145" width="221"/> -->
+        <text x="35" y="38" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:yellow;stroke:none;">Create study graph</text>
+        <image xlink:href="images/outline-1-create-graph.svg"/>
+        <!-- <text x="200" y="40" style="font-family:'monospace';font-weight:400;font-size:16px;font-style:normal;fill:#00000F;stroke:none;">Drug1 Name Serum</text> -->
+    </g>
+    <!-- Second fragment -->
+    <g class="fragment">
+        <text x="300" y="50" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Triples</text>
+        <line x1="184" y1="112.447" x2="320" y2="170" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" marker-end="url(#arrowhead)"/>
+        <image xlink:href="images/outline-2-triple-store.svg"/>
+    </g>
+    <!-- Third fragment -->
+    <g class="fragment">
+        <line x1="269" y1="327" x2="350" y2="260" stroke-width="3" stroke="rgb(0,0,0)" marker-end="url(#arrowhead)"/>
+        <rect x="105.5" y="318.5" width="172" height="69" transform="matrix(1,0,0,1,0,0)" fill="rgb(0,0,0)"/>
+        <!-- <g transform="matrix(1,0,0,1,156.477,275.235)"> -->
+        <g transform="matrix(1,0,0,1,156,290)">
+            <text class="outline-headers" transform="matrix(1,0,0,1,0,21.377)" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Query</text>
+        </g>
+        <g transform="matrix(1,0,0,1,115.577,361.467)">
+            <text transform="matrix(1,0,0,1,0,19.239)" style="font-family:'Open Sans';font-weight:400;font-size:18px;font-style:normal;fill:#FFFFFF;stroke:none;">ORDER BY ?s ?p</text>
+        </g>
+        <g transform="matrix(1,0,0,1,119.156,340.467)">
+            <text transform="matrix(1,0,0,1,0,19.239)" style="font-family:'Open Sans';font-weight:400;font-size:18px;font-style:normal;fill:#FFFFFF;stroke:none;">WHERE {?s ?p ?o}</text>
+        </g>
+        <g transform="matrix(1,0,0,1,119.024,319.536)">
+            <text transform="matrix(1,0,0,1,0,19.239)" style="font-family:'Open Sans';font-weight:400;font-size:18px;font-style:normal;fill:#FFFFFF;stroke:none;">SELECT ?s ?p ?o</text>
+        </g>
 
+
+    </g>
+    <!-- Fourth fragment -->
+    <g class="fragment">
+        <!-- <g transform="matrix(1,0,0,1,347.609,343.373)"> -->
+            <!-- <text transform="matrix(1,0,0,1,0,21.377)" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Visualise</text> -->
+        <!-- </g> -->
+        <text x="365" y="375" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Visualise</text>
+        <line x1="400" y1="250" x2="400" y2="320" stroke-width="3" stroke="rgb(0,0,0)" marker-end="url(#arrowhead)"/>
+        <image x="270" y="420" height=50px xlink:href="images/overview-tabular-vis.png"/>
+        <image x="400" y="385" height=400px xlink:href="images/outline-1-create-graph.svg"/>
+    </g>
+    <!-- Fifth fragment -->
+    <g class="fragment">
+        <!-- <g transform="matrix(1,0,0,1,529.461,292.235)"> -->
+            <!-- <text transform="matrix(1,0,0,1,0,21.377)" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Ontology, reasoning & inference</text> -->
+        <!-- </g> -->
+        <line x1="520" y1="280" x2="480" y2="260" stroke-width="3" stroke="rgb(0,0,0)" marker-end="url(#arrowhead)"/>
+        <text x="550" y="280" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Ontology, reasoning & inference</text>
+        <!-- <a href="https://en.wikipedia.org/wiki/Parmenides" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Parmenides</a> -->
+        <a href="https://en.wikipedia.org/wiki/Parmenides" target="_blank" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Parmenides
+            <image x="620" y="300" height=100px xlink:href="images/parmenides.jpg"/>
+        </a>
+        <text x="580" y="430" style="font-family:'Open Sans';font-weight:400;font-size:10px;font-style:normal;fill:grey;stroke:none;">https://en.wikipedia.org/wiki/Ontology</text>
+        <text x="580" y="440" style="font-family:'Open Sans';font-weight:400;font-size:10px;font-style:normal;fill:grey;stroke:none;">https://en.wikipedia.org/wiki/Parmenides</text>
+        <!-- <text x="520" y="470" style="font-family:'Open Sans';font-weight:400;font-size:10px;font-style:normal;fill:grey;stroke:none;">https://creativecommons.org/licenses/by-sa/3.0/deed.en</text> -->
+    </g>
+    <!-- Sixth fragment -->
+    <g class="fragment">
+        <line x1="520" y1="120" x2="490" y2="150" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" marker-end="url(#arrowhead)"/>
+        <image x="510" y="6" xlink:href="images/outline-5-merge-graphs.svg" height="145" width="221"/>
+        <g transform="matrix(1,0,0,1,540,141.243)">
+            <text transform="matrix(1,0,0,1,0,21.377)" style="font-family:'Open Sans';font-weight:400;font-size:20px;font-style:normal;fill:yellow;stroke:none;">Merge all graphs
+            </text>
+        </g>
+     </g>
+</svg>
+</div>
+</section>
 
 <!---- OUTLINE: Introduction ---- --------------------------------------------->
 <section>
