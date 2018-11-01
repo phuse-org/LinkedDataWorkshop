@@ -5,7 +5,7 @@
 @prefix schema: <http://schema.org/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-eg:Drug1 eg:drugname eg:Serum114;
+eg:Drug1 eg:drugName eg:Serum114;
     ncit:study eg:Study13.
 eg:Person131 eg:age "13"^^xsd:integer;
     eg:participatesIn eg:Study13;
