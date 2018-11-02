@@ -7,9 +7,6 @@
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
-@base <http://www.example.org/LDWorkshop/Study-ontology> .
-
-<http://www.example.org/LDWorkshop/Study-ontology> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
