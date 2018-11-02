@@ -2,17 +2,17 @@
 # FILE: CreateSPARQLForPooling.R
 # DESC: Create the SPARQL script used to pool data from all the Drug1 studies 
 # IN  : ClassInfo.xlsx - has IP address of each study for each attendee
-# OUT : XRX-PoolAllStudies.rq 
+# OUT : 410-PoolAllStudies.rq 
 # REQ : 
 # NOTE: 
 # TODO: 
 ###############################################################################
 library(readxl)
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2018/data/admin/ClassInfo-dev.xlsx", sheet = "Servers", col_names=TRUE))
-servers <- servers[ order(servers[,4], servers[,3]), ]
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/EUConnect18/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- servers[ order(servers[,'server'], servers[,'ip']), ]
 
 
-rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2018/scripts/SPARQL/410-PoolAllStudies.rq", "w")
+rqFile <-file("C:/_gitHub/LinkedDataWorkshop/EUConnect18/scripts/SPARQL/410-PoolAllStudies.rq", "w")
 
 scriptP1 <-paste("# 410-PoolAllStudies.rq  - Pool all Drug1 Studies. 
 #   Script created", Sys.time(), "by CreatePoolScript.R 
