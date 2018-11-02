@@ -1,0 +1,8 @@
+# Number of studies in the Drug1Pool to confirm pooling
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+
+SELECT (COUNT(?study) AS ?numStudy)
+
+WHERE {
+  ?drug ncit:study ?study
+}
