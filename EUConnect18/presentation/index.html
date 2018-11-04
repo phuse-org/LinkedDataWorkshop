@@ -45,6 +45,47 @@
   <div class="reveal">
     <div class="slides">
 
+<section>
+  <h3>Data as a Graph?</h3>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" width="800" height="600">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+        </marker>
+    </defs>
+    <!-- <rect x="105.5" y="318.5" width="172" height="69" transform="matrix(1,0,0,1,0,0)" fill="rgb(0,0,0)"/> -->
+    <!-- Tim likes linked data -->
+    <g class="fragment">
+      <text x="20" y="130" z="1" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">Tim</text>
+      <text x="300" y="110" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">likes</text>
+      <text x="570" y="130" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">Linked Data</text>      
+    </g>
+    <g class="fragment">
+    <!-- First node -->
+    <!-- <rect x="10" y="100" z="0" width="180" height="50" rx="15" fill="rgb(200,200,200)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="2"/> -->
+      <rect x="10" y="100" z="0" width="180" height="50" rx="15" fill="rgb(200,200,200)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="2"/>
+      <text x="20" y="130" z="1" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">Tim</text>
+    <!-- Second node -->
+      <rect x="550" y="100" width="180" height="50" rx="15" fill="rgb(200,200,200)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="2"/>
+      <!-- <rect x="300" y="100" width="200" height="50" rx="15" transform="matrix(1,0,0,1,0,0)" fill="rgb(0,1,0)"/> -->
+      <text x="300" y="110" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">likes</text>
+      <text x="570" y="130" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">Linked Data</text>      
+    <!-- First Link -->
+      <line x1="190" y1="120" x2="520" y2="120" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" marker-end="url(#arrowhead)"/>
+
+    </g>
+    <!-- Third node -->
+    <g class="fragment">
+      <rect x="10" y="200" width="180" height="50" rx="15" fill="rgb(200,200,200)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="2"/>
+      <text x="20" y="230" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">Johannes</text>
+      <!-- Second Link -->
+      <line x1="190" y1="220" x2="520" y2="138" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" marker-end="url(#arrowhead)"/>
+      <text x="300" y="230" style="font-family:'Open Sans';font-weight:400;font-size:24px;font-style:normal;fill:#F0F0F0;stroke:none;">likes</text>
+    </g>
+
+  </svg>
+</section>
+
 <!---- Title ------------------------------------------------------------------>
 <section>
   <h3>Linked Data for Clinical Trials</h3>
@@ -253,11 +294,12 @@
     </div>
   </div>
 </section>
-
 <section><!---- Data as a Graph ----------------------------------------------->
   <h3>Data as a Graph?</h3>
-  <br>
-  <div class="gridThirds">
+  <br/>
+
+<!--
+   <div class="gridThirds">
     <div class="thirdsr1c1"><img class="imgNoBorder" src="images/nodeA.png"> </div>
      <span class="fragment">
        <div class="thirdsr1c2"><font class="predItLg">-- relation --&gt;</font></div>
@@ -271,6 +313,7 @@
   <span class="fragment">
     <h4> A "Triple"</h4>
   </span>
+   -->
 </section>
 
 <section>
