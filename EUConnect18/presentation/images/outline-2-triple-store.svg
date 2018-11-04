@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 800 600" width="800" height="600">
+    <!-- <text x="300" y="50" style="font-family:'Open Sans';font-weight:200;font-size:16px;font-style:italic;fill:#0000FF;stroke:none;">Triples</text> -->
+    <!-- <line x1="184" y1="112.447" x2="373" y2="196" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" marker-end="url(#arrowhead)"/> -->
+    <path d=" M 454.598 167.972 C 454.598 175.212 433.556 181.082 407.598 181.082 M 454.598 167.972 L 454.598 167.972 C 454.598 175.212 433.556 181.082 407.598 181.082 C 381.642 181.082 360.598 175.212 360.598 167.972 M 360.598 167.972 L 360.598 167.972 C 360.598 160.731 381.642 154.861 407.598 154.861 C 433.556 154.861 454.598 160.731 454.598 167.972 L 454.598 220.416 C 454.598 227.656 433.556 233.528 407.598 233.528 C 381.642 233.528 360.598 227.656 360.598 220.416 L 360.598 167.972 L 360.598 167.972 Z " fill="rgb(115,226,226)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4"/>
+    <text x="365" y="210" style="font-family:'Open Sans';font-weight:400;font-size:18px;font-style:normal;fill:#000000;stroke:none;">Triple store</text>
+    <!-- <text x="200" y="100" style="font-family:'courier';font-size:14px;fill:#00000F;stroke:none;">Drug1 Name Serum</text> -->
+
+    <rect x="235" y="60" width="180" height="50" transform="matrix(1,0,0,1,0,0)" fill="rgb(0,0,0)"/>
+    <text x="237" y="70"  style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">eg:Drug1 eg:drugname eg:Serum114;</text>
+    <text x="237" y="77"  style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">&#160;&#160;&#160; ncit:study eg:Study1.</text>
+    <text x="237" y="84" style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">eg:Person11 eg:age "35"^^xsd:integer;</text>
+    <text x="237" y="92" style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">&#160;&#160;&#160;eg:participatesIn eg:Study1;</text>
+    <text x="237" y="100" style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">&#160;&#160;&#160;eg:randomizedTo eg:TrtArm1-2;</text>
+    <text x="237" y="107" style="font-family:'courier';font-weight:400;font-size:8px;font-style:normal;fill:#FFFFFF;stroke:none;">&#160;&#160;&#160;ncit:gender ncit:Female;</text>
+</svg>
