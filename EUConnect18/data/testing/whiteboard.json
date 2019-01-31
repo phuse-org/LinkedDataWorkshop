@@ -1,0 +1,326 @@
+{
+  "nodesData": [
+    {
+      "id": 0,
+      "prefix": "eg",
+      "label": "Drug1",
+      "type": "IRI",
+      "x": 400,
+      "y": 10,
+      "fixed": 1
+    },
+    {
+      "id": 1,
+      "prefix": "eg",
+      "label": "Serum114",
+      "type": "IRI",
+      "x": 730,
+      "y": 10,
+      "fixed": 1
+    },
+    {
+      "id": 2,
+      "label": "Study1",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 387,
+      "y": 165,
+      "fixed": 1
+    },
+    {
+      "id": 3,
+      "label": "Phase2",
+      "prefix": "ncit",
+      "type": "IRI",
+      "x": 730,
+      "y": 101,
+      "fixed": 1
+    },
+    {
+      "id": 4,
+      "label": "Phase3",
+      "prefix": "ncit",
+      "type": "IRI",
+      "x": 734,
+      "y": 151,
+      "fixed": 1
+    },
+    {
+      "id": 5,
+      "label": "Phase4",
+      "prefix": "ncit",
+      "type": "IRI",
+      "x": 725,
+      "y": 207,
+      "fixed": 1
+    },
+    {
+      "id": 6,
+      "label": "TrtArm1-1",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 443,
+      "y": 403,
+      "fixed": 1
+    },
+    {
+      "id": 7,
+      "label": "TrtArm1-2",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 549,
+      "y": 285,
+      "fixed": 1
+    },
+    {
+      "id": 8,
+      "label": "ActiveArm",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 744,
+      "y": 342,
+      "fixed": 1
+    },
+    {
+      "id": 9,
+      "label": "PlaceboArm",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 739,
+      "y": 399,
+      "fixed": 1
+    },
+    {
+      "id": 10,
+      "label": "Person12",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 221,
+      "y": 331,
+      "fixed": 1
+    },
+    {
+      "id": 11,
+      "label": "Person11",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 90,
+      "y": 197,
+      "fixed": 1
+    },
+    {
+      "id": 12,
+      "label": "Male",
+      "prefix": "ncit",
+      "type": "IRI",
+      "x": 598,
+      "y": 506,
+      "fixed": 1
+    },
+    {
+      "id": 13,
+      "label": "Tom",
+      "prefix": "eg",
+      "type": "STRING",
+      "x": 37,
+      "y": 337,
+      "fixed": 1
+    },
+    {
+      "id": 14,
+      "label": "Female",
+      "prefix": "ncit",
+      "type": "IRI",
+      "x": 446,
+      "y": 565,
+      "fixed": 1
+    },
+    {
+      "id": 15,
+      "label": "Sally",
+      "prefix": "eg",
+      "type": "STRING",
+      "x": 241,
+      "y": 515,
+      "fixed": 1
+    },
+    {
+      "id": 16,
+      "label": "32",
+      "prefix": "eg",
+      "type": "INT",
+      "x": 589,
+      "y": 712,
+      "fixed": 1
+    },
+    {
+      "id": 17,
+      "label": "45",
+      "prefix": "eg",
+      "type": "INT",
+      "x": 67,
+      "y": 497,
+      "fixed": 1
+    },
+    {
+      "id": 18,
+      "label": "Person13",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 25,
+      "y": 658,
+      "fixed": 1
+    },
+    {
+      "id": 19,
+      "label": "Tim",
+      "prefix": "eg",
+      "type": "STRING",
+      "x": 83,
+      "y": 782,
+      "fixed": 1
+    }
+  ],
+  "edgesData": [
+    {
+      "id": 0,
+      "source": 0,
+      "target": 1,
+      "prefix": "eg",
+      "label": "drugname"
+    },
+    {
+      "id": 1,
+      "source": 0,
+      "target": 2,
+      "label": "study",
+      "prefix": "ncit"
+    },
+    {
+      "id": 16,
+      "source": 11,
+      "target": 17,
+      "label": "age",
+      "prefix": "eg"
+    },
+    {
+      "id": 7,
+      "source": 11,
+      "target": 2,
+      "label": "participatesIn",
+      "prefix": "eg"
+    },
+    {
+      "id": 9,
+      "source": 11,
+      "target": 7,
+      "label": "randomizedTo",
+      "prefix": "eg"
+    },
+    {
+      "id": 11,
+      "source": 11,
+      "target": 12,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 13,
+      "source": 11,
+      "target": 13,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 15,
+      "source": 10,
+      "target": 16,
+      "label": "age",
+      "prefix": "eg"
+    },
+    {
+      "id": 8,
+      "source": 10,
+      "target": 2,
+      "label": "participatesIn",
+      "prefix": "eg"
+    },
+    {
+      "id": 10,
+      "source": 10,
+      "target": 6,
+      "label": "randomizedTo",
+      "prefix": "eg"
+    },
+    {
+      "id": 12,
+      "source": 10,
+      "target": 14,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 14,
+      "source": 10,
+      "target": 15,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 19,
+      "source": 18,
+      "target": 2,
+      "label": "LDExpert",
+      "prefix": "eg"
+    },
+    {
+      "id": 18,
+      "source": 18,
+      "target": 12,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 17,
+      "source": 18,
+      "target": 19,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 4,
+      "source": 2,
+      "target": 7,
+      "label": "trtArm",
+      "prefix": "eg"
+    },
+    {
+      "id": 3,
+      "source": 2,
+      "target": 6,
+      "label": "trtArm",
+      "prefix": "eg"
+    },
+    {
+      "id": 2,
+      "source": 2,
+      "target": 3,
+      "label": "phase",
+      "prefix": "ncit"
+    },
+    {
+      "id": 6,
+      "source": 6,
+      "target": 9,
+      "label": "trtArmType",
+      "prefix": "eg"
+    },
+    {
+      "id": 5,
+      "source": 7,
+      "target": 8,
+      "label": "trtArmType",
+      "prefix": "eg"
+    }
+  ]
+}

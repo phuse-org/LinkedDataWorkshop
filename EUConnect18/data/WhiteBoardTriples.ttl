@@ -1,0 +1,26 @@
+@prefix eg: <http://example.org/LDWorkshop#>.
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+eg:Drug1 eg:drugname eg:Serum114;
+    ncit:study eg:Study1.
+eg:Person11 eg:age "32"^^xsd:integer;
+    eg:participatesIn eg:Study1;
+    eg:randomizedTo eg:TrtArm1-2;
+    ncit:gender ncit:Female;
+    schema:givenName "Sally"^^xsd:string.
+eg:Person12 eg:age "45"^^xsd:integer;
+    eg:participatesIn eg:Study1;
+    eg:randomizedTo eg:TrtArm1-1;
+    ncit:gender ncit:Male;
+    schema:givenName "Bob"^^xsd:string.
+eg:Person13 eg:LDExpert eg:Study1;
+    ncit:gender ncit:Male;
+    schema:givenName "Tim"^^xsd:string.
+eg:Study1 eg:trtArm eg:TrtArm1-2, eg:TrtArm1-1;
+    ncit:phase ncit:Phase2.
+eg:TrtArm1-1 eg:trtArmType eg:ActiveArm.
+eg:TrtArm1-2 eg:trtArmType eg:PlaceboArm.
