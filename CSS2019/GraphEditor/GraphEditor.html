@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-----------------------------------------------------------------------------
+FILE: /LinkedDataDev/GraphEditor/GraphEditor.html
+DESC: Edit node properties
+REQ : http://localhost:8000/GraphEditor/GraphEditor.html
+VIEW:
+SRC :
+IN  :
+OUT :
+DEV :
+NOTE:
+TODO: Task list:  https://kanbanflow.com/board/5d2eb8e3f370395a0ab2fff3c9cc65c6
+      Discussion: https://kanbanflow.com/board/53c6d9a2c742c52254825aca6aabd85d
+------------------------------------------------------------------------------>
+<meta charset="utf-8">
+<body>
+<head>
+  <script src="/d3/d3.v3.min.js"></script>  <!--TW change back to this when working -->
+  <script type="text/javascript" src="/d3/d3-queue.min.js"></script>
+  <script src="/GraphEditor/js/n3-browser.min.js"></script>
+  <script src="/GraphEditor/js/FileSaver.min.js"></script>
+  <link rel="stylesheet" href="/graphEditor/GraphEditor.css">
+</head>
+<html>
+<body>
+  <div class="wrapper">
+    <div class="box" id="whiteboard">
+        <!-- Graph inserted here -->
+    </div>
+
+    <div class= "box" id="edit" style="opacity:0">
+        <!-- Edit box for nodes and links -->
+    </div>
+
+    <div class= "box" id="buttons" style="opacity:1">
+        <!--<input id="createTTL" type="button" value="Create TTL"" /> MOVED TO JS-->
+    </div>
+    <div class= "box">
+        <!-- NODES help -->
+        <table class="help">
+            <tr>
+                <td><b>NODES</b></td><td></td>
+            </tr>
+            <tr>
+                <td>Create</td><td><img width=15 height=15 src='/GraphEditor/img/AddIcon.png'>(upper left)</td>
+            </tr>
+            <tr>
+                <td>Move</td><td>Click+Drag</td>
+            </tr>
+            <tr>
+                <td>Edit</td><td>Double-Click</td>
+            </tr>
+            <tr>
+                <td>Delete</td><td><i>Edit</i>,[Delete] button</td>
+            </tr>
+        </table>
+        <hr/>
+        <table class="help">
+            <tr>
+                <td><b>LINKS</b></td><td></td>
+            </tr>
+            <tr>
+                <td>Create</td><td>SHIFT+Click source, SHIFT+Click target</td>
+            </tr>
+            <tr>
+                <td>Edit</td><td>Double-click Label</td>
+            </tr>
+            <tr>
+                <td>Delete</td><td><i>Edit</i>,[Delete] button</td>
+            </tr>
+        </table>
+    </div>
+    <div id="legend" class="box">
+    </div>
+    <div id="saveText" class="box">
+    </div>
+    <script src="/GraphEditor/graphEditor.js"></script>
+</body>
+</html>

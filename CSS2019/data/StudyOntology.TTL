@@ -1,0 +1,70 @@
+@prefix : <http://www.semanticweb.org/u041939/ontologies/2018/1/untitled-ontology-26#> .
+@prefix eg: <http://example.org/LDWorkshop#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+eg:LDExpert rdf:type owl:ObjectProperty ;
+            rdfs:domain eg:LinkedDataExpert;
+            rdfs:range ncit:Study .
+
+eg:drugProductName rdf:type owl:ObjectProperty ;
+                   rdfs:domain eg:DrugProduct ;
+                   rdfs:range eg:DrugProductName .
+
+eg:participatesIn rdf:type owl:ObjectProperty ;
+                  rdfs:domain eg:HumanStudySubject ;
+                  rdfs:range ncit:Study .
+
+eg:trtArm rdf:type owl:ObjectProperty ;
+          rdfs:domain ncit:Study ;
+          rdfs:range eg:TrtArm .
+
+eg:trtArmType rdf:type owl:ObjectProperty ;
+              rdfs:domain eg:TrtArm ;
+              rdfs:range eg:TrtArmType .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  Products
+eg:Product rdf:type owl:Class .
+
+eg:DrugProduct rdf:type owl:Class ;
+               rdfs:subClassOf eg:Product .
+
+### Product Name
+eg:ProductName rdf:type owl:Class .
+
+eg:DrugProductName rdf:type owl:Class ;
+                   rdfs:subClassOf eg:ProductName .
+
+### Study
+ncit:Study rdf:type owl:Class .
+
+
+### Treatment Arms, Types
+eg:TrtArm rdf:type owl:Class .
+
+eg:TrtArmType rdf:type owl:Class .
+
+### Person and Types of Persons
+schema:Person rdf:type owl:Class .
+
+eg:HumanStudySubject rdf:type owl:Class ;
+                     rdfs:subClassOf schema:Person .
+
+eg:DataExpert rdf:type owl:Class ;
+              rdfs:subClassOf schema:Person .
+
+eg:LinkedDataExpert rdf:type owl:Class ;
+                    rdfs:subClassOf eg:DataExpert .

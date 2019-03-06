@@ -1,0 +1,191 @@
+/* Tool tips for the URL values the RDF Table
+  See : http://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip
+  NOT USED due to restriction of the table cell being unable to show the enlarged tip
+*/
+.tooltip{
+    position: absolute;
+    width: 350px;
+    height: 35px;
+    padding: 3px;
+    padding-left: 6px;
+    font: 14pt sans-serif;
+    color: black;
+    background: #F9F9F9;
+    border: 3px;
+    border-style: solid;
+    border-color: #D1E2F2;
+    pointer-events: none;
+}
+.edgeTooltip{
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    padding: 1px;
+    padding-left: 6px;
+    font: 14pt sans-serif;
+    color: black;
+    background: #ececec;
+    border: 3px;
+    border-style: solid;
+    border-color: #D1E2F2;
+    pointer-events: none;
+}
+.edge{
+    stroke: gray;
+    stroke-width: 3;
+}
+.link{
+    stroke: gray;
+    stroke-width: 3;
+}
+.nodeText {
+  font: 15px sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.node.iri,
+.legendIri{
+  fill: #bcf5bc ;
+  stroke: black;
+}
+.current,
+.legendEdit{
+  fill: #FFFF33 !important;
+  stroke: #CCCCCC !important;
+  stroke-width: 4;
+  stroke-dasharray: 4;
+}
+.node.unspec,
+.legendUnspec{
+  fill: white ;
+  stroke: black;
+  stroke-width: 4;
+  stroke-dasharray: 2;
+}
+
+/* Creating a link between nodes */
+.node.iri.subjectLink,
+.node.iriont.subjectLink,
+.node.unspec.subjectLink,
+.legendSubjectLink {
+  stroke: red;
+  stroke-width: 6;
+}
+
+.legendSubjectLink {
+     fill:white;
+}
+.node.string,
+.legendString{
+  fill:   #e4e4e4;
+  stroke: #646464;
+  stroke-width: 4;
+}
+.node.int,
+.legendInt {
+  fill: #c1e1eC ; /* light blue */
+  stroke: #1a1aff;
+  stroke-width: 4;
+}
+.node.iriont,
+.legendIriont {
+  fill: #ffc862 ;
+  stroke: black;
+}
+
+.node.iriext,      /* "External IRI": node links to external graph */
+.legendIriext {
+  fill: #bcbddc ;  /* light purple */
+  stroke: black;
+}
+
+
+/* text for link labels */
+.edgelabel{
+  flood-opacity:1;
+  font: 12pt sans-serif;
+  text-anchor: middle;
+}
+.edgelabel.extont{
+  fill: #cc7000;  /* dark orange, similar to external ont nodes */
+}
+.edgelabel.rdf{
+  fill: #0000d8;  /* dark blue */
+}
+.edgelabel.unspec{
+  color: #333333;
+  flood-color: #FFFFFF;
+}
+
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+/*---- grid -----------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 950px 259px;
+  grid-template-rows: 220px 100px 270px 190px 100px; /* Sum should match svg def in javascript*/
+  background-color: gray;
+  color: #fff;
+}
+.box {
+  background-color: white;
+  color: #000000;
+  border-radius: 1px;
+  padding: 5px;
+}
+#whiteboard{
+  grid-column: 1;
+  grid-row: 1 / 6;
+}
+#edit{
+  grid-column: 2;
+  grid-row: 1;
+}
+#buttons{
+  grid-column: 2;
+  grid-row: 2;
+}
+#help{
+  grid-column: 2;
+  grid-row: 3;
+}
+#legend{
+  grid-column: 2;
+  grid-row: 4;
+}
+#legendsvg{
+    width: 290px;
+    height: 180px;
+}
+#saveText{
+  grid-column: 2;
+  grid-row: 5;
+}
+
+/* Help Box */
+.help th,tr,td {
+    /* border: 1px solid gray; */
+    border:none;
+}
+.help tr:nth-child(even){
+  background-color: #e8fbe8;
+  color: black;
+}
+.help td:nth-child(1){
+  width:250px;
+  font-weight:normal;
+}
+.help td:nth-child(2){
+  width:340px;
+  font-weight: bold;
+  bgcolor: #d2f8d2;
+  font-family: courier;
+  font-size: .8em;
+}
