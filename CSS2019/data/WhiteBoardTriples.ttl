@@ -12,7 +12,7 @@ eg:Person11 eg:age "25"^^xsd:integer;
     ncit:gender ncit:Female;
     schema:givenName "Sue"^^xsd:string.
 eg:Person12 eg:age "30"^^xsd:integer;
-    eg:randomizedTo eg:PlaceboArm;
+    eg:randomizedTo eg:TrtArm1-2;
     ncit:gender ncit:Male;
     schema:givenName "Bob"^^xsd:string.
 eg:Person13 eg:LDExpert eg:Study1;
@@ -22,4 +22,4 @@ eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
 eg:Study1 <ct:nct-id> <ct:NCT00175890>;
     eg:trtArm eg:TrtArm1-1, eg:TrtArm1-2.
 eg:TrtArm1-1 eg:trtArmType eg:ActiveArm.
-eg:TrtArm1-2 eg:trtArm eg:PlaceboArm.
+eg:TrtArm1-2 eg:trtArmType eg:PlaceboArm.
