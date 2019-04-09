@@ -355,13 +355,13 @@ function update(graph){
 
             console.log("Node Mouseover is happening");
             // Add tooltip here
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", 0.95);
+           //TW2019 tooltip.transition()
+           //TW2019     .duration(200)
+            //TW2019    .style("opacity", 0.95);
             //tooltip.html(d.props)
-            tooltip.html(d.label)
-                .style("left", (d3.event.pageX + 6) + "px")
-                .style("top", (d3.event.pageY - 10) + "px");
+            //TW2019tooltip.html(d.label)
+            //TW2019    .style("left", (d3.event.pageX + 6) + "px")
+            //TW2019    .style("top", (d3.event.pageY - 10) + "px");
           })
         //Mouseout Node  - bring node back to full colour
         .on('mouseout', function(d){
@@ -369,9 +369,9 @@ function update(graph){
               'width':nodeWidth,
               'height': nodeHeight
             });
-            tooltip.transition()
-                .duration(500)
-                .style("opacity", 0);
+        //TW2019    tooltip.transition()
+        //TW2019        .duration(500)
+        //TW2019        .style("opacity", 0);
         }); // end mouseout
 
     node_update.exit().remove();
@@ -477,10 +477,10 @@ function tick() {
             return "translate(" + d.x + "," + d.y + ")";
     });
 
-    // Node Text label
+    // Node Text label. Adjust x,y to position label within the node.
     svg.selectAll(".nodeText")
         .attr("x", function(d){ return d.x+5;})
-        .attr("y", function(d){ return d.y+17;});
+        .attr("y", function(d){ return d.y+20;});
 };  // End tick
 
 //------------------------------------------------------------------------------
@@ -580,7 +580,7 @@ function edit(d, i, source, graph){
     if(source=="node"){
         prefixText = div.append("p")
                             .text("Prefix: ");
-        prefixData = ["dbpedia", "ct","eg","ncit","rdf", "rdfs", "schema" ]
+        prefixData = ["dbpedia","ct","eg","ncit","rdf", "rdfs", "schema" ]
         prefixInput = prefixText.append("select")
                             .attr('class','select');
         prefixSelect = prefixInput.selectAll('option')
@@ -880,8 +880,8 @@ function createTTL(jsonData) {
     let graphClone = cleanJson(jsonData);
     download(graphClone, 'whiteboard.json', 'application/json');
 
-    // Set the prefixes
-    let writer = N3.Writer({ prefixes: { ct: 'http://bio2rdf.org/clinicaltrials',
+    // Set the prefixes. Must end with /, #, : ....
+    let writer = N3.Writer({ prefixes: { ct: 'http://bio2rdf.org/clinicaltrials/',
     	                                   dbpedia: 'http://dbpedia.org/resource/',
     	                                   eg: 'http://example.org/LDWorkshop#',
                                          ncit: 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#',

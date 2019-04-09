@@ -4,11 +4,11 @@
 */
 .tooltip{
     position: absolute;
-    width: 350px;
-    height: 35px;
+    width: 250px;
+    height: 25px;
     padding: 3px;
     padding-left: 6px;
-    font: 14pt sans-serif;
+    font: 11pt sans-serif;
     color: black;
     background: #F9F9F9;
     border: 3px;
