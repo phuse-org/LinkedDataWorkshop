@@ -878,9 +878,9 @@ function createTTL(jsonData) {
     download(graphClone, 'whiteboard.json', 'application/json');
 
     // Set the prefixes. Must end with /, #, : ....
-    let writer = N3.Writer({ prefixes: { ct: 'http://bio2rdf.org/clinicaltrials/',
-    	                                   dbpedia: 'http://dbpedia.org/resource/',
-    	                                   eg: 'http://example.org/LDWorkshop#',
+    let writer = N3.Writer({ prefixes: { dbpedia: 'http://dbpedia.org/resource/',
+                                         ct: "http://bio2rdf.org/clinicaltrials:",
+                                         eg: 'http://example.org/LDWorkshop#',
                                          ncit: 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#',
                                          rdf:'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
                                          rdfs:'http://www.w3.org/2000/01/rdf-schema#',

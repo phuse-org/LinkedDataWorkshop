@@ -16,12 +16,27 @@ library(visNetwork)
 
 #---- Values to check ---------------------------------------------------------
 #    Nodes that should be present in all graphs
-standardNodes <- c("eg:ActiveArm", "eg:Drug1", "eg:PlaceboArm", "eg:Serum114", "ncit:Female", "ncit:Male")
+standardNodes <- c(
+  "dbpedia:Aspirin",
+  "dbpedia:Sugar_pill",
+  "eg:ActiveArm", 
+  "eg:PlaceboArm", 
+  "ncit:Female", 
+  "ncit:Male")
 
 #    Relations that should be present in all graphs
-standardRelations <- c("eg:age", "eg:LDExpert", "eg:participatesIn", "eg:randomizedTo",
-  "eg:trtArm", "eg:trtArmType", "eg:drugname", "ncit:gender", "ncit:phase", "ncit:study",
-  "schema:givenName")
+standardRelations <- c(
+  "ct:nct-id",  
+  "eg:age",
+  "eg:drugName",
+  "eg:LDExpert",
+  "eg:randomizedTo",
+  "eg:studyId",
+  "eg:trtArm", 
+  "eg:trtArmType",
+  "ncit:gender",
+  "schema:givenName"
+  )
 
 #------------------------------------------------------------------------------
 # UI 
@@ -107,11 +122,22 @@ server <- function(input, output, session) {
         # Convert IRI to us prefixes
         iriToPref <- function(elem)
         {
+            
+            # eg:
             elem <- gsub("<http://example.org/LDWorkshop#", "eg:", elem)
+            
             # ncit:
             elem <- gsub("<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#", "ncit:",elem)
-            # schema
+            
+            # schema:
             elem <- gsub("<http://schema.org/", "schema:", elem)
+            
+            # ct:
+            elem <- gsub("<http://bio2rdf.org/clinicaltrials:", "ct:", elem)
+            
+            #dbpedia
+            elem <- gsub("<http://dbpedia.org/resource/", "dbpedia:", elem)
+            
             # Remove the trailing >
             elem <- gsub(">", "", elem)
             
@@ -153,7 +179,7 @@ server <- function(input, output, session) {
         attendeeNum <-gsub("eg:Study", "", studyNode)
 
         # Phase Node
-        phaseNode <-iriNodes[grepl("Phase", iriNodes)] 
+        #DEL 2019 CSS phaseNode <-iriNodes[grepl("Phase", iriNodes)] 
 
         # Person Nodes
         personNodes <-iriNodes[grepl("Person", iriNodes)] 
@@ -162,21 +188,13 @@ server <- function(input, output, session) {
         armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
         
         # Nodes that should be in all studies
-        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase", iriNodes)] 
+        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase|NCT", iriNodes)] 
         
         flaggedNodes <- setdiff(ttlNodes, standardNodes)
 
         # Nodes unique to each Attendee. Flag those not fitting req pattern
         # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
         #   is always correct in this code logic. 
-        
-        # Phase : Check that it is "Phase" then: Phase3, PhaseIIb, Phase2b etc.
-        if ( length(phaseNode > 0) &&  !grepl("ncit:Phase\\S{1-4}", phaseNode) ) {
-            print ("----ERROR: Phase Pattern fail.")
-            print (c("----------: ", phaseNode))
-            print ("pattern: ncit:Phase\\S{1-4}")
-            flaggedNodes<-append(flaggedNodes, phaseNode)
-        }
         
         # Person : Check : "Person" + "attendeeNum" + <n>
         #     use of << within sapply
@@ -269,10 +287,11 @@ server <- function(input, output, session) {
 
         # Assign node color based on content (int, string) then based on prefixes
         nodes$group <- 'iri'
-        nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)] <- "string"
-        nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)] <- "int"
+        nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "string"
+        nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "int"
         nodes$group[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "iriont"
-        nodes$group[grepl("eg:", nodes$id, perl=TRUE)] <- "iri"
+        nodes$group[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "iriext"
+        nodes$group[grepl("eg:", nodes$id, perl=TRUE)]           <- "iri"
         
         nodes$shape <- "box"
         nodes$title <-  nodes$id  # mouseover. 
@@ -299,6 +318,11 @@ server <- function(input, output, session) {
                                                          border     = "#CCCCCC",
                                                          highlight  = "#FFFF33")) %>%
 
+          visGroups(groupname = "iriext", color = list(background = "#BCBDDC",
+                                                       border     = "#CCCCCC", 
+                                                       highlight  = "#FFFF33")) %>%
+          
+          
             visGroups(groupname = "iriont", color = list(background = "#FFC862",
                                                          border     = "#CCCCCC", 
                                                          highlight  = "#FFFF33")) %>%
