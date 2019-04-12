@@ -615,13 +615,10 @@ function edit(d, i, source, graph){
                             "eg:age",
                             "eg:drugName",
                             "eg:LDExpert",
-                            "eg:participatesIn",
                             "eg:randomizedTo",
                             "eg:trtArm",
                             "eg:trtArmType",
                             "ncit:gender",
-                            "ncit:phase",
-                            "ncit:study",
                             "schema:givenName"
                         ];
         labelInput    = labelText.append("select")

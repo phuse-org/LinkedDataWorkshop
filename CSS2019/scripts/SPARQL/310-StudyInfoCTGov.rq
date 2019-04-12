@@ -1,0 +1,13 @@
+# 310-StudyInfoCTGov.rq Study information from remote Knowledge Graph
+
+PREFIX eg: <http://example.org/LDWorkshop#>.
+
+SELECT ?study ?nctid ?p ?o
+WHERE{
+  ?study eg:studyId ?nctid .
+
+  SERVICE <http://lod.openlinksw.com/sparql>
+  {
+    ?nctid ?p ?o  .
+  }
+}

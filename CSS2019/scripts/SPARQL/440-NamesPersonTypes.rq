@@ -1,0 +1,12 @@
+# 440-NamesPersonTypes.rq  Names and Types of all people in the study
+#   Reasoner must be ON.
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?person ?person_name ?person_type
+WHERE {
+    ?person a schema:Person  ;
+            schema:givenName ?person_name ;
+            a ?person_type.
+}ORDER BY ?person_name ?person_type
