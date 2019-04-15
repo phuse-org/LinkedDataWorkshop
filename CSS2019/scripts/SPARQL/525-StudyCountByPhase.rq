@@ -1,0 +1,10 @@
+# 425-StudyCountByPhase.rq Count of studies in each Phase
+#  Execute on the Pooled Database
+
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+
+SELECT ?phase (COUNT(?phase) AS ?count)
+WHERE
+{
+    ?study ncit:phase ?phase
+}GROUP BY ?phase

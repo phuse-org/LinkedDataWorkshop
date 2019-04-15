@@ -1,0 +1,14 @@
+# 330-StudyDrugInfo.rq Study Drug information from remote Knowledge Graph
+# active drug name = dbpedia:Aspirin
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+
+SELECT ?drugName ?p ?o 
+WHERE{
+  eg:ActiveArm eg:drugName ?drugName.
+  
+  SERVICE <http://dbpedia.org/sparql>
+  {
+    ?drugName ?p ?o  .
+  }
+}

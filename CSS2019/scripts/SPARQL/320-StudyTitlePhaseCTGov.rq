@@ -1,0 +1,18 @@
+# 320-StudyTitlePhaseCTGov.rq Study Title and Phase from remote Knowledge Graph
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ct-voc: <http://bio2rdf.org/clinicaltrials_vocabulary:>
+PREFIX eg: <http://example.org/LDWorkshop#>
+
+
+SELECT ?title ?phase
+WHERE{
+  ?study ct:nct-id ?nctid .
+
+   SERVICE <http://lod.openlinksw.com/sparql>
+  {
+    ?nctid dcterms:title ?title   ;
+           ct-voc:phase ?phaseIRI .
+    ?phaseIRI dcterms:title ?phase .
+  }
+}

@@ -1,0 +1,10 @@
+# 230-NamesOfRandomized.rq  Names of Persons randomized to a treatment arm
+
+PREFIX eg:     <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?givenName
+WHERE {
+    ?person eg:randomizedTo  ?treatArm ;
+            schema:givenName ?givenName .
+}
