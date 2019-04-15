@@ -1,4 +1,4 @@
-# 550-Drug1PersonsAllStudies.rq  List all Persons and their role in Drug1 Studies
+# 550-AllStudiesPersonTypes.rq  List all Persons and their role in all Studies
 #   Execute on the Pooled Database.  
 #   Reasoner must be ON.
 

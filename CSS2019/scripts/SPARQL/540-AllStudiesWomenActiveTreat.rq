@@ -1,4 +1,4 @@
-# 540-Drug1WomenActiveTreat.rq  Count of all women on active treatment.
+# 540-AllStudiesWomenActiveTreat.rq  Count of all women on active treatment.
 # Execute on the Pooled Database
 
 PREFIX eg: <http://example.org/LDWorkshop#>

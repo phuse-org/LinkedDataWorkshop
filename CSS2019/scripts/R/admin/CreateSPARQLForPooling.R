@@ -1,6 +1,6 @@
 ###############################################################################
 # FILE: CreateSPARQLForPooling.R
-# DESC: Create the SPARQL script used to pool data from all the Drug1 studies 
+# DESC: Create the SPARQL script used to pool data from all the studies 
 # IN  : ClassInfo.xlsx - has IP address of each study for each attendee
 # OUT : 410-PoolAllStudies.rq 
 # REQ : 

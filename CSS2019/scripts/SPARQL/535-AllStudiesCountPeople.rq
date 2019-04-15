@@ -1,4 +1,4 @@
-# 435-Drug1CountPeople.rq  Count all Persons involved in Drug1 studies
+# 535-AllStudiesCountPeople.rq  Count all Persons involved all studies
 #  (not just patients who participateIn a study)
 # Execute on the Pooled Database
 # Reasoner must be ON

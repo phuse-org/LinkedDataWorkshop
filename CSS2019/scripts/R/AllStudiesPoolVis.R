@@ -1,7 +1,7 @@
 ###############################################################################
-# FILE: /scripts/r/Drug1PoolVis.R
-# DESC: Force network graph of the Drug1Pool triples
-# IN  : Stardog graph Drug1Pool  (Stardog instance running, pool populated)
+# FILE: /scripts/r/AllStudiesPoolVis.R
+# DESC: Force network graph of the pooled studies
+# IN  : Stardog graph AllStudies  (Stardog instance running, pool populated)
 # OUT : visnetwork graph
 # REQ : 
 # NOTE: For EUConnect18 Hands-on Workshop. Colours match original whiteboard
@@ -15,7 +15,7 @@ library(SPARQL)
 library(visNetwork)
 
 # Query StardogTriple Store ----
-endpoint <- "http://localhost:5820/Drug1Pool/query"
+endpoint <- "http://localhost:5820/AllStudies/query"
 
 
 queryOnt = paste0("
