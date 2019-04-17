@@ -1,0 +1,25 @@
+{
+  "nodesData":[
+    { "id": 0,
+      "prefix":"eg",
+      "label":"Drug1",
+      "type":"IRI",
+      "x":400,
+      "y":10,
+      "fixed":true},
+    { "id": 1,
+      "prefix":"eg",
+      "label":"Serum114",
+      "type":"IRI",
+      "x":730,
+      "y":10,
+      "fixed":true}
+  ],
+  "edgesData":[
+    { "id":0,
+      "source": 0,
+      "target": 1,
+      "prefix":"eg",
+      "label": "drugname"}
+  ]
+}
