@@ -1,2 +1,2 @@
 cd C:\LinkedDataWorkshop\CSS2019
-python /min -m http.server
+start /min python -m http.server
