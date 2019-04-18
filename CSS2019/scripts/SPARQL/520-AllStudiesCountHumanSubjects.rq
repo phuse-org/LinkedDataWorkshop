@@ -1,5 +1,5 @@
-# 530-AllStudiesCountHumanSubjects.rq Number of Human Study Subjects in all Drug1 studies
-# Execute on the Pooled Database
+# 520-AllStudiesCountHumanSubjects.rq Number of Human Study Subjects in AllStudies
+# Execute on the AllStudies
 # Reasoner must be ON
 
 PREFIX eg: <http://example.org/LDWorkshop#>

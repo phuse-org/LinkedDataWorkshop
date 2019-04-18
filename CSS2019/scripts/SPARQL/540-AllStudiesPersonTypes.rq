@@ -1,5 +1,5 @@
-# 550-AllStudiesPersonTypes.rq  List all Persons and their role in all Studies
-#   Execute on the Pooled Database.  
+# 540-AllStudiesPersonTypes.rq  List all Persons and their role in all Studies
+#   Execute on the AllStudies Database.  
 #   Reasoner must be ON.
 
 PREFIX eg: <http://example.org/LDWorkshop#>

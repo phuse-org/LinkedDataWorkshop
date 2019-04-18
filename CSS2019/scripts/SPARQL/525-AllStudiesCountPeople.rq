@@ -1,6 +1,6 @@
-# 535-AllStudiesCountPeople.rq  Count all Persons involved all studies
+# 525-AllStudiesCountPeople.rq  Count all Persons involved all studies
 #  (not just patients who participateIn a study)
-# Execute on the Pooled Database
+# Execute on the AllStudies Database
 # Reasoner must be ON
 
 PREFIX schema: <http://schema.org/>

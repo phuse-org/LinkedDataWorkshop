@@ -1,5 +1,5 @@
-# 540-AllStudiesWomenActiveTreat.rq  Count of all women on active treatment.
-# Execute on the Pooled Database
+# 530-AllStudiesWomenActiveTreat.rq  Count of all women on active treatment.
+# Execute on the AllStudies Database
 
 PREFIX eg: <http://example.org/LDWorkshop#>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
