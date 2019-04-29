@@ -17,7 +17,7 @@ WHERE
      UNION
      # Graph 2  
      {
-        SERVICE <http://34.214.124.175:5820/Test/query>
+        SERVICE <http://34.214.249.175:5820/Test/query>
         {
             SELECT *
             WHERE { ?s ?p ?o . } 
