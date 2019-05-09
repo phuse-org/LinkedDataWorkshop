@@ -1,0 +1,26 @@
+# /admin/TestPool-TwoServers.rq  
+# Test connection between two servers 
+# Run in the AllStudies database
+# Assumes diferent data in the Test database on the two different servers
+
+INSERT {?s ?p ?o}
+WHERE
+{  
+    # Graph 1
+    {
+        SERVICE <http://34.220.147.244:5820/Test/query>
+        {
+            SELECT *
+            WHERE { ?s ?p ?o . } 
+        }
+     }
+     UNION
+     # Graph 2  
+     {
+        SERVICE <http://34.214.249.175:5820/Test/query>
+        {
+            SELECT *
+            WHERE { ?s ?p ?o . } 
+        }
+     }
+}
