@@ -1,0 +1,308 @@
+/*-----------------------------------------------------------------------------
+$HeadURL: file:///C:/SVNLocalRepos/SemanticWeb/SWAT4LS/2018/presentation/css/SWAT4LS18.css $
+$Rev: 696 $
+$Date: 2018-12-05 21:33:18 +0100 (Wed, 05 Dec 2018) $
+$Author: U041939 $
+-----------------------------------------------------------------------------
+DESC: CSS for SWAT4HCLS RevealJS slides
+IN  :
+OUT :
+REQ :
+   @import url(../../lib/font/league-gothic/league-gothic.css); from original reveal.js
+   Need to import the League-Gothic font
+   Added cursor:point to aid viewing of mouseover text
+  Theme Colours (moon and TW custom)
+    slide background: #002b36  rgb(0,43,54)
+    lighter variation of slide background: #005469
+    text color: #eee8d5  rgb(238,232,213)
+    CDISC Green: #6AA295  rgb(106,162,149)
+    PhUSE:
+      Orange: #E0762A
+      Blue:   #00A6DE
+
+    Colors from previous slide decks
+    light blue: #268bd2
+    indigo: #4d4dff
+  Cleaned/purged 2018-11-11
+-----------------------------------------------------------------------------*/
+/*---- Core HTML tags: Body, H, etc. ----------------------------------------*/
+/* Link colors, same as moon.css. Visited same as unvisited for visiblilty */
+a         {color:#268bd2;}
+a:visited {color:#268bd2;}
+a:hover  {color: #78b9e6;}
+
+body {
+  background-color: #002b36;
+  background: #002b36;
+  cursor:pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  color: #eee8d5;
+  font-family: "League Gothic", sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+  text-align: center }
+}
+
+/* OL numbering x.x.x */
+.reveal .nobullets ul {
+list-style-type: none;
+}
+
+pre a.link {
+  cursor: pointer;
+}
+
+/* Emphasis. Used in section Breaks to show upcomin section */
+.emph {
+  font-size: 35pt;
+  color: red;
+  font-weight: bold;
+}
+.emphGr {
+  font-size: 28pt;
+  color: #00cc00;
+  font-weight: bold;
+}
+/* Small italics green. Eg: UL titles */
+.emphSmItGr {
+  font-size: 110%;
+  color: #00cc00;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.deEmph {
+  font-size: 20pt;
+  color: grey;
+  font-weight: normal;
+}
+
+
+/* Emphasis within a title */
+.reveal .titleEmph{
+  color: #d0c08d;
+  font-style: italic;
+}
+.ulTitleEmph{
+  color: #d0c08d;
+  font-size: 1.1em
+  font-style: normal;
+}
+.reveal .ulSm{
+  color:#eee8d5;
+  font-size: 0.6em;
+  font-style: normal;
+}
+
+.reveal .roofMoonTitle{
+  color: #d0c08d;
+  font-style: italic;
+  font-size: 1.1em;
+}
+/*---- Fonts -----------------------------------------------------------------*/
+/* title within a blockquote */
+.blockquoteTitle{
+  color: #eee8d5 ;
+  text-decoration: underline;
+  font-weight: bold;
+  font-style: normal;
+}
+/* emphasis text within a blockquote */
+.blockquoteEmph{
+  color: #eee8d5 ;
+}
+
+/* Conference title (on title slide */
+.confTitle{
+  font-size: 1.1em;
+  color: #4d4dff;
+  font-weight: bold;
+}
+
+/* Thankyou! script */
+.bigScript{
+  font-family: Lucida Handwriting;
+  font-size: 3em;
+  color: #eee8d5;
+}
+/* Highlight colors to match fragment highlights within Reveal.js */
+.highlight-blue{
+ color: #1b91ff
+}
+.highlight-green{
+ color: #17ff2e;
+}
+.highlight-red{
+ color: #ff2c2d
+};
+
+/* in combo with titleEmph on Moonshot slide */
+.lg{
+  font-size: 1.1em;
+}
+.vlg{
+  font-size: 1.5em;
+}
+
+
+/* within Moonshot slide */
+.monoSM {
+  font: 30pt "Courier", Arial;
+  font-weight: bold;
+  color:  #F49333;
+}
+
+/* Current location in the Outline */
+.outlineCurrent{
+  font-size: 1.1em;
+  color: #009900;
+  font-weight: bold;
+}
+/* Outline not in the current section */
+.outlineNotCurrent{
+  font-size: 0.4em;
+  color: #8d8d8d;
+  font-weight: bold;
+}
+/* PhUSE logo colors */
+.phuseBl{
+  color: #00A6DE;
+}
+.phuseOr{
+  color: #E0762A;
+}
+
+.question,
+.exclamation{
+  color: red;
+  font-family: 'Patrick Hand';
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: normal;
+}
+/* an answer to the 'question' style */
+.answer{
+  color: green;
+  font-family: 'Patrick Hand';
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.quoteAttrib{
+  font-size: .7em;
+  font-style: italic;
+}
+
+.twitter{
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #268bd2;
+}
+
+.ulsmall{
+  font-size: .6em;
+}
+
+.vsmall{
+  font-size: .5em;
+}
+
+/*---- CSS Grid Layouts -----------------------------------------------------*/
+/* needed for containers? */
+* {box-sizing:border-box;}
+
+* {box-sizing:border-box;}
+.gridTrainers{
+  display: grid;
+/*  grid-template-columns: minmax(200px, 300px) minmax(200px, 500px);  /* flexible grid units instead of px or % */
+  grid-template-columns: 30%  70%;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+}
+.gridTrainers div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  /* background-color: rgba(0,95,107,0.8);  */
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: 75%;
+}
+
+
+/* Position text on Moonshot slide*/
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.lower-left{
+  position: absolute;
+  top: 300px;
+  left: 150px;
+}
+
+/*---- Moonshot ------------------------------------------------------------- */
+.lower-left-moon{
+  position: absolute;
+  top: 250px;
+  left: 130px;
+}
+.upper-right-moon{
+  position: absolute;
+  top: 110px;
+  right: 50px;
+}
+
+/*---- ROI Unicorn ---------------------------------------------------------- */
+.lower-left-unicorn{
+  position: absolute;
+  top: 420px;
+  left: 430px;
+}
+.upper-right-unicorn{
+  position: absolute;
+  top: 110px;
+  right: 430px;
+}
+
+
+.bottom-center{
+  position: absolute;
+  left: 450px;
+  bottom: -20px;
+}
+
+/*---- IMAGE Formatting -----------------------------------------------------*/
+/* Remove borders and shadow for most images */
+.reveal .imgClean{
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+/*---- SLIDE FORMATTING -----------------------------------------------------*/
+/* Source: https://github.com/hakimel/reveal.js/issues/180 (bottom of comments)*/
+reveal.slide .slides > section, .reveal.slide .slides > section > section {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute !important;
+  top: 0 !important;
+}
+/* Dork with this to get the print working */
+.print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
+  min-height: 770px !important;
+  position: relative !important;
+}
