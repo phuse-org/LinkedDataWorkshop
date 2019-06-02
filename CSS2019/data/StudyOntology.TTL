@@ -11,53 +11,42 @@
 #    Object Properties
 #################################################################
 
-###  http://example.org/LDWorkshop#LDExpert
 eg:LDExpert rdf:type    owl:ObjectProperty ;
             rdfs:domain eg:LinkedDataExpert ;
             rdfs:range  ncit:Study .
 
-###  http://example.org/LDWorkshop#randomizedTo
-eg:randomizedTo rdf:type    owl:ObjectProperty ;
-                rdfs:domain eg:RandomizedHumanStudySubject ;
-                rdfs:range  eg:TrtArm .
 
-###  http://example.org/LDWorkshop#trtArm
 eg:trtArm rdf:type    owl:ObjectProperty ;
           rdfs:domain ncit:Study ;
           rdfs:range  eg:TrtArm .
 
-###  http://example.org/LDWorkshop#trtArmType
 eg:trtArmType rdf:type    owl:ObjectProperty ;
               rdfs:domain eg:TrtArm ;
               rdfs:range  eg:TrtArmType .
 
+eg:randomizedTo rdf:type    owl:ObjectProperty ;
+                rdfs:domain eg:RandomizedHumanStudySubject ;
+                rdfs:range  eg:TrtArm .
 #################################################################
 #    Classes
 #################################################################
 
-###  http://schema.org/Person
 schema:Person rdf:type owl:Class .
 
-  ###  http://example.org/LDWorkshop#DataExpert
-  eg:DataExpert rdf:type        owl:Class ;
-                rdfs:subClassOf schema:Person .
-
-    ###  http://example.org/LDWorkshop#LinkedDataExpert
-    eg:LinkedDataExpert rdf:type        owl:Class ;
-                        rdfs:subClassOf eg:DataExpert .
-
-  ###  http://example.org/LDWorkshop#HumanStudySubject
-  eg:HumanStudySubject rdf:type        owl:Class ;
+eg:HumanStudySubject rdf:type        owl:Class ;
                      rdfs:subClassOf schema:Person .
 
-    ###  http://example.org/LDWorkshop#RandomizedHumanStudySubject
-    eg:RandomizedHumanStudySubject rdf:type        owl:Class ;
-                                   rdfs:subClassOf eg:HumanStudySubject .
+eg:RandomizedHumanStudySubject rdf:type        owl:Class ;
+                               rdfs:subClassOf eg:HumanStudySubject .
 
-###  http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Study
+eg:LinkedDataExpert rdf:type        owl:Class ;
+                    rdfs:subClassOf eg:DataExpert .
+
+eg:DataExpert rdf:type        owl:Class ;
+              rdfs:subClassOf schema:Person .
+
 ncit:Study rdf:type owl:Class .
 
-###  http://example.org/LDWorkshop#TrtArm
 eg:TrtArm rdf:type owl:Class .
 
 ###  http://example.org/LDWorkshop#TrtArmType

@@ -88,6 +88,11 @@ pre a.link {
   color: grey;
   font-weight: normal;
 }
+.emphSmallBlue {
+  font-size: 100%;
+    color: #4d4dff;
+  font-weight: bold;
+}
 
 
 /* Emphasis within a title */
