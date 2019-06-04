@@ -15,7 +15,6 @@ eg:LDExpert rdf:type    owl:ObjectProperty ;
             rdfs:domain eg:LinkedDataExpert ;
             rdfs:range  ncit:Study .
 
-
 eg:trtArm rdf:type    owl:ObjectProperty ;
           rdfs:domain ncit:Study ;
           rdfs:range  eg:TrtArm .
@@ -49,5 +48,4 @@ ncit:Study rdf:type owl:Class .
 
 eg:TrtArm rdf:type owl:Class .
 
-###  http://example.org/LDWorkshop#TrtArmType
 eg:TrtArmType rdf:type owl:Class .

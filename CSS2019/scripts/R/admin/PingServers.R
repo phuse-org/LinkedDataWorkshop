@@ -11,7 +11,7 @@
 library(readxl)
 library(pingr)
 
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/EUConnect18/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2019/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
 
 for (i in 1:nrow(servers)){
     if (!is.na(servers[i,"ip"]))
