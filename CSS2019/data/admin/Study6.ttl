@@ -8,19 +8,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 eg:ActiveArm eg:drugName dbpedia:Aspirin.
-eg:Person101 eg:age "32"^^xsd:integer;
-    eg:randomizedTo eg:TrtArm10-2;
+eg:Person61 eg:age "32"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm6-2;
     ncit:gender ncit:Female;
     schema:givenName "Bob"^^xsd:string.
-eg:Person102 eg:age "31"^^xsd:integer;
-    eg:randomizedTo eg:TrtArm10-1;
+eg:Person62 eg:age "31"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm6-1;
     ncit:gender ncit:Male;
     schema:givenName "Sue"^^xsd:string.
-eg:Person103 eg:LDExpert eg:Study10;
+eg:Person63 eg:LDExpert eg:Study6;
     ncit:gender ncit:Male;
     schema:givenName "Jane"^^xsd:string.
 eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
-eg:Study10 ct:nct-id ct:NCT01248468;
-    eg:trtArm eg:TrtArm10-2, eg:TrtArm10-1.
-eg:TrtArm10-1 eg:trtArmType eg:ActiveArm.
-eg:TrtArm10-2 eg:trtArmType eg:PlaceboArm.
+eg:Study6 ct:nct-id ct:NCT01248468;
+    eg:trtArm eg:TrtArm6-2, eg:TrtArm6-1.
+eg:TrtArm6-1 eg:trtArmType eg:ActiveArm.
+eg:TrtArm6-2 eg:trtArmType eg:PlaceboArm.
