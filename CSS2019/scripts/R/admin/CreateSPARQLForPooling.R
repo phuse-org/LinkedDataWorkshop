@@ -14,7 +14,7 @@ servers <- servers[ order(servers[,'server'], servers[,'ip']), ]
 
 rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2019/scripts/SPARQL/510-PoolAllStudies.rq", "w")
 
-scriptP1 <-paste("# 450-PoolAllStudies.rq  - Pool all Studies. 
+scriptP1 <-paste("# 510-PoolAllStudies.rq  - Pool all Studies. 
 #   Script created", Sys.time(), "by CreateSPARQLForPooling.R 
 #       based on list of servers in ClassInfo.xlsx
 INSERT {?s ?p ?o}
