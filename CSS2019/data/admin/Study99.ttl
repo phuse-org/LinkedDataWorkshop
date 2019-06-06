@@ -43,7 +43,7 @@ eg:Person211 eg:randomizedTo eg:TrtArm99-1 .
 eg:ActiveArm eg:drugName dbpedia:Aspirin.
 eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
 
-eg:Study99 ct:nct-id ct:NCT01248468;
+eg:Study99 ct:nct-id ct:NCT01973205;
     eg:trtArm eg:TrtArm99-2, eg:TrtArm99-1.
 
 eg:TrtArm99-1 eg:trtArmType eg:ActiveArm.
