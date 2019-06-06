@@ -1,5 +1,5 @@
 # 510-PoolAllStudies.rq  - Pool all Studies. 
-#   Script created 2019-06-05 15:35:19 by CreateSPARQLForPooling.R 
+#   Script created 2019-06-06 19:15:39 by CreateSPARQLForPooling.R 
 #       based on list of servers in ClassInfo.xlsx
 INSERT {?s ?p ?o}
 WHERE
@@ -168,7 +168,7 @@ WHERE
     UNION
     # Graph 19
     {
-        SERVICE <http://52.38.48.253:5820/LDWStudy/query>
+        SERVICE <http://52.40.147.223:5820/LDWStudy/query>
         {
             SELECT ?s ?p ?o
             WHERE { ?s ?p ?o .} 
@@ -177,7 +177,7 @@ WHERE
     UNION
     # Graph 20
     {
-        SERVICE <http://34.211.62.76:5820/LDWStudy/query>
+        SERVICE <http://34.219.43.239:5820/LDWStudy/query>
         {
             SELECT ?s ?p ?o
             WHERE { ?s ?p ?o .} 
