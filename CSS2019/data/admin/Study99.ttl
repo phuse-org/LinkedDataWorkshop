@@ -7,20 +7,44 @@
 @prefix schema: <http://schema.org/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-eg:ActiveArm eg:drugName dbpedia:Aspirin.
-eg:Person991 eg:age "32"^^xsd:integer;
+eg:Person991 eg:age "40"^^xsd:integer;
     eg:randomizedTo eg:TrtArm99-2;
     ncit:gender ncit:Female;
-    schema:givenName "Bob"^^xsd:string.
-eg:Person992 eg:age "31"^^xsd:integer;
+    schema:givenName "Betty"^^xsd:string.
+
+eg:Person992 eg:age "41"^^xsd:integer;
     eg:randomizedTo eg:TrtArm99-1;
     ncit:gender ncit:Male;
-    schema:givenName "Sue"^^xsd:string.
-eg:Person993 eg:LDExpert eg:Study99;
-    ncit:gender ncit:Male;
-    schema:givenName "Jane"^^xsd:string.
+    schema:givenName "Jim"^^xsd:string.
+
+eg:Person11 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person21 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person31 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person41 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person51 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person61 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person71 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person81 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person91 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person101 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person111 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person121 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person121 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person131 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person141 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person151 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person161 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person171 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person181 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person191 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person201 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person211 eg:randomizedTo eg:TrtArm99-1 .
+
+eg:ActiveArm eg:drugName dbpedia:Aspirin.
 eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
+
 eg:Study99 ct:nct-id ct:NCT01248468;
     eg:trtArm eg:TrtArm99-2, eg:TrtArm99-1.
+
 eg:TrtArm99-1 eg:trtArmType eg:ActiveArm.
 eg:TrtArm99-2 eg:trtArmType eg:PlaceboArm.
