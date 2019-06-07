@@ -35,7 +35,13 @@ iriToQnam <- function(elem)
   elem <- gsub("<http://www.example.org/LDWorkshop/", "eg:", elem)  # Kludge for ontology error </wink>
   elem <- gsub("<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#", "ncit:",elem)
   elem <- gsub("<http://schema.org/", "schema:", elem)
-
+  
+  # ct:
+  elem <- gsub("<http://bio2rdf.org/clinicaltrials:", "ct:", elem)
+  
+  #dbpedia
+  elem <- gsub("<http://dbpedia.org/resource/", "dbpedia:", elem)
+  
   # From the Study.TTL ontology
   # owl
   elem <- gsub("<http://www.w3.org/2002/07/owl#", "owl:", elem)
@@ -75,6 +81,7 @@ nodes$group <- 'iri'
 nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "string"
 nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "int"
 nodes$group[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "iriont"
+nodes$group[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "iriext"
 nodes$group[grepl("eg:", nodes$id, perl=TRUE)]           <- "iri"
 
 nodes$shape <- "box"
@@ -109,6 +116,10 @@ visNetwork(nodes, edges, height = "1200px", width = "100%") %>%
                                                    border     = "#CCCCCC", 
                                                    highlight  = "#FFFF33")) %>%
 
+  visGroups(groupname = "iriext", color = list(background = "#BCBDDC",
+                                               border     = "#CCCCCC", 
+                                               highlight  = "#FFFF33")) %>%
+  
   visGroups(groupname = "string", color = list(background     = "#E4E4E4", 
                                                    border     = "#CCCCCC", 
                                                    highlight  = "#FFFF33")) %>%
