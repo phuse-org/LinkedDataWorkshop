@@ -1,0 +1,17 @@
+# 540-HSSInOtherStudies.rq Your HumanStudySubjects in other studies?
+#   Execute on the AllStudies Database.  
+#   Reasoner must be ON.
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
+SELECT  ?givenName ?study ?treatment
+WHERE{
+  
+  ?person  a  eg:HumanStudySubject ;
+           schema:givenName ?givenName ;
+            eg:randomizedTo ?trtArm .
+  ?trtArm  eg:trtArmType   ?treatment .
+  ?study   eg:trtArm       ?trtArm.         
+  FILTER (?person IN(eg:Person11, eg:Person12))
+}
