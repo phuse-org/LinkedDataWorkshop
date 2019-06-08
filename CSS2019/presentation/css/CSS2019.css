@@ -93,6 +93,14 @@ pre a.link {
     color: #4d4dff;
   font-weight: bold;
 }
+
+.emphMedBlue {
+  font-size: 110%;
+    color: #4d4dff;
+  font-weight: bold;
+}
+
+
 .emphItalicGreen {
   font-size: 110%;
   color: #00cc00;
