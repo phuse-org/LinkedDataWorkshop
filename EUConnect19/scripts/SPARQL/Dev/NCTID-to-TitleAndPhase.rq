@@ -1,0 +1,29 @@
+# Find the Title and Phase of a trial using NCT ID
+# a) Endpoint: http://lod.openlinksw.com/sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ct: <http://bio2rdf.org/clinicaltrials:>
+PREFIX ctv: <http://bio2rdf.org/clinicaltrials_vocabulary:>
+SELECT ?title ?phase
+ WHERE{
+    ct:NCT02301286 dcterms:title ?title ;
+                   ctv:phase     ?phaseURI .
+    ?phaseURI dcterms:title      ?phase .
+}
+
+
+# b) Execute from Stardog, specify the bio2rdf service
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ct:     <http://bio2rdf.org/clinicaltrials:>
+PREFIX ct-voc: <http://bio2rdf.org/clinicaltrials_vocabulary:>
+SELECT ?title ?phaseName
+WHERE
+{
+  SERVICE <http://clinicaltrials.bio2rdf.org/sparql>
+  {
+    # <http://bio2rdf.org/clinicaltrials:NCT00175890> <http://bio2rdf.org/clinicaltrials_vocabulary:phase> ?phaseIRI .
+    ct:NCT02301286  dcterms:title ?title ;
+                    ct-voc:phase ?phaseIRI .
+    ?phaseIRI dcterms:title ?phaseName .
+  } 
+}

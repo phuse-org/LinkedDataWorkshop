@@ -1,0 +1,294 @@
+{
+  "nodesData": [
+    {
+      "id": 2,
+      "prefix": "eg",
+      "label": "PlaceboArm",
+      "type": "IRI",
+      "x": 605,
+      "y": 324,
+      "fixed": 1
+    },
+    {
+      "id": 3,
+      "prefix": "eg",
+      "label": "ActiveArm",
+      "type": "IRI",
+      "x": 780,
+      "y": 251,
+      "fixed": 1
+    },
+    {
+      "id": 7,
+      "prefix": "ncit",
+      "label": "Male",
+      "type": "IRI",
+      "x": 20,
+      "y": 317,
+      "fixed": 1
+    },
+    {
+      "id": 8,
+      "prefix": "ncit",
+      "label": "Female",
+      "type": "IRI",
+      "x": 24,
+      "y": 251,
+      "fixed": 1
+    },
+    {
+      "id": 9,
+      "label": "Study1",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 434,
+      "y": 25,
+      "fixed": 1
+    },
+    {
+      "id": 10,
+      "label": "NCT00175890",
+      "prefix": "ct",
+      "type": "IRI",
+      "x": 98,
+      "y": 37,
+      "fixed": 1
+    },
+    {
+      "id": 11,
+      "label": "TrtArm1-1",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 672,
+      "y": 125,
+      "fixed": 1
+    },
+    {
+      "id": 12,
+      "label": "TrtArm1-2",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 580,
+      "y": 240,
+      "fixed": 1
+    },
+    {
+      "id": 13,
+      "label": "Aspirin",
+      "prefix": "dbpedia",
+      "type": "IRI",
+      "x": 785,
+      "y": 425,
+      "fixed": 1
+    },
+    {
+      "id": 14,
+      "label": "Sugar_pill",
+      "prefix": "dbpedia",
+      "type": "IRI",
+      "x": 613,
+      "y": 441,
+      "fixed": 1
+    },
+    {
+      "id": 15,
+      "label": "Person11",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 227,
+      "y": 115,
+      "fixed": 1
+    },
+    {
+      "id": 16,
+      "label": "Person12",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 233,
+      "y": 265,
+      "fixed": 1
+    },
+    {
+      "id": 17,
+      "label": "Bob",
+      "prefix": "dbpedia",
+      "type": "STRING",
+      "x": 21,
+      "y": 370,
+      "fixed": 1
+    },
+    {
+      "id": 18,
+      "label": "Sue",
+      "prefix": "dbpedia",
+      "type": "STRING",
+      "x": 36,
+      "y": 104,
+      "fixed": 1
+    },
+    {
+      "id": 19,
+      "label": "30",
+      "prefix": "dbpedia",
+      "type": "INT",
+      "x": 47,
+      "y": 423,
+      "fixed": 1
+    },
+    {
+      "id": 20,
+      "label": "Person13",
+      "prefix": "eg",
+      "type": "IRI",
+      "x": 358,
+      "y": 335,
+      "fixed": 1
+    },
+    {
+      "id": 21,
+      "label": "25",
+      "prefix": "dbpedia",
+      "type": "INT",
+      "x": 12,
+      "y": 176,
+      "fixed": 1
+    },
+    {
+      "id": 22,
+      "label": "Tim",
+      "prefix": "dbpedia",
+      "type": "STRING",
+      "x": 223,
+      "y": 445,
+      "fixed": 1
+    }
+  ],
+  "edgesData": [
+    {
+      "id": 4,
+      "source": 3,
+      "target": 13,
+      "label": "drugName",
+      "prefix": "eg"
+    },
+    {
+      "id": 14,
+      "source": 15,
+      "target": 21,
+      "label": "age",
+      "prefix": "eg"
+    },
+    {
+      "id": 8,
+      "source": 15,
+      "target": 11,
+      "label": "randomizedTo",
+      "prefix": "eg"
+    },
+    {
+      "id": 10,
+      "source": 15,
+      "target": 8,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 12,
+      "source": 15,
+      "target": 18,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 15,
+      "source": 16,
+      "target": 19,
+      "label": "age",
+      "prefix": "eg"
+    },
+    {
+      "id": 19,
+      "source": 16,
+      "target": 12,
+      "label": "randomizedTo",
+      "prefix": "eg"
+    },
+    {
+      "id": 11,
+      "source": 16,
+      "target": 7,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 13,
+      "source": 16,
+      "target": 17,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 18,
+      "source": 20,
+      "target": 9,
+      "label": "LDExpert",
+      "prefix": "eg"
+    },
+    {
+      "id": 17,
+      "source": 20,
+      "target": 7,
+      "label": "gender",
+      "prefix": "ncit"
+    },
+    {
+      "id": 16,
+      "source": 20,
+      "target": 22,
+      "label": "givenName",
+      "prefix": "schema"
+    },
+    {
+      "id": 7,
+      "source": 2,
+      "target": 14,
+      "label": "drugName",
+      "prefix": "eg"
+    },
+    {
+      "id": 1,
+      "source": 9,
+      "target": 10,
+      "label": "nct-id",
+      "prefix": "ct"
+    },
+    {
+      "id": 2,
+      "source": 9,
+      "target": 11,
+      "label": "trtArm",
+      "prefix": "eg"
+    },
+    {
+      "id": 3,
+      "source": 9,
+      "target": 12,
+      "label": "trtArm",
+      "prefix": "eg"
+    },
+    {
+      "id": 5,
+      "source": 11,
+      "target": 3,
+      "label": "trtArmType",
+      "prefix": "eg"
+    },
+    {
+      "id": 6,
+      "source": 12,
+      "target": 2,
+      "label": "trtArmType",
+      "prefix": "eg"
+    }
+  ]
+}

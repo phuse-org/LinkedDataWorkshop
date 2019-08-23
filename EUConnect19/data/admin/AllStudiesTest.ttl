@@ -1,0 +1,477 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/LDWorkshop#Drug1> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#study> <http://example.org/LDWorkshop#Study1> , <http://example.org/LDWorkshop#Study2> , <http://example.org/LDWorkshop#Study3> , <http://example.org/LDWorkshop#Study4> , <http://example.org/LDWorkshop#Study5> , <http://example.org/LDWorkshop#Study6> , <http://example.org/LDWorkshop#Study7> , <http://example.org/LDWorkshop#Study8> , <http://example.org/LDWorkshop#Study9> , <http://example.org/LDWorkshop#Study10> , <http://example.org/LDWorkshop#Study11> , <http://example.org/LDWorkshop#Study12> , <http://example.org/LDWorkshop#Study13> , <http://example.org/LDWorkshop#Study14> , <http://example.org/LDWorkshop#Study15> , <http://example.org/LDWorkshop#Study16> , <http://example.org/LDWorkshop#Study17> , <http://example.org/LDWorkshop#Study18> , <http://example.org/LDWorkshop#Study19> , <http://example.org/LDWorkshop#Study20> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#drugName> <http://example.org/LDWorkshop#Serum114> .
+
+<http://example.org/LDWorkshop#Study1> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm1-1> , <http://example.org/LDWorkshop#TrtArm1-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person11> <http://example.org/LDWorkshop#age> 32 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study1> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm1-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob" .
+
+<http://example.org/LDWorkshop#TrtArm1-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person12> <http://example.org/LDWorkshop#age> 29 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study1> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm1-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue" .
+
+<http://example.org/LDWorkshop#TrtArm1-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person13> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study1> .
+
+<http://example.org/LDWorkshop#Study2> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm2-1> , <http://example.org/LDWorkshop#TrtArm2-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person21> <http://example.org/LDWorkshop#age> 22 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study2> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm2-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob2" .
+
+<http://example.org/LDWorkshop#TrtArm2-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person22> <http://example.org/LDWorkshop#age> 19 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study2> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm2-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue2" .
+
+<http://example.org/LDWorkshop#TrtArm2-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person23> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter2" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study2> .
+
+<http://example.org/LDWorkshop#Study3> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm3-1> , <http://example.org/LDWorkshop#TrtArm3-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person31> <http://example.org/LDWorkshop#age> 33 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study3> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm3-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob3" .
+
+<http://example.org/LDWorkshop#TrtArm3-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person32> <http://example.org/LDWorkshop#age> 23 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study3> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm3-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue3" .
+
+<http://example.org/LDWorkshop#TrtArm3-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person33> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter3" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study3> .
+
+<http://example.org/LDWorkshop#Study4> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm4-1> , <http://example.org/LDWorkshop#TrtArm4-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person41> <http://example.org/LDWorkshop#age> 42 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study4> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm4-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob4" .
+
+<http://example.org/LDWorkshop#TrtArm4-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person42> <http://example.org/LDWorkshop#age> 41 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study4> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm4-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue4" .
+
+<http://example.org/LDWorkshop#TrtArm4-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person43> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter4" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study4> .
+
+<http://example.org/LDWorkshop#Study5> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm5-1> , <http://example.org/LDWorkshop#TrtArm5-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person51> <http://example.org/LDWorkshop#age> 35 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study5> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm5-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob5" .
+
+<http://example.org/LDWorkshop#TrtArm5-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person52> <http://example.org/LDWorkshop#age> 25 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study5> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm5-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue5" .
+
+<http://example.org/LDWorkshop#TrtArm5-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person53> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter5" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study5> .
+
+<http://example.org/LDWorkshop#Study6> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm6-1> , <http://example.org/LDWorkshop#TrtArm6-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person61> <http://example.org/LDWorkshop#age> 36 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study6> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm6-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob6" .
+
+<http://example.org/LDWorkshop#TrtArm6-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person62> <http://example.org/LDWorkshop#age> 26 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study6> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm6-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue6" .
+
+<http://example.org/LDWorkshop#TrtArm6-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person63> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter6" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study6> .
+
+<http://example.org/LDWorkshop#Study7> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm7-1> , <http://example.org/LDWorkshop#TrtArm7-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person71> <http://example.org/LDWorkshop#age> 37 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study7> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm7-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob7" .
+
+<http://example.org/LDWorkshop#TrtArm7-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person72> <http://example.org/LDWorkshop#age> 27 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study7> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm7-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue7" .
+
+<http://example.org/LDWorkshop#TrtArm7-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person73> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter7" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study7> .
+
+<http://example.org/LDWorkshop#Study8> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm8-1> , <http://example.org/LDWorkshop#TrtArm8-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person81> <http://example.org/LDWorkshop#age> 38 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study8> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm8-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob8" .
+
+<http://example.org/LDWorkshop#TrtArm8-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person82> <http://example.org/LDWorkshop#age> 28 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study8> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm8-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue8" .
+
+<http://example.org/LDWorkshop#TrtArm8-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person83> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter8" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study8> .
+
+<http://example.org/LDWorkshop#Study9> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm9-1> , <http://example.org/LDWorkshop#TrtArm9-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person91> <http://example.org/LDWorkshop#age> 39 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study9> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm9-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob9" .
+
+<http://example.org/LDWorkshop#TrtArm9-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person92> <http://example.org/LDWorkshop#age> 19 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study9> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm9-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue9" .
+
+<http://example.org/LDWorkshop#TrtArm9-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person93> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter9" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study9> .
+
+<http://example.org/LDWorkshop#Study10> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm10-1> , <http://example.org/LDWorkshop#TrtArm10-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person101> <http://example.org/LDWorkshop#age> 10 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study10> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm10-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob10" .
+
+<http://example.org/LDWorkshop#TrtArm10-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person102> <http://example.org/LDWorkshop#age> 19 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study10> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm10-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue10" .
+
+<http://example.org/LDWorkshop#TrtArm10-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person103> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter10" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study10> .
+
+<http://example.org/LDWorkshop#Study11> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm11-1> , <http://example.org/LDWorkshop#TrtArm11-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase4> .
+
+<http://example.org/LDWorkshop#Person111> <http://example.org/LDWorkshop#age> 12 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study11> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm11-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob11" .
+
+<http://example.org/LDWorkshop#TrtArm11-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person112> <http://example.org/LDWorkshop#age> 17 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study11> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm11-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue11" .
+
+<http://example.org/LDWorkshop#TrtArm11-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person113> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter11" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study11> .
+
+<http://example.org/LDWorkshop#Study12> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm12-1> , <http://example.org/LDWorkshop#TrtArm12-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase2> .
+
+<http://example.org/LDWorkshop#Person121> <http://example.org/LDWorkshop#age> 62 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study12> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm12-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob12" .
+
+<http://example.org/LDWorkshop#TrtArm12-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person122> <http://example.org/LDWorkshop#age> 69 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study12> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm12-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue12" .
+
+<http://example.org/LDWorkshop#TrtArm12-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person123> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter12" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study12> .
+
+<http://example.org/LDWorkshop#Study13> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm13-1> , <http://example.org/LDWorkshop#TrtArm13-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase4> .
+
+<http://example.org/LDWorkshop#Person131> <http://example.org/LDWorkshop#age> 13 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study13> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm13-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob13" .
+
+<http://example.org/LDWorkshop#TrtArm13-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person132> <http://example.org/LDWorkshop#age> 12 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study13> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm13-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue13" .
+
+<http://example.org/LDWorkshop#TrtArm13-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person133> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter13" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study13> .
+
+<http://example.org/LDWorkshop#Study14> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm14-1> , <http://example.org/LDWorkshop#TrtArm14-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase2> .
+
+<http://example.org/LDWorkshop#Person141> <http://example.org/LDWorkshop#age> 22 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study14> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm14-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob14" .
+
+<http://example.org/LDWorkshop#TrtArm14-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person142> <http://example.org/LDWorkshop#age> 41 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study14> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm14-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue14" .
+
+<http://example.org/LDWorkshop#TrtArm14-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person143> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter14" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study14> .
+
+<http://example.org/LDWorkshop#Study15> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm15-1> , <http://example.org/LDWorkshop#TrtArm15-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase4> .
+
+<http://example.org/LDWorkshop#Person151> <http://example.org/LDWorkshop#age> 15 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study15> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm15-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob15" .
+
+<http://example.org/LDWorkshop#TrtArm15-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person152> <http://example.org/LDWorkshop#age> 13 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study15> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm15-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue15" .
+
+<http://example.org/LDWorkshop#TrtArm15-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person153> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter15" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study15> .
+
+<http://example.org/LDWorkshop#Study16> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm16-1> , <http://example.org/LDWorkshop#TrtArm16-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person161> <http://example.org/LDWorkshop#age> 6 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study16> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm16-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob16" .
+
+<http://example.org/LDWorkshop#TrtArm16-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person162> <http://example.org/LDWorkshop#age> 2 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study16> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm16-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue16" .
+
+<http://example.org/LDWorkshop#TrtArm16-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person163> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter16" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study16> .
+
+<http://example.org/LDWorkshop#Study17> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm17-1> , <http://example.org/LDWorkshop#TrtArm17-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person171> <http://example.org/LDWorkshop#age> 77 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study17> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm17-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob77" .
+
+<http://example.org/LDWorkshop#TrtArm17-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person172> <http://example.org/LDWorkshop#age> 72 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study17> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm17-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue77" .
+
+<http://example.org/LDWorkshop#TrtArm17-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person173> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter77" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study17> .
+
+<http://example.org/LDWorkshop#Study18> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm18-1> , <http://example.org/LDWorkshop#TrtArm18-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase2> .
+
+<http://example.org/LDWorkshop#Person181> <http://example.org/LDWorkshop#age> 18 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study18> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm18-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob18" .
+
+<http://example.org/LDWorkshop#TrtArm18-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person182> <http://example.org/LDWorkshop#age> 12 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study18> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm18-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue18" .
+
+<http://example.org/LDWorkshop#TrtArm18-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person183> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter18" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study18> .
+
+<http://example.org/LDWorkshop#Study19> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm19-1> , <http://example.org/LDWorkshop#TrtArm19-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person191> <http://example.org/LDWorkshop#age> 34 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study19> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm19-1> , <http://example.org/LDWorkshop#TrtArm99-1> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob19" .
+
+<http://example.org/LDWorkshop#TrtArm19-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person192> <http://example.org/LDWorkshop#age> 49 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study19> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm19-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue19" .
+
+<http://example.org/LDWorkshop#TrtArm19-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person193> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter19" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study19> .
+
+<http://example.org/LDWorkshop#Study20> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm20-1> , <http://example.org/LDWorkshop#TrtArm20-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#Person201> <http://example.org/LDWorkshop#age> 40 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study20> , <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm20-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Bob20" .
+
+<http://example.org/LDWorkshop#TrtArm20-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person202> <http://example.org/LDWorkshop#age> 49 ;
+	<http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study20> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm20-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Female> ;
+	<http://schema.org/givenName> "Sue20" .
+
+<http://example.org/LDWorkshop#TrtArm20-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#Person203> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#gender> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Male> ;
+	<http://schema.org/givenName> "Peter20" ;
+	<http://example.org/LDWorkshop#LDExpert> <http://example.org/LDWorkshop#Study20> .
+
+<http://example.org/LDWorkshop#Study99> <http://example.org/LDWorkshop#trtArm> <http://example.org/LDWorkshop#TrtArm99-1> , <http://example.org/LDWorkshop#TrtArm99-2> ;
+	<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#phase> <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Phase3> .
+
+<http://example.org/LDWorkshop#TrtArm99-1> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#ActiveArm> .
+
+<http://example.org/LDWorkshop#TrtArm99-2> <http://example.org/LDWorkshop#trtArmType> <http://example.org/LDWorkshop#PlaceboArm> .
+
+<http://example.org/LDWorkshop#Person301> <http://example.org/LDWorkshop#participatesIn> <http://example.org/LDWorkshop#Study99> ;
+	<http://example.org/LDWorkshop#randomizedTo> <http://example.org/LDWorkshop#TrtArm99-1> .

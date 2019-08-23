@@ -1,0 +1,17 @@
+# 340-EnglishAbstract.rq 
+# Get the abstract for Aspirin at DBPedia
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpedia:   <http://dbpedia.org/resource/>
+
+SELECT *
+WHERE{
+
+  eg:ActiveArm eg:drugName ?drugName.
+  
+  SERVICE <http://dbpedia.org/sparql>
+  {
+    ?drugName dbpedia-owl:abstract ?abstract
+    
+    FILTER (lang(?abstract) = "en")
+  }
+}

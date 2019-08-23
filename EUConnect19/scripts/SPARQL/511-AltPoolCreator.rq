@@ -1,0 +1,14 @@
+# 411-AltPoolCreator.rq  Alternative Pool Creation Method
+#   ** DO NOT RUN UNLESS ADVISED BY INSTRUCTOR **
+# Pulls from the already pooled instance on the instructor's server.
+# Assumes instructor's server is : 52.14.114.74
+
+INSERT {?s ?p ?o}
+WHERE
+{
+    SERVICE <http://52.14.114.74:5820/AllStudies/query>
+    {
+        SELECT *
+        WHERE { ?s ?p ?o  }
+    }
+}

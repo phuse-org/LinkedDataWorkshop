@@ -1,0 +1,26 @@
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix ct: <http://bio2rdf.org/clinicaltrials:>.
+@prefix eg: <http://example.org/LDWorkshop#>.
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+eg:ActiveArm eg:drugName dbpedia:Aspirin.
+eg:Person41 eg:age "32"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm4-2;
+    ncit:gender ncit:Female;
+    schema:givenName "Bob"^^xsd:string.
+eg:Person42 eg:age "31"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm4-1;
+    ncit:gender ncit:Male;
+    schema:givenName "Sue"^^xsd:string.
+eg:Person43 eg:LDExpert eg:Study4;
+    ncit:gender ncit:Male;
+    schema:givenName "Jane"^^xsd:string.
+eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
+eg:Study4 ct:nct-id ct:NCT01248468;
+    eg:trtArm eg:TrtArm4-2, eg:TrtArm4-1.
+eg:TrtArm4-1 eg:trtArmType eg:ActiveArm.
+eg:TrtArm4-2 eg:trtArmType eg:PlaceboArm.

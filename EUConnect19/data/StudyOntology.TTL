@@ -1,0 +1,51 @@
+@prefix eg: <http://example.org/LDWorkshop#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+eg:LDExpert rdf:type    owl:ObjectProperty ;
+            rdfs:domain eg:LinkedDataExpert ;
+            rdfs:range  ncit:Study .
+
+eg:trtArm rdf:type    owl:ObjectProperty ;
+          rdfs:domain ncit:Study ;
+          rdfs:range  eg:TrtArm .
+
+eg:trtArmType rdf:type    owl:ObjectProperty ;
+              rdfs:domain eg:TrtArm ;
+              rdfs:range  eg:TrtArmType .
+
+eg:randomizedTo rdf:type    owl:ObjectProperty ;
+                rdfs:domain eg:RandomizedHumanStudySubject ;
+                rdfs:range  eg:TrtArm .
+#################################################################
+#    Classes
+#################################################################
+
+schema:Person rdf:type owl:Class .
+
+eg:HumanStudySubject rdf:type        owl:Class ;
+                     rdfs:subClassOf schema:Person .
+
+eg:RandomizedHumanStudySubject rdf:type        owl:Class ;
+                               rdfs:subClassOf eg:HumanStudySubject .
+
+eg:LinkedDataExpert rdf:type        owl:Class ;
+                    rdfs:subClassOf eg:DataExpert .
+
+eg:DataExpert rdf:type        owl:Class ;
+              rdfs:subClassOf schema:Person .
+
+ncit:Study rdf:type owl:Class .
+
+eg:TrtArm rdf:type owl:Class .
+
+eg:TrtArmType rdf:type owl:Class .

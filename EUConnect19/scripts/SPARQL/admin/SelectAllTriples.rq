@@ -1,0 +1,6 @@
+# Select All Triples
+# Stardog will manage performance, others may not (so use LIMIT for them)
+SELECT * 
+WHERE{
+  ?s ?p ?o
+}

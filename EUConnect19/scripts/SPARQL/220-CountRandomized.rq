@@ -1,0 +1,8 @@
+# 220-CountRandomized.rq  Count of Persons randomized
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+
+SELECT (COUNT (?person) AS ?numP)
+WHERE {
+    ?person eg:randomizedTo ?trtArm .
+}

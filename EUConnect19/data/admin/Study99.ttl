@@ -1,0 +1,50 @@
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix ct: <http://bio2rdf.org/clinicaltrials:>.
+@prefix eg: <http://example.org/LDWorkshop#>.
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+eg:Person991 eg:age "40"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm99-2;
+    ncit:gender ncit:Female;
+    schema:givenName "Betty"^^xsd:string.
+
+eg:Person992 eg:age "41"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm99-1;
+    ncit:gender ncit:Male;
+    schema:givenName "Jim"^^xsd:string.
+
+eg:Person11 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person21 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person31 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person41 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person51 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person61 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person71 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person81 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person91 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person101 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person111 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person121 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person121 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person131 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person141 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person151 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person161 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person171 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person181 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person191 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person201 eg:randomizedTo eg:TrtArm99-1 .
+eg:Person211 eg:randomizedTo eg:TrtArm99-1 .
+
+eg:ActiveArm eg:drugName dbpedia:Aspirin.
+eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
+
+eg:Study99 ct:nct-id ct:NCT01973205;
+    eg:trtArm eg:TrtArm99-2, eg:TrtArm99-1.
+
+eg:TrtArm99-1 eg:trtArmType eg:ActiveArm.
+eg:TrtArm99-2 eg:trtArmType eg:PlaceboArm.

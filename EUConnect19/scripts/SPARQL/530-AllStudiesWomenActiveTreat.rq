@@ -1,0 +1,12 @@
+# 530-AllStudiesWomenActiveTreat.rq  Count of all women on active treatment.
+# Execute on the AllStudies Database
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+
+SELECT  (COUNT(?person) as ?numWomenActive)
+WHERE{
+    ?person ncit:gender ncit:Female ;
+            eg:randomizedTo ?trt_arm .
+    ?trt_arm eg:trtArmType eg:ActiveArm
+}

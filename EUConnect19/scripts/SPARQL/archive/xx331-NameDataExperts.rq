@@ -1,0 +1,11 @@
+# 331-NameDataExperts.rq  Names of Data Experts
+#   Reasoner must be ON.
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?person_name
+WHERE {
+    ?person a eg:DataExpert   ;
+            schema:givenName   ?person_name .
+}

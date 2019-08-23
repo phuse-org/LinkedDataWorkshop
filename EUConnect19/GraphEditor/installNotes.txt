@@ -1,0 +1,32 @@
+Basic Installation Notes 
+
+Windows OS
+
+
+1. Install Python and have it available in the system path.
+
+2. Clone the repository to your machine.
+
+3. Open the file:
+     ....LinkedDataWorkshop\EUConnect18\GraphEditor\D3-LDDev.bat
+
+4. Change the cd command to the folder where you cloned the content.
+     ....LinkedDataWorkshop\EUConnect18
+
+5. Save the file.
+
+6. Execute the .bat file.  A DOS window opens.
+
+7. Open Chrome to :
+    http://localhost:8000/GraphEditor/GraphEditor.html
+
+Et voila!  You should see the graph editor.
+
+Any web service can be used for localhost. 
+Just note the port and you are good to go.
+For use outside of the Linked Data Workshop ,you can you can change the predicate 
+drop-down restrictions,  default nodes, etc. 
+
+Usage and exercises documented in :  ....LinkedDataWorkshop\EUConnect18\doc
+
+Now go have fun  "Connecting things to other things."

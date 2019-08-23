@@ -1,0 +1,899 @@
+/*-----------------------------------------------------------------------------
+$HeadURL: file:///C:/SVNLocalRepos/PhUSE/Annual/2018-US/Paper/Presentation/css/PhUSE2018US.css $
+$Rev: 346 $
+$Date: 2018-05-28 12:55:27 -0400 (Mon, 28 May 2018) $
+$Author: U041939 $
+-----------------------------------------------------------------------------
+DESC: CSS both RevealJS slides and D3JS charts for 2018 PhUSE US Connect
+IN  :
+OUT :
+REQ :
+   @import url(../../lib/font/league-gothic/league-gothic.css); from original reveal.js
+   Need to import the League-Gothic font
+   Added cursor:point to aid viewing of mouseover text
+  Theme Colours (moon and TW custom)
+    slide background: #002b36  rgb(0,43,54)
+    lighter variation of slide background: #005469
+    text color: #eee8d5  rgb(238,232,213)
+    CDISC Green: #6AA295  rgb(106,162,149)
+
+   Rectangles in early slides:
+     green: rgb(119,147,60)  #77933C
+  	 blue:  rgb(55,96,146)   #376092
+     purple: rgb(96,74,123)  #604A7B
+
+  Github Universe Logo
+  green  : #52cd00 VALUE
+  yellow : #FFea00  TIMING
+  ltOr   : #F49333  STATUS
+  aqua   : #13A592  LABEL
+  purp   : #9A62A3  CODE
+  blue   : #5073B8  CLASS
+  pink   : #EF4E7B  FLAG
+  grey   : #696B6B  OTHER
+  yellow :
+
+
+-----------------------------------------------------------------------------*/
+
+/*---- Core HTML tags: Body, H, etc. ----------------------------------------*/
+body {
+  background-color: "#002b36";
+  background: #002b36;
+  cursor:pointer;
+  /* next two are from 3D graph. Check for effects on slides */
+  /*TW reinstitute for 3D graph
+  text-align: center;
+  margin: 0;
+
+  */
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  color: #eee8d5;
+  font-family: "League Gothic", sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+  text-align: center }
+}
+/* Original H tags too large in RevealJS */
+h1 { font-size: 3.77em; }
+h2 { font-size: 2.11em; }
+h3 { font-size: 1.55em; }
+h4 { font-size: 1em;    }
+
+/* Cursor point as hand within pre tags */
+pre a.link {
+  cursor: pointer;
+}
+
+
+/*---- Fonts -----------------------------------------------------------------*/
+/* Thankyou! script */
+.bigScript{
+  font-family: Lucida Handwriting;
+  font-size: 3em;
+  color: #eee8d5;
+}
+/*---- Emphasis fonts */
+.emph {
+  font-size: 1.1em;
+  color: red;
+  font-weight: bold;
+}
+/*TODO keep and use only one of EmphGr tags */
+.bold {
+  font-weight: bold;
+}
+.lg{
+  font-size: 1.1em;
+}
+.gr{
+  color: #00cc00;
+}
+
+.indig{
+  color: #4d4dff;
+}
+
+.or{
+color:#ff9900;
+}
+
+.boldLgIndig{
+  font-size: 1.1em;
+  color: #4d4dff;
+  font-weight: bold;
+}
+.boldLgItalIndig{
+  font-size: 1.1em;
+  color: #4d4dff;
+  font-style: italic;
+}
+.gr {
+  color: #00cc00;;
+}
+.TNR {
+  font-family: 'Times New Roman', sans-serif;
+}
+.sm{
+  font-size: .8em;
+}
+.ital{
+  font-style: italic;
+}
+.ltblue{
+  /* color: #4d4dff;  /* dark blue */
+  color:#268bd2;
+}
+
+/* other fonts */
+.meme{
+  font-size: 70px;
+  color: white;
+  font-family: Impact;
+  text-shadow: 2px 2px gray;
+}
+
+.reveal .question {  /* .reveal is needed for override */
+  font-style: italic;
+  font-family: 'Patrick Hand';
+}
+
+/* decrease space between lines */
+p.tight {
+  line-height: 50%;
+}
+.smallFont{
+  font-size: .5em;
+}
+/* Quiz pages */
+.quiz{
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1em;
+  color: red;
+  font-weight: bold;
+}
+/* My fabricated quote in the quizes*/
+.fakeQuote {
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1em;
+  color: #99C2C2;
+  font-weight: bold;
+}
+.ganttLegend {
+  font-size: 12pt;
+  font-family: sans-serif, Consolas, courier;
+  color: #eee8d5;
+}
+
+/*---- CSS Grid Layouts -----------------------------------------------------*/
+
+* {box-sizing:border-box;}
+
+/* Similar to one used for the tiples page in D3JS.css! */
+/* Two evenly split columns */
+.twoColWrapper{  /*Y*/
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #002b36;
+  color: #eee8d5;
+}
+.box {
+  background-color: #002b36;  /* slide background */
+  color:  black;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+.r1c1{
+  margin: 40px;
+  grid-row: 1;
+  grid-column: 1 ;
+}
+.r1c2{
+  grid-row: 1;
+  grid-column: 2;
+}
+.r2span{
+  grid-row: 2;
+  grid-column: 1 / span 2;
+}
+
+/* Narrow top grid (for title placement) */
+.gridFullScreen{ 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content(100%);
+  grid-gap: 0px;  /* shorthand for both column and row gaps */
+}
+.gridFullScreen div{
+  background-color: #002b36; /* moon background */
+}
+
+/* Author grid for title slide */
+.gridAuthors{ /*Y*/
+  display: grid;
+  grid-template-columns: 100px minmax(200px, 300px) minmax(200px, 500px);
+  grid-template-rows: 100px 100px;
+  grid-gap: 5px;  /* shorthand for both column and row gaps */
+}
+.gridAuthors div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  background-color: #002b36; /* moon background */
+  padding: 0.2em;
+  color: #fff;
+  font-size: .75em;
+}
+
+/* Image Attribution */
+.gridImageAttrib{ /*Y*/
+  display: grid;
+  grid-template-columns: 150px minmax(200px, 300px) 150px minmax(200px, 500px);
+  grid-template-rows: 150px 150px;
+  grid-gap: 2px;  /* shorthand for both column and row gaps */
+}
+.gridImageAttrib div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  background-color: #002b36; /* moon background */
+  padding: 0.1em;
+  color: #fff;
+  font-size: .45em;
+}
+
+.gridPicLeft{ /*N, but keep in case needed */
+  display: grid;
+  grid-template-columns: 500px 800px ;  /* flexible grid units instead of px or % */
+  grid-template-rows:  800px;
+  grid-gap: 1px;  /* column and row */
+}
+.gridPicLeft div{
+  border: 0px solid rgb(0.95,107);
+  border-radius: 0px;
+  background-color: #002b36; /* moon background */
+  padding: 0.01em;
+}
+
+
+/* Links and Resources */
+.gridOneThirdCol{
+    display: grid;
+    grid-template-columns: 30%  70%;  /* flexible grid units instead of px or % */
+    grid-gap: 12px;  /* shorthand for both column and row gaps */
+}
+.gridOneThirdCol div{
+  border: 1px solid rgb(0.95,107);
+  border-radius: 3px;
+  background-color: #002b36; /* moon background */
+  padding: 0.1em;
+  color: #fff;
+  font-size: .45em;
+}
+
+/*---- SLIDE FORMATTING -----------------------------------------------------*/
+/* Source: https://github.com/hakimel/reveal.js/issues/180 (bottom of comments)*/
+reveal.slide .slides > section, .reveal.slide .slides > section > section {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute !important;
+  top: 0 !important;
+}
+/* Dork with this to get the print working */
+.print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
+  min-height: 770px !important;
+  position: relative !important;
+}
+/*---- END SLIDE FORMATTING -------------------------------------------------*/
+/* code box formatting */
+pre code{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 27px;
+  line-height: 32px;
+}
+
+/* Link colors, same as moon.css. Visited same as unvisited for visiblilty */
+a {color:#268bd2;}
+a:visited {color:#268bd2;}
+a:hover {color: #78b9e6;}
+
+
+/*----  3D Graph slide -------------------------------------------------------*/
+
+
+/*TW reactivate for 3D graph
+.graph-data {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+}
+
+/* DISABLE: causes issue with RevealJS nav buttons!
+
+.toggle-data-btn {
+    cursor: pointer;
+    opacity: 0.85;
+}
+.toggle-data-btn:hover {
+    opacity: 1;
+}
+*/
+#graph-data-description {
+    font-size: 12px;
+    color:  #eee8d5;
+}
+
+
+
+/*-- end 3d graph */
+
+/*---- Lego Slide  -----------------------------------------------------------*/
+.nodeTextLego{
+ font-size:1.1em;
+ fill: #eee8d5;  /* moon.css theme */
+ text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+}
+.nodeTextLegoLarge{
+  font-size: 2em;
+  fill: #eee8d5;  /* keep with moon.css theme */
+  text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+}
+
+.link {
+  fill: none;
+  stroke: #006680;
+  stroke-width: 6px;
+}
+
+/* others from D3 that may need removed? */
+/* text for link labels */
+.edgelabel{
+  flood-opacity:1;
+  font: 12pt sans-serif;
+  text-anchor: middle;
+}
+
+.edgelabel.extont{
+  fill: #cc7000;  /* dark orange, similar to external ont nodes */
+}
+
+.edgelabel.rdf{
+  fill: #0000d8;  /* dark blue */
+}
+
+.edgelabel.unspec{
+  fill: white;
+}
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+/* Web Study Data */
+.legendTitle, .explainText, labelBarchart {
+  fill: #eee8d5;
+  font-size: 12pt;
+}
+.legendBox{
+  fill: #003d4d;
+  stroke: #006680;
+}
+text.monoLG {
+  font-size: 12pt;
+  font-family: sans-serif, Consolas, courier;
+  fill: #eee8d5;
+}
+text.monoSM {
+  font: 10pt "Courier", Arial;
+  font-weight: normal;
+
+
+  fill: #eee8d5;
+  stroke: #eee8d5;
+}
+
+.lineLego{
+  stroke:#006680;
+  stroke-width: 6;
+}
+
+.design{
+  fill: rgb(190,186,218);
+  stroke-width: 6;
+}
+.conduct{
+  fill: rgb(128,177,211);
+  stroke-width: 6;
+}
+.submission{
+  fill: rgb(255,255,179);
+  stroke-width: 6;
+}
+.activityRule{
+  /* fill: #EE4035; now same as validation rule*/
+  fill: #c61b11;
+  stroke-width: 6;
+}
+/* These differentiate the rect lanes from the header lanes in MainGraph,
+     cannot use single class MainRectText, for eg. */
+.ontologyText,
+.activityRuleText,
+.validationRuleText,
+.rdfInstanceText,
+.rdfFutureText,
+.sasDataText,
+.xmlText {
+  fill: #eee8d5;
+  font-size: 1.5em;}
+
+.validationRule{
+  fill: #c61b11;
+  stroke-width: 6;
+}
+.sasData{
+  /* fill: #00008b;  */
+  fill: #4d4dff;
+  stroke-width: 6;
+}
+.xml{
+  fill: #663399;
+  stroke-width: 6;
+}
+.ontology{
+  fill:#e86c16;
+}
+.rdfInstance{
+  fill: #008000;
+  stroke-width: 6;
+}
+.rdfFuture{
+  fill: #00b300;
+  stroke-width: 6;
+}
+.headText{ font: 20px tahoma; }
+.subheadText{
+ font: 16px sans-serif;
+ font-weight: bold;
+}
+.laneText{ fill: #eee8d5; } /* stroke:  #eee8d5; */
+
+.head, .subhead {
+  fill: #e7f1fa;
+  stroke-width: 16;
+}
+.brush .extent {
+  stroke: gray;
+  fill: dodgerblue;
+  fill-opacity: .165;
+}
+
+/*--------------------------- Person FN Graph ------------------------------*/
+.nodetext{
+   font-size:24px;
+   fill: #eee8d5;  /* keep with moon.css theme */
+   text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+}
+.node:not(:hover) .nodetext{
+    display: none;
+}
+.edge:not(:hover) .edgetext{
+    display: none;
+}
+/*-- Nodes */
+/* Stroke is 3 levels darker than fill on https://www.w3schools.com/colors/colors_picker.asp */
+.node{
+ stroke-width: 1;
+ cursor: pointer;
+}
+.code{
+  fill: #870922;
+  stroke: #600618;
+}
+.flag{
+  fill: #00ff00;
+  stroke: #600618;
+}
+.literal{
+  fill: white;
+  stroke: #38225e;
+}
+.measure{
+  fill: red;
+  stroke: #38225e;
+}
+.person{
+  fill: #ffff00;
+  stroke: #38225e;
+}
+.rdfs{
+  fill: grey;
+  stroke: #38225e;
+}
+.rule{
+  fill: pink;
+  stroke: #38225e;
+}
+.sdtm{
+  fill: orange;
+  stroke: #164850;
+}
+.study{
+  fill: #482C79;
+  stroke: #38225e;
+}
+
+.skos{
+  fill: blue;
+  stroke: #164850;
+}
+.time{
+  fill: #1C5B64;
+  stroke: #164850;
+}
+
+/*---- Edges ----------------------------------------------------------------*/
+.edge{
+  stroke-width: 5;
+}
+.other{
+  stroke: #696B6B;
+}
+.class{
+  stroke: #5073B8;
+}
+.code{
+   stroke: #9A62A3 ;
+}
+.flag{
+   stroke:#EF4E7B ;
+}
+.label{
+   stroke: #13A592;
+}
+.status{
+   stroke: #F49333;
+}
+.timing{
+   stroke: #FFea00;
+}
+.value{
+   stroke: #52cd00;
+}
+
+.tooltipLegend{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    padding: 4px;
+    font: 12px sans-serif;
+    background: #00ccff;
+    border: 0px;
+    pointer-events: none;
+}
+
+.tooltip{
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    padding: 3px;
+    font: 16pt sans-serif;
+    background: #eee8d5;
+    border: 4px;
+    border-style: solid;
+    /*border-color: #006680; */
+    border-color: #003d4d;
+    pointer-events: none;
+}
+.legendText{
+	  fill: #eee8d5;
+    font-size: 12px;
+    font-weight:bold;
+}
+.legendNodeText{
+    /* fill: #eee8d5; */
+    fill:#e1d7b7;  /* a little darker than the titles, etc.*/
+    font-size: 12px;
+    font-weight:bold;
+}
+
+.nodeText{
+    fill:#000000;
+    font-family: Serif, Georgia;
+    font-size: 24px;
+    font-weight: bold;
+}
+.node {
+    fill: black;
+    font-size: 13px;
+    font-weight:bold;
+}
+
+.bar {
+ /* fill: #969696; */  /* gray */
+ fill: #ffff33;  /* yellow */
+ border: 5px solid black;
+}
+
+.tooltipGantt{
+    position: absolute;
+    width: 110px;
+    height: 20px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightgreen;
+    border: 0px;
+    pointer-events: none;
+}
+
+/*----- SLIDE SPECIFIC ------------------------------------------------------*/
+/*---- Multiple Advancing Standards */
+.refline {
+    fill: none;
+    stroke: #cc0000;
+    stroke-width: 4.0px;
+    //stroke-dasharray: 5, 15;
+}
+.refGridLine {
+  fill: none;
+  stroke: #eee8d5 ;
+  stroke-width: 3.0px;
+  //stroke-dasharray: 5, 15;
+}
+
+
+  /* changes font of the Submission line label, not axes */
+  .chart {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+  .axis path,.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    font: 24px sans-serif;
+  }
+  .tick line{
+  	opacity: 0.2;
+  }
+
+.refBub{
+    width: 150px;
+    height: 120px;
+    padding: 2px;
+    font: 12px sans-serif;
+    fill: #ffe1c3;
+    stroke-width: 3px;
+    stroke: #cc0000;
+}
+/* Axis label values X,Y */
+.axis text {
+  font: 15px sans-serif;
+  fill: #eee8d5;
+}
+
+/* this does not work */
+#yaxis text {
+    font: 20px sans-serif;
+    color: red;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: grey;
+  shape-rendering: crispEdges;
+}
+
+/* display:none removed it from the Gantt chart: Not what we currently want */
+.x.axis path {
+  /* display: none; */
+}
+/*---- Mini Ontology (LEGO) slide -------------------------------------------*/
+.nodeTextLego{
+ font-size:1.1em;
+ fill: #eee8d5;  /* moon.css theme */
+ text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+}
+.nodeTextLegoLarge{
+  font-size: 2em;
+  fill: #eee8d5;  /* keep with moon.css theme */
+  text-shadow: -4px 4px 3px   #000000;   /* add a drop shadow */
+}
+/* Web Study Data */
+.legendTitle, .explainText, labelBarchart {
+  fill: #eee8d5;
+  font-size: 12pt;
+}
+
+.legendBox{
+  fill: #003d4d;
+  stroke: #006680;
+}
+text.monoLG {
+  font-size: 12pt;
+  font-family: sans-serif, Consolas, courier;
+  fill: #eee8d5;
+}
+
+
+text.monoSM {
+  font: 10pt "Courier", Arial;
+  font-weight: normal;
+
+
+  fill: #eee8d5;
+  stroke: #eee8d5;
+}
+
+.lineLego{
+  stroke:#006680;
+  stroke-width: 6;
+}
+
+
+/*---- Mapping Triples ------------------------------------------------------*/
+/* Grid Layout :  Example here: https://gridbyexample.com/examples/example5 */
+.wrapper{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #002b36;
+  color: #002b36;
+}
+.box {
+  background-color: #002b36;  /* slide background */
+  color:  black;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+.a {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+.b {
+  grid-column: 1 ;
+  grid-row: 2;
+}
+.c {
+  grid-column: 2 ;
+  grid-row: 2;
+}
+
+/* for a legend on the right of a large graph (StandardsOverTime) */
+.graphWrapper{
+    display: grid;
+    grid-gap: 2px;  /* shorthand for both column and row gaps */
+    grid-template-columns: 920px  300px;  /* flexible grid units instead of px or % */
+    grid-template-rows: 1000px;  /* flexible grid units instead of px or % */
+}
+.graphBox{
+  /*
+  background-color: white;
+  color: #000000;
+  */
+  border-radius: 1px;
+  padding: 1px;
+}
+#graph{
+  grid-column: 1;
+  grid-row: 1;
+}
+#graphLegend {
+  grid-column: 2 ;
+  grid-row: 1;
+}
+
+/* Table formatting (source CSV data) */
+table.csvTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 50%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.csvTable td, table.csvTable th {
+  border: 3px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.csvTable tbody td {
+  background: #002b36 ;
+}
+table.csvTable th {
+  background: #002b36;
+}
+table.csvTable thead th {
+ /* font-size: 16px;
+  font-weight: bold; */
+  color: #005469;
+  border-left: 2px solid #D0E4F5;
+}
+table.csvTable thead th:first-child {
+  border-left: none;
+}
+
+.node {
+  stroke-width: 4px;
+  fill: #005469 ;
+
+}
+
+/* Nodes in the FN graph */
+.node.rdfValue{
+  /* stroke: #13A592; */
+  stroke: #eee8d5; 
+}
+.node.usubjidValue{
+  /* fill: #77933C ; */
+/*  	fill: #005469; */
+  stroke:  #cfcfff;
+  font-color: #eee8d5;
+}
+.node.armValue{
+  /* fill: #376092 ; */
+  stroke: #ffc182;
+}
+
+.node.siteValue{
+ /*  fill: #604A7B ; */
+  stroke: #daffb5;
+}
+
+/* Font classes */
+.smsbracket{
+  color: red;
+}
+.ttl {
+  font-family: monospace;
+  font-size: 140%;
+  color: #eee8d5;
+}
+
+.usubjidField, .usubjidValue {
+  color: #cfcfff;
+}
+
+/* text within the nodes */
+.nodeText.usubjidValue{
+  fill:#cfcfff;
+}
+
+.nodeText.rdfValue{
+  fill:#eee8d5;
+}
+
+
+.armField, .armValue{
+  color: #ffc182;
+}
+.nodeText.armValue{
+  fill:#ffc182;
+}
+
+.siteField, .siteValue{
+  color: #daffb5;
+}
+.nodeText.siteValue{
+  fill:#daffb5;
+}
+
+/*---------------------------------------------------------------------------*/
+/*---- DEPRECIATED? ---------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/

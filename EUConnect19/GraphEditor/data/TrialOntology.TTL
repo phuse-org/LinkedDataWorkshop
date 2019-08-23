@@ -1,0 +1,44 @@
+@prefix eg: <http://example.org/LDWorkshop#>.
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+schema:Study  rdf:type rdfs:Class .
+
+schema:Person rdf:type rdfs:Class .
+
+eg:HumanStudySubject rdf:type rdfs:Class;
+    rdfs:subClassOf  schema:Person .
+
+eg:Investigator  rdf:type  rdfs:Class;
+    rdfs:subClassOf  schema:Person .
+
+eg:enrolledin  rdf:type rdfs:Property;
+  rdfs:domain   eg:HumanStudySubject;
+  rdfs:range  eg:Study .
+  
+eg:investigator rdf:type rdfs:Property;
+  rdfs:domain   eg:Investigator;
+  rdfs:range  eg:Study .
+
+eg:drugname rdf:type rdfs:Property;
+  rdfs:domain eg:Drug;
+  rdfs:range   eg:Drugname.
+
+eg:Drug rdf:type rdfs:Class;
+  rdfs:subClassOf  eg:Product.
+
+eg:treatmentarm rdf:type rdfs:Property;
+  rdfs:domain eg:Trial;
+  rdfs:range   eg:Treatmentarm.
+
+eg:treatmenttype rdf:type rdfs:Property;
+  rdfs:domain eg:Treatment;
+  rdfs:range   eg:TreatmentType.
+
+
+
+eg:Person1  eg:enrolledin  eg:Study1  .
+eg:Person3  eg:investigator eg:Study1 .

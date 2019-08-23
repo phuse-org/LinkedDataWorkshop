@@ -1,0 +1,12 @@
+# 525-AllStudiesCountPeople.rq  Count all Persons involved all studies
+#  (not just patients who participateIn a study)
+# Execute on the AllStudies Database
+# Reasoner must be ON
+
+PREFIX schema: <http://schema.org/>
+
+
+SELECT  (COUNT(?person) as ?numAllPersons)
+WHERE{
+  ?person a schema:Person.
+}

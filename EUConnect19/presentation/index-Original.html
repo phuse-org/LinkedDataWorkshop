@@ -1,0 +1,598 @@
+<!doctype html>
+<html>
+  <head>
+
+<!--
+  Start HTTP server with D3Wkshp-css.bat, then:
+  VIEW: http://localhost:8000/LDWkshp-CSS2018.html
+-->
+
+<!-- Uses Chalkboard for drawing:  https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
+   'c' to activate
+   'del' to remove lines or backspace
+-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <title>CSS 2018-LDWkshop</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css"> <!--Theme used for syntax highlighting of code -->
+  <link rel="stylesheet"  href="css/theme/moonTW.css"> <!-- Change fonts from moon default -->
+  <link rel="stylesheet" href="css/CSS2019.css">
+  <!-- Printing and PDF exports --> <!-- TO PRINT: 1. Copy .html to index.html
+  2. start web service to that path. 2. Start an older version of Chrome.
+  Current version does not support PDF preview.
+  C:/downloads/chrome64_55.0.2883.75/Chrome.exe 3. Open in Chrome:
+  http://localhost:8000/?print-pdf#/. 4. Ctrl P :  Landscape, no s, Print
+  Background Images. 5. use Print Preview to check fmarginor blank sides 6. Save
+  as PDF Trouble Shooting: PROBLEM: Background not printing. SOLUTION: Check
+  option for printing background images. Uncheck for printing header/footer to
+  remove those. --> <!-- ENABLE THIS WHEN PRINTING . May also need to set width
+  and height in initialize fnt at bottom <link rel="stylesheet"
+  href="css/print/pdf.css"> -->
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<!---- Title ------------------------------------------------------------------>
+<section>
+  <h1>Let's Make a Knowledge Graph!</h1>
+  <h1>A Hands-on, Interactive, Linked Data Workshop</h1>
+  <br>
+  <h4> PhUSE CSS 2019</h4>
+  <br>
+  Silver Spring, MD<br>
+  2019-06-09
+</section>
+
+<!---- Instructors ------------------------------------------------------------>
+<section>
+  <h1>Instructor</h1>
+  <div class="gridTrainers">
+    <div align=left>Tim Williams</div>
+    <div align=left>Principal Statistical Solutions Analyst<br>
+        UCB BioSciences<br>
+        <a href="mailto:tim.williams@PhUSE.eu">tim.williams@PhUSE.eu</a>
+        <!--
+        <img src="images/Twitter_logo_blue.png" style="border:0px; box-shadow:none;" height=40></img>@NovasTaylor<br>
+        <img src="images/linkedinLogo.png" style="border:0px; box-shadow:none;" height=40></img><br>
+        <a href="https://www.linkedin.com/in/timpwilliams/">https://www.linkedin.com/in/timpwilliams/</a><br>
+      -->
+    </div>
+    <div align=left>Assisted by:</div>
+    <div align=left>Nolan Nichols (Genentech)
+    </div>
+    <div align=left>Content from:</div>
+    <div align=left>Johannes Ulander (S-Cubed)
+    </div>
+  </div>
+</section>
+
+<!---- Preparation ------------------------------------------------------------>
+<section>
+  <h2>Preparation</h2>
+  <ul>
+    <li>Your laptop [Power up!]
+    <li>Copy of:
+    <ol>
+      <li>Exercises
+      <li>Graph Editor Introduction
+      <li>Info sheet
+      <li>SPARQL reference
+    </ol>
+    <li>Log in to Cloud Server
+  </ul>
+</section>
+
+<section>
+  Workshop Files, Presentation PDF:<br>
+  <div align=left>
+    <font class="linkSmallBlue">
+      <br>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop/CSS2019">https://github.com/phuse-org/LinkedDataWorkshop/CSS2019</a>
+    </font>
+  </div>
+  <br>
+  (for later)
+</section>
+
+<!----    -------------------------------------------------------------->
+<section>
+  <h1>Outline</h1>
+  <ol start=0>
+    <li>What is a Knowledge Graph?</li>
+    <li>Create Your Study Graph</li>
+    <li>Query Your Graph</li>
+    <li>Extend to Other Graphs (Federated Query)</li>
+    <li>Ontology and Inference</li>
+    <li>Merge Studies</li>
+    <li>Discussion</li>
+  </ol>
+</section>
+
+
+<!---- What is a KG? ---------------------------------------------------------->
+<section>
+  <h1>What is a Knowledge Graph?</h1>
+  <ul>
+    <li class="fragment">An interconnected network of information consisting of
+       meaningful relationships that are understandable by both people and computers.</li>
+    <li class="fragment">Built on Linked Data </li>
+</section>
+
+<section>
+  <h1>What is Linked Data?</h1>
+  <ul>
+    <li>Data that has meaningful (semantic) relationships
+    <li>Resource Description Framework (RDF)
+  </ul>
+</section>
+
+<!-- RDF Triple for a person -------------------------------------------------->
+<section>
+  <h1>RDF Triple Describing Person 1 </h1>
+   <img src="images/Person1HasNameBob1.png" width=800px; style="border:0px; box-shadow:none;">
+   <img class="fragment" src="images/Person1HasNameBob2.png" width=800px; style="border:0px; box-shadow:none;">
+   <img class="fragment" src="images/Person1HasNameBob3.png" width=800px; style="border:0px; box-shadow:none;">
+   <img class="fragment" src="images/Person1HasNameBob4.png" width=800px; style="border:0px; box-shadow:none;">
+</section>
+
+<!-- Person 1 name and age ---------------------------------------------------->
+<section>
+  <h1>Person 1 Name and Age</h1>
+  <img src="images/Person1HasAge.png" width=800px;
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section data-transition="fade-in" >
+  <img src="images/Drug1Study1-NoDetail.png" width=850px;
+    style="border:0px; box-shadow:none;">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</section>
+
+<section data-transition="fade-in">
+  <img src="images/Study1-Phase.png" width=900px;
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section data-transition="fade-in">
+  <h1>"Things" need unique identifiers</h1>
+  <h4>IRI: Internationalized Resource Identifier</h4>
+  <ul>
+    <li>Unique Identifier
+    <li>Uses HTTP://xx.xx.xx/<font class="emphItalicGreen">xxxx</font>
+  </ul>
+  <img src="images/Drug1Study1-IRIs.png"
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+  <h1>Workshop Prefixes</h1>
+    <ul>
+      <li>Prefixes shorten IRIs for readability
+    </ul>
+  <pre>
+@prefix eg: &lt;http://example.org/LDWorkshop#&gt; .
+@prefix ncit: &lt;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#&gt; .
+@prefix schema: &lt;http://schema.org/&gt; .
+  </pre>
+  <img src="images/Drug1Study1-Prefixed.png"
+    style="border:0px; box-shadow:none;">
+</section>
+
+<section>
+    <h1>literals</h1>
+    <img src="images/Literals-StringInt.png"
+      style="border:0px; box-shadow:none;">
+    <br>
+    <ul>
+      <font class="emphItalicGreen" >
+        <li>string
+      </font>
+      <li>number
+        <ul>
+          <font class="emphItalicGreen">
+          <li>integer (INT)
+          </font>
+        </ul>
+      <li>date
+    </ul>
+    <p>No links <i>from</i> a literal </p>
+</section>
+<!---- OUTLINE: Whiteboard --- ------------------------------------------------>
+<section>
+  <h1>Outline</h1>
+    <ol start=0>
+      <font class="deEmph">
+        <li>What is a Knowledge Graph?</li>
+      </font>
+      <font class="emphGr">
+        <li>Create Your Study Graph</li>
+        <li>Query Your Graph</li>
+      </font>
+      <font class="deEmph">
+        <li>Extend to Other Graphs (Federated Query)
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
+        <li>Discussion</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+  <img src="images/EveryoneGetsAStudy.png" height=450px;
+      style="border:0px; box-shadow:none;"></img>
+</section>
+
+<section>
+    <h1>Introduction to the Graph Editor</h1>
+    <br><br>
+    See your handout
+    <br><br>
+    Reference: .../doc/<b>Graph Editor Introduction.pdf</b>
+</section>
+
+<section>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
+  <br>
+  <p>1. Create Your Study Graph
+  <p>2. Query Your Graph
+</section>
+
+<!---- OUTLINE: Extend -------------------------------------------------------->
+<section>
+<h1>Outline</h1>
+    <ol start=0>
+      <font class="deEmph">
+        <li>What is a Knowledge Graph?</li>
+        <li>Create Your Study Graph</li>
+        <li>Query Your Graph</li>
+      </font>
+
+      <font class="emphGr">
+        <li>Extend to Other Graphs (Federated Query)</li>
+      </font>
+
+      <font class="deEmph">
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
+        <li>Discussion</li>
+      </font>
+    </ol>
+</section>
+
+<!-- Link From your Study ----------------------------------------------------->
+<section>
+  <img src="images/LinkFromYourStudy.png" height=500px;
+      style="border:0px; box-shadow:none;"></img>
+</section>
+
+<!-- Link From your Study ----------------------------------------------------->
+<section>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
+  <br>
+  <p>1. Link to ClinicalTrials.gov
+  <p>2. Link to DBPedia
+</section>
+
+
+
+<!---- OUTLINE: Ontology -------------------------------------------------------->
+<section>
+<h1>Outline</h1>
+    <ol start=0>
+      <font class="deEmph">
+        <li>What is a Knowledge Graph?</li>
+        <li>Create Your Study Graph</li>
+        <li>Query Your Graph</li>
+        <li>Extend to Other Graphs (Federated Query)</li>
+      </font>
+
+      <font class="emphGr">
+        <li>Ontology and Inference</li>
+      </font>
+
+      <font class="deEmph">
+        <li>Merge Studies</li>
+        <li>Discussion</li>
+      </font>
+    </ol>
+</section>
+
+<!-- Ontoloyg and Inference --------------------------------------------------->
+<section>
+    Ontology and Inference<br>
+    <div class="gridTrainers">
+      <div align=right><font class="emphLtBlue">Ontology</font></div>
+      <div align=left>
+        <p>A vocabulary of things and how they relate to each other</p>
+        <ul>
+          <li>...just more nodes and links
+          <li>Tools: Protege, TopBraid
+         </ul>
+      </div>
+      <div align=right><font class="emphLtBlue">Reasoner</font></div>
+      <div align=left>
+        <p>An <i>engine</i> that applies the ontology to the graph and
+          <font class="emphItalicGreen">infers</font> values and relationships
+          <u>not in your original data</u>.
+      </div>
+    </div>
+</section>
+
+<section>
+  <section>
+    <h1>Think about that again:</h1>
+      <p>Ontologies and Reasoning create <font class="emphGr">values</font>
+        and   <font class="emphGr">relations</font>
+        <font class="emphItalicRed">not in your original data!</font><br>
+      <div align=center>
+        <img src="images/mindblown.gif" height=300px;
+         style="border:0px; box-shadow:none; height=336px; width=232px;"></img>
+      </div>
+    <p>StudyOntology.TTL
+  </section>
+  <section>
+    <h1>A Subset of the study ontology file</h1>
+    <img src="images/StudyOntologySS.png" height=500px;
+     style="border:0px; box-shadow:none; "></img>
+  </section>
+</section>
+
+<section data-background="images/Reasoner-Infer.png" data-background-size="1100px">
+</section>
+
+<section data-background="images/Reasoner-Class.png" data-background-size="1100px">
+</section>
+
+<section>
+    <h2 style="color:red; font-style: italic;">Exercise</h2>
+    <br>
+    <p>3. Ontology and Inference
+</section>
+
+<!---- OUTLINE: Merge -------------------------------------------------------->
+<section>
+<h1>Outline</h1>
+    <ol start=0>
+      <font class="deEmph">
+        <li>What is a Knowledge Graph?</li>
+        <li>Create Your Study Graph</li>
+        <li>Query Your Graph</li>
+        <li>Extend to Other Graphs (Federated Query)</li>
+        <li>Ontology and Inference</li>
+      </font>
+
+      <font class="emphGr">
+        <li>Merge Studies</li>
+      </font>
+
+      <font class="deEmph">
+        <li>Discussion</li>
+      </font>
+    </ol>
+</section>
+
+<section>
+  <p>When IRIs are the <font class="emphGr">same</font>, merging is
+    <font class="emphItalicRed">automagic!</font>
+  <div align=center>
+      <img src="images/Magic.gif" height=300px;
+          style="border:0px; box-shadow:none;"></img>
+  </div>
+</section>
+
+<section>
+  <section>
+    <h1>With RDF, Merging be like:</h1>
+    <img src="images/mergeGraphs.gif" style="border:0px; box-shadow:none;"></img>
+    <br>
+    <a href="http://localhost:8000/presentation/GraphMerge.html" target="_blank">What? How? </a>
+  </section>
+  <section>
+    <img src="images/GraphMergeSS.png" height=500px;
+        style="border:0px; box-shadow:none;"></img>
+  </section>
+</section>
+<section><!-- Schematic of merging all study data into central pool -->
+    <img src="images/StudiesToDataPool.png" style="border:0px; box-shadow:none;"></img>
+</section>
+
+<section>
+  <h2 style="color:red; font-style: italic;">Exercise</h2>
+  <br>
+  <p>4. Merge Studies
+</section>
+
+<section>
+  <h1>AllStudies Data Pool</h1>
+  <h2 style="color:red; font-style: italic;">Bonus!</h2>
+  Visualize your Data Pool.<br>
+  <br>
+  <font class="progNameLg">AllStudiesPoolVis.R</font>
+  </section>
+</section>
+
+<!---- OUTLINE: Discussion ---------------------------------------------------->
+<section>
+<h1>Outline</h1>
+    <ol start=0>
+      <font class="deEmph">
+        <li>What is a Knowledge Graph?</li>
+        <li>Create Your Study Graph</li>
+        <li>Query Your Graph</li>
+        <li>Extend to Other Graphs (Federated Query)</li>
+        <li>Ontology and Inference</li>
+        <li>Merge Studies</li>
+      </font>
+      <font class="emphGr">
+        <li>Discussion...after final words</li>
+      </font>
+
+    </ol>
+</section>
+
+<!---- Acknowledgements --------------------------------------------->
+<section>
+  <h1>Acknowledgements</h1>
+  <div align=left>
+  <ul>
+    <li><font class="emphSmallBlue">YOU</font>!
+
+    <li><font class="emphSmallBlue">PhUSE</font>
+      <ul>
+        <li>Lauren - Prep Webinars and coordination</li>
+        <li>PhUSE Admin Team</li>
+        <li>Nolan Nichols (Genentech)
+        <li>Johannes Ulander (S-Cubed)
+      </ul>
+    <li><font class="emphSmallBlue">Stardog Union</font>
+      <ul>
+        <li>Servers, graph database</li>
+        <li>John Bresnahan - server cloning</li>
+      </ul>
+  </ul>
+</div>
+</section>
+<!---- SLIDE: Resources Workshop --------------------------------------------->
+
+<section>
+  <h1>Resources</h1>
+  <br>
+  <ul><font class="emphMedBlue">Stardog Union</font>
+    <li><a href="https://fetch.stardog.com/phuse/">fetch.stardog.com/phuse/</a>
+    <li><a href="https://www.stardog.com">www.stardog.com</a>
+  </ul>
+ </section>
+
+
+<!---- SLIDE: Resources Workshop --------------------------------------------->
+<section>
+  <h1>Resources</h1>
+  <ul>
+    <li>Workshop materials, including the Graph Editor, SPARQL scripts, PDF of this presentation:<br>
+      <a href="https://github.com/phuse-org/LinkedDataWorkshop/CSS2019">https://github.com/phuse-org/LinkedDataWorkshop/CSS2019</a>
+  </ul>
+  <br><br>
+  <ul>And watch this space:
+    <li><a href="https://github.com/phuse-org/LinkedDataEducation">https://github.com/phuse-org/LinkedDataEducation</a>
+  </ul>
+</section>
+
+<!---- SLIDE: RDF Resources---------------------------------------------------->
+<section>
+  <h1>Resources</h1>
+  <div class="gridResources">
+      <div>Linked Data Introduction
+      </div>
+      <div><a href="https://www.youtube.com/watch?v=4x_xzT5eF5Q">https://www.youtube.com/watch?v=4x_xzT5eF5Q</a>
+      </div>
+
+      <div>SPARQL in 11 Minutes
+      </div>
+      <div><a href="https://www.youtube.com/watch?v=FvGndkpa4K0">https://www.youtube.com/watch?v=FvGndkpa4K0</a>
+      </div>
+  </div>
+</section>
+
+<section>
+  <h1 align=left>PhUSE Project Breakout Session</h1>
+  <p>"Going Translational With Linked Data"
+  <br><br>
+  <b>When:</b> Monday 13:00 - 17:00pm <br>
+  <b>Where:</b> Ellsworth A <br>
+  <br>
+  <ul><font class="emphMedBlue">Topics</font>
+    <li>Terminology mapping </li>
+    <li>MedDRA as RDF </li>
+    <li>Project Endpoint</li>
+    <li>...Other?</li>
+  </ul>
+  <br>
+</section>
+
+<section>
+  <h1 align=left>Discussion</h1>
+</section>
+
+<section>
+  <h1>Extra Slides</h1>
+</section>
+
+<section><!-------------------------------------------------------------------->
+  <a href="http://lod-cloud.net/">The LOD cloud</a>
+</section>
+
+<!---- Additional Opportunities------------------------------------------------->
+<section>
+  <h1>Opportunities</h1>
+  <ul>
+    <li>Merge data from diverse sources (no silos!)
+    <li>Data integration across the life cycle
+    <li>Integral Metadata
+    <li>High quality submissions data
+    <li>New ways to explore and analyze
+    <li>Build a foundation for AI and ML
+    <li>[!! YOUR IMAGINATION !!]
+  </ul>
+</section>
+<!---------------------------------------------------------------------------->
+<!---- END OF SLIDE DEFINITIONS ---------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      // Shows the slide number using default formatting
+
+     //Reveal.configure({ slideNumber: true });
+
+  Reveal.initialize({
+    slideNumber: true,
+
+//    width: '100%',
+//    height: '100%',
+    chalkboard: {
+          // optionally load pre-recorded chalkboard drawing from file
+          //src: "chalkboard.json",
+    },
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/chalkboard/chalkboard.js' },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ],
+    keyboard: {
+      67: function() { RevealChalkboard.toggleNotesCanvas() },  // toggle notes canvas when 'c' is pressed
+      66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+      46: function() { RevealChalkboard.clear() },  // clear chalkboard when 'DEL' is pressed
+       8: function() { RevealChalkboard.reset() },  // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+      68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+    }
+  });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+# 240-NamesAndTreatment.rq  Names of Persons in each type of treatment and the drug they receive
+
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX eg:      <http://example.org/LDWorkshop#>
+PREFIX schema:  <http://schema.org/>
+
+SELECT ?givenName ?trtArmType ?drugName
+WHERE {
+  ?person     eg:randomizedTo   ?trtArm ;
+              schema:givenName  ?givenName .
+  ?trtArm     eg:trtArmType     ?trtArmType .
+  ?trtArmType eg:drugName       ?drugName .        
+}

@@ -1,0 +1,312 @@
+[
+  {
+    "studyObs": "obs29",
+    "study": "Study27",
+    "phase": "Phase 3",
+    "startDate": "1993-10-07",
+    "completionDate": "1995-10-03",
+    "enrollment": "324"
+  },
+  {
+    "studyObs": "obs30",
+    "study": "Study28",
+    "phase": "Phase 3",
+    "startDate": "1994-09-01",
+    "completionDate": "1996-03-07",
+    "enrollment": "294"
+  },
+  {
+    "studyObs": "obs31",
+    "study": "Study29",
+    "phase": "Phase 2",
+    "startDate": "1995-06-02",
+    "completionDate": "1998-05-13",
+    "enrollment": "286"
+  },
+  {
+    "studyObs": "obs32",
+    "study": "Study30",
+    "phase": "Phase 1",
+    "startDate": "1997-09-29",
+    "completionDate": "1998-09-30",
+    "enrollment": "24"
+  },
+  {
+    "studyObs": "obs33",
+    "nctId": "NCT00150709",
+    "study": "Study31",
+    "phase": "Phase 3",
+    "startDate": "1998-01-26",
+    "completionDate": "2006-01-25",
+    "enrollment": "238"
+  },
+  {
+    "studyObs": "obs34",
+    "nctId": "NCT00615615",
+    "study": "Study32",
+    "phase": "Phase 3",
+    "startDate": "1999-09-21",
+    "completionDate": "2003-03-03",
+    "enrollment": "216"
+  },
+  {
+    "studyObs": "obs35",
+    "nctId": "NCT00600509",
+    "study": "Study33",
+    "phase": "Phase 2",
+    "startDate": "2001-01-17",
+    "completionDate": "2003-07-31",
+    "enrollment": "216"
+  },
+  {
+    "studyObs": "obs36",
+    "nctId": "NCT00150774",
+    "study": "Study34",
+    "phase": "Phase 3",
+    "startDate": "2001-09-03",
+    "completionDate": "2004-12-13",
+    "enrollment": "116"
+  },
+  {
+    "studyObs": "obs5",
+    "nctId": "NCT00160615",
+    "study": "Study3",
+    "phase": "Phase 3",
+    "startDate": "2001-09-12",
+    "completionDate": "2007-11-14",
+    "enrollment": "97"
+  },
+  {
+    "studyObs": "obs7",
+    "nctId": "NCT00160550",
+    "study": "Study5",
+    "phase": "Phase 3",
+    "startDate": "2001-09-19",
+    "completionDate": "2005-06-27",
+    "enrollment": "154"
+  },
+  {
+    "studyObs": "obs37",
+    "nctId": "NCT00150748",
+    "study": "Study35",
+    "phase": "Phase 3",
+    "startDate": "2001-11-01",
+    "completionDate": "2007-07-10",
+    "enrollment": "300"
+  },
+  {
+    "studyObs": "obs4",
+    "study": "Study2",
+    "phase": "Phase 2",
+    "startDate": "2002-01-31",
+    "completionDate": "2003-07-28",
+    "enrollment": "21"
+  },
+  {
+    "studyObs": "obs6",
+    "nctId": "NCT00544050",
+    "study": "Study4",
+    "phase": "Phase 2",
+    "startDate": "2002-09-18",
+    "completionDate": "2003-05-16",
+    "enrollment": "13"
+  },
+  {
+    "studyObs": "obs8",
+    "nctId": "NCT00105040",
+    "study": "Study6",
+    "phase": "Phase 2",
+    "startDate": "2004-09-28",
+    "completionDate": "2007-03-21",
+    "enrollment": "87"
+  },
+  {
+    "studyObs": "obs3",
+    "nctId": "NCT00175890",
+    "study": "Study1",
+    "phase": "Phase 3",
+    "startDate": "2004-10-15",
+    "completionDate": "2007-01-26",
+    "enrollment": "110"
+  },
+  {
+    "studyObs": "obs9",
+    "nctId": "NCT00152516",
+    "study": "Study7",
+    "phase": "Phase 3",
+    "startDate": "2004-10-21",
+    "completionDate": "2008-04-29",
+    "enrollment": "255"
+  },
+  {
+    "studyObs": "obs11",
+    "nctId": "NCT00280696",
+    "study": "Study9",
+    "phase": "Phase 3",
+    "startDate": "2005-11-15",
+    "completionDate": "2007-11-07",
+    "enrollment": "352"
+  },
+  {
+    "studyObs": "obs12",
+    "nctId": "NCT00367432",
+    "study": "Study10",
+    "phase": "Phase 3",
+    "startDate": "2006-07-12",
+    "completionDate": "2010-12-28",
+    "enrollment": "398"
+  },
+  {
+    "studyObs": "obs16",
+    "nctId": "NCT00419094",
+    "study": "Study14",
+    "phase": "Phase 3",
+    "startDate": "2007-08-06",
+    "completionDate": "2009-09-14",
+    "enrollment": "228"
+  },
+  {
+    "studyObs": "obs14",
+    "nctId": "NCT00535392",
+    "study": "Study12",
+    "phase": "Phase 2",
+    "startDate": "2007-09-10",
+    "completionDate": "2010-02-02",
+    "enrollment": "33"
+  },
+  {
+    "studyObs": "obs17",
+    "nctId": "NCT00419393",
+    "study": "Study15",
+    "phase": "Phase 3",
+    "startDate": "2008-02-28",
+    "completionDate": "2010-03-31",
+    "enrollment": "190"
+  },
+  {
+    "studyObs": "obs15",
+    "nctId": "NCT00505934",
+    "study": "Study13",
+    "phase": "Phase 2",
+    "startDate": "2008-05-16",
+    "completionDate": "2010-03-11",
+    "enrollment": "19"
+  },
+  {
+    "studyObs": "obs19",
+    "nctId": "NCT00961441",
+    "study": "Study17",
+    "phase": "Phase 2",
+    "startDate": "2009-09-01",
+    "completionDate": "2010-03-16",
+    "enrollment": "25"
+  },
+  {
+    "studyObs": "obs18",
+    "nctId": "NCT00985348",
+    "study": "Study16",
+    "phase": "Phase 1",
+    "startDate": "2009-09-07",
+    "completionDate": "2009-10-25",
+    "enrollment": "26"
+  },
+  {
+    "studyObs": "obs13",
+    "nctId": "NCT01063764",
+    "study": "Study11",
+    "phase": "Phase 3",
+    "startDate": "2010-01-29",
+    "completionDate": "2013-10-24",
+    "enrollment": "73"
+  },
+  {
+    "studyObs": "obs10",
+    "nctId": "NCT01228747",
+    "study": "Study8",
+    "phase": "Phase 3",
+    "startDate": "2010-10-21",
+    "completionDate": "2014-05-27",
+    "enrollment": "251"
+  },
+  {
+    "studyObs": "obs20",
+    "nctId": "NCT01229735",
+    "study": "Study18",
+    "phase": "Phase 4",
+    "startDate": "2010-11-17",
+    "completionDate": "2015-05-12",
+    "enrollment": "343"
+  },
+  {
+    "studyObs": "obs21",
+    "nctId": "NCT01210690",
+    "study": "Study19",
+    "phase": "Phase 4",
+    "startDate": "2011-01-20",
+    "completionDate": "2013-11-12",
+    "enrollment": "101"
+  },
+  {
+    "studyObs": "obs23",
+    "nctId": "NCT01292837",
+    "study": "Study21",
+    "phase": "Phase 3",
+    "startDate": "2011-02-09",
+    "completionDate": "2013-06-04",
+    "enrollment": "13"
+  },
+  {
+    "studyObs": "obs25",
+    "nctId": "NCT01498822",
+    "study": "Study23",
+    "phase": "Phase 4",
+    "startDate": "2011-06-08",
+    "completionDate": "2014-07-15",
+    "enrollment": "353"
+  },
+  {
+    "studyObs": "obs22",
+    "nctId": "NCT01398956",
+    "study": "Study20",
+    "phase": "Phase 3",
+    "startDate": "2011-06-30",
+    "completionDate": "2016-04-15",
+    "enrollment": "44"
+  },
+  {
+    "studyObs": "obs28",
+    "nctId": "NCT01407523",
+    "study": "Study26",
+    "phase": "Phase 2",
+    "startDate": "2011-07-13",
+    "completionDate": "2012-02-13",
+    "enrollment": "16"
+  },
+  {
+    "studyObs": "obs26",
+    "nctId": "NCT01491113",
+    "study": "Study24",
+    "phase": "Phase 4",
+    "startDate": "2011-11-18",
+    "completionDate": "2012-11-16",
+    "enrollment": "30"
+  },
+  {
+    "studyObs": "obs27",
+    "nctId": "NCT01506882",
+    "study": "Study25",
+    "phase": "Phase 3",
+    "startDate": "2011-12-15",
+    "completionDate": "2015-04-14",
+    "enrollment": "71"
+  },
+  {
+    "studyObs": "obs24",
+    "nctId": "NCT01954121",
+    "study": "Study22",
+    "phase": "Phase 3",
+    "startDate": "2013-09-26",
+    "completionDate": "2015-10-13",
+    "enrollment": "436"
+  }
+]

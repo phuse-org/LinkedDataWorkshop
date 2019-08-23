@@ -1,0 +1,10 @@
+# 520-AllStudiesCountHumanSubjects.rq Number of Human Study Subjects in AllStudies
+# Execute on the AllStudies
+# Reasoner must be ON
+
+PREFIX eg: <http://example.org/LDWorkshop#>
+
+SELECT  (COUNT(?person) as ?numSubjects)
+WHERE{
+    ?person a eg:HumanStudySubject.
+}

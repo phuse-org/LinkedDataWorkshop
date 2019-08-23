@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 800 600" width="800" height="600">
+    <rect x="44" y="50.105" width="142" height="80" transform="matrix(1,0,0,1,0,0)" fill="rgb(255,255,255)" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="2"/>
+    <path d=" M 80 73.711 L 92.75 86.684 L 105.5 99.658" fill="none" vector-effect="non-scaling-stroke" stroke-width="2" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4"/>
+    <path d="M 63.137 62.289 L 88.368 62.289 C 89.314 62.289 90.081 63.057 90.081 64.002 L 90.081 75.471 C 90.081 76.417 89.314 77.184 88.368 77.184 L 63.137 77.184 C 62.192 77.184 61.424 76.417 61.424 75.471 L 61.424 64.002 C 61.424 63.057 62.192 62.289 63.137 62.289 Z" style="stroke:none;fill:#FFD4AA;stroke-miterlimit:10;"/>
+    <path d="M 63.137 62.289 L 88.368 62.289 C 89.314 62.289 90.081 63.057 90.081 64.002 L 90.081 75.471 C 90.081 76.417 89.314 77.184 88.368 77.184 L 63.137 77.184 C 62.192 77.184 61.424 76.417 61.424 75.471 L 61.424 64.002 C 61.424 63.057 62.192 62.289 63.137 62.289 Z" style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:2;"/>
+    <g transform="matrix(1,0,0,1,63.253,64.29)">
+        <text transform="matrix(1,0,0,1,0,8.551)" style="font-family:'Open Sans';font-weight:400;font-size:8px;font-style:normal;fill:#0000FF;stroke:none;">Drug1
+        </text>
+    </g>
+    
+    <path d=" M 124 99.658 L 134.499 92.934 L 145 86.21" fill="none" vector-effect="non-scaling-stroke" stroke-width="2" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4"/>
+    <path d="M 101.444 98.553 L 125.905 98.553 C 126.787 98.553 127.503 99.269 127.503 100.151 L 127.503 110.849 C 127.503 111.731 126.787 112.447 125.905 112.447 L 101.444 112.447 C 100.562 112.447 99.846 111.731 99.846 110.849 L 99.846 100.151 C 99.846 99.269 100.562 98.553 101.444 98.553 Z" style="stroke:none;fill:#FFD4AA;stroke-miterlimit:2;"/>
+    <path d="M 101.444 98.553 L 125.905 98.553 C 126.787 98.553 127.503 99.269 127.503 100.151 L 127.503 110.849 C 127.503 111.731 126.787 112.447 125.905 112.447 L 101.444 112.447 C 100.562 112.447 99.846 111.731 99.846 110.849 L 99.846 100.151 C 99.846 99.269 100.562 98.553 101.444 98.553 Z" style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:2;"/>
+    <g transform="matrix(1,0,0,1,101.003,99.658)">
+        <text transform="matrix(1,0,0,1,0,8.551)" style="font-family:'Open Sans';font-weight:400;font-size:8px;font-style:normal;fill:#0000FF;stroke:none;">Serum
+        </text>
+    </g>
+    <path d="M 140.123 73.711 L 165.354 73.711 C 166.299 73.711 167.067 74.478 167.067 75.423 L 167.067 86.892 C 167.067 87.838 166.299 88.605 165.354 88.605 L 140.123 88.605 C 139.177 88.605 138.41 87.838 138.41 86.892 L 138.41 75.423 C 138.41 74.478 139.177 73.711 140.123 73.711 Z" style="stroke:none;fill:#FFD4AA;stroke-miterlimit:2;"/>
+    <path d="M 140.123 73.711 L 165.354 73.711 C 166.299 73.711 167.067 74.478 167.067 75.423 L 167.067 86.892 C 167.067 87.838 166.299 88.605 165.354 88.605 L 140.123 88.605 C 139.177 88.605 138.41 87.838 138.41 86.892 L 138.41 75.423 C 138.41 74.478 139.177 73.711 140.123 73.711 Z" style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:2;"/>
+    <g transform="matrix(1,0,0,1,140.738,75.316)">
+        <text transform="matrix(1,0,0,1,0,8.551)" style="font-family:'Open Sans';font-weight:400;font-size:8px;font-style:normal;fill:#0000FF;stroke:none;">Name
+        </text>
+    </g>
+
+</svg>
