@@ -168,6 +168,10 @@ text.id {
   grid-column: 2;
   grid-row: 5;
 }
+#user{
+  grid-column: 3;
+  grid-row: 1 / 6;
+}
 
 /* Help Box */
 .help th,tr,td {
@@ -184,6 +188,26 @@ text.id {
 }
 .help td:nth-child(2){
   width:340px;
+  font-weight: bold;
+  bgcolor: #d2f8d2;
+  font-family: courier;
+  font-size: .8em;
+}
+/* User copy */
+.copy th,tr,td {
+    /* border: 1px solid gray; */
+    border:none;
+}
+.copy tr:nth-child(even){
+  background-color: #e8fbe8;
+  color: black;
+}
+.copy td:nth-child(1){
+  width:75px;
+  font-weight:normal;
+}
+.copy td:nth-child(2){
+  width:100px;
   font-weight: bold;
   bgcolor: #d2f8d2;
   font-family: courier;

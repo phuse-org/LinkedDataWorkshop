@@ -19,6 +19,32 @@ TODO: Task list:  https://kanbanflow.com/board/5d2eb8e3f370395a0ab2fff3c9cc65c6
   <script type="text/javascript" src="/d3/d3-queue.min.js"></script>
   <script src="/GraphEditor/js/n3-browser.min.js"></script>
   <script src="/GraphEditor/js/FileSaver.min.js"></script>
+  <script type="text/javascript">
+      function copyText(element_id) {
+        var text_to_copy = document.getElementById(element_id);
+        text_to_copy.select();
+        console.log(text_to_copy);
+        document.execCommand("copy");
+      }
+
+      function setNumber() {
+        var current_number = document.getElementById("user_no_field").value;
+        var current_study_text  ="Study"+current_number;
+        document.getElementById("current_study").value = current_study_text;
+        // var nct_id_text         ="NCT02301286";
+        var trtarm_1_text       ="TrtArm"+current_number+"-1";
+        document.getElementById("trtarm_1").value = trtarm_1_text;
+        var trtarm_2_text       ="TrtArm"+current_number+"-2";
+        document.getElementById("trtarm_2").value = trtarm_2_text;
+        var person_1_text       ="Person"+current_number+"1";
+        document.getElementById("person_1").value = person_1_text;
+        var person_2_text       ="Person"+current_number+"2";
+        document.getElementById("person_2").value = person_2_text;
+        var person_3_text       =" Person"+current_number+"3";
+        document.getElementById("person_3").value = person_3_text;
+        console.log("Updating current user number to "+current_number)
+      }
+  </script>
   <link rel="stylesheet" href="/graphEditor/GraphEditor.css">
 </head>
 <html>
@@ -73,6 +99,73 @@ TODO: Task list:  https://kanbanflow.com/board/5d2eb8e3f370395a0ab2fff3c9cc65c6
     <div id="legend" class="box">
     </div>
     <div id="saveText" class="box">
+    </div>
+    <div class="box" id="user">
+        <table class="copy">
+            <tr>
+                <!-- <td><b>User</b></td><td>No</td> -->
+                <td><b>User no:</b></td>
+                <td>
+                    <select id="user_no_field" onchange="setNumber()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Study</td>
+                <td><input type="text" id="current_study" value="Study1"/></td>
+                <td><button type="button" onclick="copyText('current_study');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>NCTID</td>
+                <td><input type="text" id="nct_id" value="NCT02301286"/></td>
+                <td><button type="button" onclick="copyText('nct_id');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>Treat Arm One</td>
+                <td><input type="text" id="trtarm_1" value="TrtArm1-1"/></td>
+                <td><button type="button" onclick="copyText('trtarm_1');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>Treat Arm Two</td>
+                <td><input type="text" id="trtarm_2" value="TrtArm1-2"/></td>
+                <td><button type="button" onclick="copyText('trtarm_2');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>Person One</td>
+                <td><input type="text" id="person_1" value="Person11"/></td>
+                <td><button type="button" onclick="copyText('person_1');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>Person Two</td>
+                <td><input type="text" id="person_2" value="Person12"/></td>
+                <td><button type="button" onclick="copyText('person_2');">Copy</button></td>
+            </tr>
+            <tr>
+                <td>Person Three</td>
+                <td><input type="text" id="person_3" value=" Person13"/></td>
+                <td><button type="button" onclick="copyText('person_3');">Copy</button></td>
+            </tr>
+        </table>
     </div>
     <script src="/GraphEditor/graphEditor.js"></script>
 </body>
