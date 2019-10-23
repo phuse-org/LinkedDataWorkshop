@@ -18,8 +18,8 @@ library(redland)
 library(visNetwork)
 
 #---- Values to check ---------------------------------------------------------
-#    Nodes that should be present in all graphs
-standardNodes <- c(
+#  Default nodes present when Graph Editor is started. 
+defaultNodes <- c(
   "dbpedia:Aspirin",
   "dbpedia:Sugar_pill",
   "eg:ActiveArm", 
@@ -34,13 +34,36 @@ standardRelations <- c(
   "eg:drugName",
   "eg:LDExpert",
   "eg:randomizedTo",
-  "eg:studyId",
   "eg:trtArm", 
   "eg:trtArmType",
   "ncit:gender",
   "schema:givenName"
   )
 
+# List of valid NCTID's for the workshop.  Source: CourseInfo.xlsx
+nctidList <- c("ct:NCT02301286",
+  "ct:NCT02467582",
+  "ct:NCT01973205",
+  "ct:NCT02270242",
+  "ct:NCT02521285",
+  "ct:NCT02348203",
+  "ct:NCT00565708",
+  "ct:NCT02578706",
+  "ct:NCT02415400",
+  "ct:NCT01248468",
+  "ct:NCT02325466",
+  "ct:NCT02239120",
+  "ct:NCT02237365",
+  "ct:NCT02183220",
+  "ct:NCT02183688",
+  "ct:NCT02158806",
+  "ct:NCT02155985",
+  "ct:NCT02123849",
+  "ct:NCT02090413",
+  "ct:NCT01361399",
+  "ct:NCT02049762",
+  "ct:NCT01902498")
+# HERE TODO 
 #------------------------------------------------------------------------------
 # UI 
 #------------------------------------------------------------------------------
@@ -168,50 +191,66 @@ server <- function(input, output, session) {
         nodes <- nodeList$value
         uValues <-sort(unique(nodes))
 
-        # Only iriNodes will be used for QC Checking
+        # Only QC Check iriNodes. String and Int are not critical.
         iriNodes <- uValues[grepl("^\\S+:", uValues)]
         # as.character conversion needed here due to coercion within Shiny 
-        #   that was not in external code dev
         iriNodes <-as.character(iriNodes)
 
         # Parse Study node to obtain attendee number used to check 
-        #    other nodes: Person<n>, TrtArm<n-n>.
+        #    other nodes: Person<n>, TrtArm<n-x>.
         studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
 
-        # Extr. Attendee Num, assuming Study Num is correct!
+        # Extr. Attendee Number. Assumes Study Number is correct!
         attendeeNum <-gsub("eg:Study", "", studyNode)
 
-        # Phase Node
-        #DEL 2019 CSS phaseNode <-iriNodes[grepl("Phase", iriNodes)] 
-
-        # Person Nodes
+        # Person Nodes. Person11, Person12, etc.
         personNodes <-iriNodes[grepl("Person", iriNodes)] 
 
-        # TrtArm Nodes
+        # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
         armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
-        
-        # Nodes that should be in all studies
-        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|Phase|NCT", iriNodes)] 
-        
-        flaggedNodes <- setdiff(ttlNodes, standardNodes)
 
+        # NCT ID node
+        nctidNode <-iriNodes[grepl("NCT", iriNodes)] 
+        
+                
+        # Default that should be in all studies. Check for accidental changes to 
+        #   default nodes.
+        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
+        
+        flaggedNodes <- setdiff(ttlNodes, defaultNodes)
+
+        # ---------------------------------------------------------------------
         # Nodes unique to each Attendee. Flag those not fitting req pattern
         # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
         #   is always correct in this code logic. 
-        
-        # Person : Check : "Person" + "attendeeNum" + <n>
-        #     use of << within sapply
+        #----------------------------------------------------------------------
+
+        #--- Study ------------------------------------------------------------
+        #    Checks: prefix, "Study" + attendeeNum
+        #    Even though the Study number is used for other checks, check to 
+        #      ensure the prefix was not changed, etc.
+        studyRegex <- paste0("eg:Study", attendeeNum)
+        sapply(studyNode, function(study){
+            if (length(study > 0) && !grepl(studyRegex, study)) {
+                print ("----ERROR: Study Node fail.")
+                print (c("----------: ", study))
+                flaggedNodes<<-append(flaggedNodes, study)
+            }
+        }) 
+                
+        #--- Person -----------------------------------------------------------
+        #   Checks: prefix, "Person" + "attendeeNum" + <n>
         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
         sapply(personNodes, function(person){
-            if (length(person > 0) && !grepl(personRegex, person)) {   #TW 
+            if (length(person > 0) && !grepl(personRegex, person)) {
                 print ("----ERROR: Person Node fail.")
                 print (c("----------: ", person))
                 flaggedNodes<<-append(flaggedNodes, person)
             }
         }) 
 
-        # TrtArm : Check: "TrtArm" + attendeeNum+ "-"+ number 
-        #     use of << within sapply
+        #--- TrtArm -----------------------------------------------------------
+        #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
         armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
         sapply(armNodes, function(arm){
             if (length(arm > 0) && !grepl(armRegex, arm)) {
@@ -220,7 +259,25 @@ server <- function(input, output, session) {
                 flaggedNodes<<-append(flaggedNodes, arm)
           }
         }) 
-        
+
+
+        #--- NCTID ------------------------------------------------------------
+        #   Checks: prefix, "NCTIDnnnnnn" against list used for the session
+        #       (Value set earlier)
+        nctidRegex <- paste0("ct:NCT")  # Pefix and proper NCT characters
+        sapply(nctidNode, function(nctid){
+          if (length(nctid > 0) && !grepl(nctidRegex, nctid)) {
+                print ("ERROR: NCT ID Node fail. Prefix or NCT character issue.")
+                print (c("----------: ", nctid))
+                flaggedNodes<<-append(flaggedNodes, nctid)
+          }
+          # Part 2: Check value against list of NCT ID used in the workshop
+          if (length(nctid > 0) && (! nctid %in% nctidList)) {
+                print ("ERROR: NCT ID Node fail. Number not found in approved list.")
+                print (c("----------: ", nctid))
+                flaggedNodes<<-append(flaggedNodes, nctid)
+          }
+        }) 
         # if any node exceptions are found, add them to dataExceptions
         if (length(flaggedNodes > 0)){
             qcNode <- as.data.frame(list(item=flaggedNodes))
