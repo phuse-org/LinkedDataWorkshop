@@ -6,6 +6,9 @@
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
 # TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
+#       Convert from use of Redland to rrdf
+#       Add check of all NCT numbers and their correct prefix: Loop through the 
+#         array and flag any non-conforming numbers.
 #       
 ###############################################################################
 library(plyr)     #  rename
@@ -119,7 +122,7 @@ server <- function(input, output, session) {
         # Replace IRI with prefixes for both plotting and data QC
         toPref <- as.data.frame(data())
         
-        # Convert IRI to us prefixes
+        # Convert IRI to use of prefixes
         iriToPref <- function(elem)
         {
             

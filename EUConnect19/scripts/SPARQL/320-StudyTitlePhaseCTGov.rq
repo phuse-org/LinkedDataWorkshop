@@ -9,7 +9,7 @@ SELECT ?title ?phase
 WHERE{
   ?study ct:nct-id ?nctid .
 
-   SERVICE <http://lod.openlinksw.com/sparql>
+  SERVICE <http://clinicaltrials.bio2rdf.org/sparql>
   {
     ?nctid dcterms:title ?title   ;
            ct-voc:phase ?phaseIRI .

@@ -1,2 +1,2 @@
-cd C:\_gitHub\LinkedDataWorkshop\CSS2018
-start /min python -m http.server
+cd C:\_gitHub\LinkedDataWorkshop\EUConnect19\presentation
+start /min C:\Python\Python37-32\python -m http.server

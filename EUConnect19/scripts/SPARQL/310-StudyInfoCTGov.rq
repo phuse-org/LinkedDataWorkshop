@@ -8,7 +8,7 @@ SELECT ?study ?nctid ?p ?o
 WHERE{
   ?study ct:nct-id ?nctid .
 
-  SERVICE <http://lod.openlinksw.com/sparql>
+  SERVICE <http://clinicaltrials.bio2rdf.org/sparql>
   {
     ?nctid ?p ?o  .
   }
