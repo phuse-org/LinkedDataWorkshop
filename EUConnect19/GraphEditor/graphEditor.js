@@ -577,17 +577,21 @@ function edit(d, i, source, graph){
     let prefixData = "";
     let prefixInput = "";
     let prefixSelect = "";
+    let defaultValue = "";
+    if (d.prefix) {
+      defaultValue = d.prefix;
+    }
     if(source=="node"){
         prefixText = div.append("p")
                             .text("Prefix: ");
-        prefixData = ["dbpedia","ct","eg","ncit","rdf", "rdfs", "schema" ]
+        prefixData = ["","eg","dbpedia","ct","ncit","rdf", "rdfs", "schema" ]
         prefixInput = prefixText.append("select")
                             .attr('class','select');
         prefixSelect = prefixInput.selectAll('option')
                             .data(prefixData).enter()
                             .append('option')
                             .text(function (d) { return d; })
-                            .property("selected", function(g){ return g === d.prefix; });
+                            .property("selected", function(g){ return g === defaultValue; });
     }
     // Label
     let labelInput  = "";
@@ -660,6 +664,7 @@ console.log("labelText: "+labelText)
                                     console.log("Corrected IRI label:"+inputValue+" -> "+labelInput.node().value)
                                 }
                               }
+
                               // Prevent creation of node with same label
                               let nodeLabelExist = graph.nodesData.filter(function(l) {
                                   return l.label === labelInput.node().value && l.prefix === prefixInput.node().value && l.id !== d.id;
@@ -669,6 +674,10 @@ console.log("labelText: "+labelText)
                                   return
                               }
                               d.label=labelInput.node().value;
+                              if (prefixInput.node().value == "") {
+                                window.confirm("Please select a prefix");
+                                return
+                              }
                               d.prefix = prefixInput.node().value;
                               d.type = typeInput.node().value;
                               clearCurrent();
