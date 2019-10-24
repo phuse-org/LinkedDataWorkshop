@@ -186,76 +186,77 @@ server <- function(input, output, session) {
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
         
-       # initialize empty dataframe for QC results/messaging
-       qcObs <- data.frame(value=character(), message=character())
-        # Initialize exceptions to message for success. It will be reset if 
-#TW         # exceptions are found. 
-#TW         # item="" row is later removed when passed message displayed
-#TW         dataExceptions <- as.data.frame(list(type="All QC Checks Passed", item=""))
-#TW 
-#TW         #---- Nodes -----------------------------------------------------------
-#TW         nodeList <- melt(prefData(), id.vars=c("p"))
-#TW         nodes <- nodeList$value
-#TW         uValues <-sort(unique(nodes))
-#TW 
-#TW         # Only QC Check iriNodes. String and Int are not critical.
-#TW         iriNodes <- uValues[grepl("^\\S+:", uValues)]
-#TW         # as.character conversion needed here due to coercion within Shiny 
-#TW         iriNodes <-as.character(iriNodes)
-#TW 
-#TW         # Parse Study node to obtain attendee number used to check 
-#TW         #    other nodes: Person<n>, TrtArm<n-x>.
-#TW         studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
-#TW 
-#TW         # Extr. Attendee Number. Assumes Study Number is correct!
-#TW         attendeeNum <-gsub("eg:Study", "", studyNode)
-#TW 
-#TW         # Person Nodes. Person11, Person12, etc.
-#TW         personNodes <-iriNodes[grepl("Person", iriNodes)] 
-#TW 
-#TW         # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
-#TW         armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
-#TW 
-#TW         # NCT ID node
-#TW         nctidNode <<-iriNodes[grepl("\\D+\\d{4,}", iriNodes)] 
-#TW         
-#TW                 
-#TW         # Default that should be in all studies. Check for accidental changes to 
-#TW         #   default nodes.
-#TW         ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
-#TW         
-#TW         flaggedNodes <- setdiff(ttlNodes, defaultNodes)
-#TW 
-#TW         # ---------------------------------------------------------------------
-#TW         # Nodes unique to each Attendee. Flag those not fitting req pattern
-#TW         # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
-#TW         #   is always correct in this code logic. 
-#TW         #----------------------------------------------------------------------
-#TW 
-#TW         #--- Study ------------------------------------------------------------
-#TW         #    Checks: prefix, "Study" + attendeeNum
-#TW         #    Even though the Study number is used for other checks, check to 
-#TW         #      ensure the prefix was not changed, etc.
-#TW         studyRegex <- paste0("eg:Study", attendeeNum)
-#TW         sapply(studyNode, function(study){
-#TW             if (length(study > 0) && !grepl(studyRegex, study)) {
-#TW                 print ("----ERROR: Study Node fail.")
-#TW                 print (c("----------: ", study))
-#TW                 flaggedNodes<<-append(flaggedNodes, study)
-#TW             }
-#TW         }) 
-#TW                 
-#TW         #--- Person -----------------------------------------------------------
-#TW         #   Checks: prefix, "Person" + "attendeeNum" + <n>
-#TW         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
-#TW         sapply(personNodes, function(person){
-#TW             if (length(person > 0) && !grepl(personRegex, person)) {
-#TW                 print ("----ERROR: Person Node fail.")
-#TW                 print (c("----------: ", person))
-#TW                 flaggedNodes<<-append(flaggedNodes, person)
-#TW             }
-#TW         }) 
-#TW 
+       # Initialize empty dataframe for QC observations and messages
+       qcObs <- data.frame(value   = character(), 
+                           message = character())
+       #---- Nodes -----------------------------------------------------------
+       nodeList <- melt(prefData(), id.vars=c("p"))
+       nodes <- nodeList$value
+       uValues <-sort(unique(nodes))
+       
+       #--- Create groups of the different types of nodes for specific testing
+       # Only QC Check iriNodes. String and Int are not critical.
+       iriNodes <- uValues[grepl("^\\S+:", uValues)]
+       # as.character conversion needed here due to coercion within Shiny 
+       iriNodes <-as.character(iriNodes)
+       
+       # Parse Study node to obtain attendee number used to check 
+       #    other nodes: Person<n>, TrtArm<n-x>.
+       studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
+
+       # Extract attendee number, used in Study and other nodes
+       attendeeNum <-gsub("eg:Study", "", studyNode)
+       
+       # Person Nodes. Person11, Person12, etc.
+       personNodes <-iriNodes[grepl("Person", iriNodes)] 
+       
+       # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
+       armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
+       
+       # NCT ID node
+       nctidNode <<-iriNodes[grepl("\\D+\\d{4,}", iriNodes)] 
+
+       # Default nodes present in the graph editor at the start. 
+       #   Check for accidental edits to their values. 
+       ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
+       
+       flaggedNodes <- setdiff(ttlNodes, defaultNodes)
+       
+       # ---------------------------------------------------------------------
+       # Nodes unique to each Attendee. Flag those not fitting req pattern
+       # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
+       #   is always correct in this code logic. 
+       #----------------------------------------------------------------------
+
+       #--- Study ------------------------------------------------------------
+       #    Checks: prefix, "Study" + attendeeNum
+       #    Even though the Study number is used for other checks, check to 
+       #      ensure the prefix was not changed, Study to "study", etc.
+#TW       studyRegex <- paste0("eg:Study", attendeeNum)
+#TW       sapply(studyNode, function(study){
+#TW           if (length(study > 0) && !grepl(studyRegex, study)) {
+#TW               print (c("CHECKING STUDY:", study))
+#TW               print ("----ERROR: Study Node fail.")
+#TW               print (c("----------: ", study))
+#TW               qcCurrVal <- data.frame(Value =paste(study), Message= "FOO BAR ON STUDY" )
+#TW               qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+#TW           }
+#TW       }) 
+                 
+         #--- Person -----------------------------------------------------------
+         #   Checks: prefix, "Person" + "attendeeNum" + <n>
+         # Working 2019-10-24
+         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
+         sapply(personNodes, function(person){
+           if (length(person > 0) && !grepl(personRegex, person)) {
+             print ("----ERROR: Person Node fail.")
+             qcCurrVal <- data.frame(Value =paste(person), 
+               Message= "Person IRI: Check: 1. Prefix = eg:, 2. Text= 'Person', 
+                         3. Number starts with same digit as 'Study<n>' node ")
+                 qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+             }
+         }) 
+ 
 #TW         #--- TrtArm -----------------------------------------------------------
 #TW         #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
 #TW         armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
@@ -318,23 +319,15 @@ server <- function(input, output, session) {
         qcCurrVal <- c("", "All QC Checks Passed")
         qcObs <- rbind(qcObs, qcCurrVal)
       }
+      else{
+         qcObs 
+      }
      
     
     })
-    output$ui = renderUI({ 
-      qcReport <- qcData();
-      names(qcReport) <- c("value", "message")
-#TW      qcReport <- qcReport[!(qcReport$item==""),]  # Remove the default row for no items
-#TW      
-#TW      if (nrow(qcReport) < 1)
-#TW          return("All QC Checks Passed") # Message if no findings
-#TW          tableOutput("table") # Otherwise, return the data as a table         
-    })
+
     
-    
-    # Table must be defined separately
-## HERE!!!!     
-        # Query Result
+    # Query Result
     # output$qcresult = DT::renderDataTable({qcData() })
     output$qcresult = DT::renderDataTable(datatable(qcData(), 
           colnames = c("Value", "Message"),
@@ -343,12 +336,6 @@ server <- function(input, output, session) {
                          paging = FALSE,
                          dom = 't')))
 
-#TW    output$table <- renderTable({
-#TW      qcReport <-qcData();
-#TW      
-#TW      qcReport
-#TW    })
-  
     #--------------------------------------------------------------------------
     #-- Visualize -------------------------------------------------------------
     output$network <- renderVisNetwork({
