@@ -5,12 +5,16 @@
 # OUT : N/A
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
-# TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
+# 
+# TODO:   # Re-writing error handling so errors page shows a Dataframe.
+#    Start will NULL dataframe
+#    If dim(DF) ==0, then rbind: value: No errors Msg: All Passed.
+#     Else each error found keeps appending to the dataframe, which is displayed at the end.
+#            1. Reload of TTL does not reset QC Check data. Need to reset dataframes
 #       Convert from use of Redland to rrdf
-#       Add check of all NCT numbers and their correct prefix: Loop through the 
-#         array and flag any non-conforming numbers.
-#       
+#  !!! library DT may need installed on server!      
 ###############################################################################
+library(DT)
 library(plyr)     #  rename
 library(reshape)  #  melt
 library(shiny)
@@ -63,7 +67,8 @@ nctidList <- c("ct:NCT02301286",
   "ct:NCT01361399",
   "ct:NCT02049762",
   "ct:NCT01902498")
-# HERE TODO 
+
+
 #------------------------------------------------------------------------------
 # UI 
 #------------------------------------------------------------------------------
@@ -89,7 +94,7 @@ WHERE{
     )
     ),
     tabPanel("QC Check",
-        uiOutput("ui")
+        DT::dataTableOutput("qcresult")
     ),
     tabPanel("Visualize",
         visNetworkOutput("network",height = '900px')
@@ -181,144 +186,168 @@ server <- function(input, output, session) {
     #---- Data QC -------------------------------------------------------------
     qcData  = reactive ({
         
+       # initialize empty dataframe for QC results/messaging
+       qcObs <- data.frame(value=character(), message=character())
         # Initialize exceptions to message for success. It will be reset if 
-        # exceptions are found. 
-        # item="" row is later removed when passed message displayed
-        dataExceptions <- as.data.frame(list(type="All QC Checks Passed", item=""))
-
-        #---- Nodes -----------------------------------------------------------
-        nodeList <- melt(prefData(), id.vars=c("p"))
-        nodes <- nodeList$value
-        uValues <-sort(unique(nodes))
-
-        # Only QC Check iriNodes. String and Int are not critical.
-        iriNodes <- uValues[grepl("^\\S+:", uValues)]
-        # as.character conversion needed here due to coercion within Shiny 
-        iriNodes <-as.character(iriNodes)
-
-        # Parse Study node to obtain attendee number used to check 
-        #    other nodes: Person<n>, TrtArm<n-x>.
-        studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
-
-        # Extr. Attendee Number. Assumes Study Number is correct!
-        attendeeNum <-gsub("eg:Study", "", studyNode)
-
-        # Person Nodes. Person11, Person12, etc.
-        personNodes <-iriNodes[grepl("Person", iriNodes)] 
-
-        # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
-        armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
-
-        # NCT ID node
-        nctidNode <-iriNodes[grepl("NCT", iriNodes)] 
-        
-                
-        # Default that should be in all studies. Check for accidental changes to 
-        #   default nodes.
-        ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
-        
-        flaggedNodes <- setdiff(ttlNodes, defaultNodes)
-
-        # ---------------------------------------------------------------------
-        # Nodes unique to each Attendee. Flag those not fitting req pattern
-        # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
-        #   is always correct in this code logic. 
-        #----------------------------------------------------------------------
-
-        #--- Study ------------------------------------------------------------
-        #    Checks: prefix, "Study" + attendeeNum
-        #    Even though the Study number is used for other checks, check to 
-        #      ensure the prefix was not changed, etc.
-        studyRegex <- paste0("eg:Study", attendeeNum)
-        sapply(studyNode, function(study){
-            if (length(study > 0) && !grepl(studyRegex, study)) {
-                print ("----ERROR: Study Node fail.")
-                print (c("----------: ", study))
-                flaggedNodes<<-append(flaggedNodes, study)
-            }
-        }) 
-                
-        #--- Person -----------------------------------------------------------
-        #   Checks: prefix, "Person" + "attendeeNum" + <n>
-        personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
-        sapply(personNodes, function(person){
-            if (length(person > 0) && !grepl(personRegex, person)) {
-                print ("----ERROR: Person Node fail.")
-                print (c("----------: ", person))
-                flaggedNodes<<-append(flaggedNodes, person)
-            }
-        }) 
-
-        #--- TrtArm -----------------------------------------------------------
-        #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
-        armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
-        sapply(armNodes, function(arm){
-            if (length(arm > 0) && !grepl(armRegex, arm)) {
-                print ("----ERROR: Arm Node fail.")
-                print (c("----------: ", arm))
-                flaggedNodes<<-append(flaggedNodes, arm)
-          }
-        }) 
-
-
-        #--- NCTID ------------------------------------------------------------
-        #   Checks: prefix, "NCTIDnnnnnn" against list used for the session
-        #       (Value set earlier)
-        nctidRegex <- paste0("ct:NCT")  # Pefix and proper NCT characters
-        sapply(nctidNode, function(nctid){
-          if (length(nctid > 0) && !grepl(nctidRegex, nctid)) {
-                print ("ERROR: NCT ID Node fail. Prefix or NCT character issue.")
-                print (c("----------: ", nctid))
-                flaggedNodes<<-append(flaggedNodes, nctid)
-          }
-          # Part 2: Check value against list of NCT ID used in the workshop
-          if (length(nctid > 0) && (! nctid %in% nctidList)) {
-                print ("ERROR: NCT ID Node fail. Number not found in approved list.")
-                print (c("----------: ", nctid))
-                flaggedNodes<<-append(flaggedNodes, nctid)
-          }
-        }) 
-        # if any node exceptions are found, add them to dataExceptions
-        if (length(flaggedNodes > 0)){
-            qcNode <- as.data.frame(list(item=flaggedNodes))
-            qcNode$type <-"Node"
-            qcNode <- qcNode[c("type", "item")]  # Order columns
-            # Append to qcData 
-            dataExceptions <- rbind(dataExceptions, qcNode)
-        }
-        
-        #---- Relations -------------------------------------------------------      
-        ttlRelations <- prefData()$p
-        ttlRelations <- sort(unique(ttlRelations))
-        flaggedRelations <- setdiff(ttlRelations, standardRelations)
-
-        if (length(flaggedNodes > 0)){
-            qcRel <- as.data.frame(list(item=flaggedRelations))
-            qcRel$type <- "Relation"
-            qcRel <- qcRel[c("type", "item")]  # Order columns
-        
-            # Append to exceptions 
-            dataExceptions <- rbind(dataExceptions, qcRel)
-        }
-        print(c("---- dataExceptions = ", dataExceptions))
-        print(c("---- nrow(dataExceptions) = ", nrow(dataExceptions)))
-        dataExceptions     # Return the exceptions set, with values or with default OK message.
+#TW         # exceptions are found. 
+#TW         # item="" row is later removed when passed message displayed
+#TW         dataExceptions <- as.data.frame(list(type="All QC Checks Passed", item=""))
+#TW 
+#TW         #---- Nodes -----------------------------------------------------------
+#TW         nodeList <- melt(prefData(), id.vars=c("p"))
+#TW         nodes <- nodeList$value
+#TW         uValues <-sort(unique(nodes))
+#TW 
+#TW         # Only QC Check iriNodes. String and Int are not critical.
+#TW         iriNodes <- uValues[grepl("^\\S+:", uValues)]
+#TW         # as.character conversion needed here due to coercion within Shiny 
+#TW         iriNodes <-as.character(iriNodes)
+#TW 
+#TW         # Parse Study node to obtain attendee number used to check 
+#TW         #    other nodes: Person<n>, TrtArm<n-x>.
+#TW         studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
+#TW 
+#TW         # Extr. Attendee Number. Assumes Study Number is correct!
+#TW         attendeeNum <-gsub("eg:Study", "", studyNode)
+#TW 
+#TW         # Person Nodes. Person11, Person12, etc.
+#TW         personNodes <-iriNodes[grepl("Person", iriNodes)] 
+#TW 
+#TW         # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
+#TW         armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
+#TW 
+#TW         # NCT ID node
+#TW         nctidNode <<-iriNodes[grepl("\\D+\\d{4,}", iriNodes)] 
+#TW         
+#TW                 
+#TW         # Default that should be in all studies. Check for accidental changes to 
+#TW         #   default nodes.
+#TW         ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
+#TW         
+#TW         flaggedNodes <- setdiff(ttlNodes, defaultNodes)
+#TW 
+#TW         # ---------------------------------------------------------------------
+#TW         # Nodes unique to each Attendee. Flag those not fitting req pattern
+#TW         # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
+#TW         #   is always correct in this code logic. 
+#TW         #----------------------------------------------------------------------
+#TW 
+#TW         #--- Study ------------------------------------------------------------
+#TW         #    Checks: prefix, "Study" + attendeeNum
+#TW         #    Even though the Study number is used for other checks, check to 
+#TW         #      ensure the prefix was not changed, etc.
+#TW         studyRegex <- paste0("eg:Study", attendeeNum)
+#TW         sapply(studyNode, function(study){
+#TW             if (length(study > 0) && !grepl(studyRegex, study)) {
+#TW                 print ("----ERROR: Study Node fail.")
+#TW                 print (c("----------: ", study))
+#TW                 flaggedNodes<<-append(flaggedNodes, study)
+#TW             }
+#TW         }) 
+#TW                 
+#TW         #--- Person -----------------------------------------------------------
+#TW         #   Checks: prefix, "Person" + "attendeeNum" + <n>
+#TW         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
+#TW         sapply(personNodes, function(person){
+#TW             if (length(person > 0) && !grepl(personRegex, person)) {
+#TW                 print ("----ERROR: Person Node fail.")
+#TW                 print (c("----------: ", person))
+#TW                 flaggedNodes<<-append(flaggedNodes, person)
+#TW             }
+#TW         }) 
+#TW 
+#TW         #--- TrtArm -----------------------------------------------------------
+#TW         #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
+#TW         armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
+#TW         sapply(armNodes, function(arm){
+#TW             if (length(arm > 0) && !grepl(armRegex, arm)) {
+#TW                 print ("----ERROR: Arm Node fail.")
+#TW                 print (c("----------: ", arm))
+#TW                 flaggedNodes<<-append(flaggedNodes, arm)
+#TW           }
+#TW         }) 
+#TW 
+#TW 
+#TW         #--- NCTID ------------------------------------------------------------
+#TW         #   Checks: prefix, "NCTIDnnnnnn" against list used for the session
+#TW         #       (Value set earlier)
+#TW         nctidRegex <- paste0("ct:NCT")  # Pefix and proper NCT characters
+#TW         sapply(nctidNode, function(nctid){
+#TW           if (length(nctid > 0) && !grepl(nctidRegex, nctid)) {
+#TW                 print ("ERROR: NCT ID Node fail. Prefix or NCT character issue.")
+#TW                 print (c("----------: ", nctid))
+#TW                 flaggedNodes<<-append(flaggedNodes, nctid)
+#TW           }
+#TW           # Part 2: Check value against list of NCT ID used in the workshop
+#TW           if (length(nctid > 0) && (! nctid %in% nctidList)) {
+#TW                 print ("ERROR: NCT ID Node fail. Number not found in approved list.")
+#TW                 print (c("----------: ", nctid))
+#TW                 flaggedNodes<<-append(flaggedNodes, nctid)
+#TW           }
+#TW         }) 
+#TW         # if any node exceptions are found, add them to dataExceptions
+#TW         if (length(flaggedNodes > 0)){
+#TW             qcNode <- as.data.frame(list(item=flaggedNodes))
+#TW             qcNode$type <-"Node"
+#TW             qcNode <- qcNode[c("type", "item")]  # Order columns
+#TW             # Append to qcData 
+#TW             dataExceptions <- rbind(dataExceptions, qcNode)
+#TW         }
+#TW         
+#TW         #---- Relations -------------------------------------------------------      
+#TW         ttlRelations <- prefData()$p
+#TW         ttlRelations <- sort(unique(ttlRelations))
+#TW         flaggedRelations <- setdiff(ttlRelations, standardRelations)
+#TW 
+#TW         if (length(flaggedNodes > 0)){
+#TW             qcRel <- as.data.frame(list(item=flaggedRelations))
+#TW             qcRel$type <- "Relation"
+#TW             qcRel <- qcRel[c("type", "item")]  # Order columns
+#TW         
+#TW             # Append to exceptions 
+#TW             dataExceptions <- rbind(dataExceptions, qcRel)
+#TW         }
+#TW         
+#TW         
+#TW         #--- Checks complete. Create Messaging.
+#TW         print(c("---- dataExceptions = ", dataExceptions))
+#TW         print(c("---- nrow(dataExceptions) = ", nrow(dataExceptions)))
+#TW         dataExceptions     # Return the exceptions set, with values or with default OK message.
+      # If no QC findings added to dataset, then add a row stating all checks passed. 
+      if (dim(qcObs)[1] == 0) {
+        qcCurrVal <- c("", "All QC Checks Passed")
+        qcObs <- rbind(qcObs, qcCurrVal)
+      }
+     
+    
     })
-
     output$ui = renderUI({ 
       qcReport <- qcData();
-      qcReport <- qcReport[!(qcReport$item==""),]  # Remove the default row for no items
-      
-      if (nrow(qcReport) < 1)
-          return("All QC Checks Passed") # Message if no findings
-          tableOutput("table") # Otherwise, return the data as a table         
+      names(qcReport) <- c("value", "message")
+#TW      qcReport <- qcReport[!(qcReport$item==""),]  # Remove the default row for no items
+#TW      
+#TW      if (nrow(qcReport) < 1)
+#TW          return("All QC Checks Passed") # Message if no findings
+#TW          tableOutput("table") # Otherwise, return the data as a table         
     })
+    
+    
     # Table must be defined separately
-    output$table <- renderTable({
-      qcReport <-qcData();
-      qcReport <-qcReport[!(qcReport$item==""),]  # Remove the default row for no items
-      qcReport
-    })
+## HERE!!!!     
+        # Query Result
+    # output$qcresult = DT::renderDataTable({qcData() })
+    output$qcresult = DT::renderDataTable(datatable(qcData(), 
+          colnames = c("Value", "Message"),
+          rownames = FALSE,
+          options = list(pageLength=20,
+                         paging = FALSE,
+                         dom = 't')))
+
+#TW    output$table <- renderTable({
+#TW      qcReport <-qcData();
+#TW      
+#TW      qcReport
+#TW    })
   
     #--------------------------------------------------------------------------
     #-- Visualize -------------------------------------------------------------
