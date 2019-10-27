@@ -308,6 +308,22 @@ server <- function(input, output, session) {
            qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)    
          }
          
+         # Person randomizedTo Treatment Arm
+         if(  (spo[i,'p'] == 'eg:randomizedTo' ) &&
+              (
+                (! grepl("Person\\d{2}", spo[i,'s'] )) ||
+                (! grepl("TrtArm\\d", spo[i,'o'])) 
+              )  
+            ) 
+         {
+           qcCurrVal <- data.frame(
+             Examine = "Relation",
+             Value   = paste0( spo[i,'s'], " ", spo[i,'p'], " " , spo[i,'o']),
+             Message = "Problem in Person randomized to TrtArm. Ensure correct direction of predicate, etc."
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)    
+         }
+         
          # Arm to ArmType is not predicate eg:trtArmType
          if(  (grepl("TrtArm\\d", spo[i,'s'])) &&
               (spo[i,'o'] %in% c("eg:ActiveArm", "eg:PlaceboArm") ) && 
