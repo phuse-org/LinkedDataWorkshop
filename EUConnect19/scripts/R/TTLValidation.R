@@ -6,13 +6,8 @@
 # REQ : 
 # NOTE: Visualize requires query to return s,p,o. 
 # 
-# TODO:   # Re-writing error handling so errors page shows a Dataframe.
-#    Start will NULL dataframe
-#    If dim(DF) ==0, then rbind: value: No errors Msg: All Passed.
-#     Else each error found keeps appending to the dataframe, which is displayed at the end.
-#            1. Reload of TTL does not reset QC Check data. Need to reset dataframes
-#       Convert from use of Redland to rrdf
-#  !!! library DT may need installed on server!      
+# TODO: 1. Reload of TTL does not reset QC Check data. Need to reset dataframes
+#       2. Convert from use of Redland to rdflib
 ###############################################################################
 library(DT)
 library(plyr)     #  rename
@@ -182,46 +177,47 @@ server <- function(input, output, session) {
         toPref  # return the dataframe
     })
   
+    # Initialize empty dataframe for QC observations and messages
+    # Examine = Node or Relation, to differentiate between types of errors.
+    #  Initialization must occur here, outside of the qcData section below.
+    qcObs <- data.frame(Examine = character(), 
+                        Value   = character(), 
+                        Message = character())
+
+
     #--------------------------------------------------------------------------
     #---- Data QC -------------------------------------------------------------
+    
     qcData  = reactive ({
         
-       # Initialize empty dataframe for QC observations and messages
-       qcObs <- data.frame(value   = character(), 
-                           message = character())
        #---- Nodes -----------------------------------------------------------
        nodeList <- melt(prefData(), id.vars=c("p"))
        nodes <- nodeList$value
-       uValues <-sort(unique(nodes))
+       uValues <- sort(unique(nodes))
        
        #--- Create groups of the different types of nodes for specific testing
        # Only QC Check iriNodes. String and Int are not critical.
        iriNodes <- uValues[grepl("^\\S+:", uValues)]
+       
        # as.character conversion needed here due to coercion within Shiny 
-       iriNodes <-as.character(iriNodes)
+       iriNodes <- as.character(iriNodes)
        
        # Parse Study node to obtain attendee number used to check 
        #    other nodes: Person<n>, TrtArm<n-x>.
-       studyNode <-iriNodes[grep("(S|s)tudy", iriNodes)] 
+       studyNode <- iriNodes[grep("(S|s)tudy", iriNodes, ignore.case = TRUE)] 
 
        # Extract attendee number, used in Study and other nodes
-       attendeeNum <-gsub("eg:Study", "", studyNode)
+       attendeeNum <- gsub("eg:Study", "", studyNode)
        
        # Person Nodes. Person11, Person12, etc.
-       personNodes <-iriNodes[grepl("Person", iriNodes)] 
+       personNodes <- iriNodes[grepl("Person", iriNodes, ignore.case = TRUE)] 
        
        # TrtArm Nodes, TrtArm1-1, TrtArm1-2, etc.
-       armNodes <-iriNodes[grepl("TrtArm", iriNodes)] 
+       armNodes <- iriNodes[grepl("TrtArm", iriNodes, ignore.case = TRUE)] 
        
        # NCT ID node
-       nctidNode <<-iriNodes[grepl("\\D+\\d{4,}", iriNodes)] 
+       nctidNode <- iriNodes[grepl("\\D+\\d{4,}", iriNodes, ignore.case = TRUE)] 
 
-       # Default nodes present in the graph editor at the start. 
-       #   Check for accidental edits to their values. 
-       ttlNodes<-iriNodes[!grepl("Study|Person|TrtArm|NCT", iriNodes)] 
-       
-       flaggedNodes <- setdiff(ttlNodes, defaultNodes)
-       
        # ---------------------------------------------------------------------
        # Nodes unique to each Attendee. Flag those not fitting req pattern
        # NB: Study<n> NOT checked: is used to extract the attendeeNum, so it
@@ -232,105 +228,137 @@ server <- function(input, output, session) {
        #    Checks: prefix, "Study" + attendeeNum
        #    Even though the Study number is used for other checks, check to 
        #      ensure the prefix was not changed, Study to "study", etc.
-#TW       studyRegex <- paste0("eg:Study", attendeeNum)
-#TW       sapply(studyNode, function(study){
-#TW           if (length(study > 0) && !grepl(studyRegex, study)) {
-#TW               print (c("CHECKING STUDY:", study))
-#TW               print ("----ERROR: Study Node fail.")
-#TW               print (c("----------: ", study))
-#TW               qcCurrVal <- data.frame(Value =paste(study), Message= "FOO BAR ON STUDY" )
-#TW               qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
-#TW           }
-#TW       }) 
+       studyRegex <- paste0("eg:Study", attendeeNum)
+       sapply(studyNode, function(testVal){
+         if (length(testVal > 0) && !grepl(studyRegex, testVal)) {
+           qcCurrVal <- data.frame(
+             Examine = "Node",
+             Value   = paste(testVal), 
+             Message = "Check: 1. Prefix = eg:   
+               2. Capital 'S' in 'Study' " 
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+         }
+       }) 
                  
-         #--- Person -----------------------------------------------------------
-         #   Checks: prefix, "Person" + "attendeeNum" + <n>
-         # Working 2019-10-24
-         personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
-         sapply(personNodes, function(person){
-           if (length(person > 0) && !grepl(personRegex, person)) {
-             print ("----ERROR: Person Node fail.")
-             qcCurrVal <- data.frame(Value =paste(person), 
-               Message= "Person IRI: Check: 1. Prefix = eg:, 2. Text= 'Person', 
-                         3. Number starts with same digit as 'Study<n>' node ")
-                 qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
-             }
-         }) 
- 
-#TW         #--- TrtArm -----------------------------------------------------------
-#TW         #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
-#TW         armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
-#TW         sapply(armNodes, function(arm){
-#TW             if (length(arm > 0) && !grepl(armRegex, arm)) {
-#TW                 print ("----ERROR: Arm Node fail.")
-#TW                 print (c("----------: ", arm))
-#TW                 flaggedNodes<<-append(flaggedNodes, arm)
-#TW           }
-#TW         }) 
-#TW 
-#TW 
-#TW         #--- NCTID ------------------------------------------------------------
-#TW         #   Checks: prefix, "NCTIDnnnnnn" against list used for the session
-#TW         #       (Value set earlier)
-#TW         nctidRegex <- paste0("ct:NCT")  # Pefix and proper NCT characters
-#TW         sapply(nctidNode, function(nctid){
-#TW           if (length(nctid > 0) && !grepl(nctidRegex, nctid)) {
-#TW                 print ("ERROR: NCT ID Node fail. Prefix or NCT character issue.")
-#TW                 print (c("----------: ", nctid))
-#TW                 flaggedNodes<<-append(flaggedNodes, nctid)
-#TW           }
-#TW           # Part 2: Check value against list of NCT ID used in the workshop
-#TW           if (length(nctid > 0) && (! nctid %in% nctidList)) {
-#TW                 print ("ERROR: NCT ID Node fail. Number not found in approved list.")
-#TW                 print (c("----------: ", nctid))
-#TW                 flaggedNodes<<-append(flaggedNodes, nctid)
-#TW           }
-#TW         }) 
-#TW         # if any node exceptions are found, add them to dataExceptions
-#TW         if (length(flaggedNodes > 0)){
-#TW             qcNode <- as.data.frame(list(item=flaggedNodes))
-#TW             qcNode$type <-"Node"
-#TW             qcNode <- qcNode[c("type", "item")]  # Order columns
-#TW             # Append to qcData 
-#TW             dataExceptions <- rbind(dataExceptions, qcNode)
-#TW         }
-#TW         
-#TW         #---- Relations -------------------------------------------------------      
-#TW         ttlRelations <- prefData()$p
-#TW         ttlRelations <- sort(unique(ttlRelations))
-#TW         flaggedRelations <- setdiff(ttlRelations, standardRelations)
-#TW 
-#TW         if (length(flaggedNodes > 0)){
-#TW             qcRel <- as.data.frame(list(item=flaggedRelations))
-#TW             qcRel$type <- "Relation"
-#TW             qcRel <- qcRel[c("type", "item")]  # Order columns
-#TW         
-#TW             # Append to exceptions 
-#TW             dataExceptions <- rbind(dataExceptions, qcRel)
-#TW         }
-#TW         
-#TW         
-#TW         #--- Checks complete. Create Messaging.
-#TW         print(c("---- dataExceptions = ", dataExceptions))
-#TW         print(c("---- nrow(dataExceptions) = ", nrow(dataExceptions)))
-#TW         dataExceptions     # Return the exceptions set, with values or with default OK message.
+       #--- Person -----------------------------------------------------------
+       #   Checks: prefix, "Person" + "attendeeNum" + <n>
+       # Working 2019-10-24
+       personRegex <- paste0("eg:Person", attendeeNum, "\\d+")
+       sapply(personNodes, function(testVal){
+         if (length(testVal > 0) && !grepl(personRegex, testVal)) {
+           qcCurrVal <- data.frame(
+             Examine = "Node",
+             Value   = paste(testVal), 
+             Message = "Check: 1. Prefix = eg:   
+               2. Capital 'P' in 'Person'   
+               3. Number starts with same digit as 'Study<n>' node   
+               4. Multiple errors? Check Study<n> is correct ")
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+         }
+       })
+       
+       #--- TrtArm -----------------------------------------------------------
+       #   Checks: prefix, "TrtArm" + attendeeNum+ "-"+ number 
+       armRegex <- paste0("eg:TrtArm", attendeeNum, "-", "\\d")
+       sapply(armNodes, function(testVal){
+         if (length(testVal > 0) && !grepl(armRegex, testVal)) {
+           qcCurrVal <- data.frame(
+             Examine = "Node",
+             Value   = paste(testVal), 
+             Message = "Check: 1. Prefix = eg:   
+               2. Capital 'A','T' in 'TrtArm'  
+               3. TrtArm<n> , where <n> is same digit as 'Study<n>' node   
+               4. Dash between numbers:  TrtArm<n>-<n>   
+               5. Multiple errors? Check Study<n> is correct"
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+         }
+       }) 
+
+       #--- NCTID ------------------------------------------------------------
+       #   Checks: prefix, "NCTnnnnnn" against list used for the session
+       #       (Value set earlier)
+       nctidRegex <- paste0("ct:NCT\\d+")  # Pefix and proper NCT characters, then digits
+       sapply(nctidNode, function(testVal){
+         if (length(testVal > 0) && !grepl(nctidRegex, testVal)) {
+           qcCurrVal <- data.frame(
+             Examine = "Node",
+             Value   = paste(testVal), 
+             Message = "Check: 1. Prefix = ct:   
+               2. Capital 'NCT' before digits"
+           )
+          qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+         }
+         # Part 2: Check value against list of NCT ID used in the workshop
+         if (length(testVal > 0) && (! testVal %in% nctidList)) {
+           qcCurrVal <- data.frame(
+             Examine = "Node",
+             Value   = paste(testVal), 
+             Message = "NCT ID is not in approved list.
+               1. Check digits against the values in your InfoSheet   
+               2. Capital 'NCT' before digits"
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)
+         }
+       }) 
+
+       #---- Relations -------------------------------------------------------     
+       # Only check the relations most often incorrectly entered by the 
+       #   students.  eg:trtArm and eg:trtArmType are easily confused and can be
+       #   difficult to spot.
+       spo <- prefData()
+       
+       for (i in 1:nrow(spo)){
+         
+         # Study to TrtArm<n>-<n> by the eg:trtArm predicate
+         # Study --  eg:trtArm -- -TrtArm 
+         if(  (grepl("Study\\d", spo[i,'s'] )) &&
+              (grepl("TrtArm\\d", spo[i,'o'])) && 
+              (! spo[i,'p'] == 'eg:trtArm' )) 
+         {
+           qcCurrVal <- data.frame(
+             Examine = "Relation",
+             Value   = paste0( spo[i,'s'], " ", spo[i,'p'], " " , spo[i,'o']),
+             Message = "Problem in Study to TrtArm relation/triple. Ensure predicate is eg:trtArm."
+               
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)    
+         }
+         
+         # Arm to ArmType is not predicate eg:trtArmType
+         if(  (grepl("TrtArm\\d", spo[i,'s'])) &&
+              (spo[i,'o'] %in% c("eg:ActiveArm", "eg:PlaceboArm") ) && 
+              (! spo[i,'p'] == 'eg:trtArmType' )) 
+         {
+           qcCurrVal <- data.frame(
+             Examine = "Relation",
+             Value   = paste0( spo[i,'s'], " ", spo[i,'p'], " " , spo[i,'o']),
+             Message = "Problem in TrtArm to TrtArmType relation/triple. Ensure predicate is eg:trtArmType."
+           )
+           qcObs <<- rbind(qcObs, qcCurrVal)  # global assign ;)    
+         }
+       }
+       
+       
+      #--- END OF CHECKS  -----------------------------------------------------
+       
       # If no QC findings added to dataset, then add a row stating all checks passed. 
       if (dim(qcObs)[1] == 0) {
         qcCurrVal <- c("", "All QC Checks Passed")
         qcObs <- rbind(qcObs, qcCurrVal)
       }
       else{
+        print(qcObs)  # ERROR:  The relation errors are NOT showing up here! 
+                      # ONly the NODE errors are here.
          qcObs 
       }
-     
-    
     })
 
-    
     # Query Result
     # output$qcresult = DT::renderDataTable({qcData() })
     output$qcresult = DT::renderDataTable(datatable(qcData(), 
-          colnames = c("Value", "Message"),
+          colnames = c("Examine", "Value", "Message"),
           rownames = FALSE,
           options = list(pageLength=20,
                          paging = FALSE,
