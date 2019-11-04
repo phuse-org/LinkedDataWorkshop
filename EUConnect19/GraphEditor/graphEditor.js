@@ -674,11 +674,15 @@ console.log("labelText: "+labelText)
                                   return
                               }
                               d.label=labelInput.node().value;
-                              if (prefixInput.node().value == "") {
+                              if (typeInput.node().value == "IRI" && prefixInput.node().value == "") {
                                 window.confirm("Please select a prefix");
                                 return
                               }
-                              d.prefix = prefixInput.node().value;
+                              if (typeInput.node().value == "IRI") {
+                                d.prefix = prefixInput.node().value;
+                              } else {
+                                d.prefix = "";
+                              }
                               d.type = typeInput.node().value;
                               clearCurrent();
                           } // end of node UPDATE
