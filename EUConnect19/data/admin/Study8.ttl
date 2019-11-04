@@ -2,25 +2,25 @@
 @prefix ct: <http://bio2rdf.org/clinicaltrials:>.
 @prefix eg: <http://example.org/LDWorkshop#>.
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdf: <http://www.w3.org/189/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix schema: <http://schema.org/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 eg:ActiveArm eg:drugName dbpedia:Aspirin.
-eg:Person81 eg:age "32"^^xsd:integer;
-    eg:randomizedTo eg:TrtArm8-2;
-    ncit:gender ncit:Female;
-    schema:givenName "Bob"^^xsd:string.
-eg:Person82 eg:age "31"^^xsd:integer;
+eg:Person81 eg:age "22"^^xsd:integer;
     eg:randomizedTo eg:TrtArm8-1;
+    ncit:gender ncit:Female;
+    schema:givenName "Sue8"^^xsd:string.
+eg:Person82 eg:age "23"^^xsd:integer;
+    eg:randomizedTo eg:TrtArm8-2;
     ncit:gender ncit:Male;
-    schema:givenName "Sue"^^xsd:string.
+    schema:givenName "Bob8"^^xsd:string.
 eg:Person83 eg:LDExpert eg:Study8;
-    ncit:gender ncit:Male;
-    schema:givenName "Jane"^^xsd:string.
+    ncit:gender ncit:Female;
+    schema:givenName "Sally8"^^xsd:string.
 eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
-eg:Study8 ct:nct-id ct:NCT01248468;
-    eg:trtArm eg:TrtArm8-2, eg:TrtArm8-1.
+eg:Study8 ct:nct-id ct:NCT02049762;
+    eg:trtArm eg:TrtArm8-1, eg:TrtArm8-2.
 eg:TrtArm8-1 eg:trtArmType eg:ActiveArm.
 eg:TrtArm8-2 eg:trtArmType eg:PlaceboArm.
