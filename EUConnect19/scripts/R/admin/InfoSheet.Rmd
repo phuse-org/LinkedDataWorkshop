@@ -1,12 +1,12 @@
 ---
-title: "CSS 2019 Linked Data Workshop InfoSheets"
+title: "EUConnect19 Workshop InfoSheets"
 output:
   word_document: default
   pdf_document: default
 fontsize: 14pt
 ---
 # Handouts for Each Attendee
-##  2019-06-09
+##  2019-11-12
 
 \fontfamily{cmr}
 \fontsize{12}{22}
@@ -22,7 +22,7 @@ library(knitr)
 library(rmarkdown)
 library(readxl)
 
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2019/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/EUConnect19/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
 
 # servers <- servers[ order(servers[,4], servers[,3]), ]
 
@@ -30,6 +30,9 @@ servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2019/data/
 for (i in 1:nrow(servers)){
   if (!is.na(servers[i,"ip"]))
   {
+    
+    cat("\n\n")
+    cat("\\pagebreak")
     cat("\n\n")
     cat("#**Info Sheet**\n")
     cat("\n\n")

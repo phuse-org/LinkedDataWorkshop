@@ -8,11 +8,11 @@
 # TODO: 
 ###############################################################################
 library(readxl)
-servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/CSS2019/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
+servers <- as.data.frame(read_excel("C:/_gitHub/LinkedDataWorkshop/EUConnect19/data/admin/CourseInfo.xlsx", sheet = "Servers", col_names=TRUE))
 servers <- servers[ order(servers[,'server'], servers[,'ip']), ]
 
 
-rqFile <-file("C:/_gitHub/LinkedDataWorkshop/CSS2019/scripts/SPARQL/510-PoolAllStudies.rq", "w")
+rqFile <-file("C:/_gitHub/LinkedDataWorkshop/EUConnect19/scripts/SPARQL/510-PoolAllStudies.rq", "w")
 
 scriptP1 <-paste("# 510-PoolAllStudies.rq  - Pool all Studies. 
 #   Script created", Sys.time(), "by CreateSPARQLForPooling.R 
