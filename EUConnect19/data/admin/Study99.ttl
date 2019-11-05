@@ -19,7 +19,11 @@ eg:Person992 eg:age "23"^^xsd:integer;
 eg:Person993 eg:LDExpert eg:Study99;
     ncit:gender ncit:Female;
     schema:givenName "Sally99"^^xsd:string.
-    
+
+eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
+eg:Study99 ct:nct-id ct:NCT01902498;
+    eg:trtArm eg:TrtArm99-1, eg:TrtArm99-2.
+
 eg:Person11 eg:randomizedTo eg:TrtArm99-1 .
 eg:Person21 eg:randomizedTo eg:TrtArm99-1 .
 eg:Person31 eg:randomizedTo eg:TrtArm99-1 .
