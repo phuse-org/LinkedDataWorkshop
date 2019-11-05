@@ -20,7 +20,7 @@ eg:Person13 eg:LDExpert eg:Study1;
     ncit:gender ncit:Female;
     schema:givenName "Sally1"^^xsd:string.
 eg:PlaceboArm eg:drugName dbpedia:Sugar_pill.
-eg:Study1 ct:nct-id ct:NCT02049762;
+eg:Study1 ct:nct-id ct:NCT02467582;
     eg:trtArm eg:TrtArm1-1, eg:TrtArm1-2.
 eg:TrtArm1-1 eg:trtArmType eg:ActiveArm.
 eg:TrtArm1-2 eg:trtArmType eg:PlaceboArm.
