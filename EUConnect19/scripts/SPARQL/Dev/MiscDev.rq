@@ -13,7 +13,7 @@ PREFIX ct-voc: <http://bio2rdf.org/clinicaltrials_vocabulary:>
 SELECT ?phaseName
 WHERE
 {
-  SERVICE <http://clinicaltrials.bio2rdf.org/sparql> # both work
+  SERVICE <http://bio2rdf.org/sparql> # both work
   {
     # <http://bio2rdf.org/clinicaltrials:NCT00175890> <http://bio2rdf.org/clinicaltrials_vocabulary:phase> ?phaseIRI .
     ct:NCT02301286  ct-voc:phase ?phaseIRI .
@@ -29,7 +29,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 SELECT ?studyTitle
 WHERE
 {
-  SERVICE <http://clinicaltrials.bio2rdf.org/sparql> # both work
+  SERVICE <http://bio2rdf.org/sparql> # both work
   {
     ct:NCT00175890 dcterms:title ?studyTitle .  
   }
@@ -47,7 +47,7 @@ WHERE{
     ?studyIRI  ct:nct-id  ?nctid .
     BIND(?nctid AS ?nctidIRI)
 #  }
- # SERVICE <http://clinicaltrials.bio2rdf.org/sparql> 
+ # SERVICE <http://bio2rdf.org/sparql> 
  # { # Clinical Trials remote graph
  #   ?nctidIRI  dcterms:title ?studyTitle ;    
  #              ct-voc:phase ?phaseIRI .

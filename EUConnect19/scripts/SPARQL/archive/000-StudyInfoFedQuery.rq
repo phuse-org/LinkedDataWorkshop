@@ -11,7 +11,7 @@ WHERE{
     ?studyIRI  ct:nct-id  ?nctid .
     BIND(?nctid AS ?nctidIRI)
   }
-  SERVICE <http://clinicaltrials.bio2rdf.org/sparql> 
+  SERVICE <http://bio2rdf.org/sparql> 
   { # Query Remote Graph with value bound from Local Graph!
     ?s ?p          ?nctidIRI ;
     dcterms:title  ?studyTitle ;

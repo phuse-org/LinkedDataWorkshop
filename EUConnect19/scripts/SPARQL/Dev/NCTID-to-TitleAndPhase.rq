@@ -19,7 +19,7 @@ PREFIX ct-voc: <http://bio2rdf.org/clinicaltrials_vocabulary:>
 SELECT ?title ?phaseName
 WHERE
 {
-  SERVICE <http://clinicaltrials.bio2rdf.org/sparql>
+  SERVICE <http://bio2rdf.org/sparql>
   {
     # <http://bio2rdf.org/clinicaltrials:NCT00175890> <http://bio2rdf.org/clinicaltrials_vocabulary:phase> ?phaseIRI .
     ct:NCT02301286  dcterms:title ?title ;
