@@ -83,15 +83,70 @@ nodeList <- rename(nodeList, c("value" = "id" ))
 nodes<- as.data.frame(nodeList[c("id")])
 
 # Assign node color based on content (int, string) then based on prefixes
-nodes$color                                              <- '#BCF5BC'
-nodes$color[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "#E4E4E4"
-nodes$color[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "#C1E1EC"
-nodes$color[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "#FFC862"
-nodes$color[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "#BCBDDC"
-nodes$color[grepl("eg:", nodes$id, perl=TRUE)]           <- "#BCF5BC"
+#   A good palette for a very dark background.
+# Green:         #2ECC40
+# Bright Green:  #01FD6F
+# Mid Green:     #3D9970
+# Dk Blue:       #0071D3
+# Bright Blue:   #39CCCC
+# Pastel Blue:   #7EDBFE
+# Yellow:        #FEDC00
+# Orange:        #E77818
+# Bright Orange: #DD382E
+# Bright Pink:   #F011BE
+# Dark Pink:     #85144B
+# Purple:        #990BAE
 
-nodes$title <-  nodes$id  # mouseover. 
-nodes$label <- nodes$title # label on node (always displayed)
+
+
+nodes$color                                              <- '#BCF5BC'
+#nodes$color[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "#E4E4E4"
+#nodes$color[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "#C1E1EC"
+##nodes$color[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "#FFC862"
+##nodes$color[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "#BCBDDC"
+#nodes$color[grepl("eg:", nodes$id, perl=TRUE)]           <- "#BCF5BC"
+
+
+#TODO Fix color assignment logics. currently incorrect regex and order on some.
+
+# New scheme. Start Generic (string) and progress to more specific
+
+# String
+#nodes$color[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "#7EDBFE"
+
+#Integer
+nodes$color[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "#39CCCC" 
+
+# Person
+nodes$color[grepl("eg:Person", nodes$id, perl=TRUE)]     <- "#F011BE" 
+
+# Items in the ontology
+#nodes$color[grepl("HumanStudySubject|eg:Person|Expert|Male|Female|owl:|eg:TrtArmType|eg:randomizedTo", 
+#                               nodes$id, perl=TRUE)]     <- "#E77818"
+
+nodes$color[grepl("eg:randomized|eg:trtarm$|eg:trtarmtype|owl:Class|schema:Person|Expert|owl:|ncit:study|subject|ncit", 
+                               nodes$id, perl = TRUE, ignore.case = TRUE)]     <- "#E77818"
+
+
+
+# Related to Treatment arms
+#nodes$color[grepl("Arm", nodes$id, perl=TRUE)]           <- "#FEDC00"   
+
+# NCT ID
+nodes$color[grepl("ct:NCT", nodes$id, perl=TRUE)]        <- "#01FD6F"   
+
+
+# Study
+nodes$color[grepl("eg:Study\\d+", nodes$id, perl=TRUE)]  <- "#85144B"
+
+
+# Set size based on type of node. Studynn is large.
+nodes$size <- .07 
+nodes$size[grepl("eg:Study\\d+", nodes$id, perl=TRUE)]  <- 0.2
+
+
+
+nodes$name <-  nodes$id  # mouseover. 
 
 #---- Edges -------------------------------------------------------------------
 # Create list of edges source, targetwith from, to for visNetwork 
@@ -99,13 +154,15 @@ edges<-as.data.frame(rename(triples, c("s" = "source", "o" = "target")))
 edges <- edges[,c("source", "target")]
 
 
-nodes$size <- .08 
 
-
-network3d(nodes, edges, 
+network3d(nodes, edges,
+          background_color  = '#002b36',
+          edge_opacity      = 0.2,
+          force_explorer = TRUE, 
+          link_strength     = 0.5 , 
+          manybody_strength = -4.4, 
           max_iterations    = 100,
-          manybody_strength = 0.5, 
-          background_color  = "white",
-          edge_opacity      = 0.5)
+          static_length_strength = TRUE
+)
 
 
