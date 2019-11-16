@@ -1,18 +1,24 @@
 ###############################################################################
-# FILE: /scripts/r/AllStudiesPoolVis.R
-# DESC: Force network graph of the pooled studies
+# FILE: /scripts/r/AllStudiesPoolVis-Condensed.R
+# DESC: 3D Network  graph of the pooled studies
 # IN  : Stardog graph AllStudies  (Stardog instance running, pool populated)
-# OUT : visnetwork graph
+# OUT : network3d graph
 # REQ : 
-# NOTE: For EUConnect18 Hands-on Workshop. Colours match original whiteboard
+# NOTE: Creates an HTML widget that must be viewed in Chrome or IE (a browser,
+#       not the view pane)
+#       edges dataframe can only have two variables: source, target, else 
+#       vis. will fail.
+#       Background color for RevealJS theme is : #002b36
+#       Node colors copied from the orignal forcenetwork graph/ graph editor
 # TODO: 
-#       Clean up the code. 
+#       
 #       
 ###############################################################################
+library(network3d)
 library(plyr)     #  rename
 library(reshape)  #  melt
 library(SPARQL)
-library(visNetwork)
+library(tidyverse)
 
 # Query StardogTriple Store ----
 endpoint <- "http://localhost:5820/AllStudies/query"
@@ -77,57 +83,29 @@ nodeList <- rename(nodeList, c("value" = "id" ))
 nodes<- as.data.frame(nodeList[c("id")])
 
 # Assign node color based on content (int, string) then based on prefixes
-nodes$group <- 'iri'
-nodes$group[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "string"
-nodes$group[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "int"
-nodes$group[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "iriont"
-nodes$group[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "iriext"
-nodes$group[grepl("eg:", nodes$id, perl=TRUE)]           <- "iri"
+nodes$color                                              <- '#BCF5BC'
+nodes$color[grepl("^\\w+", nodes$id, perl=TRUE)]         <- "#E4E4E4"
+nodes$color[grepl("^\\d+", nodes$id, perl=TRUE)]         <- "#C1E1EC"
+nodes$color[grepl("ncit:|schema:", nodes$id, perl=TRUE)] <- "#FFC862"
+nodes$color[grepl("ct:|dbpedia:", nodes$id, perl=TRUE)]  <- "#BCBDDC"
+nodes$color[grepl("eg:", nodes$id, perl=TRUE)]           <- "#BCF5BC"
 
-nodes$shape <- "box"
 nodes$title <-  nodes$id  # mouseover. 
 nodes$label <- nodes$title # label on node (always displayed)
 
 #---- Edges -------------------------------------------------------------------
-# Create list of edges with from, to for visNetwork 
-edges<-as.data.frame(rename(triples, c("s" = "from", "o" = "to")))
+# Create list of edges source, targetwith from, to for visNetwork 
+edges<-as.data.frame(rename(triples, c("s" = "source", "o" = "target")))
+edges <- edges[,c("source", "target")]
 
-# Edge values
-#   edges$label : always displayed, so not set in current vis.
-#   edges$title : only displayed on mouseover. Used in current vis.
-edges$title <- edges$p
 
-#---- Visualize ---------------------------------------------------------------
-        
-visNetwork(nodes, edges, height = "1800px", width = "100%") %>%
-  visOptions(selectedBy    = "group", 
-          highlightNearest = TRUE, 
-          nodesIdSelection = TRUE) %>%
-  
-  visEdges(arrows = list(to = list(enabled = TRUE, scaleFactor = 0.2)),
-           color  = "gray",
-           smooth = list(enabled = FALSE, type = "cubicBezier", roundness=.8)) %>%
-  
-  visGroups(groupname = "iri",    color = list(background     = "#BCF5BC", 
-                                                   border     = "#CCCCCC",
-                                                   highlight  = "#FFFF33")) %>%
+nodes$size <- .08 
 
-  visGroups(groupname = "iriont", color = list(background     = "#FFC862",
-                                                   border     = "#CCCCCC", 
-                                                   highlight  = "#FFFF33")) %>%
 
-  visGroups(groupname = "iriext", color = list(background = "#BCBDDC",
-                                               border     = "#CCCCCC", 
-                                               highlight  = "#FFFF33")) %>%
-  
-  visGroups(groupname = "string", color = list(background     = "#E4E4E4", 
-                                                   border     = "#CCCCCC", 
-                                                   highlight  = "#FFFF33")) %>%
-  visGroups(groupname = "int",    color = list(background     = "#C1E1EC", 
-                                                   border     = "#CCCCCC",
-                                                   highlight  = "#FFFF33" )) %>%
+network3d(nodes, edges, 
+          max_iterations    = 100,
+          manybody_strength = 0.5, 
+          background_color  = "white",
+          edge_opacity      = 0.5)
 
-  visIgraphLayout(layout  = "layout_nicely",
-                    physics = TRUE) %>%  
-    
-  visIgraphLayout(avoidOverlap = 1)
+
